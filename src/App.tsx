@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { Header } from './components/header/header';
+import { Footer } from './components/footer/footer';
+import { HomePage } from './pages/HomePage/HomePage';
+import { NewsPage } from './pages/NewsPage/NewsPage';
+import { AboutPage } from './pages/AboutPage/AboutPage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  
+  render( ) {
+
+    // map routes to resources
+    let routes = (
+      <Routes>
+        <Route path="/*" element={<HomePage/>} />
+        <Route path="/news" element={<NewsPage/>}/>
+        <Route path="/about" element={<AboutPage/>}/>
+      </Routes>
+    );
+
+
+    return (
+      <div className="ui raised very padded text container segments">
+        <div className="ui segment">
+            <Header title='React Application'/>
+        </div>
+        <div className="ui segment">
+            {routes}
+        </div>
+        <div className="ui segment">
+            <Footer content='@2022'/>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
