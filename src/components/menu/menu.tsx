@@ -6,7 +6,7 @@ export const Menu = ( props: any ) => {
     // console.log(location.pathname);
 
     return (
-        <div className="ui five item menu">
+        <div className="ui Six item menu">
             { (location.pathname.endsWith(`/`))?
                     <Link to='/' className="active item">Home</Link>
                 :   <Link to='/' className="item">Home</Link>}
@@ -22,6 +22,9 @@ export const Menu = ( props: any ) => {
             { (location.pathname.includes(`/rakhiravi`))?
                 <Link to='/rakhiravi' className="active item">RakhiRavi</Link>
             :   <Link to='/rakhiravi' className="item">RakhiRavi</Link>}
+            { (location.pathname.includes('/Santhosh'))?
+                <Link to='/santhosh' className="active item">Santhosh</Link>
+            :   <Link to='/santhosh' className="item">Santhosh</Link> }
         </div>
     );
 }
