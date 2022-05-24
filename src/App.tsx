@@ -5,7 +5,8 @@ import { Footer } from './components/footer/footer';
 import { HomePage } from './pages/HomePage/HomePage';
 import { NewsPage } from './pages/NewsPage/NewsPage';
 import { AboutPage } from './pages/AboutPage/AboutPage';
-import { AnusreeMohan } from './pages/AnusreeMohan/AnusreeMohan'
+import { AnusreeMohan } from './pages/AnusreeMohan/AnusreeMohan';
+import { RakhiRavi } from './pages/RakhiRavi/RakhiRavi';
 
 class App extends Component {
   
@@ -18,6 +19,7 @@ class App extends Component {
         <Route path="/news" element={<NewsPage/>}/>
         <Route path="/about" element={<AboutPage/>}/>
         <Route path="/anusreemohan" element={<AnusreeMohan/>}/>
+        <Route path="/rakhiravi" element={<RakhiRavi/>}/>
       </Routes>
     );
 
