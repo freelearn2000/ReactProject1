@@ -5,7 +5,7 @@ import { Footer } from './components/footer/footer';
 import { HomePage } from './pages/HomePage/HomePage';
 import { NewsPage } from './pages/NewsPage/NewsPage';
 import { AboutPage } from './pages/AboutPage/AboutPage';
-
+import { AnusreeMohan } from './pages/AnusreeMohan/AnusreeMohan'
 
 class App extends Component {
   
@@ -17,6 +17,7 @@ class App extends Component {
         <Route path="/*" element={<HomePage/>} />
         <Route path="/news" element={<NewsPage/>}/>
         <Route path="/about" element={<AboutPage/>}/>
+        <Route path="/anusreemohan" element={<AnusreeMohan/>}/>
       </Routes>
     );
 
