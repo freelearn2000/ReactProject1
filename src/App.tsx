@@ -9,6 +9,7 @@ import { AnusreeMohan } from './pages/AnusreeMohan/AnusreeMohan';
 import { RakhiRavi } from './pages/RakhiRavi/RakhiRavi';
 import { Santhosh } from './pages/Santhosh/Santhosh';
 import { Radhika } from './pages/Radhika/Radhika';
+import { SamaraKP } from './pages/SamaraKP/SamaraKP';
 
 class App extends Component {
   
@@ -24,6 +25,8 @@ class App extends Component {
         <Route path='/santhosh' element={<Santhosh/>} />
         <Route path="/rakhiravi" element={<RakhiRavi/>}/>
         <Route path="/radhika" element={<Radhika/>}/>
+        <Route path="/samarakp" element={<SamaraKP/>}/>
+        
       </Routes>
     );
 
