@@ -11,11 +11,8 @@ import { Santhosh } from './pages/Santhosh/Santhosh';
 import { Radhika } from './pages/Radhika/Radhika';
 import { SamaraKP } from './pages/SamaraKP/SamaraKP';
 import { Parvathy } from './pages/Parvathy/Parvathy';
-<<<<<<< HEAD
 import { Vishnupriya } from './pages/Vishnupriya/Vishnupriya';
-=======
 import { Divya } from './pages/Divya/Divya';
->>>>>>> 1def911d0209032552685b1f280d8ed5e84a8491
 
 class App extends Component {
   
@@ -33,12 +30,8 @@ class App extends Component {
         <Route path="/radhika" element={<Radhika/>}/>
         <Route path="/samarakp" element={<SamaraKP/>}/>
         <Route path="/parvathy" element={<Parvathy/>}/>
-<<<<<<< HEAD
         <Route path="/vishnupriya" element={<Vishnupriya/>}/>
-        
-=======
         <Route path="/divya" element={<Divya/>}/>
->>>>>>> 1def911d0209032552685b1f280d8ed5e84a8491
       </Routes>
     );
 
