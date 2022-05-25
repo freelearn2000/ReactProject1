@@ -2,12 +2,12 @@ import { Component } from "react";
 
 export class Santhosh extends Component {
 
-    state = {data: 'Welcome to my component.'};
+    state = {data: 'This component is done by santhosh.'};
 
     render( ) {
         return (
             <div className="ui form">
-              <p>{this.state.data}</p>       
+              <h1>{this.state.data}</h1>       
             </div>
         );
     }
