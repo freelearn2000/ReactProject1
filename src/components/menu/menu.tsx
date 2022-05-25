@@ -6,7 +6,7 @@ export const Menu = ( props: any ) => {
     // console.log(location.pathname);
 
     return (
-        <div className="ui nine item menu">
+        <div className="ui twelve item menu">
             { (location.pathname.endsWith(`/`))?
                     <Link to='/' className="active item">Home</Link>
                 :   <Link to='/' className="item">Home</Link>}
