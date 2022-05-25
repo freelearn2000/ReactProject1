@@ -3,7 +3,7 @@ import { Component } from "react";
 
 export class SamaraKP extends Component {
 
-    state = {data: `Welcome to Samara's Component.`};
+    state = {data: `Welcome to Samara's Component!`};
 
     render( ) {
         return (
