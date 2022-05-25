@@ -16,6 +16,9 @@ import { Divya } from './pages/Divya/Divya';
 import { Bindu } from './pages/Bindu/Bindu';
 import { Aiswarya } from './pages/Aiswarya/Aiswarya';
 import { Viji } from './pages/Viji/Viji';
+import { Manooja } from './pages/Manooja/Manooja';
+import { Dhanya } from './pages/Dhanya/Dhanya';
+
 
 class App extends Component {
   
@@ -38,6 +41,9 @@ class App extends Component {
         <Route path="/bindu" element={<Bindu/>}/>
         <Route path='/aiswarya' element={<Aiswarya/>}/>
         <Route path='/viji' element={<Viji/>}/>
+        <Route path="/aiswarya" element={<Aiswarya/>}/>
+        <Route path="/manooja" element={<Manooja/>}/>
+        <Route path="/dhanya" element={<Dhanya/>}/>
       </Routes>
     );
 
