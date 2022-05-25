@@ -6,7 +6,7 @@ import { HomePage } from './pages/HomePage/HomePage';
 import { NewsPage } from './pages/NewsPage/NewsPage';
 import { AboutPage } from './pages/AboutPage/AboutPage';
 import { Anusree } from './pages/Anusree/Anusree';
-import { RakhiRavi } from './pages/RakhiRavi/RakhiRavi';
+import { Rakhi } from './pages/Rakhi/Rakhi';
 import { Santhosh } from './pages/Santhosh/Santhosh';
 import { Radhika } from './pages/Radhika/Radhika';
 import { SamaraKP } from './pages/SamaraKP/SamaraKP';
@@ -32,7 +32,7 @@ class App extends Component {
         <Route path="/about" element={<AboutPage/>}/>
         <Route path="/anusree" element={<Anusree/>}/>
         <Route path='/santhosh' element={<Santhosh/>} />
-        <Route path="/rakhiravi" element={<RakhiRavi/>}/>
+        <Route path="/rakhi" element={<Rakhi/>}/>
         <Route path="/radhika" element={<Radhika/>}/>
         <Route path="/samarakp" element={<SamaraKP/>}/>
         <Route path="/parvathy" element={<Parvathy/>}/>
