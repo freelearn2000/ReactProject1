@@ -1,15 +1,66 @@
-import { Component } from "react";
- 
+import { Component, ReactNode } from "react";
+import axios from "axios";
+import { Interface  } from "readline";
+import { isPropertySignature } from "typescript";
 
-export class Aiswarya extends Component{
-    state = {data:'This is  My Component'};
 
- 
-        render( ) {
-             return (
-                 <div className="ui form">   
-                     <h1>{this.state.data}</h1>  
-                 </div>
-             );
+interface IState {
+    Loading: boolean,
+    news: {} [] | null,
+    error: {message: string} | null;
+}
+interface IProps {
+
+}
+
+export class Aiswarya extends Component<IProps, IState> {
+
+    state = {Loading: true, news: null, error: null};
+
+    componentDidMount ( ) {
+
+        axios.get('https://jsonplaceholder.typicode.com/users')
+        .then(response => {
+            console.log('Data :', response.data);
+            this.setState( { Loading: false, news: response.data, error: null} );
+        })
+        .catch(error => {
+            const message = this.state.error? this.state.error['message']:
+            this.setState( { Loading: false, news: null, error: error} );
+        })
+        
+    }
+    
+        renderLoading( ) {
+            const loadingJSX = <h4> Loading!!!!! </h4>
+            return loadingJSX;
         }
-} 
+
+        rendererror( ) {
+            const message = this.state.error? this.state.error['message'] : '';
+            const errorJSX = 
+            <div>
+                <h2> This is  Aiswarya s' Component</h2>
+                <h4>{ message }</h4>
+            </div>
+            return errorJSX;
+        }
+        renderUserdata( ) {
+            const UserdataJSX = 
+            <div>
+                <h2> This is  Aiswarya s' Component</h2>
+                <h4>Lisit the details of user </h4>
+            </div>
+            return UserdataJSX;
+        }
+        render( ) {
+            if ( this.state.Loading ){
+                return this.renderLoading( );
+            }else if ( this.state.error){
+                return this.rendererror( );
+            }else {
+                return this.renderUserdata( );
+            }
+            
+        }
+    }
