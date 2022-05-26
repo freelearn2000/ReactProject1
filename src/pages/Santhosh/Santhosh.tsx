@@ -21,7 +21,7 @@ export class Santhosh extends Component<IProps, IState> {
     componentDidMount( ) {
 
         // Intitiate API call from here
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        axios.get('https://jsonplaceholder.typicode.com/postss')
             .then(response => {
                 console.log('Success data :', response.data);
                 this.setState( {Loading: false, news: response.data, error: null} );
