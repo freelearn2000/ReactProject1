@@ -19,7 +19,7 @@ export class Aiswarya extends Component<IProps, IState> {
 
     componentDidMount ( ) {
 
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('https://jsonplaceholder.typicode.com/userss')
         .then(response => {
             console.log('Data :', response.data);
             this.setState( { Loading: false, news: response.data, error: null} );
@@ -49,7 +49,7 @@ export class Aiswarya extends Component<IProps, IState> {
             const UserdataJSX = 
             <div>
                 <h2> This is  Aiswarya s' Component</h2>
-                <h4>Lisit the details of user </h4>
+                <h4>List the details of user </h4>
             </div>
             return UserdataJSX;
         }
@@ -61,6 +61,6 @@ export class Aiswarya extends Component<IProps, IState> {
             }else {
                 return this.renderUserdata( );
             }
-            
+
         }
     }
