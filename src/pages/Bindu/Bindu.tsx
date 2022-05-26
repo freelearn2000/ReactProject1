@@ -19,7 +19,7 @@ export class Bindu extends Component<IProps, IState> {
 
     componentDidMount ( ) {
 
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('https://jsonplaceholder.typicode.com/userss')
         .then(response => {
             console.log('Data :', response.data);
             this.setState( { Loading: false, news: response.data, error: null} );
@@ -40,7 +40,8 @@ export class Bindu extends Component<IProps, IState> {
             const message = this.state.error? this.state.error['message'] : '';
             const errorJSX = 
             <div>
-                <h2> Bindu's page </h2>
+                <h2> This is Bindu's Component</h2>
+                <h4> {message} </h4>
             </div>
             return errorJSX;
         }
