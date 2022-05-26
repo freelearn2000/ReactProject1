@@ -19,7 +19,7 @@ export class Manooja extends Component<IProps, IState> {
     componentDidMount( ) {
 
         // Intitiate API call from here
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('https://jsonplaceholder.typicode.com/userss')
             .then(response => {
                 console.log('Success data :', response.data);
                 this.setState( {Loading: false, users: response.data, error: null});
