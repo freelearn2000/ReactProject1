@@ -22,7 +22,7 @@ export class Santhosh extends Component<IProps, IState> {
     componentDidMount( ) {
 
         // Intitiate API call from here
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        axios.get('https://jsonplaceholder.typicode.com/postss')
             .then(response => {
                 console.log('Success data :', response.data);
                 this.setState( {Loading: false, news: response.data, error: null} );
@@ -41,7 +41,11 @@ export class Santhosh extends Component<IProps, IState> {
 
     renderError( ) {
         const message = this.state.error? this.state.error['message'] : '';
-        const errorJSX = <h4>{ message }</h4>
+        const errorJSX =
+        <div>
+            <h2>This is Santhosh's Component</h2>
+            <h4>{ message }</h4>
+        </div> 
         return errorJSX;
     }
 
