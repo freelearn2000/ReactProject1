@@ -13,7 +13,6 @@ interface IState {
 interface IProps {
 }
 
-
 export class Santhosh extends Component<IProps, IState> {
 
     state = {Loading: true, news: null, error: null};
@@ -22,7 +21,7 @@ export class Santhosh extends Component<IProps, IState> {
     componentDidMount( ) {
 
         // Intitiate API call from here
-        axios.get('https://jsonplaceholder.typicode.com/postss')
+        axios.get('https://jsonplaceholder.typicode.com/posts')
             .then(response => {
                 console.log('Success data :', response.data);
                 this.setState( {Loading: false, news: response.data, error: null} );
