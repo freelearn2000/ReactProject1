@@ -9,7 +9,7 @@ import { Anusree } from './pages/Anusree/Anusree';
 import { Rakhi } from './pages/Rakhi/Rakhi';
 import { Santhosh } from './pages/Santhosh/Santhosh';
 import { Radhika } from './pages/Radhika/Radhika';
-import { SamaraKP } from './pages/SamaraKP/SamaraKP';
+import { Samara } from './pages/Samara/Samara';
 import { Parvathy } from './pages/Parvathy/Parvathy';
 import { Vishnupriya } from './pages/Vishnupriya/Vishnupriya';
 import { Divya } from './pages/Divya/Divya';
@@ -34,7 +34,7 @@ class App extends Component {
         <Route path='/santhosh' element={<Santhosh/>} />
         <Route path="/rakhi" element={<Rakhi/>}/>
         <Route path="/radhika" element={<Radhika/>}/>
-        <Route path="/samarakp" element={<SamaraKP/>}/>
+        <Route path="/samara" element={<Samara/>}/>
         <Route path="/parvathy" element={<Parvathy/>}/>
         <Route path="/vishnupriya" element={<Vishnupriya/>}/>
         <Route path="/divya" element={<Divya/>}/>
