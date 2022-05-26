@@ -5,8 +5,8 @@ import { Footer } from './components/footer/footer';
 import { HomePage } from './pages/HomePage/HomePage';
 import { NewsPage } from './pages/NewsPage/NewsPage';
 import { AboutPage } from './pages/AboutPage/AboutPage';
-import { AnusreeMohan } from './pages/AnusreeMohan/AnusreeMohan';
-import { RakhiRavi } from './pages/RakhiRavi/RakhiRavi';
+import { Anusree } from './pages/Anusree/Anusree';
+import { Rakhi } from './pages/Rakhi/Rakhi';
 import { Santhosh } from './pages/Santhosh/Santhosh';
 import { Radhika } from './pages/Radhika/Radhika';
 import { SamaraKP } from './pages/SamaraKP/SamaraKP';
@@ -30,9 +30,9 @@ class App extends Component {
         <Route path="/*" element={<HomePage/>} />
         <Route path="/news" element={<NewsPage/>}/>
         <Route path="/about" element={<AboutPage/>}/>
-        <Route path="/anusreemohan" element={<AnusreeMohan/>}/>
+        <Route path="/anusree" element={<Anusree/>}/>
         <Route path='/santhosh' element={<Santhosh/>} />
-        <Route path="/rakhiravi" element={<RakhiRavi/>}/>
+        <Route path="/rakhi" element={<Rakhi/>}/>
         <Route path="/radhika" element={<Radhika/>}/>
         <Route path="/samarakp" element={<SamaraKP/>}/>
         <Route path="/parvathy" element={<Parvathy/>}/>
@@ -49,12 +49,14 @@ class App extends Component {
 
 
     return (
-      <div className="ui raised very padded text container segments">
+      <div className="ui segments">
         <div className="ui segment">
-            <Header title='React Application'/>
-        </div>
-        <div className="ui segment">
-            {routes}
+              <Header title='React Application'/>
+          </div>
+        <div className="ui raised very padded text container segments">
+          <div className="ui segment">
+              {routes}
+          </div>
         </div>
         <div className="ui segment">
             <Footer content='@2022'/>
