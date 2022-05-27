@@ -5,13 +5,13 @@ import axios from 'axios';
 interface IProps {
 
 }
-interface Istate {
+interface IState {
     title: string;
     loading: boolean;
     userData: {}[] | null;
     error: {message: string} | null;
 }
-export class Samara extends Component {
+export class Samara extends Component<IProps, IState> {
     state = { title: `Welcome to Samara's Component!`, loading: true, userData: null, error: null };
 
     // Initialization
@@ -53,7 +53,7 @@ export class Samara extends Component {
         const errorJSX = 
             <div>
                 <h2>{ this.state.title }</h2>
-                <h3>{ message }</h3>
+                <h3 className="ui red message">{ message }</h3>
             </div>
         return errorJSX;
     }
