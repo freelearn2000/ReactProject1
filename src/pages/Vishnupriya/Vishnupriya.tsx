@@ -64,7 +64,7 @@ export class Vishnupriya extends Component<IProps, IState> {
 
     renderBlogData( ) {
         const blogs = this.state.blogs ? this.state.blogs : [];
-        const blogJSX = blogs.map( (items: {id: number, name: string, email: string}, index) => {
+        const blogJSX = blogs.map( (items: {id: number, name: string, email: string}, index ) => {
             return (
                 <div key= {index + items.id} className ='ui two segment'>
                     <h5 key={items.id}>Name: {items.name}</h5>
