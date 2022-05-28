@@ -17,7 +17,7 @@ export class Bindu extends Component<IProps, IState> {
 
         axios.get('https://jsonplaceholder.typicode.com/users')
         .then(response => {
-            console.log('Data :', response.data);
+            //console.log('Data :', response.data);
             this.setState( { Loading: false, users: response.data, error: null} );
         })
         .catch(error => { 
