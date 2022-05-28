@@ -38,7 +38,7 @@ export class Parvathy extends Component<IProps, IState> {
         const message = this.state.error ? this.state.error['message'] : '';
         const errorJSX =
             <div>
-                <br/>
+                <br />
                 <h4>{message}</h4>
             </div>
         return errorJSX;
@@ -50,12 +50,13 @@ export class Parvathy extends Component<IProps, IState> {
         const dataJSX = books.map((item: any) => {
             let hNo = item.id;
             let pNo = item.id + `a`;
+            let bno = item.id + `b`;
 
             return (
-                <>
+                <div key={bno} className="ui center aligned message">
                     <h4 key={hNo}>{item.name}</h4>
                     <p key={pNo}>Email : {item.email}</p>
-                </>
+                </div>
             );
         });
 
