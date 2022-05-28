@@ -22,11 +22,9 @@ export class Manooja extends Component<IProps, IState> {
         // Intitiate API call from here
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
-                console.log('Success data :', response.data);
                 this.setState( {Loading: false, users: response.data, error: null});
             })
             .catch(error => {
-                console.log("Data :",error);
                 this.setState({Loading: false, users: null, error: error});
             })               
     }
