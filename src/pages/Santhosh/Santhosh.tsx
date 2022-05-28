@@ -59,17 +59,11 @@ export class Santhosh extends Component<IProps, IState> {
       
         const newsJSX = users.map( ( item: { id: number, name: string, email: any } )=> {            
             return (
-                <>
-                <table className="ui celled structured table">          
-                    <tbody>
-                        <tr>
-                            <td className="negative" width={"20px"} key={item.id + 'a'}>{item.id}</td>         
-                            <td className="negative" width={"200px"} key={item.id + 'b'}>{item.name}</td>                   
-                            <td className="negative" width={"200px"} key={item.id + 'c'}>{item.email}</td>                   
-                        </tr>
-                    </tbody> 
-                </table>
-                </> 
+                <tr key={item.id + 'f'}>
+                    <td className="negative" width={"20px"} key={item.id + 'a'}>{item.id}</td>         
+                    <td className="negative" width={"200px"} key={item.id + 'b'}>{item.name}</td>                   
+                    <td className="negative" width={"200px"} key={item.id + 'c'}>{item.email}</td>                   
+                </tr>
             );
         }); 
 
@@ -83,7 +77,9 @@ export class Santhosh extends Component<IProps, IState> {
         <h3 className="ui center aligned header">{ this.props.title }</h3>                  
         {
             this.state.Loading? this.renderLoading( ) :              
-            this.state.users? <><table className="ui celled structured table"><tr><td width={"20px"} ><h4>ID</h4></td><td width={"200px"}><h4>Name</h4></td><td width={"200px"}><h4>Email</h4></td></tr></table> { this.renderNews( )} </> : 
+            this.state.users? <><table className="ui celled structured table">
+            <thead><tr><td width={"20px"} ><h4>ID</h4></td><td width={"200px"}><h4>Name</h4></td><td width={"200px"}><h4>Email</h4></td></tr></thead>
+            <tbody>{ this.renderNews( )}</tbody></table> </> : 
             this.renderError( )
         }  
         </div>
