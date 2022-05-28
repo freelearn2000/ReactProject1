@@ -27,10 +27,10 @@ class App extends Component {
     // map routes to resources
     let routes = (
       <Routes>
-        <Route path="/*" element={<HomePage/>} />
+        <Route path="/*" element={<HomePage/>}/>
         <Route path="/news" element={<NewsPage/>}/>
         <Route path="/about" element={<AboutPage/>}/>
-        <Route path="/anusree" element={<Anusree/>}/>
+        <Route path="/anusree" element={<Anusree title = {`This is Anusree's Component`}/>}/>
         <Route path='/santhosh' element={<Santhosh/>} />
         <Route path="/rakhi" element={<Rakhi/>}/>
         <Route path="/radhika" element={<Radhika/>}/>
