@@ -1,16 +1,49 @@
 import { Component } from 'react';
+import axios from 'axios';
 
 
-export class Dhanya extends Component {
+interface IProps {
+
+}
+interface IState {
+    loading: boolean;
+    data: {}[] | null;
+    error: {message: string} | null
+}
+export class Dhanya extends Component<IProps, IState> {
+
+    state = {loading: true, data: null, error: null};
+
+    componentDidMount( ) {
+
+        axios.get(`https://jsonplaceholder.typicode.com/userss`)
+            .then(response => this.setState({loading: false, data: response.data, error: null}))
+            .catch(error => this.setState({loading: false, data: null, error: error}))
+    }
+
+    renderLoading( ) {
+        const loadingJSX = <h4>Loading...</h4>
+        return loadingJSX;
+    }
+
+    renderData( ) {
+        const dataJSX = <h4>Display datas...</h4>
+        return dataJSX;
+    }
+
+    renderError( ) {
+        const message = this.state.error ? this.state.error[`message`] : '';
+        const errorJSX = <h4>{ message }</h4>
+        return errorJSX;
+    }
 
     render( ) {
-        return (
-            <div className="ui message">
-                <div className="header">
-                    Dhanya Component
-                </div>
-                <p>We just updated our privacy policy here to better service our customers. We recommend reviewing the changes.</p>
-            </div>
-        );
+       if ( this.state.loading ) {
+           return this.renderLoading();
+       } else if ( this.state.error ) {
+           return this.renderError();
+       } else {
+           return this.renderData();
+       }
     }
 }

@@ -2,27 +2,27 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 interface IProps {
-
+    title: any;
 }
-interface Istate {
+interface IState {
     loading: boolean;
-    users:{}[] | null;
-    error:{message: string} | null;
+    users: {}[] | null;
+    error: {message: string} | null;
 }
-export class Anusree extends Component <IProps, Istate> {
+export class Anusree extends Component <IProps, IState> {
 
     state = {loading: true, users: null, error: null};
     
     componentDidMount( ) {
-        axios.get('https://jsonplaceholder.typicode.com/usersss')
-        .then(response => {
-            console.log("Data :", response.data)
-            this.setState({loading: false, users: response.data, error: null});
-        })
-        .catch(error => {
-            console.log("Data :", error)
-            this.setState({loading: false, users: null, error: error});
-        })
+        axios.get('https://jsonplaceholder.typicode.com/users')
+            .then(response => {
+                console.log("Data :", response.data)
+                this.setState( {loading: false, users: response.data, error: null} );
+            })
+            .catch(error => {
+                console.log("Data :", error)
+                this.setState( {loading: false, users: null, error: error} );
+            })
     }
 
     componentDidUpdate( ) {
@@ -34,36 +34,47 @@ export class Anusree extends Component <IProps, Istate> {
     }
 
     renderLoading( ) {
-        const loadingJSX = <h4>Loading...</h4>
+        const loadingJSX = 
+        <div className="ui active inverted dimmer">
+            <div className="ui text loader">Loading user data...</div>
+        </div>
         return loadingJSX;
     }
 
     renderError( ) {
         const message = this.state.error? this.state.error['message'] : '';
         const errorJSX = 
-        <div>
-            <h2>This is Anusree's Component</h2>
+        <div className='ui negative message'>
             <h4>{ message }</h4>
         </div>
         return errorJSX;
     }
 
     renderUserdata( ) {
-        const dataJSX = 
-        <div>
-            <h2>This is Anusree's Component</h2>
-            <h4>Loading all User Info here...</h4>
-        </div>
+        const users = this.state.users ? this.state.users : [ ];
+        const dataJSX = users.map( (user: {name:string, email:string, id:number} ) => {
+           return( 
+            <div key={ user.id + 'a' } className="ui segment">
+                <h4 key={ user.id + 'b'}>{ user.name }</h4>
+                <p key={ user.id + 'c' }>{ user.email }</p>
+            </div>
+           )
+        });
         return dataJSX;
     }
 
+
+
     render() {
-        if ( this.state.loading ) {
-            return this.renderLoading( );
-       } else if ( this.state.error ) {
-            return this.renderError( );
-       } else {
-           return this.renderUserdata( );
-       }
+        return(
+            <div>
+                <h2 className="ui center aligned header">{ this.props.title }</h2>
+                {
+                     this.state.loading? this.renderLoading( ) : 
+                     this.state.users? <><h2>User Data</h2>{this.renderUserdata( )}</> : 
+                     <><h2>Error Data</h2>{this.renderError( )}</>
+                }
+            </div>
+        )
     }
 }

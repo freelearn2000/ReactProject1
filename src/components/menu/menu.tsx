@@ -35,7 +35,6 @@ export const Menu = ( props: any ) => {
             
         </div>
         <div className="ui eight item menu">
-        
         { (location.pathname.includes(`/parvathy`))?
                 <Link to='/parvathy' className="active item">Parvathy</Link>
             :   <Link to='/parvathy' className="item">Parvathy</Link>}
