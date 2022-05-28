@@ -63,18 +63,16 @@ export class Anusree extends Component <IProps, IState> {
         return dataJSX;
     }
 
-
-
-    render() {
+    render( ) {
         return(
-            <div>
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
-                {
-                     this.state.loading? this.renderLoading( ) : 
-                     this.state.users? <><h2>User Data</h2>{this.renderUserdata( )}</> : 
-                     <><h2>Error Data</h2>{this.renderError( )}</>
-                }
-            </div>
+                <div>
+                    <h2 className="ui center aligned header">{ this.props.title }</h2>
+                        {
+                            this.state.loading? this.renderLoading( ) : 
+                            this.state.users? <><h2>User Data</h2>{this.renderUserdata( )}</> : 
+                            <><h2>Error Data</h2>{this.renderError( )}</>
+                        }
+                </div>
         )
     }
 }
