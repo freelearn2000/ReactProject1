@@ -1,38 +1,34 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import axios from 'axios';
 
 interface IProps {
-
+    title: string;
 }
 
-interface Istate {
+interface IState {
     loading: boolean;
-    users:{}[] | null;
-    error:{message: string} | null;
+    users: {}[] | null;
+    error: {message: string} | null;
 }
 
-export class Rakhi extends Component <IProps, Istate> {
+export class Rakhi extends Component<IProps, IState> {
 
-    state = {title: `This is Rakhi's Component.`, loading: true, users: null, error: null};
+    state = {loading: true, users: null, error: null};
     
     componentDidMount( ) {
-        axios.get('https://jsonplaceholder.typicode.com/userss')
-        .then(response => {
-            console.log("Data :", response.data)
-            this.setState({loading: false, users: response.data, error: null});
-        })
-        .catch(error => {
-            console.log("Data :", error)
-            this.setState({loading: false, users: null, error: error});
-        })
+        axios.get('https://jsonplaceholder.typicode.com/users')
+            .then(response => {
+                this.setState( {loading: false, users: response.data, error: null} );
+            })
+            .catch(error => {
+                this.setState( {loading: false, users: null, error: error} );
+            })
     }
 
     componentDidUpdate( ) {
-       console.log('componentDidUpdate')
     }
 
     componentWillUnmount( ) {
-       console.log('componentWillUnmount')
     }
 
     renderLoading( ) {
@@ -53,34 +49,37 @@ export class Rakhi extends Component <IProps, Istate> {
         const errorMessage = this.state.error? this.state.error['message'] : '';
         const errorJSX = 
         <div>
-            <h2 className="ui center aligned header">
-                {this.state.title}
-            </h2>
             <div className="ui negative message">
                 <p>{ errorMessage }</p>
             </div>
-            
         </div>
         return errorJSX;
     }
 
     renderUserdata( ) {
-        const dataJSX = 
-        <div>
-            <h2>{this.state.title}</h2>
-            <h4>Loading all User Info here...</h4>
-        </div>
+        const users = this.state.users ? this.state.users : [ ];
+        const dataJSX = users.map( ( user: { id: number, name: string, email: string}, index ) => {
+            return(
+                <div key={user.id + index} className ='ui segment'>
+                    <h4 key={user.id}>Name: {user.name}</h4>
+                    <p key={user.id + '@'}>Email: {user.email}</p>
+                </div>
+            );
+        });
         return dataJSX;
     }
 
-    render() {
-        if ( this.state.loading ) {
-            return this.renderLoading( );
-       } else if ( this.state.error ) {
-            return this.renderError( );
-       } else {
-           return this.renderUserdata( );
-       }
+    render( ) {
+        return(
+            <div>
+                <h2 className='ui center aligned header'>{ this.props.title }</h2>
+                { 
+                    this.state.loading ? this.renderLoading( ) :
+                    this.state.users ?<><h2>User Information </h2>{ this.renderUserdata( ) }</> :
+                    this.renderError( )
+                }
+            </div>
+        )
     }
 }
 
