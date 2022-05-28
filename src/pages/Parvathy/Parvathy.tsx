@@ -1,32 +1,31 @@
 import { Component } from "react";
 import axios from 'axios';
 
-
 interface IProps {
-
+    title: string;
 }
 interface IState {
     Loading: boolean,
-    news: {}[] | null,
+    books: {}[] | null,
     error: { message: string } | null;
 
 }
 export class Parvathy extends Component<IProps, IState> {
 
-    state = { name: `Parvathy`, Loading: true, news: null, error: null };
+    state = { Loading: true, books: null, error: null };
 
     // initialization
     componentDidMount() {
 
         // Intitiate API call from here
-        axios.get('https://jsonplaceholder.typicode.com/postss')
+        axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
-                // console.log('Success data :', response.data);
-                this.setState({ Loading: false, news: response.data, error: null });
+                console.log('Success data :', response.data);
+                this.setState({ Loading: false, books: response.data, error: null });
             })
             .catch(error => {
-                // console.log('Error :', error);
-                this.setState({ Loading: false, news: null, error: error });
+                console.log('Error :', error);
+                this.setState({ Loading: false, books: null, error: error });
             })
     }
 
@@ -39,24 +38,41 @@ export class Parvathy extends Component<IProps, IState> {
         const message = this.state.error ? this.state.error['message'] : '';
         const errorJSX =
             <div>
-                <h2>This is {this.state.name}'s Component</h2>
+                <br/>
                 <h4>{message}</h4>
             </div>
         return errorJSX;
     }
 
-    renderNews() {
-        const newsJSX = <h4>List all data here....</h4>
-        return newsJSX;
+    renderBooks() {
+
+        const books = this.state.books ? this.state.books : [];
+        const dataJSX = books.map((item: any) => {
+            let hNo = item.id;
+            let pNo = item.id + `a`;
+
+            return (
+                <>
+                    <h4 key={hNo}>{item.name}</h4>
+                    <p key={pNo}>Email : {item.email}</p>
+                </>
+            );
+        });
+
+        return dataJSX;
     }
 
     render() {
-        if (this.state.Loading) {
-            return this.renderLoading();
-        } else if (this.state.error) {
-            return this.renderError();
-        } else {
-            return this.renderNews();
-        }
+        return (
+            <div className="ui small message">
+                <h2 className="ui center aligned header message">{this.props.title}</h2>
+                {
+                    this.state.Loading ? this.renderLoading() :
+                        this.state.books ? <><h2>User Details</h2>{this.renderBooks()}</> :
+                            <>{this.renderError()}</>
+                }
+            </div>
+        )
     }
-} 
+}
+
