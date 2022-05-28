@@ -30,15 +30,9 @@ class App extends Component {
         <Route path="/*" element={<HomePage/>}/>
         <Route path="/news" element={<NewsPage/>}/>
         <Route path="/about" element={<AboutPage/>}/>
-<<<<<<< HEAD
-        <Route path="/anusree" element={<Anusree/>}/>
         <Route path='/santhosh' element={<Santhosh title={`This is Santhosh's Component`}/>}/>
-        <Route path="/rakhi" element={<Rakhi/>}/>
-=======
         <Route path="/anusree" element={<Anusree title = {`This is Anusree's Component`}/>}/>
-        <Route path='/santhosh' element={<Santhosh/>} />
         <Route path="/rakhi" element={<Rakhi title={`This is Rakhi's Component.`}/>}/>
->>>>>>> 201f32e109aab848063971c3ed4366dd44db914e
         <Route path="/radhika" element={<Radhika/>}/>
         <Route path="/samara" element={<Samara title="Welcome to Samara's component"/>}/>
         <Route path="/parvathy" element={<Parvathy/>}/>
@@ -52,8 +46,7 @@ class App extends Component {
         <Route path="/dhanya" element={<Dhanya/>}/>
       </Routes>
     );
-
-
+    
     return (
       <div className="ui segments">
         <div className="ui segment">
