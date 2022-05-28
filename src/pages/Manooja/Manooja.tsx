@@ -9,6 +9,7 @@ interface IState {
 }
 
 interface IProps {
+    title: any;
 }
 
 export class Manooja extends Component<IProps, IState> {
@@ -19,7 +20,7 @@ export class Manooja extends Component<IProps, IState> {
     componentDidMount( ) {
 
         // Intitiate API call from here
-        axios.get('https://jsonplaceholder.typicode.com/userss')
+        axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
                 console.log('Success data :', response.data);
                 this.setState( {Loading: false, users: response.data, error: null});
@@ -40,29 +41,46 @@ export class Manooja extends Component<IProps, IState> {
         const message = this.state.error? this.state.error['message'] : '';
         const errorJSX =
         <div>
-            <h2>This is Manooja's Component</h2>
-            <h4>{ message }</h4>
+            <h2 className="ui center aligned header">
+                {this.props.title}
+            </h2>
+            <div className="ui negative message">
+                <p>{ message }</p>
+            </div>  
         </div> 
         return errorJSX;
     }
 
-    renderUserdata( ){
-        const dataJSX = 
-        <div>
-            <h2>This is Manooja's Component</h2>
-            <h4>Loading all User Info here...</h4>
-        </div>
+    renderUserdata( ) {
+        const users = this.state.users ? this.state.users : [ ];
+        const dataJSX = users.map( ( user: any)=> {
+            let hNo = user.id;
+            let pNo = user.id + 'a'
+
+            return (
+                <div key={ user.id + 'a' } className="ui segment">
+                    <h4 key={hNo}>Name : {user.name}</h4>
+                    <p key={pNo}>Email : {user.email}</p>
+                </div>    
+            );
+
+        });
+
         return dataJSX;
+        
     }
 
     render( ) {
-        if ( this.state.Loading) {
-            return this.renderLoading( );
-        } else if ( this.state.error) {
-            return this.renderError( );
-        } else {
-            return this.renderUserdata( );
-        }
+        return( 
+            <div>
+                <h2 className="ui center aligned header">{ this.props.title }</h2>
+                {
+                    this.state.Loading ? this.renderLoading( ) :
+                    this.state.users ? <><h2> Users Information </h2>{ this.renderUserdata( ) }</> :
+                    <><h2>Error Data</h2>{ this.renderError( )}</>
+                }
+            </div>
+        )
     }
 } 
 
