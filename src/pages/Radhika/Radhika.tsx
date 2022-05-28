@@ -4,27 +4,26 @@ import axios from 'axios';
 
 interface IState {
     Loading: boolean,
-    news: {}[] | null,
+    users: {}[] | null,
     error: {message: string} | null, 
 }
 
 interface IProps {
+    title: string;
 
 }
 export class Radhika extends Component <IProps, IState> {
 
-    state= {title: `Radhika's Component`, Loading: true, news: null, error: null};
+    state= { Loading: true, users: null, error: null};
 
     componentDidMount( ) {
-        axios.get('https://jsonplaceholder.typicode.com/postss')
+        axios.get('https://jsonplaceholder.typicode.com/users')
         .then(response => {
-            this.setState({Loading: false, news: response.data, error: null});
+            this.setState({Loading: false, users: response.data, error: null});
         })
         .catch(error => {
-           // const message= this.state.error? this.state.error['message'] :
-            this.setState({Loading: false, news: null, error: error});
+            this.setState({Loading: false, users: null, error: error});
         })
-
     }
 
     componentDidUpdate( ) {
@@ -36,26 +35,47 @@ export class Radhika extends Component <IProps, IState> {
      }
      
     renderLoading( ) {
-        const loadingJSX = <h4>Loading....</h4>
+        const loadingJSX = 
+        <div>
+            <i className="notched circle loading icon"></i>
+            <div className="content">
+                <h4> Loading ....</h4>
+            </div>
+        </div> 
         return loadingJSX;
     }
 
     renderError ( ) {
         const message= this.state.error? this.state.error['message'] : '';
         const errorJSX = 
-                    <div>
-                        <h2>{this.state.title}</h2>
-                        <h4>{message}</h4>
-                    </div>
+                <div className="ui red message">
+                    <h4>{message}</h4>
+                </div>
         return errorJSX;
-
     }
 
+    renderUserdata( ) {
+        const users = this.state.users ? this.state.users : [];
+        const dataJSX = users.map(  (user: {id: number, name: string, phone: number})=> {
+            return (
+                <div key= {user.id} className="ui blue segment">
+                        <p key= {user.id + 1}><b>Name:</b> {user.name}</p>
+                        <p key= {user.id + user.phone}><b>Phone:</b> {user.phone}</p>
+                </div>
+            );
+        });
+        return dataJSX;
+    }
+    
     render( ) {
-        if( this.state.Loading ) {
-            return this.renderLoading();
-        } else if(this.state.error) {
-            return this.renderError();
-        } 
+        return(
+            <div>
+                <h2 className="ui center aligned header">{ this.props.title }</h2>
+                {
+                    this.state.Loading? this.renderLoading( ) : 
+                    this.state.users? <><h3>User Details</h3>{ this.renderUserdata( )} </> : <> { this.renderError( ) } </>
+                }
+            </div>
+        );
     }
 }
