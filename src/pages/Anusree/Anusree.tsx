@@ -44,7 +44,7 @@ export class Anusree extends Component <IProps, IState> {
     renderError( ) {
         const message = this.state.error? this.state.error['message'] : '';
         const errorJSX = 
-        <div>
+        <div className='ui negative message'>
             <h4>{ message }</h4>
         </div>
         return errorJSX;
@@ -63,16 +63,16 @@ export class Anusree extends Component <IProps, IState> {
         return dataJSX;
     }
 
-    render() {
+    render( ) {
         return(
-            <div className="ui segment">
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
-                {
-                     this.state.loading?this.renderLoading( ) : 
-                     this.state.users? <><h2>User Data</h2>{this.renderUserdata( )}</> : 
-                     <><h2>Error Data</h2>{this.renderError( )}</>
-                }
-            </div>
+                <div>
+                    <h2 className="ui center aligned header">{ this.props.title }</h2>
+                        {
+                            this.state.loading? this.renderLoading( ) : 
+                            this.state.users? <><h2>User Data</h2>{this.renderUserdata( )}</> : 
+                            <><h2>Error Data</h2>{this.renderError( )}</>
+                        }
+                </div>
         )
     }
 }

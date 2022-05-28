@@ -31,22 +31,26 @@ class App extends Component {
         <Route path="/news" element={<NewsPage/>}/>
         <Route path="/about" element={<AboutPage/>}/>
         <Route path="/anusree" element={<Anusree title = {`This is Anusree's Component`}/>}/>
-        <Route path='/santhosh' element={<Santhosh/>} />
-        <Route path="/rakhi" element={<Rakhi/>}/>
+        <Route path='/santhosh' element={<Santhosh title = {`This is Santhosh's Component`}/>} />
+        <Route path="/rakhi" element={<Rakhi title={`This is Rakhi's Component.`}/>}/>
         <Route path="/radhika" element={<Radhika/>}/>
-        <Route path="/samara" element={<Samara/>}/>
+        <Route path="/samara" element={<Samara title="Welcome to Samara's component"/>}/>
         <Route path="/parvathy" element={<Parvathy/>}/>
-        <Route path="/vishnupriya" element={<Vishnupriya/>}/>
+        <Route path="/vishnupriya" element={<Vishnupriya title={`This is Vishnupriya's Component`}/>}/>
         <Route path="/divya" element={<Divya/>}/>
         <Route path="/Bindu" element={<Bindu title = {`This is Bindu's Component`}/>}/>
         <Route path='/aiswarya' element={<Aiswarya/>}/>
         <Route path='/viji' element={<Viji/>}/>
+<<<<<<< HEAD
         <Route path="/manooja" element={<Manooja/>}/>
+=======
+        <Route path="/aiswarya" element={<Aiswarya/>}/>
+        <Route path="/manooja" element={<Manooja title = {`This is Manooja's Component.`}/>}/>
+>>>>>>> fcdd0955ae650b6e1d7515f169f1b6def8d5d3ad
         <Route path="/dhanya" element={<Dhanya/>}/>
       </Routes>
     );
-
-
+    
     return (
       <div className="ui segments">
         <div className="ui segment">

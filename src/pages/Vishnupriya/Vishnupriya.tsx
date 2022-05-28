@@ -2,76 +2,89 @@ import { Component } from "react";
 import axios from 'axios';
 
 
-interface Iprops {
-
+interface IProps {
+    title: string;
 }
-interface Istate {
+interface IState {
     loading: boolean;
-    blog: {} [] | null;
+    blogs: {} [] | null;
     error: {message: string} | null;
 }
 
-export class Vishnupriya extends Component<Iprops, Istate> {
+export class Vishnupriya extends Component<IProps, IState> {
 
-    state = {title: `This is Vishnupriya's Component`, loading: true, blog: null, error: null};
+    state = {loading: true, blogs: null, error: null};
 
     componentDidMount( ) {
-        // console.log('componentDidMount');
 
-        // initiate api call from here
-        axios.get('https://jsonplaceholder.typicode.com/userss')
+        axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
-                console.log(`Success data:`, response.data);
-                this.setState( {loading: false, blog: response.data, error: null} );
+                // console.log(`Success data:`, response.data);
+                this.setState( {loading: false, blogs: response.data, error: null} );
             })
             .catch(error => {
-                console.log(`Error:`, error);
-                this.setState( {loading: false, blog: null, error: error} );
+                // console.log(`Error:`, error);
+                this.setState( {loading: false, blogs: null, error: error} );
             })
     }
 
     componentDidUpdate( ) {
-        console.log('componentDidUpdate')
+        // console.log('componentDidUpdate')
      }
  
      componentWillUnmount( ) {
-        console.log('componentWillUnmount')
+        // console.log('componentWillUnmount')
      }
 
     renderLoading( ) {
         const loadingJSX = 
             <div>
-                <h1>{this.state.title}</h1>
-                <h4>Loading....</h4>
+                <h2>{this.props.title}</h2>
+                <div className="ui segment">
+                <p>Loading...</p>
+                <div className="ui active dimmer">
+                <div className="ui loader">Please wait...</div>
+                </div>
+                </div>
             </div>
         return loadingJSX;
     }
 
     renderError( ) {
-        const message = this.state.error?this.state.error[`message`] : '';
+        const message = this.state.error ? this.state.error[`message`] : '';
         const errorJSX =
             <div>
-                <h1>{this.state.title}</h1>
-                <h4>{ message }</h4>
-            </div> 
+                <div className="ui negative message">
+                <i className="close icon"></i>
+                {message}
+                </div>
+            </div>
         return errorJSX;
     }
 
-    renderBlog( ) {
-        const blogJSX = 
-            <div>
-                <h1>{this.state.title}</h1>
-                <h4>List all blogs here...</h4>
-            </div>
+    renderBlogData( ) {
+        const blogs = this.state.blogs ? this.state.blogs : [];
+        const blogJSX = blogs.map( (items: {id: number, name: string, email: string}, index) => {
+            return (
+                <div key= {index + items.id} className ='ui two segment'>
+                    <h5 key={items.id}>Name: {items.name}</h5>
+                    <p key={'#' + items.id}>Email: {items.email}</p>
+                </div>
+            )
+        });
         return blogJSX;
     }
 
     render( ) {
-        // console.log('render');
-        if (this.state.loading) {
-            return this.renderLoading( );
-        } else if (this.state.error) {
-            return this.renderError( );
-        }
+        return (
+            <div>
+                <h2 className="ui center aligned blue header">{this.props.title}</h2>
+                {
+                    this.state.loading ? this.renderLoading( ) :
+                    this.state.blogs ? this.renderBlogData( ) :
+                    this.renderError( )    
+                }
+            </div>
+        )   
     }
 }

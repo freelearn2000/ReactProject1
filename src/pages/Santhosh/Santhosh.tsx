@@ -1,65 +1,89 @@
 import { Component } from "react";
 import axios, { responseEncoding } from 'axios';
 import { Interface } from "readline";
+import { text } from "stream/consumers";
+import { table } from "console";
 
 
 interface IState {
     Loading: boolean, 
-    news: {} [] | null, 
+    users: {} [] | null, 
     error: {message: string} | null;
 
 }
 
 interface IProps {
+    title: String;
 }
+
 
 export class Santhosh extends Component<IProps, IState> {
 
-    state = {Loading: true, news: null, error: null};
-
+    state = {title: true, Loading: true, users: null, error: null };
 
     componentDidMount( ) {
 
         // Intitiate API call from here
-        axios.get('https://jsonplaceholder.typicode.com/postss')
+        axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
-                console.log('Success data :', response.data);
-                this.setState( {Loading: false, news: response.data, error: null} );
+                this.setState( {Loading: false, users: response.data, error: null} );
             })
             .catch(error => {
-                const message = this.state.error? this.state.error['message'] : 
-                this.setState({Loading: false, news: null, error: error});
-            })               
+                this.setState( {Loading: false, users: null, error: error} );
+            })                  
     }
     
     renderLoading( ) {
-        const loadingJSX = <h4>Loading....</h4>
+        const loadingJSX = 
+        <div className="ui icon message">
+            <i className="notched circle loading icon"></i>
+            <h4>Loading Please wait.. </h4>
+        </div>
+         
         return loadingJSX;
-
     }
 
     renderError( ) {
         const message = this.state.error? this.state.error['message'] : '';
         const errorJSX =
-        <div>
-            <h2>This is Santhosh's Component</h2>
-            <h4>{ message }</h4>
+        <div>                  
+            <h3 className="ui red message">{ message }</h3>
         </div> 
         return errorJSX;
     }
-
+   
+ 
     renderNews( ) {
-        const newsJSX = <h4>List all news here....</h4>
+       
+        const users = this.state.users? this.state.users : [] ;  
+      
+        const newsJSX = users.map( ( item: { id: number, name: string, email: any } )=> {            
+            return (
+                <tr key={item.id + 'f'}>
+                    <td className="negative" width={"20px"} key={item.id + 'a'}>{item.id}</td>         
+                    <td className="negative" width={"200px"} key={item.id + 'b'}>{item.name}</td>                   
+                    <td className="negative" width={"200px"} key={item.id + 'c'}>{item.email}</td>                   
+                </tr>
+            );
+        }); 
+
         return newsJSX;
     }
-
-    render( ) {
-        if ( this.state.Loading) {
-            return this.renderLoading( );
-        } else if ( this.state.error) {
-            return this.renderError( );
-        } else {
-            return this.renderNews( );
-        }
+ 
+    render( ) {        
+           
+        return (
+        <div>              
+        <h3 className="ui center aligned header">{ this.props.title }</h3>                  
+        {
+            this.state.Loading? this.renderLoading( ) :              
+            this.state.users? <><table className="ui celled structured table">
+            <thead><tr><td width={"20px"} ><h4>ID</h4></td><td width={"200px"}><h4>Name</h4></td><td width={"200px"}><h4>Email</h4></td></tr></thead>
+            <tbody>{ this.renderNews( )}</tbody></table> </> : 
+            this.renderError( )
+        }  
+        </div>
+        )
+        
     }
 } 
