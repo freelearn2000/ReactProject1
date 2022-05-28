@@ -27,14 +27,20 @@ class App extends Component {
     // map routes to resources
     let routes = (
       <Routes>
-        <Route path="/*" element={<HomePage/>} />
+        <Route path="/*" element={<HomePage/>}/>
         <Route path="/news" element={<NewsPage/>}/>
         <Route path="/about" element={<AboutPage/>}/>
+<<<<<<< HEAD
         <Route path="/anusree" element={<Anusree/>}/>
-        <Route path='/santhosh' element={<Santhosh/>} />
+        <Route path='/santhosh' element={<Santhosh title={`This is Santhosh's Component`}/>}/>
         <Route path="/rakhi" element={<Rakhi/>}/>
+=======
+        <Route path="/anusree" element={<Anusree title = {`This is Anusree's Component`}/>}/>
+        <Route path='/santhosh' element={<Santhosh/>} />
+        <Route path="/rakhi" element={<Rakhi title={`This is Rakhi's Component.`}/>}/>
+>>>>>>> 201f32e109aab848063971c3ed4366dd44db914e
         <Route path="/radhika" element={<Radhika/>}/>
-        <Route path="/samara" element={<Samara/>}/>
+        <Route path="/samara" element={<Samara title="Welcome to Samara's component"/>}/>
         <Route path="/parvathy" element={<Parvathy/>}/>
         <Route path="/vishnupriya" element={<Vishnupriya title={`This is Vishnupriya's Component`}/>}/>
         <Route path="/divya" element={<Divya/>}/>
@@ -42,7 +48,7 @@ class App extends Component {
         <Route path='/aiswarya' element={<Aiswarya/>}/>
         <Route path='/viji' element={<Viji/>}/>
         <Route path="/aiswarya" element={<Aiswarya/>}/>
-        <Route path="/manooja" element={<Manooja/>}/>
+        <Route path="/manooja" element={<Manooja title = {`This is Manooja's Component.`}/>}/>
         <Route path="/dhanya" element={<Dhanya/>}/>
       </Routes>
     );
