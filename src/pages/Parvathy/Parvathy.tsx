@@ -20,11 +20,11 @@ export class Parvathy extends Component<IProps, IState> {
         // Intitiate API call from here
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
-                console.log('Success data :', response.data);
+                // console.log('Success data :', response.data);
                 this.setState({ Loading: false, books: response.data, error: null });
             })
             .catch(error => {
-                console.log('Error :', error);
+                // console.log('Error :', error);
                 this.setState({ Loading: false, books: null, error: error });
             })
     }
