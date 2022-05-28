@@ -57,7 +57,7 @@ export class Samara extends Component<IProps, IState> {
 
     renderData( ) {
         const userData = this.state.userData ? this.state.userData : [];
-        const dataJSX = userData.map( (item: {id:number, name:string, email:string} ) => {
+        const dataJSX = userData.map( (item: {id: number, name: string, email: string} ) => {
             return (
                 <div key={item.id} className="ui floating message">
                     <h4 key={item.id + 1}>{item.name}</h4>
