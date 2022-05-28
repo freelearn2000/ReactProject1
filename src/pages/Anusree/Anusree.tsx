@@ -16,11 +16,11 @@ export class Anusree extends Component <IProps, IState> {
     componentDidMount( ) {
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
-                console.log("Data :", response.data)
+              //  console.log("Data :", response.data)
                 this.setState( {loading: false, users: response.data, error: null} );
             })
             .catch(error => {
-                console.log("Data :", error)
+              //  console.log("Data :", error)
                 this.setState( {loading: false, users: null, error: error} );
             })
     }

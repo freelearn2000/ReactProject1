@@ -30,15 +30,15 @@ class App extends Component {
         <Route path="/*" element={<HomePage/>}/>
         <Route path="/news" element={<NewsPage/>}/>
         <Route path="/about" element={<AboutPage/>}/>
-        <Route path='/santhosh' element={<Santhosh title={`This is Santhosh's Component`}/>}/>
         <Route path="/anusree" element={<Anusree title = {`This is Anusree's Component`}/>}/>
+        <Route path='/santhosh' element={<Santhosh title = {`This is Santhosh's Component`}/>} />
         <Route path="/rakhi" element={<Rakhi title={`This is Rakhi's Component.`}/>}/>
         <Route path="/radhika" element={<Radhika/>}/>
         <Route path="/samara" element={<Samara title="Welcome to Samara's component"/>}/>
         <Route path="/parvathy" element={<Parvathy title={`This is Parvathy's Component.`}/>}/>
         <Route path="/vishnupriya" element={<Vishnupriya title={`This is Vishnupriya's Component`}/>}/>
         <Route path="/divya" element={<Divya/>}/>
-        <Route path="/bindu" element={<Bindu/>}/>
+        <Route path="/Bindu" element={<Bindu title = {`This is Bindu's Component`}/>}/>
         <Route path='/aiswarya' element={<Aiswarya/>}/>
         <Route path='/viji' element={<Viji/>}/>
         <Route path="/aiswarya" element={<Aiswarya/>}/>
