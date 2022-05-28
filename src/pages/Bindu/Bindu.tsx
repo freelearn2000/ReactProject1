@@ -1,38 +1,42 @@
 import { Component, ReactNode } from "react";
 import axios from "axios";
-import { Interface  } from "readline";
-import { isPropertySignature } from "typescript";
 
-
+interface IProps {
+    title: any
+}
 interface IState {
     Loading: boolean,
-    news: {} [] | null,
+    users: {} [] | null,
     error: {message: string} | null;
 }
-interface IProps {
-
-}
-
 export class Bindu extends Component<IProps, IState> {
 
-    state = {Loading: true, news: null, error: null};
+    state = {Loading: true, users: null, error: null};
 
     componentDidMount ( ) {
 
-        axios.get('https://jsonplaceholder.typicode.com/userss')
+        axios.get('https://jsonplaceholder.typicode.com/users')
         .then(response => {
             console.log('Data :', response.data);
-            this.setState( { Loading: false, news: response.data, error: null} );
+            this.setState( { Loading: false, users: response.data, error: null} );
         })
-        .catch(error => {
+        .catch(error => { 
             const message = this.state.error? this.state.error['message']:
-            this.setState( { Loading: false, news: null, error: error} );
+            this.setState( { Loading: false, users: null, error: error} );
         })
         
     }
-    
+    componentDidUpdate( ) {
+        //console.log('componentDidUpdate')
+     }
+ 
+     componentWillUnmount( ) {
+        //console.log('componentWillUnmount')
+     }
+         
         renderLoading( ) {
             const loadingJSX = <h4> Loading!!!!! </h4>
+
             return loadingJSX;
         }
 
@@ -40,29 +44,35 @@ export class Bindu extends Component<IProps, IState> {
             const message = this.state.error? this.state.error['message'] : '';
             const errorJSX = 
             <div>
-                <h2> This is Bindu's Component</h2>
-                <h4> {message} </h4>
+              <h4> {message} </h4>
             </div>
             return errorJSX;
         }
         renderUserdata( )
         {
-            const UserdataJSX = 
-            <div>
-                <h2> This is  Bindu's Component</h2>
-                <h4> Details of users </h4>
-            </div>
-            return UserdataJSX;
+            const users = this.state.users ? this.state.users : [ ];
+            const dataJSX = users.map( (user: {name:string, email:string, id:number} ) => {
+               return( 
+                <div key={ user.id + 'a' } className="ui segment">
+                    <h4 key={ user.id + 'b'}>{ user.name }</h4>
+                    <p key={ user.id + 'c' }>{ user.email }</p>
+                </div>
+               )
+            });
+            return dataJSX;
         }
+        
 
-        render( ) {
-            if ( this.state.Loading ){
-                return this.renderLoading( );
-            }else if ( this.state.error){
-                return this.rendererror( );
-            }else {
-                return this.renderUserdata( );
-            }
-            
+        render( ) { 
+            return(
+                <div className="ui segment">
+                    <h2 className="ui center aligned header">{ this.props.title }</h2>
+                    {
+                         this.state.Loading?this.renderLoading( ) : 
+                         this.state.users? <><h2> Datas of Users</h2>{this.renderUserdata( )}</> : 
+                         <><h2>Error Data</h2>{this.rendererror( )}</>
+                    }
+                </div>
+            )
         }
     }

@@ -31,22 +31,22 @@ class App extends Component {
         <Route path="/news" element={<NewsPage/>}/>
         <Route path="/about" element={<AboutPage/>}/>
         <Route path="/anusree" element={<Anusree title = {`This is Anusree's Component`}/>}/>
-        <Route path='/santhosh' element={<Santhosh/>} />
-        <Route path="/rakhi" element={<Rakhi/>}/>
+        <Route path='/santhosh' element={<Santhosh title = {`This is Santhosh's Component`}/>} />
+        <Route path="/rakhi" element={<Rakhi title={`This is Rakhi's Component.`}/>}/>
         <Route path="/radhika" element={<Radhika/>}/>
-        <Route path="/samara" element={<Samara/>}/>
+        <Route path="/samara" element={<Samara title="Welcome to Samara's component"/>}/>
         <Route path="/parvathy" element={<Parvathy/>}/>
-        <Route path="/vishnupriya" element={<Vishnupriya/>}/>
+        <Route path="/vishnupriya" element={<Vishnupriya title={`This is Vishnupriya's Component`}/>}/>
         <Route path="/divya" element={<Divya/>}/>
-        <Route path="/bindu" element={<Bindu/>}/>
         <Route path='/viji' element={<Viji/>}/>
         <Route path="/aiswarya" element={<Aiswarya title = {`This is Aiswarya's Component`}/>}/>
-        <Route path="/manooja" element={<Manooja/>}/>
+        <Route path="/Bindu" element={<Bindu title = {`This is Bindu's Component`}/>}/>
+        <Route path='/viji' element={<Viji/>}/>
+        <Route path="/manooja" element={<Manooja title = {`This is Manooja's Component.`}/>}/>
         <Route path="/dhanya" element={<Dhanya/>}/>
       </Routes>
     );
-
-
+    
     return (
       <div className="ui segments">
         <div className="ui segment">
