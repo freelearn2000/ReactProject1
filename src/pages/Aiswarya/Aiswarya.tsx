@@ -21,11 +21,11 @@ export class Aiswarya extends Component <IProps, IState> {
 
         axios.get('https://jsonplaceholder.typicode.com/users')
         .then(response => {
-            console.log('Data :', response.data);
+            //console.log('Data :', response.data);
             this.setState( { loading: false, users: response.data, error: null} );
         })
         .catch(error => {
-            console.log("Data :", error)
+            //console.log("Data :", error)
             this.setState( { loading: false, users: null, error: error} );
         })
         
@@ -53,11 +53,13 @@ export class Aiswarya extends Component <IProps, IState> {
             const  users = this.state.users ? this.state.users : [ ];
             const DataJSX = users.map( (user: {name:number, email:string,id:number,phone:number} ) => {
                 return(
-                <div key={user.id + 'a' } className="ui segment">
-                <h4 key={user.id + 'b'}>{user.name}</h4>
-                <p key={user.id + 'c'}>{user.email}</p>
-                <p key={user.id + 'd'}>{user.phone}</p>
-             </div>
+                <div className="ui blue text">
+                    <div className="ui grey segment" key={user.id + 'a' } >
+                        <h4  key={user.id + 'b'}>{user.name}</h4>
+                        <p key={user.id + 'c'}>{user.email}</p>
+                         <p key={user.id + 'd'}>{user.phone}</p>
+                     </div>
+                 </div>
             
             )
          });
@@ -66,11 +68,12 @@ export class Aiswarya extends Component <IProps, IState> {
         }
         render( ) {
             return (
-                <div className="ui segement">
-                        <h2 className=" ui aligned center heading">{this.props.title}</h2>
+                <div className="ui inverted segment">
+                    <h2 className ="ui red inverted header"></h2>
+                        <h2 className=" ui center aligned header">{this.props.title}</h2>
                         {
                             this.state.loading?this.renderLoading( ):
-                            this.state.users?<><h2>List User Data </h2>{this.renderUserdata( )}</> :
+                            this.state.users?<><h2>User Details </h2>{this.renderUserdata( )}</> :
                             <><h2> Error Data !!!!</h2>{this.rendererror( )}</>
                         }
                     </div>
