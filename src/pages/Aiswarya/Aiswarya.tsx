@@ -50,16 +50,17 @@ export class Aiswarya extends Component <IProps, IState> {
             return errorJSX;
         }
         renderUserdata( ) {
+           
             const  users = this.state.users ? this.state.users : [ ];
             const DataJSX = users.map( (user: {name:number, email:string,id:number,phone:number} ) => {
                 return(
-                <div className="ui blue text">
+                //<div className="ui blue text">
                     <div className="ui grey segment" key={user.id + 'a' } >
-                        <h4  key={user.id + 'b'}>{user.name}</h4>
-                        <p key={user.id + 'c'}>{user.email}</p>
-                         <p key={user.id + 'd'}>{user.phone}</p>
+                        <h4  key={user.id + 'b'}><b>Name : </b>{user.name}</h4>
+                        <p key={user.id + 'c'}><b>Email : </b>{user.email}</p>
+                         <p key={user.id + 'd'}><b>Contact No : </b>{user.phone}</p>
                      </div>
-                 </div>
+                // </div>
             
             )
          });
@@ -68,16 +69,17 @@ export class Aiswarya extends Component <IProps, IState> {
         }
         render( ) {
             return (
-                <div className="ui inverted segment">
-                    <h2 className ="ui red inverted header"></h2>
+                <div className="ui inverted grey segment">
+                    <div>
+                        <h2 className ="ui  inverted header"></h2>
                         <h2 className=" ui center aligned header">{this.props.title}</h2>
                         {
                             this.state.loading?this.renderLoading( ):
-                            this.state.users?<><h2>User Details </h2>{this.renderUserdata( )}</> :
+                            this.state.users?<>{this.renderUserdata( )}</> :
                             <><h2> Error Data !!!!</h2>{this.rendererror( )}</>
                         }
                     </div>
-
+                </div>
             )
             
             }
