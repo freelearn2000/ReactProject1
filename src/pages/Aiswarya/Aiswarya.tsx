@@ -1,4 +1,4 @@
-  import { Component, ReactNode } from "react";
+import { Component} from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -17,14 +17,13 @@ export class Aiswarya extends Component <IProps, IState> {
     state = { loading: true, users: null, error: null };
 
     componentDidMount ( ) {
+
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
-                //console.log('Data :', response.data);
-                this.setState( { loading: false, users: response.data, error: null} );
+                this.setState( {loading: false, users: response.data, error: null} );
             })
             .catch(error => {
-                //console.log("Data :", error)
-                this.setState( { loading: false, users: null, error: error} );
+                 this.setState( {loading: false, users: null, error: error} );
             })  
         }
 
@@ -50,9 +49,9 @@ export class Aiswarya extends Component <IProps, IState> {
         renderUserdata( ) {
            
             const  users = this.state.users ? this.state.users : [ ];
-            const DataJSX = users.map( (user: {name:number, email:string,id:number,phone:number} ) => {
+            const DataJSX = users.map( (user: {name:number, email:string, id:number, phone:number} ) => {
                 return(
-                    <div className="ui segment" key={user.id + 'a' } >
+                    <div className="ui segment" key={user.id} >
                         <h4 ><b>Name :</b>{user.name}</h4>
                         <p><b>Email :</b>{user.email}</p>
                         <p><b>Contact No :</b>{user.phone}</p>
@@ -63,16 +62,17 @@ export class Aiswarya extends Component <IProps, IState> {
         }
 
         render( ) {
+
             return (  
                 <div>
-                    <h2 className ="ui  inverted header"></h2>
+                    <h2 className="ui inverted header"></h2>
                     <h2 className=" ui center aligned header">{this.props.title}</h2>
                         <br/>
                         <Link to='/*' className="item">Go to Home Page</Link>
                         <br/>
                     {
-                        this.state.loading?this.renderLoading( ):
-                        this.state.users?<>{this.renderUserdata( )}</> :
+                        this.state.loading? this.renderLoading( ):
+                        this.state.users? this.renderUserdata( ):
                         <><h2> Error Data !!!!</h2>{this.rendererror( )}</>
                     }
                 </div>
