@@ -1,8 +1,9 @@
 import { Component } from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 interface IState {
-    Loading: boolean, 
+    loading: boolean, 
     users: {} [] | null, 
     error: {message: string} | null;
 
@@ -14,7 +15,7 @@ interface IProps {
 
 export class Manooja extends Component<IProps, IState> {
 
-    state = {Loading: true, users: null, error: null};
+    state = {loading: true, users: null, error: null};
 
 
     componentDidMount( ) {
@@ -22,10 +23,10 @@ export class Manooja extends Component<IProps, IState> {
         // Intitiate API call from here
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
-                this.setState( {Loading: false, users: response.data, error: null});
+                this.setState( {loading: false, users: response.data, error: null});
             })
             .catch(error => {
-                this.setState({Loading: false, users: null, error: error});
+                this.setState({loading: false, users: null, error: error});
             })               
     }
     
@@ -51,14 +52,12 @@ export class Manooja extends Component<IProps, IState> {
 
     renderUserdata( ) {
         const users = this.state.users ? this.state.users : [ ];
-        const dataJSX = users.map( ( user: any)=> {
-            let hNo = user.id;
-            let pNo = user.id + 'a'
+        const dataJSX = users.map( ( user: { name: string, email: string, id:number } )=> {
 
             return (
-                <div key={ user.id + 'a' } className="ui segment">
-                    <h4 key={hNo}>Name : {user.name}</h4>
-                    <p key={pNo}>Email : {user.email}</p>
+                <div className="ui segment" key={ user.id}>
+                    <h4> Name : {user.name} </h4>
+                    <p>  Email : {user.email} </p>
                 </div>    
             );
 
@@ -72,8 +71,11 @@ export class Manooja extends Component<IProps, IState> {
         return( 
             <div>
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
+                <br/>
+                <Link to='/*' className="item"> Goto Home Page </Link>
+                <br/>
                 {
-                    this.state.Loading ? this.renderLoading( ) :
+                    this.state.loading ? this.renderLoading( ) :
                     this.state.users ? <><h2> Users Information </h2>{ this.renderUserdata( ) }</> :
                     <><h2>Error Data</h2>{ this.renderError( )}</>
                 }
