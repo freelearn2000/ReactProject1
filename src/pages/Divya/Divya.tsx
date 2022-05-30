@@ -38,16 +38,17 @@ export class Divya extends Component<IProps, IState> {
      }
 
 	renderLoading( ) {
-		const loadingJSX = <h4>Loading..</h4> 
+		const loadingJSX = <h4 className="ui secondary elastic loading button">Loading</h4> 
 		return loadingJSX;
 	}
 
 	renderError( ) {
+
 		const message = this.state.error? this.state.error[`message`] : '';
-		const errorJSX = <div>
-			<h4>{message}</h4>
-			</div>
-		
+		const errorJSX = 
+		<div>
+			<h4 className="negative ui button" >{message}</h4>
+		</div>
 		return errorJSX;
 	}
 
@@ -57,20 +58,25 @@ export class Divya extends Component<IProps, IState> {
 			const projectJSX = project.map( ( project: { id: number, name: string, email: string}, index ) => {
 				return(
 					<div key={project.id + index} className ='ui segment'>
-						<h4 key={project.id}>Name: {project.name}</h4>
-						<p key={project.id + 'a'}>Email: {project.email}</p>
+						<table className="ui definition table">
+	 						<tbody>
+	   							<tr>
+	 								<td className="five wide column" key={project.id}>Name : {project.name}</td>
+									<td key={project.id + 'a'}>Email : {project.email}</td>
+	   							</tr>
+							</tbody>
+							</table>
 					</div>
 				);
 			});
 		
 		return projectJSX;
 	}
-   
 	render( ) {
 		
 		return(
             <div>
-                <h2>{this.props.title}'s Component</h2> 
+                <h2 className="ui horizontal divider header">{this.props.title}'s Component</h2> 
                 { this.state.loading ? this.renderLoading( ) :
                 this.state.project ? this.renderProject( ) :
                 this.renderError( ) } 	
