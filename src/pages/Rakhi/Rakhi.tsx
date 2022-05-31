@@ -77,7 +77,7 @@ export class Rakhi extends Component<IProps, IState> {
                 <Link to='/home' className="ui teal tag label">Home</Link>
                 { 
                     this.state.loading ? this.renderLoading( ) :
-                    this.state.users ?this.renderUserdata( ) :
+                    this.state.users ? <><h2>User Information </h2>{ this.renderUserdata( ) }</> :
                     this.renderError( )
                 }
             </div>
