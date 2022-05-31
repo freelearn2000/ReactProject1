@@ -75,6 +75,7 @@ export class Dhanya extends Component<IProps, IState> {
         <div>
             <h2 className="ui horizontal divider header">{this.props.title}</h2> 
             <br/>
+            <Link to='/' className="active item">Home</Link>
             <br/>
             {	this.state.loading ? this.renderLoading( ) :
                 this.state.data ? this.renderData( ) :
