@@ -3,7 +3,6 @@ import  { Component } from 'react';
 import 	{ Link } from 'react-router-dom';
 
 
-
 interface IProps {
     title: any;
 }
@@ -18,7 +17,6 @@ export class Divya extends Component<IProps, IState> {
     state = {loading: true, project: null, error: null};
 
 	componentDidMount( ) {
-		// initiage API Calls from here
 		axios.get(`https://jsonplaceholder.typicode.com/users`)
 			.then(response => {
 				this.setState( {loading: false, project: response.data, error: null} );
