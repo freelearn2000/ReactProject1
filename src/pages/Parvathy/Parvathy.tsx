@@ -9,7 +9,7 @@ interface IProps {
 
 interface IState {
     loading: boolean,
-    books: {}[] | null,
+    books: { } [ ] | null,
     error: { message: string } | null;
 
 }
@@ -24,11 +24,9 @@ export class Parvathy extends Component<IProps, IState> {
         // Intitiate API call from here
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
-                // console.log('Success data :', response.data);
                 this.setState({ loading: false, books: response.data, error: null });
             })
             .catch(error => {
-                // console.log('Error :', error);
                 this.setState({ loading: false, books: null, error: error });
             });
     }
@@ -47,35 +45,33 @@ export class Parvathy extends Component<IProps, IState> {
                 <br />
                 <h4>{message}</h4>
             </div>
-
         return errorJSX;
     }
 
     renderBooks() {
 
-        const books = this.state.books ? this.state.books : [];
-        const dataJSX = books.map((item: any) => {
+        const books = this.state.books ? this.state.books : [ ];
+        const dataJSX = books.map( (item: any) => {
             let bno = item.id + `b`;
-
             return (
-                <div key={bno} className="ui center aligned message">
-                    <h4>{item.name}</h4>
-                    <p>Email : {item.email}</p>
+                <div key = { bno } className = "ui center aligned message">
+                    <h4>{ item.name }</h4>
+                    <p>Email : { item.email }</p>
                 </div>
             );
         });
-
         return dataJSX;
     }
 
-    render() {
+    render( ) {
+
         return (
             <div>
-                <h2 className="ui center aligned header message">{this.props.title}</h2>
+                <h2 className = "ui center aligned header message">{ this.props.title }</h2>
                 {
-                    this.state.loading ? this.renderLoading() :
-                        this.state.books ?<><Link to='/' className="item">Goto HomePage</Link>{this.renderBooks()}</> :
-                            <>{this.renderError()}</>
+                    this.state.loading ? this.renderLoading( ):
+                    this.state.books ? <><Link to='/' className="item">Goto HomePage</Link>{ this.renderBooks( ) }</>:
+                    this.renderError( )
                 }
             </div>
         )

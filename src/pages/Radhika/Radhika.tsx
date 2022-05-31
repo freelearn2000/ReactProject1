@@ -70,7 +70,7 @@ export class Radhika extends Component <IProps, IState> {
                 <br/>
                 {
                     this.state.loading ? this.renderLoading( ): 
-                    this.state.users ? <><h3 className="ui center aligned header">User Details</h3>{ this.renderUserdata( ) }</>:
+                    this.state.users ? <><h3 className = "ui center aligned header">User Details</h3>{ this.renderUserdata( ) }</>:
                     this.renderError( )
                 }
             </div>
