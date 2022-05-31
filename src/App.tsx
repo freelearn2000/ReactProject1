@@ -51,8 +51,8 @@ class App extends Component {
       <div className="ui segments">
         <div className="ui segment">
               <Header title='React Application'/>
-          </div>
-        <div className="ui raised very padded text container segments">
+        </div>
+           <div className="ui raised very padded text container segments">
           <div className="ui segment">
               {routes}
           </div>
