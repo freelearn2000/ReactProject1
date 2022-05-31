@@ -9,7 +9,7 @@ interface IProps {
 
 interface IState {
     loading: boolean;
-    users: { }[ ] | null;
+    users: { } [ ] | null;
     error: { message: string } | null;
 }
 
