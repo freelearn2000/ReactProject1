@@ -1,18 +1,22 @@
 import { Component } from "react";
 import axios from 'axios';
+import { Link } from "react-router-dom";
+
 
 interface IProps {
     title: string;
 }
+
 interface IState {
-    Loading: boolean,
+    loading: boolean,
     books: {}[] | null,
     error: { message: string } | null;
 
 }
+
 export class Parvathy extends Component<IProps, IState> {
 
-    state = { Loading: true, books: null, error: null };
+    state = { loading: true, books: null, error: null };
 
     // initialization
     componentDidMount() {
@@ -21,26 +25,29 @@ export class Parvathy extends Component<IProps, IState> {
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
                 // console.log('Success data :', response.data);
-                this.setState({ Loading: false, books: response.data, error: null });
+                this.setState({ loading: false, books: response.data, error: null });
             })
             .catch(error => {
                 // console.log('Error :', error);
-                this.setState({ Loading: false, books: null, error: error });
-            })
+                this.setState({ loading: false, books: null, error: error });
+            });
     }
 
     renderLoading() {
+
         const loadingJSX = <h4>Loading....</h4>
         return loadingJSX;
     }
 
     renderError() {
+
         const message = this.state.error ? this.state.error['message'] : '';
         const errorJSX =
             <div>
                 <br />
                 <h4>{message}</h4>
             </div>
+
         return errorJSX;
     }
 
@@ -48,14 +55,12 @@ export class Parvathy extends Component<IProps, IState> {
 
         const books = this.state.books ? this.state.books : [];
         const dataJSX = books.map((item: any) => {
-            let hNo = item.id;
-            let pNo = item.id + `a`;
             let bno = item.id + `b`;
 
             return (
                 <div key={bno} className="ui center aligned message">
-                    <h4 key={hNo}>{item.name}</h4>
-                    <p key={pNo}>Email : {item.email}</p>
+                    <h4>{item.name}</h4>
+                    <p>Email : {item.email}</p>
                 </div>
             );
         });
@@ -65,11 +70,11 @@ export class Parvathy extends Component<IProps, IState> {
 
     render() {
         return (
-            <div className="ui small message">
+            <div>
                 <h2 className="ui center aligned header message">{this.props.title}</h2>
                 {
-                    this.state.Loading ? this.renderLoading() :
-                        this.state.books ? <><h2>User Details</h2>{this.renderBooks()}</> :
+                    this.state.loading ? this.renderLoading() :
+                        this.state.books ?<><Link to='/' className="item">Goto HomePage</Link>{this.renderBooks()}</> :
                             <>{this.renderError()}</>
                 }
             </div>

@@ -37,7 +37,7 @@ class App extends Component {
         <Route path="/samara" element={<Samara title="Welcome to Samara's component"/>}/>
         <Route path="/parvathy" element={<Parvathy title={`This is Parvathy's Component.`}/>}/>
         <Route path="/vishnupriya" element={<Vishnupriya title="This is Vishnupriya's Component"/>}/>
-        <Route path="/divya" element={<Divya title={`This is Divya`}/>}/>
+        <Route path="/divya" element={<Divya title='This is Divya'/>}/>
         <Route path="/aiswarya" element={<Aiswarya title ={` Aiswarya's Component`}/>}/>
         <Route path="/Bindu" element={<Bindu title = {`This is Bindu's Component`}/>}/>
         <Route path='/viji' element={<Viji title = {`This is Viji's Component`}/>}/>
@@ -50,8 +50,8 @@ class App extends Component {
       <div className="ui segments">
         <div className="ui segment">
               <Header title='React Application'/>
-          </div>
-        <div className="ui raised very padded text container segments">
+        </div>
+           <div className="ui raised very padded text container segments">
           <div className="ui segment">
               {routes}
           </div>
