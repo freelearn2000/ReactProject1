@@ -19,7 +19,7 @@ export class Anusree extends Component <IProps, IState> {
     
     componentDidMount( ) {
 
-        axios.get( 'https://jsonplaceholder.typicode.com/users' )
+        axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
                 this.setState( {loading: false, users: response.data, error: null} );
             })
@@ -66,9 +66,7 @@ export class Anusree extends Component <IProps, IState> {
         return(
             <div>
                 <h2 className = "ui center aligned header">{ this.props.title }</h2>
-                <br/>
-                <Link to = '/*' className = "item">Go to Home Page</Link>
-                <br/>
+                <Link to = '/*' className = "ui blue label"><i className = "home icon"></i> Home</Link>
                     {
                         this.state.loading ? this.renderLoading( ):
                         this.state.users ? <><h2>User Data</h2>{ this.renderUserdata( ) }</>:
