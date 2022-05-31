@@ -75,7 +75,7 @@ export class Rakhi extends Component<IProps, IState> {
                 <h2 className='ui center aligned header'>{ this.props.title }</h2>
                 { 
                     this.state.loading ? this.renderLoading( ) :
-                    this.state.users ?<><h2>User Information </h2>{ this.renderUserdata( ) }</> :
+                    this.state.users ? <><h2>User Information </h2>{ this.renderUserdata( ) }</> :
                     this.renderError( )
                 }
             </div>

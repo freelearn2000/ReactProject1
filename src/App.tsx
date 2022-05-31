@@ -27,38 +27,38 @@ class App extends Component {
     // map routes to resources
     let routes = (
       <Routes>
-        <Route path="/*" element={<HomePage/>}/>
-        <Route path="/news" element={<NewsPage/>}/>
-        <Route path="/about" element={<AboutPage/>}/>
-        <Route path="/anusree" element={<Anusree title = {`This is Anusree's Component`}/>}/>
-        <Route path='/santhosh' element={<Santhosh title = {`This is Santhosh's Component`}/>} />
-        <Route path="/rakhi" element={<Rakhi title={`This is Rakhi's Component.`}/>}/>
-        <Route path="/radhika" element={<Radhika title={`Radhika's Component.`} />}/>
-        <Route path="/samara" element={<Samara title="Welcome to Samara's component"/>}/>
-        <Route path="/parvathy" element={<Parvathy title={`This is Parvathy's Component.`}/>}/>
-        <Route path="/vishnupriya" element={<Vishnupriya title={`This is Vishnupriya's Component`}/>}/>
-        <Route path="/divya" element={<Divya title={'This is Divya'}/>}/>
-        <Route path="/aiswarya" element={<Aiswarya title ={` Aiswarya's Component`}/>}/>
-        <Route path="/Bindu" element={<Bindu title = {`This is Bindu's Component`}/>}/>
-        <Route path='/viji' element={<Viji title = {`This is Viji's Component`}/>}/>
-        <Route path="/manooja" element={<Manooja title = {`This is Manooja's Component.`}/>}/>
-        <Route path="/dhanya" element={<Dhanya/>}/>
+        <Route path = "/*" element = { <HomePage/> }/>
+        <Route path = "/news" element = { <NewsPage/> }/>
+        <Route path = "/about" element = { <AboutPage/> }/>
+        <Route path = "/anusree" element = { <Anusree title = "This is Anusree's Component."/> }/>
+        <Route path = "/santhosh" element = { <Santhosh title = "This is Santhosh's Component"/> }/>
+        <Route path = "/rakhi" element = { <Rakhi title = "This is Rakhi's Component."/> }/>
+        <Route path = "/radhika" element = { <Radhika title = "This is Radhika's Component." /> }/>
+        <Route path = "/samara" element = { <Samara title = "Welcome to Samara's Component"/> }/>
+        <Route path = "/parvathy" element = { <Parvathy title = "This is Parvathy's Component."/> }/>
+        <Route path = "/vishnupriya" element = { <Vishnupriya title = "This is Vishnupriya's Component."/>}/>
+        <Route path = "/divya" element = { <Divya title = "This is Divya's Component."/> }/>
+        <Route path = "/aiswarya" element = { <Aiswarya title = " Aiswarya's Component."/> }/>
+        <Route path = "/Bindu" element = { <Bindu title = "This is Bindu's Component."/> }/>
+        <Route path = "/viji" element = { <Viji title = "This is Viji's Component."/> }/>
+        <Route path = "/manooja" element = { <Manooja title = "This is Manooja's Component."/> }/>
+        <Route path = "/dhanya" element = { <Dhanya/>}/>
       </Routes>
     );
     
     return (
-      <div className="ui segments">
-        <div className="ui segment">
-              <Header title='React Application'/>
+      <div className = "ui segments">
+        <div className = "ui segment">
+            <Header title = 'React Application'/>
         </div>
-           <div className="ui raised very padded text container segments">
-          <div className="ui segment">
+          <div className = "ui raised very padded text container segments">
+            <div className = "ui segment">
               {routes}
+            </div>
           </div>
-        </div>
-        <div className="ui segment">
-            <Footer content='@2022'/>
-        </div>
+          <div className = "ui segment">
+            <Footer content = "@2022"/>
+          </div>
       </div>
     );
   }
