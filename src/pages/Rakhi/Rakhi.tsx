@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 interface IProps {
     title: string;
 }
+
 interface IState {
     loading: boolean;
     users: {}[] | null;
@@ -27,12 +28,15 @@ export class Rakhi extends Component<IProps, IState> {
     }
 
     componentDidUpdate( ) {
+
     }
 
     componentWillUnmount( ) {
+
     }
 
     renderLoading( ) {
+
         const loadingJSX =  
             <div className="ui icon message">
                 <i className="notched circle loading icon"></i>
@@ -47,6 +51,7 @@ export class Rakhi extends Component<IProps, IState> {
     }
 
     renderError( ) {
+
         const errorMessage = this.state.error? this.state.error['message'] : '';
         const errorJSX = 
             <div>
@@ -58,10 +63,11 @@ export class Rakhi extends Component<IProps, IState> {
     }
 
     renderUserdata( ) {
+
         const users = this.state.users ? this.state.users : [ ];
         const dataJSX = users.map( ( user: { id: number, name: string, email: string}, index ) => {
             return(
-                <div key={user.id + index} className ='ui segment'>
+                <div key={user.id + index} className='ui segment'>
                     <h4>Name: {user.name}</h4>
                     <p>Email: {user.email}</p>
                 </div>
@@ -71,11 +77,12 @@ export class Rakhi extends Component<IProps, IState> {
     }
 
     render( ) {
+
         return(
             <div>
                 <h2 className='ui center aligned header block'>{ this.props.title }</h2>
                 <Link to='/home' className="ui teal tag label">Home</Link>
-                { 
+                {
                     this.state.loading ? this.renderLoading( ) :
                     this.state.users ? <><h2>User Information </h2>{ this.renderUserdata( ) }</> :
                     this.renderError( )
