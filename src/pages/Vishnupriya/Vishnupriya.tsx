@@ -1,5 +1,6 @@
 import { Component } from "react";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 interface IProps {
@@ -16,7 +17,6 @@ export class Vishnupriya extends Component<IProps, IState> {
     state = {loading: true, blogs: null, error: null};
 
     componentDidMount( ) {
-
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
                 // console.log(`Success data:`, response.data);
@@ -30,11 +30,11 @@ export class Vishnupriya extends Component<IProps, IState> {
 
     componentDidUpdate( ) {
         // console.log('componentDidUpdate')
-     }
+    }
  
-     componentWillUnmount( ) {
+    componentWillUnmount( ) {
         // console.log('componentWillUnmount')
-     }
+    }
 
     renderLoading( ) {
         const loadingJSX = 
@@ -64,11 +64,11 @@ export class Vishnupriya extends Component<IProps, IState> {
 
     renderBlogData( ) {
         const blogs = this.state.blogs ? this.state.blogs : [];
-        const blogJSX = blogs.map( (items: {id: number, name: string, email: string}, index) => {
+        const blogJSX = blogs.map(( items: {id: number, name: string, email: string} ) => {
             return (
-                <div key= {index + items.id} className ='ui two segment'>
-                    <h5 key={items.id}>Name: {items.name}</h5>
-                    <p key={'#' + items.id}>Email: {items.email}</p>
+                <div key= {items.id} className ='ui two segment'>
+                    <h5>Name: {items.name}</h5>
+                    <p>Email: {items.email}</p>
                 </div>
             )
         });
@@ -79,6 +79,10 @@ export class Vishnupriya extends Component<IProps, IState> {
         return (
             <div>
                 <h2 className="ui center aligned blue header">{this.props.title}</h2>
+                <br/>
+                <button className="ui button"><Link to='/' className="item">Home</Link></button>
+                <button className="ui button"><Link to='/about' className="item">About</Link></button>
+                <br/>
                 {
                     this.state.loading ? this.renderLoading( ) :
                     this.state.blogs ? this.renderBlogData( ) :
