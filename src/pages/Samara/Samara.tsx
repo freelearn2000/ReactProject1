@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 interface IProps {
@@ -11,6 +12,7 @@ interface IState {
     error: {message: string} | null;
 }
 export class Samara extends Component<IProps, IState> {
+
     state = { loading: true, userData: null, error: null };
 
     // Initialization
@@ -40,8 +42,10 @@ export class Samara extends Component<IProps, IState> {
 
     renderLoading( ) {
         const loadingJSX = 
-            <div>
-                <h3>Loading</h3>
+            <div className="ui segment">
+                <div className="ui active inverted dimmer">
+                    <div className="ui text loader">Loading</div>
+                </div>
             </div>
         return loadingJSX;
     }
@@ -60,8 +64,8 @@ export class Samara extends Component<IProps, IState> {
         const dataJSX = userData.map( (item: {id: number, name: string, email: string} ) => {
             return (
                 <div key={item.id} className="ui floating message">
-                    <h4 key={item.id + 1}>{item.name}</h4>
-                    <p key={item.id + 2}>Email : {item.email}</p>
+                    <h4>{item.name}</h4>
+                    <p>Email : {item.email}</p>
                 </div>
             );
         });
@@ -71,15 +75,19 @@ export class Samara extends Component<IProps, IState> {
     render( ) {
         return(
             <div>
-                <h2>{this.props.title}</h2>
+                <h2 className="ui center aligned header message">{this.props.title}</h2>
                     {
                         this.state.loading? this.renderLoading( ) : 
-                        this.state.userData? <><h2>User Details</h2>{ this.renderData( ) }</> : 
+                        this.state.userData? 
+                        <>
+                            <Link to='/*' className="item">Go to Home</Link>
+                            <h2>User Details</h2>{ this.renderData( ) }
+                        </> : 
                         <>{ this.renderError( ) }</>
                     }
             </div>
-    )
-}
+        );
+    }
 }
 
 
