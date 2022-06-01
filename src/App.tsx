@@ -18,6 +18,7 @@ import { Aiswarya } from './pages/Aiswarya/Aiswarya';
 import { Viji } from './pages/Viji/Viji';
 import { Manooja } from './pages/Manooja/Manooja';
 import { Dhanya } from './pages/Dhanya/Dhanya';
+import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 
 
 class App extends Component {
@@ -27,22 +28,25 @@ class App extends Component {
     // map routes to resources
     let routes = (
       <Routes>
-        <Route path = "/*" element = { <HomePage/> }/>
+        <Route path = "/" element = { <HomePage/> }/>
         <Route path = "/news" element = { <NewsPage/> }/>
-        <Route path = "/about" element = { <AboutPage/> }/>
-        <Route path = "/anusree" element = { <Anusree title = "This is Anusree's Component."/> }/>
-        <Route path = "/santhosh" element = { <Santhosh title = "This is Santhosh's Component"/> }/>
-        <Route path = "/rakhi" element = { <Rakhi title = "This is Rakhi's Component."/> }/>
-        <Route path = "/radhika" element = { <Radhika title = "This is Radhika's Component." /> }/>
-        <Route path = "/samara" element = { <Samara title = "Welcome to Samara's Component"/> }/>
-        <Route path = "/parvathy" element = { <Parvathy title = "This is Parvathy's Component."/> }/>
-        <Route path = "/vishnupriya" element = { <Vishnupriya title = "This is Vishnupriya's Component."/>}/>
-        <Route path = "/divya" element = { <Divya title = "This is Divya's Component."/> }/>
-        <Route path = "/aiswarya" element = { <Aiswarya title = " Aiswarya's Component."/> }/>
-        <Route path = "/Bindu" element = { <Bindu title = "This is Bindu's Component."/> }/>
-        <Route path = "/viji" element = { <Viji title = "This is Viji's Component."/> }/>
-        <Route path = "/manooja" element = { <Manooja title = "This is Manooja's Component."/> }/>
-        <Route path = "/dhanya" element = { <Dhanya title="This is Dhanya's Component."/>}/>
+        <Route path = "/about" element = { <AboutPage/> }>
+          <Route path = ":id" element = { <AboutPage/> }/>
+        </Route>
+        <Route path = "/anusree" element = { <Anusree title="This is Anusree's Component"/> }/>
+        <Route path = "/santhosh" element = { <Santhosh title="This is Santhosh's Component"/> }/>
+        <Route path = "/rakhi" element = { <Rakhi title="This is Rakhi's Component"/> }/>
+        <Route path = "/radhika" element = { <Radhika title="This is Radhika's Component" /> }/>
+        <Route path = "/samara" element = { <Samara title="Welcome to Samara's Component"/> }/>
+        <Route path = "/parvathy" element = { <Parvathy title="This is Parvathy's Component"/> }/>
+        <Route path = "/vishnupriya" element = { <Vishnupriya title="This is Vishnupriya's Component"/>}/>
+        <Route path = "/divya" element = { <Divya title="This is Divya's Component"/> }/>
+        <Route path = "/aiswarya" element = { <Aiswarya title="Aiswarya's Component"/> }/>
+        <Route path = "/Bindu" element = { <Bindu title="This is Bindu's Component"/> }/>
+        <Route path = "/viji" element = { <Viji title="This is Viji's Component"/> }/>
+        <Route path = "/manooja" element = { <Manooja title="This is Manooja's Component"/> }/>
+        <Route path = "/dhanya" element = { <Dhanya title="This is Dhanya's Component"/>}/>
+        <Route path = "*" element = { <ErrorPage ErrorCode="404" ErrorMsg="The page requested was not found"/> }/>
       </Routes>
     );
     

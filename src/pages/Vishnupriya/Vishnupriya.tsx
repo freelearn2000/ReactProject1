@@ -77,7 +77,7 @@ export class Vishnupriya extends Component<IProps, IState> {
                 <h2 className = "ui center aligned blue header">{this.props.title}</h2>
                 <br/>
                 <button className = "ui button"><Link to='/' className="item">Home</Link></button>
-                <button className = "ui button"><Link to='/about' className="item">About</Link></button>
+                <button className = "ui button"><Link to='/about/abc' className="item">About</Link></button>
                 <br/>
                 {
                     this.state.loading ? this.renderLoading( ) :
