@@ -29,7 +29,9 @@ class App extends Component {
     let routes = (
       <Routes>
         <Route path = "/" element = { <HomePage/> }/>
-        <Route path = "/news" element = { <NewsPage/> }/>
+        <Route path = "/news" element = { <NewsPage/> }>
+          <Route path = ":id" element = { <NewsPage/> }/>
+        </Route>
         <Route path = "/about" element = { <AboutPage/> }>
           <Route path = ":id" element = { <AboutPage/> }/>
         </Route>
