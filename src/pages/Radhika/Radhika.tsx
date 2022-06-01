@@ -66,7 +66,12 @@ export class Radhika extends Component <IProps, IState> {
             <div>
                 <h2 className = "ui center aligned header">{ this.props.title }</h2>
                 <br/>
+<<<<<<< HEAD
                 <Link to='/' className = "item"> Go to HomePage </Link>
+=======
+                <Link to='/' className = "ui primary basic tag label">Home Page</Link> &nbsp;&nbsp;
+                <Link to='/about/User' className = "ui primary basic tag label">About</Link>
+>>>>>>> c0e580f0d1ccaf6fae70e897209fb023a410064d
                 <br/>
                 {
                     this.state.loading ? this.renderLoading( ): 

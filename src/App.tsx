@@ -30,7 +30,9 @@ class App extends Component {
       <Routes>
         <Route path = "/" element = { <HomePage/> }/>
         <Route path = "/news" element = { <NewsPage/> }>
-          <Route path = ":id" element = { <NewsPage/> }/>
+          <Route path = ":id" element = { <NewsPage/> }>
+           <Route path = ":id" element = { <NewsPage/> }/>
+          </Route>
         </Route>
         <Route path = "/about" element = { <AboutPage/> }>
           <Route path = ":id" element = { <AboutPage/> }/>

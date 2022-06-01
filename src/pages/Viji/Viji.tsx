@@ -69,7 +69,7 @@ export class Viji extends Component <IProps, IState> {
             <div>
             <h2 className = "ui center aligned green header">{ this.props.title }</h2>
             <br/>
-            <Link to = '/*' className = "item">Go to Home Page</Link>
+            <Link to = '/' className = "item">Go to Home Page</Link>
             <br/>
             {
                 this.state.loading ? this.renderLoading( ):

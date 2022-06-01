@@ -71,9 +71,9 @@ export class Manooja extends Component<IProps, IState> {
             <div>
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
                 <br/>
-                <Link to='/' className="item"> HomePage </Link>
-                &nbsp;&nbsp;&nbsp;
-                <Link to='/news/abc' className="item"> News </Link>
+                <Link to='/' className="ui button"> HomePage </Link>
+                &nbsp;
+                <Link to='/news/abc' className="ui button"> News </Link>
                 <br/>
                 {
                     this.state.loading ? this.renderLoading( ):
