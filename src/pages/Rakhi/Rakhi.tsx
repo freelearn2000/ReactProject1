@@ -82,6 +82,7 @@ export class Rakhi extends Component<IProps, IState> {
             <div>
                 <h2 className = 'ui center aligned header block'>{ this.props.title }</h2>
                 <Link to='/' className = "ui teal tag label">Home</Link>
+                <Link to='/news/trending' className = "ui red tag label">News</Link>
                 {
                     this.state.loading ? this.renderLoading( ) :
                     this.state.users ? <><h2>User Information </h2>{ this.renderUserdata( ) }</> :
