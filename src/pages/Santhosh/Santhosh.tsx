@@ -69,7 +69,8 @@ export class Santhosh extends Component<IProps, IState> {
             <div>              
                 <h3 className = "ui center aligned red header">{ this.props.title }</h3>    
                 <br/>
-                <Link to='/home' className = "ui orange button" >Home</Link>
+                <Link to='/' className="ui blue label"><i className="home icon"></i> Home</Link>
+                <Link to='/news/latest' className="ui red label"><i className="file alternate outline icon"></i> News</Link>                
                 <br/>              
                 {
                     this.state.loading ? this.renderLoading( ) :              
