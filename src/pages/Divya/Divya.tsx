@@ -68,9 +68,10 @@ export class Divya extends Component<IProps, IState> {
 
 		return(
             <div>
-                <h2 className="ui horizontal divider header">{this.props.title}'s Component</h2> 
+                <h2 className="ui horizontal divider header">{this.props.title}</h2> 
 				<br/>
-				<Link to='/home' className="ui button">Home</Link>
+				<Link to='/' className="ui button">Home</Link>
+				<Link to='/news/3' className="ui button">News</Link>
 				<br/>
                 {	this.state.loading ? this.renderLoading( ) :
                 	this.state.project ? this.renderProject( ) :
