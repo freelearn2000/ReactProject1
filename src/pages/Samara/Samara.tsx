@@ -72,8 +72,9 @@ export class Samara extends Component<IProps, IState> {
                         this.state.loading ? this.renderLoading( ) : 
                         this.state.userData ? 
                         <>
-                            <Link to='/*' className = "item">Go to Home</Link>
-                            <h2>User Details</h2>{ this.renderData( ) }
+                            <Link to='/' className="ui teal button">Home</Link>
+                            <Link to='/news/UK/latest' className="ui teal button">News</Link>
+                            { this.renderData( ) }
                         </> : 
                         this.renderError( )
                     }
