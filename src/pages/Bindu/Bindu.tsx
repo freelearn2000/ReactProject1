@@ -13,7 +13,7 @@ interface IState {
     error: { message: string } | null;
 }
 
-export class Bindu extends Component<IProps, IState> {
+export class Bindu extends Component <IProps, IState> {
 
     state = { loading: true, users: null, error: null };
 
@@ -39,17 +39,19 @@ export class Bindu extends Component<IProps, IState> {
     const message = this.state.error ? this.state.error[ 'message' ] : '';
     const errorJSX = 
         <div>
-            <h4> { message } </h4>
+            <div className = "ui negative message">
+               <h4> { message } </h4>
+            </div>
+            
         </div>
             return errorJSX;
     } 
-
     renderUserdata( )  {
 
         const users = this.state.users ? this.state.users : [ ];
         const dataJSX = users.map( (user: { name: string, email: string, id: number } ) => {
         return(
-            <div key = { user.id } className = "ui segment">
+            <div key = { user.id } className = "ui brown segment">
                 <h4>{ user.name }</h4>
                 <p>{ user.email }</p>
             </div>
@@ -63,7 +65,9 @@ export class Bindu extends Component<IProps, IState> {
         return(
             <div className = "ui segment">
                 <h2 className = "ui center aligned header">{ this.props.title }</h2>
-                <Link to = '/*' className="item">Back to Home</Link>
+                <Link to = '/' className="item">Back to Home</Link><br/>
+                <Link to = '/about/companydetails' className="item">Company Details</Link>
+
                 {
                     this.state.loading ? this.renderLoading( ) : 
                     this.state.users ? <><h2> Datas of Users</h2>{ this.renderUserdata( )}</> : 
