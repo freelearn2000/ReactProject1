@@ -15,7 +15,7 @@ interface IState {
 
 export class Anusree extends Component <IProps, IState> {
 
-    state = { loading: true, users: null, error: null };
+    state={ loading: true, users: null, error: null };
     
     componentDidMount( ) {
 
@@ -41,7 +41,7 @@ export class Anusree extends Component <IProps, IState> {
 
         const message = this.state.error? this.state.error[ 'message' ] : '';
         const errorJSX = 
-        <div className = 'ui negative message'>
+        <div className='ui negative message'>
             <h4>{ message }</h4>
         </div>
         return errorJSX;
@@ -52,7 +52,7 @@ export class Anusree extends Component <IProps, IState> {
         const users = this.state.users ? this.state.users : [ ];
         const dataJSX = users.map( (user: {name: string, email: string, id: number} ) => {
            return( 
-            <div key = { user.id } className = "ui segment">
+            <div key={ user.id } className="ui segment">
                 <h4>{ user.name }</h4>
                 <p>{ user.email }</p>
             </div>
@@ -65,8 +65,9 @@ export class Anusree extends Component <IProps, IState> {
 
         return(
             <div>
-                <h2 className = "ui center aligned header">{ this.props.title }</h2>
-                <Link to = '/*' className = "ui blue label"><i className = "home icon"></i> Home</Link>
+                <h2 className="ui center aligned header">{ this.props.title }</h2>
+                <Link to='/' className="ui blue label"><i className="home icon"></i> Home</Link>
+                <Link to='/news/latestnews/sports' className="ui yellow label"><i className="file alternate outline icon"></i> News</Link>
                     {
                         this.state.loading ? this.renderLoading( ):
                         this.state.users ? <><h2>User Data</h2>{ this.renderUserdata( ) }</>:
