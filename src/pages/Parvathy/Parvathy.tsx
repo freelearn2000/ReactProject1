@@ -68,13 +68,14 @@ export class Parvathy extends Component<IProps, IState> {
         return (
             <div>
                 <h2 className = "ui center aligned header message">{ this.props.title }</h2>
+                <Link to='/' className="ui teal basic tag label">Goto HomePage</Link>
+                &nbsp;&nbsp;
                 {
                     this.state.loading ? this.renderLoading( ):
-                    this.state.books ? <><Link to='/' className="item">Goto HomePage</Link>{ this.renderBooks( ) }</>:
+                    this.state.books ? <><Link to='/news/7' className="ui  basic olive tag label">News</Link>{ this.renderBooks( ) }</>:
                     this.renderError( )
                 }
             </div>
         )
     }
 }
-
