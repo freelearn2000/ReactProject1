@@ -68,7 +68,8 @@ export class Aiswarya extends Component <IProps, IState> {
             <div>
                 <h2 className = "ui center aligned header">{ this.props.title }</h2>
                     <br/>
-                    <Link to='/*' className="item">Go to Home Page</Link>
+                    <button className="ui purple basic button"><Link to='/' className="item">Home</Link></button>
+                    <button className="ui purple basic button"><Link to='/news' className="item">News</Link></button>
                     <br/>
                 {
                     this.state.loading ? this.renderLoading( ):
