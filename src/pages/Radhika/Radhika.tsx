@@ -1,66 +1,60 @@
 import { Component } from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 
 interface IState {
-    Loading: boolean,
-    users: {}[] | null,
-    error: {message: string} | null, 
+    loading: boolean,
+    users: { } [ ] | null,
+    error: { message: string } | null, 
 }
 
 interface IProps {
     title: string;
-
 }
+
 export class Radhika extends Component <IProps, IState> {
 
-    state= { Loading: true, users: null, error: null};
+    state= { loading: true, users: null, error: null };
 
     componentDidMount( ) {
+
         axios.get('https://jsonplaceholder.typicode.com/users')
         .then(response => {
-            this.setState({Loading: false, users: response.data, error: null});
+            this.setState( {loading: false, users: response.data, error: null} );
         })
         .catch(error => {
-            this.setState({Loading: false, users: null, error: error});
+            this.setState( {loading: false, users: null, error: error} );
         })
     }
-
-    componentDidUpdate( ) {
-        //console.log('componentDidUpdate')
-     }
- 
-     componentWillUnmount( ) {
-        //console.log('componentWillUnmount')
-     }
      
     renderLoading( ) {
         const loadingJSX = 
         <div>
-            <i className="notched circle loading icon"></i>
-            <div className="content">
-                <h4> Loading ....</h4>
+            <i className = "notched circle loading icon"></i>
+            <div className = "content">
+                <h4>Loading ....</h4>
             </div>
         </div> 
         return loadingJSX;
     }
 
-    renderError ( ) {
-        const message= this.state.error? this.state.error['message'] : '';
+    renderError( ) {
+        const message = this.state.error ? this.state.error[ 'message' ] : '';
         const errorJSX = 
-                <div className="ui red message">
-                    <h4>{message}</h4>
+                <div className = "ui red message">
+                    <h4>{ message }</h4>
                 </div>
         return errorJSX;
     }
 
     renderUserdata( ) {
-        const users = this.state.users ? this.state.users : [];
-        const dataJSX = users.map(  (user: {id: number, name: string, phone: number})=> {
+        const users = this.state.users ? this.state.users : [ ];
+        const dataJSX = users.map( ( user: {id: number, name: string, phone: number} ) => {
             return (
-                <div key= {user.id} className="ui blue segment">
-                        <p key= {user.id + 1}><b>Name:</b> {user.name}</p>
-                        <p key= {user.id + user.phone}><b>Phone:</b> {user.phone}</p>
+                <div key = { user.id } className="ui blue segment">
+                    <p><b>Name:</b>{ user.name }</p>
+                    <p><b>Phone:</b>{ user.phone }</p>
                 </div>
             );
         });
@@ -70,10 +64,15 @@ export class Radhika extends Component <IProps, IState> {
     render( ) {
         return(
             <div>
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
+                <h2 className = "ui center aligned header">{ this.props.title }</h2>
+                <br/>
+                <Link to='/' className = "ui primary basic tag label">Home Page</Link> &nbsp;&nbsp;
+                <Link to='/about/User' className = "ui primary basic tag label">About</Link>
+                <br/>
                 {
-                    this.state.Loading? this.renderLoading( ) : 
-                    this.state.users? <><h3>User Details</h3>{ this.renderUserdata( )} </> : <> { this.renderError( ) } </>
+                    this.state.loading ? this.renderLoading( ): 
+                    this.state.users ? <><h3 className = "ui center aligned header">User Details</h3>{ this.renderUserdata( ) }</>:
+                    this.renderError( )
                 }
             </div>
         );
