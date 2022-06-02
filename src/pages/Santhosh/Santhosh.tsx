@@ -1,29 +1,22 @@
 import { Component } from "react";
-import axios, { responseEncoding } from 'axios';
-import { Interface } from "readline";
-import { text } from "stream/consumers";
-import { table } from "console";
+import axios from 'axios';
+import { Link } from "react-router-dom";
 
 
 interface IState {
     Loading: boolean, 
     users: {} [] | null, 
     error: {message: string} | null;
-
 }
-
 interface IProps {
     title: String;
 }
-
 
 export class Santhosh extends Component<IProps, IState> {
 
     state = {title: true, Loading: true, users: null, error: null };
 
     componentDidMount( ) {
-
-        // Intitiate API call from here
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
                 this.setState( {Loading: false, users: response.data, error: null} );
@@ -53,8 +46,7 @@ export class Santhosh extends Component<IProps, IState> {
     }
    
  
-    renderNews( ) {
-       
+    renderNews( ) {       
         const users = this.state.users? this.state.users : [] ;  
       
         const newsJSX = users.map( ( item: { id: number, name: string, email: any } )=> {            
@@ -66,12 +58,10 @@ export class Santhosh extends Component<IProps, IState> {
                 </tr>
             );
         }); 
-
         return newsJSX;
     }
  
-    render( ) {        
-           
+    render( ) {     
         return (
         <div>              
         <h3 className="ui center aligned header">{ this.props.title }</h3>                  
