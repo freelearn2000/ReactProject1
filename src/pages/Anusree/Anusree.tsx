@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { retriveDataFromRoute } from '../../utils/hoc';
 
 
 interface IProps {
@@ -13,7 +14,7 @@ interface IState {
     error: { message: string } | null;
 }
 
-export class Anusree extends Component <IProps, IState> {
+class Anusree extends Component <IProps, IState> {
 
     state={ loading: true, users: null, error: null };
     
@@ -30,9 +31,9 @@ export class Anusree extends Component <IProps, IState> {
 
     renderLoading( ) {
 
-        const loadingJSX = 
-        <div className = "ui active inverted dimmer">
-            <div className = "ui text loader">Loading user data...</div>
+        const loadingJSX =
+        <div className="ui active inverted dimmer">
+            <div className="ui text loader">Loading user data...</div>
         </div>
         return loadingJSX;
     }
@@ -67,7 +68,7 @@ export class Anusree extends Component <IProps, IState> {
             <div>
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
                 <Link to='/' className="ui blue label"><i className="home icon"></i> Home</Link>
-                <Link to='/news/latestnews/sports' className="ui yellow label"><i className="file alternate outline icon"></i> News</Link>
+                <Link to='/news/latestnews' className="ui yellow label"><i className="file alternate outline icon"></i> News</Link>
                     {
                         this.state.loading ? this.renderLoading( ):
                         this.state.users ? <><h2>User Data</h2>{ this.renderUserdata( ) }</>:
@@ -77,3 +78,5 @@ export class Anusree extends Component <IProps, IState> {
         )
     }
 }
+
+export default retriveDataFromRoute( Anusree );
