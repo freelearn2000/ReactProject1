@@ -24,18 +24,19 @@ export class Dhanya extends Component<IProps, IState> {
     }
 
     renderLoading( ) {
+
         const loadingJSX = <h4>Loading...</h4>
         return loadingJSX;
     }
 
     renderData( ) {
+
         const data = this.state.data? this.state.data : [];
 
         const dataJSX = data.map( (item: any) => {
             return (
-                <div className="card">
+                <div className="ui centered card" key={item.id}>
                     <div className="content">
-                        {/* <img className="right floated mini ui image" src="/images/avatar/large/elliot.jpg" /> */}
                         <div className="header">
                            {item.name}
                         </div>
@@ -58,10 +59,10 @@ export class Dhanya extends Component<IProps, IState> {
     }
 
     renderError( ) {
+
         const message = this.state.error ? this.state.error[`message`] : '';
         const errorJSX = (
             <div className="ui warning message">
-                {/* <i className="close icon"></i> */}
                 <div className="header">
                    {message}
                 </div>
@@ -71,11 +72,14 @@ export class Dhanya extends Component<IProps, IState> {
     }
 
     render( ) {
+
       return (
         <div>
             <h2 className="ui horizontal divider header">{this.props.title}</h2> 
             <br/>
-            <Link to='/' className="active item">Home</Link>
+            <div className="ui segment">
+                <Link to='/news/2' className="ui orange label">Go to News</Link>
+            </div>
             <br/>
             {	this.state.loading ? this.renderLoading( ) :
                 this.state.data ? this.renderData( ) :
