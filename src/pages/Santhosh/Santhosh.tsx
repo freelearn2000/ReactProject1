@@ -1,6 +1,7 @@
-import { Component } from "react";
+import { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { retriveDataFromRoute } from '../../utils/hoc';
  
 
 interface IState {
@@ -13,7 +14,7 @@ interface IProps {
     title: String;
 }
 
-export class Santhosh extends Component<IProps, IState> {
+class Santhosh extends Component<IProps, IState> {
 
     state = { loading: true, users: null, error: null };
 
@@ -21,18 +22,18 @@ export class Santhosh extends Component<IProps, IState> {
 
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
-                this.setState( {loading: false, users: response.data, error: null} );
+                this.setState( { loading: false, users: response.data, error: null } );
             })
             .catch(error => {
-                this.setState( {loading: false, users: null, error: error} );
+                this.setState( { loading: false, users: null, error: error } );
             })                  
     }
     
     renderLoading( ) {
 
         const loadingJSX = 
-        <div className = "ui icon message">
-            <i className =" notched circle loading icon"></i>
+        <div className="ui icon message">
+            <i className="notched circle loading icon"></i>
             <h4>Loading Please wait.. </h4>
         </div>         
         return loadingJSX;
@@ -43,7 +44,7 @@ export class Santhosh extends Component<IProps, IState> {
         const message = this.state.error? this.state.error[ 'message' ] : '';
         const errorJSX =
         <div>                  
-            <h3 className = "ui red message">{ message }</h3>
+            <h3 className="ui red message">{ message }</h3>
         </div> 
         return errorJSX;
     }
@@ -54,9 +55,9 @@ export class Santhosh extends Component<IProps, IState> {
         const newsJSX = users.map( ( item: { id: number, name: string, email: any } )=> {            
             return (
                 <tr key={ item.id }> 
-                    <td className = "negative">{ item.id }</td>         
-                    <td className = "negative">{ item.name }</td>                   
-                    <td className = "negative">{ item.email }</td>                   
+                    <td className="negative">{ item.id }</td>         
+                    <td className="negative">{ item.name }</td>                   
+                    <td className="negative">{ item.email }</td>                   
                 </tr>
             );
         }); 
@@ -67,7 +68,7 @@ export class Santhosh extends Component<IProps, IState> {
            
         return (
             <div>              
-                <h3 className = "ui center aligned red header">{ this.props.title }</h3>    
+                <h3 className="ui center aligned red header">{ this.props.title }</h3>    
                 <br/>
                 <Link to='/' className="ui blue label"><i className="home icon"></i> Home</Link>
                 <Link to='/news/latest' className="ui red label"><i className="file alternate outline icon"></i> News</Link>                
@@ -78,9 +79,9 @@ export class Santhosh extends Component<IProps, IState> {
                     <table className="ui celled table">
                         <thead>
                             <tr>
-                                <td className = "orange" align = "center" ><h4>ID</h4></td>
-                                <td className = "orange" align = "center" ><h4>Name</h4></td>
-                                <td className =" orange" align = "center" ><h4>Email</h4></td>
+                                <td className="orange" align = "center" ><h4>ID</h4></td>
+                                <td className="orange" align = "center" ><h4>Name</h4></td>
+                                <td className="orange" align = "center" ><h4>Email</h4></td>
                             </tr>
                         </thead>
                         <tbody>{ this.renderNews( ) }</tbody>
@@ -91,3 +92,5 @@ export class Santhosh extends Component<IProps, IState> {
         )        
     }
 } 
+
+export default retriveDataFromRoute( Santhosh );
