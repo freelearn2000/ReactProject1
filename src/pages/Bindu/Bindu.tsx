@@ -1,6 +1,7 @@
 import { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { retriveDataFromRoute } from "../../utils/hoc";
 
 
 interface IProps {
@@ -13,7 +14,7 @@ interface IState {
     error: { message: string } | null;
 }
 
-export class Bindu extends Component <IProps, IState> {
+class Bindu extends Component <IProps, IState> {
 
     state = { loading: true, users: null, error: null };
 
@@ -39,7 +40,7 @@ export class Bindu extends Component <IProps, IState> {
     const message = this.state.error ? this.state.error[ 'message' ] : '';
     const errorJSX = 
         <div>
-            <div className = "ui negative message">
+            <div className="ui negative message">
                <h4> { message } </h4>
             </div>
             
@@ -51,7 +52,7 @@ export class Bindu extends Component <IProps, IState> {
         const users = this.state.users ? this.state.users : [ ];
         const dataJSX = users.map( (user: { name: string, email: string, id: number } ) => {
         return(
-            <div key = { user.id } className = "ui brown segment">
+            <div key={ user.id } className="ui brown segment">
                 <h4>{ user.name }</h4>
                 <p>{ user.email }</p>
             </div>
@@ -63,10 +64,10 @@ export class Bindu extends Component <IProps, IState> {
    render( ) { 
 
         return(
-            <div className = "ui segment">
-                <h2 className = "ui center aligned header">{ this.props.title }</h2>
-                <Link to = '/' className="item">Back to Home</Link><br/>
-                <Link to = '/about/companydetails' className="item">Company Details</Link>
+            <div className="ui segment">
+                <h2 className="ui center aligned header">{ this.props.title }</h2>
+                <Link to='/' className="ui green button">Home</Link>
+                <Link to='/about/aboutus' className="ui green button">About</Link>
 
                 {
                     this.state.loading ? this.renderLoading( ) : 
@@ -76,4 +77,6 @@ export class Bindu extends Component <IProps, IState> {
             </div>
         )
     }
-}            
+} 
+
+export default retriveDataFromRoute ( Bindu );
