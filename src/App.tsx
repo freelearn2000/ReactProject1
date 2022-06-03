@@ -10,7 +10,7 @@ import { Rakhi } from './pages/Rakhi/Rakhi';
 import Santhosh from './pages/Santhosh/Santhosh';
 import Radhika  from './pages/Radhika/Radhika';
 import { Samara } from './pages/Samara/Samara';
-import { Parvathy } from './pages/Parvathy/Parvathy';
+import Parvathy from './pages/Parvathy/Parvathy';
 import { Vishnupriya } from './pages/Vishnupriya/Vishnupriya';
 import { Divya } from './pages/Divya/Divya';
 import  Bindu from './pages/Bindu/Bindu';

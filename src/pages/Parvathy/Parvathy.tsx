@@ -1,6 +1,7 @@
 import { Component } from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { retriveDataFromRoute } from '../../utils/hoc';
 
 
 interface IProps {
@@ -9,14 +10,13 @@ interface IProps {
 
 interface IState {
     loading: boolean,
-    books: { } [ ] | null,
+    users: {}[] | null,
     error: { message: string } | null;
-
 }
 
-export class Parvathy extends Component<IProps, IState> {
+class Parvathy extends Component<IProps, IState> {
 
-    state = { loading: true, books: null, error: null };
+    state = { loading: true, users: null, error: null };
 
     // initialization
     componentDidMount() {
@@ -24,16 +24,22 @@ export class Parvathy extends Component<IProps, IState> {
         // Intitiate API call from here
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
-                this.setState({ loading: false, books: response.data, error: null });
+                this.setState( {loading: false, users: response.data, error: null} );
             })
             .catch(error => {
-                this.setState({ loading: false, books: null, error: error });
+                this.setState( {loading: false, users: null, error: error} );
             });
     }
 
     renderLoading() {
 
-        const loadingJSX = <h4>Loading....</h4>
+        const loadingJSX =
+            <div className="ui segment">
+                <p>Please wait a little...</p>
+                <div className="ui active inverted dimmer">
+                    <div className="ui green text loader">Loading</div>
+                </div>
+            </div>
         return loadingJSX;
     }
 
@@ -43,18 +49,17 @@ export class Parvathy extends Component<IProps, IState> {
         const errorJSX =
             <div>
                 <br />
-                <h4>{message}</h4>
+                <h4>{ message }</h4>
             </div>
         return errorJSX;
     }
 
-    renderBooks() {
+    renderData() {
 
-        const books = this.state.books ? this.state.books : [ ];
-        const dataJSX = books.map( (item: any) => {
-            let bno = item.id + `b`;
+        const users = this.state.users ? this.state.users : [];
+        const dataJSX = users.map( (item: { name: string, email: string, id: number } ) => {
             return (
-                <div key = { bno } className = "ui center aligned message">
+                <div key={ item.id } className="ui center aligned message">
                     <h4>{ item.name }</h4>
                     <p>Email : { item.email }</p>
                 </div>
@@ -63,19 +68,24 @@ export class Parvathy extends Component<IProps, IState> {
         return dataJSX;
     }
 
-    render( ) {
+    render() {
 
         return (
             <div>
-                <h2 className = "ui center aligned header message">{ this.props.title }</h2>
-                <Link to='/' className="ui teal basic tag label">Goto HomePage</Link>
-                &nbsp;&nbsp;
+                <h2 className="ui center aligned header message">{ this.props.title }</h2>
                 {
-                    this.state.loading ? this.renderLoading( ):
-                    this.state.books ? <><Link to='/news/7' className="ui  basic olive tag label">News</Link>{ this.renderBooks( ) }</>:
-                    this.renderError( )
+                    this.state.loading ? this.renderLoading() :
+                        this.state.users ?
+                            <>
+                                <Link to='/' className="ui teal basic tag label">Goto HomePage</Link> &nbsp;&nbsp;
+                                <Link to='/news/7' className="ui basic olive tag label">News</Link>
+                                { this.renderData() }
+                            </> :
+                            this.renderError()
                 }
             </div>
         )
     }
 }
+
+export default retriveDataFromRoute(Parvathy);
