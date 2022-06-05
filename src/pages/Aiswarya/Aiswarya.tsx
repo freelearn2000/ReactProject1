@@ -1,6 +1,7 @@
 import { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { retriveDataFromRoute } from "../../utils/hoc";
 
 
 interface IProps {
@@ -69,7 +70,7 @@ export class Aiswarya extends Component <IProps, IState> {
                 <h2 className = "ui center aligned header">{ this.props.title }</h2>
                     <br/>
                     <button className="ui purple basic button"><Link to='/' className="item">Home</Link></button>
-                    <button className="ui purple basic button"><Link to='/news' className="item">News</Link></button>
+                    <button className="ui purple basic button"><Link to='/news/latestnews' className="item">News</Link></button>
                     <br/>
                 {
                     this.state.loading ? this.renderLoading( ):
@@ -77,6 +78,8 @@ export class Aiswarya extends Component <IProps, IState> {
                     <><h2> Error Data !!!!</h2>{this.rendererror( )}</>
                 }
             </div>
-        ) 
+        )
     }
 }
+
+export default retriveDataFromRoute( Aiswarya );
