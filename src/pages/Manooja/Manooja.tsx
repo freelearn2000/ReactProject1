@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { retriveDataFromRoute } from  '../../utils/hoc';
 
 
 interface IState {
@@ -85,3 +86,4 @@ export class Manooja extends Component<IProps, IState> {
     }
 } 
 
+export default retriveDataFromRoute ( Manooja );
