@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { retriveDataFromRoute } from '../../utils/hoc';
 
 
 interface IProps {
@@ -13,7 +14,7 @@ interface IState {
     error: {message: string} | null;
 }
 
-export class Rakhi extends Component<IProps, IState> {
+class Rakhi extends Component<IProps, IState> {
 
     state = {loading: true, users: null, error: null};
     
@@ -92,4 +93,7 @@ export class Rakhi extends Component<IProps, IState> {
         )
     }
 }
+
+export default retriveDataFromRoute( Rakhi );
+
 

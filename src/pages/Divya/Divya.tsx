@@ -1,6 +1,7 @@
 import	axios from 'axios';
 import  { Component } from 'react';
 import 	{ Link } from 'react-router-dom';
+import { retriveDataFromRoute } from '../../utils/hoc';
 
 
 interface IProps {
@@ -9,28 +10,31 @@ interface IProps {
 
 interface IState {
 	loading: boolean;
-	project: { } [ ] | null;
+	users: { } [ ] | null;
 	error: { message: string } | null;
 }
 
-export class Divya extends Component<IProps, IState> {
+class Divya extends Component<IProps, IState> {
 
-    state = { loading: true, project: null, error: null };
+    state = { loading: true, users: null, error: null };
 
 	componentDidMount( ) {
 
 		axios.get(`https://jsonplaceholder.typicode.com/users`)
 			.then(response => {
-				this.setState( {loading: false, project: response.data, error: null} );
+				this.setState( {loading: false, users: response.data, error: null} );
 			})
 			.catch(error => {
-				this.setState( {loading: false, project: null, error: error} );
+				this.setState( {loading: false, users: null, error: error} );
 		});   
     }
 
 	renderLoading( ) {
 
-		const loadingJSX = <h4 className="ui secondary elastic loading button">Loading</h4> 
+		const loadingJSX = 
+			<div className = "ui horizontal divider header">
+				<h4 className="ui secondary elastic loading button">Loading....</h4> 
+			</div>
 		return loadingJSX;
 	}
 
@@ -44,24 +48,24 @@ export class Divya extends Component<IProps, IState> {
 		return errorJSX;
 	}
 
-	renderProject( ) {
+	renderData( ) {
 
-		const project = this.state.project ? this.state.project : [ ];
-		const projectJSX = project.map( (project: {id: number, name: string, email: string}) => {
+		const users = this.state.users ? this.state.users : [ ];
+		const dataJSX = users.map( (user: {id: number, name: string, email: string}) => {
 			return(
-				<div key = { project.id } className ='ui segment'>
+				<div key = { user.id } className ='ui segment'>
 					<table className = "ui definition table">
 						<tbody>
 							<tr>
-								<td className = "five wide column">Name : { project.name }</td>
-								<td>Email : { project.email }</td>
+								<td className = "five wide column">Name : { user.name }</td>
+								<td>Email : { user.email }</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			);
 		});
-		return projectJSX;
+		return dataJSX;
 	}
 
 	render( ) {
@@ -74,10 +78,11 @@ export class Divya extends Component<IProps, IState> {
 				<Link to='/news/3' className="ui button">News</Link>
 				<br/>
                 {	this.state.loading ? this.renderLoading( ) :
-                	this.state.project ? this.renderProject( ) :
-               		this.renderError( ) 
-				} 	
+                	this.state.users ? this.renderData( ) :
+               		this.renderError( )	} 	
             </div>
         )		
 	}	
 }
+
+export default retriveDataFromRoute(Divya);
