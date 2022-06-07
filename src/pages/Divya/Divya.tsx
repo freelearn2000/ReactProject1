@@ -32,7 +32,7 @@ class Divya extends Component<IProps, IState> {
 	renderLoading( ) {
 
 		const loadingJSX = 
-			<div className = "ui horizontal divider header">
+			<div className="ui horizontal divider header">
 				<h4 className="ui secondary elastic loading button">Loading....</h4> 
 			</div>
 		return loadingJSX;
@@ -43,7 +43,7 @@ class Divya extends Component<IProps, IState> {
 		const message = this.state.error? this.state.error[ 'message' ] : '';
 		const errorJSX = 
 			<div>
-				<h4 className = "negative ui button">{ message }</h4>
+				<h4 className="negative ui button">{ message }</h4>
 			</div>
 		return errorJSX;
 	}
@@ -51,13 +51,13 @@ class Divya extends Component<IProps, IState> {
 	renderData( ) {
 
 		const users = this.state.users ? this.state.users : [ ];
-		const dataJSX = users.map( (user: {id: number, name: string, email: string}) => {
+		const dataJSX = users.map( (user: {id: number, name: string, email: string} ) => {
 			return(
-				<div key = { user.id } className ='ui segment'>
-					<table className = "ui definition table">
+				<div key={ user.id } className='ui segment'>
+					<table className="ui definition table">
 						<tbody>
 							<tr>
-								<td className = "five wide column">Name : { user.name }</td>
+								<td className="five wide column">Name : { user.name }</td>
 								<td>Email : { user.email }</td>
 							</tr>
 						</tbody>
