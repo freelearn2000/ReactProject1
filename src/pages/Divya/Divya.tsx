@@ -31,7 +31,10 @@ class Divya extends Component<IProps, IState> {
 
 	renderLoading( ) {
 
-		const loadingJSX = <h4 className="ui secondary elastic loading button">Loading</h4> 
+		const loadingJSX = 
+			<div className = "ui horizontal divider header">
+				<h4 className="ui secondary elastic loading button">Loading....</h4> 
+			</div>
 		return loadingJSX;
 	}
 
