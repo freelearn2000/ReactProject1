@@ -59,8 +59,8 @@ class Vishnupriya extends Component<IProps, IState> {
 
     renderUserData( ) {
 
-        const blogs = this.state.users ? this.state.users : [ ];
-        const blogJSX = blogs.map( ( user: {id: number, name: string, email: string} ) => {
+        const users = this.state.users ? this.state.users : [ ];
+        const userJSX = users.map( ( user: {id: number, name: string, email: string} ) => {
             return (
                 <div key={ user.id } className="ui two segment">
                     <h5>Name: { user.name }</h5>
@@ -68,14 +68,14 @@ class Vishnupriya extends Component<IProps, IState> {
                 </div>
             )
         });
-        return blogJSX;
+        return userJSX;
     }
 
     render( ) {
 
         return (
             <div>
-                <h2 className="ui center aligned blue header message">{this.props.title}</h2>
+                <h2 className="ui center aligned blue header message">{ this.props.title }</h2>
                 <br/>
                 <button className="ui button"><Link to='/' className="item">Home</Link></button>
                 <button className="ui button"><Link to='/news/popular' className="item">News</Link></button>

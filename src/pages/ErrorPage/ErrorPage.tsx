@@ -2,9 +2,9 @@ export const ErrorPage = ( props: any ) => {
     return (
         <div className="ui negative message">
             <div className="header">
-                {props.ErrorCode}
+                { props.ErrorCode }
             </div>
-            <p>{props.ErrorMsg}</p>
+            <p>{ props.ErrorMsg }</p>
         </div>
     );
 }
