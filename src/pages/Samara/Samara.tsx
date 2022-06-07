@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { retriveDataFromRoute } from '../../utils/hoc'
 
 
 interface IProps {
@@ -9,22 +10,22 @@ interface IProps {
 
 interface IState {
     loading: boolean;
-    userData: { } [ ] | null;
+    data: { } [ ] | null;
     error: { message: string } | null;
 }
 
-export class Samara extends Component<IProps, IState> {
+class Samara extends Component<IProps, IState> {
 
-    state = { loading: true, userData: null, error: null };
+    state = { loading: true, data: null, error: null };
 
     componentDidMount( ) {
 
         axios.get('https://jsonplaceholder.typicode.com/users')
         .then(response => {
-            this.setState( {loading: false, userData: response.data, error: null} );
+            this.setState( {loading: false, data: response.data, error: null} );
         })
         .catch(error => {
-            this.setState( {loading: false, userData: null, error: error} );
+            this.setState( {loading: false, data: null, error: error} );
         })
     }
 
@@ -51,8 +52,8 @@ export class Samara extends Component<IProps, IState> {
 
     renderData( ) {
 
-        const userData = this.state.userData ? this.state.userData : [ ];
-        const dataJSX = userData.map( (item: {id: number, name: string, email: string} ) => {
+        const data = this.state.data ? this.state.data : [ ];
+        const dataJSX = data.map( (item: {id: number, name: string, email: string} ) => {
             return (
                 <div key = { item.id } className="ui floating message">
                     <h4>{ item.name }</h4>
@@ -70,10 +71,10 @@ export class Samara extends Component<IProps, IState> {
                 <h2 className = "ui center aligned header message">{ this.props.title }</h2>
                     {
                         this.state.loading ? this.renderLoading( ) : 
-                        this.state.userData ? 
+                        this.state.data ? 
                         <>
                             <Link to='/' className="ui teal button">Home</Link>
-                            <Link to='/news/UK/latest' className="ui teal button">News</Link>
+                            <Link to='/news/UK' className="ui teal button">News</Link>
                             { this.renderData( ) }
                         </> : 
                         this.renderError( )
@@ -82,3 +83,6 @@ export class Samara extends Component<IProps, IState> {
         );
     }
 }
+
+
+export default retriveDataFromRoute( Samara );
