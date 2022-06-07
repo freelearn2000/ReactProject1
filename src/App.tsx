@@ -6,7 +6,7 @@ import { HomePage } from './pages/HomePage/HomePage';
 import { NewsPage } from './pages/NewsPage/NewsPage';
 import { AboutPage } from './pages/AboutPage/AboutPage';
 import Anusree from './pages/Anusree/Anusree';
-import { Rakhi } from './pages/Rakhi/Rakhi';
+import Rakhi from './pages/Rakhi/Rakhi';
 import Santhosh from './pages/Santhosh/Santhosh';
 import Radhika from './pages/Radhika/Radhika';
 import Samara from './pages/Samara/Samara';
