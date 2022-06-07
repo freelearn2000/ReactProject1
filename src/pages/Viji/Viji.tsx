@@ -1,6 +1,8 @@
 import { Component } from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { retriveDataFromRoute } from '../../utils/hoc';
+
 
 interface IState {
     loading: boolean, 
@@ -48,7 +50,7 @@ export class Viji extends Component <IProps, IState> {
     renderUsersData( ) {
 
         const users = this.state.users ? this.state.users : [ ];
-        const blogJSX = users.map( (items: {id: number, name: string, email: string}, index) => {
+        const userJSX = users.map( (items: {id: number, name: string, email: string}, index) => {
         return (
             <div key = { items.id } className = 'ui red segment'>
             <div className = "ui tertiary inverted segment">
@@ -60,7 +62,7 @@ export class Viji extends Component <IProps, IState> {
             </div>
         )
         });
-        return blogJSX;
+        return userJSX;
     }
         
     render( ) {
@@ -69,7 +71,8 @@ export class Viji extends Component <IProps, IState> {
             <div>
             <h2 className = "ui center aligned green header">{ this.props.title }</h2>
             <br/>
-            <Link to = '/' className = "item">Go to Home Page</Link>
+            <button className = "ui button"><Link to='/' className="item">Home</Link></button>
+            <button className = "ui button"><Link to='/news/local' className="item">About</Link></button>
             <br/>
             {
                 this.state.loading ? this.renderLoading( ):
@@ -80,3 +83,5 @@ export class Viji extends Component <IProps, IState> {
         )   
     }
 } 
+
+export default retriveDataFromRoute(Viji);

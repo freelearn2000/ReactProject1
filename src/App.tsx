@@ -15,7 +15,7 @@ import { Vishnupriya } from './pages/Vishnupriya/Vishnupriya';
 import { Divya } from './pages/Divya/Divya';
 import  Bindu from './pages/Bindu/Bindu';
 import { Aiswarya } from './pages/Aiswarya/Aiswarya';
-import { Viji } from './pages/Viji/Viji';
+import Viji  from './pages/Viji/Viji';
 import { Manooja } from './pages/Manooja/Manooja';
 import { Dhanya } from './pages/Dhanya/Dhanya';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
