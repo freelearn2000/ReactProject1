@@ -6,6 +6,7 @@ import { retriveDataFromRoute } from '../../utils/hoc';
 
 interface IProps {
     title: string;
+    routeData: any;
 }
 
 interface IState {
@@ -26,14 +27,6 @@ class Rakhi extends Component<IProps, IState> {
             .catch(error => {
                 this.setState( {loading: false, users: null, error: error} );
             })
-    }
-
-    componentDidUpdate( ) {
-
-    }
-
-    componentWillUnmount( ) {
-
     }
 
     renderLoading( ) {
@@ -82,6 +75,7 @@ class Rakhi extends Component<IProps, IState> {
         return(
             <div>
                 <h2 className = 'ui center aligned header block'>{ this.props.title }</h2>
+                <h4 className='ui header blue'>Route Data: {this.props.routeData.id}</h4>
                 <Link to='/' className = "ui teal tag label">Home</Link>
                 <Link to='/news/trending' className = "ui red tag label">News</Link>
                 {
