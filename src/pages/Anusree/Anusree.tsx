@@ -6,6 +6,7 @@ import { retriveDataFromRoute } from '../../utils/hoc';
 
 interface IProps {
     title: any;
+    routeData: any;
 }
 
 interface IState {
@@ -14,7 +15,7 @@ interface IState {
     error: { message: string } | null;
 }
 
-class Anusree extends Component <IProps, IState> {
+class Anusree extends Component<IProps, IState> {
 
     state={ loading: true, users: null, error: null };
     
@@ -67,11 +68,12 @@ class Anusree extends Component <IProps, IState> {
         return(
             <div>
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
-                <Link to='/' className="ui blue label"><i className="home icon"></i> Home</Link>
-                <Link to='/news/latestnews' className="ui yellow label"><i className="file alternate outline icon"></i> News</Link>
+                <h3>Route Data: { this.props.routeData.id }</h3>
+                <Link to='/' className="ui blue label"><i className="home icon"></i>Home</Link>
+                <Link to='/about/contact/hr@abc.com' className="ui yellow label"><i className="file alternate outline icon"></i>About</Link>
                     {
                         this.state.loading ? this.renderLoading( ):
-                        this.state.users ? <><h2>User Data</h2>{ this.renderUserdata( ) }</>:
+                        this.state.users ? <><h2>Employee Details</h2>{ this.renderUserdata( ) }</>:
                         <><h2>Error Data</h2>{ this.renderError( )}</>
                     }
             </div>

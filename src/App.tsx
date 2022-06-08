@@ -4,7 +4,7 @@ import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
 import { HomePage } from './pages/HomePage/HomePage';
 import { NewsPage } from './pages/NewsPage/NewsPage';
-import { AboutPage } from './pages/AboutPage/AboutPage';
+import AboutPage from './pages/AboutPage/AboutPage';
 import Anusree from './pages/Anusree/Anusree';
 import Rakhi from './pages/Rakhi/Rakhi';
 import Santhosh from './pages/Santhosh/Santhosh';
@@ -33,9 +33,13 @@ class App extends Component {
            <Route path=":id" element={ <NewsPage/> }/>
         </Route>
         <Route path="/about" element={ <AboutPage/> }>
-          <Route path=":id" element={ <AboutPage/> }/>
+          <Route path=":id1" element={ <AboutPage/> }>
+            <Route path=":id2" element={ <AboutPage/> }/>
+          </Route>
         </Route>
-        <Route path="/anusree" element={ <Anusree title="This is Anusree's Component"/> }/>
+        <Route path="/anusree" element={ <Anusree title="This is Anusree's Component"/> }>
+        <Route path=":id" element={ <Anusree title="This is Anusree's Component"/> }/>
+        </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }/>
         <Route path="/rakhi" element={ <Rakhi title="This is Rakhi's Component"/> }/>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component" /> }/>
