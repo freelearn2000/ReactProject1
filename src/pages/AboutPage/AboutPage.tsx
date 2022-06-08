@@ -47,7 +47,7 @@ class AboutPage extends Component<IProps> {
                 <h1>This is About Component</h1>
                 <br/>
                 { objLength > 0 &&
-                    <h4>{ this.props.routeData.id1 } : { this.props.routeData.id2 }</h4>
+                    <h4 className='ui header blue'>{ this.props.routeData.id1 } : { this.props.routeData.id2 }</h4>
                 }
                 <p>{this.state.data} !!!</p>
                 <br/>

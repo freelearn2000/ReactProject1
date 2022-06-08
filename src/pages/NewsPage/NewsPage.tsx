@@ -1,7 +1,12 @@
 import { Component } from 'react';
+import { retriveDataFromRoute } from '../../utils/hoc';
 
 
-export class NewsPage extends Component {
+interface IProps {
+    routeData: any;
+}
+
+class NewsPage extends Component<IProps> {
 
     state = {data: 'Welcome to our component state.', xyz: {name: 'steve'}};
 
@@ -42,6 +47,7 @@ export class NewsPage extends Component {
                 <br/>
                 <p>{this.state.data} !!!</p>
                 <br/>
+                <h2 className='ui  header blue block aligned center'>{ this.props.routeData.id }</h2>
                 <div className="ui buttons">
                     <button className="ui button">Cancel</button>
                     <div className="or"></div>
@@ -51,3 +57,5 @@ export class NewsPage extends Component {
         );
     }
 }
+
+export default retriveDataFromRoute( NewsPage );

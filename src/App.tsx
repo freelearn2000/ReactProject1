@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
 import { HomePage } from './pages/HomePage/HomePage';
-import { NewsPage } from './pages/NewsPage/NewsPage';
+import NewsPage from './pages/NewsPage/NewsPage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import Anusree from './pages/Anusree/Anusree';
 import Rakhi from './pages/Rakhi/Rakhi';
