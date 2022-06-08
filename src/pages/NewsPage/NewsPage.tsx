@@ -40,6 +40,7 @@ class NewsPage extends Component<IProps> {
 
     render( ) {
         // console.log(`NewsPage render`);
+        const objLength = Object.keys(this.props.routeData).length
         
         return (
             <div>
@@ -47,7 +48,9 @@ class NewsPage extends Component<IProps> {
                 <br/>
                 <p>{this.state.data} !!!</p>
                 <br/>
-                <h2 className='ui  header blue block aligned center'>{ this.props.routeData.id }</h2>
+                { objLength > 0 &&
+                    <h2 className='ui  header blue block aligned center'>{ this.props.routeData.id }</h2>
+                }
                 <div className="ui buttons">
                     <button className="ui button">Cancel</button>
                     <div className="or"></div>
