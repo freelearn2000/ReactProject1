@@ -12,6 +12,7 @@ interface IState {
 
 interface IProps {
     title: string;
+    routeData: any;
 }
 
 class Radhika extends Component <IProps, IState> {
@@ -70,9 +71,10 @@ class Radhika extends Component <IProps, IState> {
         return(
             <div>
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
+                <h3>Route Data: { this.props.routeData.id }</h3>
                 <br/>
                 <Link to='/' className="ui primary basic tag label">Home Page</Link> &nbsp;&nbsp;
-                <Link to='/about/User' className="ui primary basic tag label">About</Link>
+                <Link to='/about/User/details' className="ui primary basic tag label">About</Link>
                 <br/>
                 {
                     this.state.loading ? this.renderLoading( ): 
