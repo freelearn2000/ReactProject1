@@ -68,7 +68,7 @@ class Anusree extends Component<IProps, IState> {
         return(
             <div>
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
-                <h3>Route Data: { this.props.routeData.id }</h3>
+                <h3 className='ui header blue'>Route Data: { this.props.routeData.id }</h3>
                 <Link to='/' className="ui blue label"><i className="home icon"></i>Home</Link>
                 <Link to='/about/contact/hr@abc.com' className="ui yellow label"><i className="file alternate outline icon"></i>About</Link>
                     {

@@ -40,7 +40,7 @@ class App extends Component {
           <Route path=":id" element={ <Anusree title="This is Anusree's Component"/> }/>
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>
-        <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
+          <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
         </Route>
         <Route path="/rakhi" element={ <Rakhi title="This is Rakhi's Component"/> }>
           <Route path=":id" element={ <Rakhi title="This is Rakhi's Component"/> }/>
