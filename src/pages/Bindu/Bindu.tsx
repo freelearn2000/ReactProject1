@@ -6,6 +6,7 @@ import { retriveDataFromRoute } from "../../utils/hoc";
 
 interface IProps {
     title: any
+    routeData: any;
 }
 
 interface IState {
@@ -66,8 +67,9 @@ class Bindu extends Component <IProps, IState> {
         return(
             <div className="ui segment">
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
+                <h4 className="ui header blue">Route Data: { this.props.routeData.id }</h4>
                 <Link to='/' className="ui green button">Home</Link>
-                <Link to='/about/aboutus' className="ui green button">About</Link>
+                <Link to='/news/trendynews' className="ui green button">News</Link>
 
                 {
                     this.state.loading ? this.renderLoading( ) : 
