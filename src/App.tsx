@@ -37,21 +37,23 @@ class App extends Component {
           </Route>
         </Route>
         <Route path="/anusree" element={ <Anusree title="This is Anusree's Component"/> }>
-        <Route path=":id" element={ <Anusree title="This is Anusree's Component"/> }/>
+          <Route path=":id" element={ <Anusree title="This is Anusree's Component"/> }/>
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }/>
 
         <Route path="/rakhi" element={ <Rakhi title="This is Rakhi's Component"/> }>
-        <Route path=":id" element={ <Rakhi title="This is Rakhi's Component"/> }/>
+          <Route path=":id" element={ <Rakhi title="This is Rakhi's Component"/> }/>
         </Route>
         <Route path="/Bindu" element={ <Bindu title="This is Bindu's Component"/> }>
-        <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
+          <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
         </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component" /> }/>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }/>
-        <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }/>
+        <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
+          <Route path=":id" element={ <Parvathy title="This is Parvathy's Component"/> }/>
+        </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
-        <Route path=":id" element={ <Vishnupriya title="This is Vishnupriya's Component"/> }/> 
+          <Route path=":id" element={ <Vishnupriya title="This is Vishnupriya's Component"/> }/> 
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }/>
         <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }/>
