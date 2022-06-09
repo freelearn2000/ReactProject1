@@ -6,6 +6,7 @@ import { retriveDataFromRoute } from '../../utils/hoc'
 
 interface IProps {
     title: string;
+    routeData: any;
 }
 
 interface IState {
@@ -68,13 +69,14 @@ class Samara extends Component<IProps, IState> {
         
         return(
             <div>
-                <h2 className = "ui center aligned header message">{ this.props.title }</h2>
+                <h2 className="ui center aligned background header message">{ this.props.title }</h2>
+                <h4 className='ui header blue'>Route Data: { this.props.routeData.id }</h4>
                     {
                         this.state.loading ? this.renderLoading( ) : 
                         this.state.data ? 
                         <>
                             <Link to='/' className="ui teal button">Home</Link>
-                            <Link to='/news/UK' className="ui teal button">News</Link>
+                            <Link to='/about/ContactNo/8456' className="ui teal button">About</Link>
                             { this.renderData( ) }
                         </> : 
                         this.renderError( )

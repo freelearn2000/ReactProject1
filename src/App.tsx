@@ -47,16 +47,22 @@ class App extends Component {
         <Route path="/Bindu" element={ <Bindu title="This is Bindu's Component"/> }>
           <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
         </Route>
-        <Route path="/radhika" element={ <Radhika title="This is Radhika's Component" /> }/>
-        <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }/>
+        <Route path="/radhika" element={ <Radhika title="This is Radhika's Component" /> }>
+          <Route path=":id" element={ <Radhika title="This is Radhika's Component" /> }/>
+        </Route>
+        <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
+          <Route path=":id" element={ <Samara title="Welcome to Samara's Component" /> }/>
+        </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
-          <Route path=":id" element={ <Parvathy title="This is Parvathy's Component"/> }/>
+          <Route path=":id" element={ <Radhika title="This is Radhika's Component" /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
-          <Route path=":id" element={ <Vishnupriya title="This is Vishnupriya's Component"/> }/> 
+         <Route path=":id" element={ <Vishnupriya title="This is Vishnupriya's Component"/> }/> 
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }/>
-        <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }/>
+        <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }>
+          <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
+        </Route>
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }/>
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }/>
         <Route path="/dhanya" element={ <Dhanya title="This is Dhanya's Component"/>}/>
