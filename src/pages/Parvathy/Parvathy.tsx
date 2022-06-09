@@ -6,6 +6,7 @@ import { retriveDataFromRoute } from '../../utils/hoc';
 
 interface IProps {
     title: string;
+    routeData: any;
 }
 
 interface IState {
@@ -73,12 +74,14 @@ class Parvathy extends Component<IProps, IState> {
         return (
             <div>
                 <h2 className="ui center aligned header message">{ this.props.title }</h2>
+                <h4 className='ui bottom pointing label header'>Route Data: { this.props.routeData.id }</h4>
                 {
                     this.state.loading ? this.renderLoading() :
                         this.state.users ?
                             <>
+                                <br />
                                 <Link to='/' className="ui teal basic tag label">Goto HomePage</Link> &nbsp;&nbsp;
-                                <Link to='/news/7' className="ui basic olive tag label">News</Link>
+                                <Link to='/news/100$' className="ui basic olive tag label">News</Link>
                                 { this.renderData() }
                             </> :
                             this.renderError()
