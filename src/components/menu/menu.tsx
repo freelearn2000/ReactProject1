@@ -55,8 +55,8 @@ export const Menu = ( props: any ) => {
                     <Link to='/manooja' className="active item">Manooja</Link>
                 :   <Link to='/manooja' className="item">Manooja</Link>}
              { (location.pathname.includes(`/aiswarya`))?
-                    <Link to='/aiswarya' className="active item">Aiswarya</Link>
-                :   <Link to='/aiswarya' className="item">Aiswarya</Link>}    
+                    <Link to='/aiswarya/newspage' className="active item">Aiswarya</Link>
+                :   <Link to='/aiswarya/newspage' className="item">Aiswarya</Link>}    
         </div> 
         </>
     );

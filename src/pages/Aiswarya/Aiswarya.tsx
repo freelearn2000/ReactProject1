@@ -6,15 +6,16 @@ import { retriveDataFromRoute } from "../../utils/hoc";
 
 interface IProps {
     title: any;
+    routeData: any;
 }
 
 interface IState {
     loading: boolean,
     users: { } [ ] | null,
     error: { message: string } | null;
-}
+} 
 
-export class Aiswarya extends Component <IProps, IState> {
+ class Aiswarya extends Component <IProps, IState> {
 
     state = { loading: true, users: null, error: null };
 
@@ -69,6 +70,7 @@ export class Aiswarya extends Component <IProps, IState> {
             <div>
                 <h2 className = "ui center aligned header">{ this.props.title }</h2>
                     <br/>
+                    <h4 className="ui header blue">Route Data: { this.props.routeData.id }</h4>
                     <button className="ui purple basic button"><Link to='/' className="item">Home</Link></button>
                     <button className="ui purple basic button"><Link to='/news/latestnews' className="item">News</Link></button>
                     <br/>
