@@ -12,6 +12,7 @@ interface IState {
 
 interface IProps {
     title: string;
+    routeData: any;
 }
 
 export class Viji extends Component <IProps, IState> {
@@ -71,8 +72,9 @@ export class Viji extends Component <IProps, IState> {
             <div>
             <h2 className = "ui center aligned green header">{ this.props.title }</h2>
             <br/>
+            <h4>Route Data: { this.props.routeData.id }</h4>
             <button className = "ui button"><Link to='/' className="item">Home</Link></button>
-            <button className = "ui button"><Link to='/news/local' className="item">About</Link></button>
+            <button className = "ui button"><Link to='/news/business' className="item">News</Link></button>
             <br/>
             {
                 this.state.loading ? this.renderLoading( ):

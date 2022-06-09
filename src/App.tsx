@@ -64,7 +64,9 @@ class App extends Component {
         <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }>
           <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
         </Route>
-        <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }/>
+        <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>
+          <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>
+        </Route>
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }/>
         <Route path="/dhanya" element={ <Dhanya title="This is Dhanya's Component"/>}/>
         <Route path="*" element={ <ErrorPage ErrorCode="404" ErrorMsg="The page requested was not found"/> }/>
