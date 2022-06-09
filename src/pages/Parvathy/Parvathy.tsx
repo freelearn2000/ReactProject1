@@ -74,7 +74,7 @@ class Parvathy extends Component<IProps, IState> {
         return (
             <div>
                 <h2 className="ui center aligned header message">{ this.props.title }</h2>
-                <h4 className='ui bottom pointing label header'>Route Data: {this.props.routeData.id}</h4>
+                <h4 className='ui bottom pointing label header'>Route Data: { this.props.routeData.id }</h4>
                 {
                     this.state.loading ? this.renderLoading() :
                         this.state.users ?
