@@ -12,6 +12,7 @@ interface IState {
 
 interface IProps {
     title: String;
+    routeData: any;
 }
 
 class Santhosh extends Component<IProps, IState> {
@@ -68,7 +69,8 @@ class Santhosh extends Component<IProps, IState> {
            
         return (
             <div>              
-                <h3 className="ui center aligned red header">{ this.props.title }</h3>    
+                <h3 className="ui center aligned red header">{ this.props.title }</h3>
+                <h4>Route Data: {this.props.routeData.id}</h4>    
                 <br/>
                 <Link to='/' className="ui blue label"><i className="home icon"></i> Home</Link>
                 <Link to='/news/latest' className="ui red label"><i className="file alternate outline icon"></i> News</Link>                
