@@ -46,15 +46,15 @@ class NewsPage extends Component<IProps> {
             <div>
                 <h1>This is News Component</h1>
                 <br/>
-                <p>{this.state.data} !!!</p>
+                <p>{ this.state.data } !!!</p>
                 <br/>
                 { objLength > 0 &&
                     <h2 className='ui  header blue block aligned center'>{ this.props.routeData.id }</h2>
-                }
+                } 
                 <div className="ui buttons">
                     <button className="ui button">Cancel</button>
                     <div className="or"></div>
-                    <button className="ui positive button" onClick={this.onClickHandler}>Save</button>
+                    <button className="ui positive button" onClick={ this.onClickHandler }>Save</button>
                 </div>
             </div>
         );

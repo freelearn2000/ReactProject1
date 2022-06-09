@@ -6,6 +6,7 @@ import { retriveDataFromRoute } from '../../utils/hoc';
 
 interface IProps {
     title: string;
+    routeData: any;
 }
 
 interface IState {
@@ -76,7 +77,7 @@ class Vishnupriya extends Component<IProps, IState> {
         return (
             <div>
                 <h2 className="ui center aligned blue header message">{ this.props.title }</h2>
-                <br/>
+                <h4>Route Data: { this.props.routeData.id }</h4>
                 <button className="ui button"><Link to='/' className="item">Home</Link></button>
                 <button className="ui button"><Link to='/news/popular' className="item">News</Link></button>
                 <br/>
