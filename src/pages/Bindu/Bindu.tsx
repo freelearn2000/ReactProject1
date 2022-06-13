@@ -24,10 +24,10 @@ class Bindu extends Component <IProps, IState> {
         axios.get( 'https://jsonplaceholder.typicode.com/users' ) 
             .then( response => {
             this.setState( { loading: false, users: response.data, error: null } );
-            } )
+            }  )
             .catch( error => { 
             this.setState( { loading: false, users: null, error: error } );
-             } )
+            }  )
     }
              
     renderLoading( ) {
