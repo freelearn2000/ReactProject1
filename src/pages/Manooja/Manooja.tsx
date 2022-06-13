@@ -12,9 +12,10 @@ interface IState {
 
 interface IProps {
     title: any;
+    routeData: any;
 }
 
-export class Manooja extends Component<IProps, IState> {
+class Manooja extends Component<IProps, IState> {
 
     state = { loading: true, users: null, error: null };
 
@@ -71,6 +72,8 @@ export class Manooja extends Component<IProps, IState> {
         return( 
             <div>
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
+                <br/>
+                <h4 className = "ui header green"> Route Data: { this.props.routeData.id }</h4>
                 <br/>
                 <Link to='/' className="ui button"> HomePage </Link>
                 &nbsp;
