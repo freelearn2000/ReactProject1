@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import axios from 'axios';
+import axios from '../../axios';
 import { Link } from "react-router-dom";
 import { retriveDataFromRoute } from '../../utils/hoc';
 
@@ -21,7 +21,7 @@ class Anusree extends Component<IProps, IState> {
     
     componentDidMount( ) {
 
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('/users2')
             .then(response => {
                 this.setState( {loading: false, users: response.data, error: null} );
             })
