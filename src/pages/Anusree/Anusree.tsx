@@ -21,7 +21,7 @@ class Anusree extends Component<IProps, IState> {
     
     componentDidMount( ) {
 
-        axios.get('/users2')
+        axios.get('/users')
             .then(response => {
                 this.setState( {loading: false, users: response.data, error: null} );
             })
