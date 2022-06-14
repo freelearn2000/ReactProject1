@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import axios from 'axios';
+import axios from '../../axios';
 import { Link } from "react-router-dom";
 import { retriveDataFromRoute } from  '../../utils/hoc';
 
@@ -22,7 +22,7 @@ class Manooja extends Component<IProps, IState> {
     componentDidMount( ) {
 
         // Intitiate API call from here
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get( '/users' )
             .then(response => {
                 this.setState( {loading: false, users: response.data, error: null} );
             })
@@ -77,7 +77,7 @@ class Manooja extends Component<IProps, IState> {
                 <br/>
                 <Link to='/' className="ui button"> HomePage </Link>
                 &nbsp;
-                <Link to='/news/abc' className="ui button"> News </Link>
+                <Link to='/news/Sports News' className="ui button"> News </Link>
                 <br/>
                 {
                     this.state.loading ? this.renderLoading( ):
