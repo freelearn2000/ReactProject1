@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import axios from 'axios';
+import axios from '../../axios';
 import { Link } from 'react-router-dom';
 import { retriveDataFromRoute } from '../../utils/hoc';
 
@@ -20,7 +20,7 @@ class Rakhi extends Component<IProps, IState> {
     state = {loading: true, users: null, error: null};
     
     componentDidMount( ) {
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('/users')
             .then(response => {
                 this.setState( {loading: false, users: response.data, error: null} );
             })
