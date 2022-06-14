@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import axios from 'axios';
+import axios from '../../axios';
 import { Link } from 'react-router-dom';
 import { retriveDataFromRoute } from '../../utils/hoc'
 
@@ -21,7 +21,7 @@ class Samara extends Component<IProps, IState> {
 
     componentDidMount( ) {
 
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('/users')
         .then(response => {
             this.setState( {loading: false, data: response.data, error: null} );
         })
@@ -69,14 +69,14 @@ class Samara extends Component<IProps, IState> {
         
         return(
             <div>
-                <h2 className="ui center aligned background header message">{ this.props.title }</h2>
-                <h4 className='ui header blue'>Route Data: { this.props.routeData.id }</h4>
+                <h2 className="ui center aligned purple header message">{ this.props.title }</h2>
+                <h4 className='ui header purple'>Route Data: { this.props.routeData.id }</h4>
                     {
                         this.state.loading ? this.renderLoading( ) : 
                         this.state.data ? 
                         <>
-                            <Link to='/' className="ui teal button">Home</Link>
-                            <Link to='/about/ContactNo/8456' className="ui teal button">About</Link>
+                            <Link to='/' className="ui purple button">Home</Link>
+                            <Link to='/about/ContactNo/8456' className="ui purple button">About</Link>
                             { this.renderData( ) }
                         </> : 
                         this.renderError( )
