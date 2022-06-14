@@ -1,5 +1,5 @@
 import { Component } from "react";
-import axios from 'axios';
+import axios from  '../../axios';
 import { Link } from "react-router-dom";
 import { retriveDataFromRoute } from '../../utils/hoc';
 
@@ -22,7 +22,7 @@ export class Viji extends Component <IProps, IState> {
     componentDidMount( ) {
 
         // Intitiate API call from here
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('/users')
             .then(response => {
                 this.setState( {loading: false, users: response.data, error: null} );
             })
