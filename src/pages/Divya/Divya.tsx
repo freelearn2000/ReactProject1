@@ -1,4 +1,4 @@
-import	axios from 'axios';
+import axios from '../../axios';
 import  { Component } from 'react';
 import 	{ Link } from 'react-router-dom';
 import { retriveDataFromRoute } from '../../utils/hoc';
@@ -21,7 +21,7 @@ class Divya extends Component<IProps, IState> {
 
 	componentDidMount( ) {
 
-		axios.get(`https://jsonplaceholder.typicode.com/users`)
+		axios.get(`/users`)
 			.then(response => {
 				this.setState( {loading: false, users: response.data, error: null} );
 			})
