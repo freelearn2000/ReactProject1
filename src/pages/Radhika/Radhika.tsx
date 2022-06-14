@@ -1,7 +1,7 @@
-import { Component } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import { retriveDataFromRoute } from "../../utils/hoc";
+import { Component } from 'react';
+import axios from '../../axios';
+import { Link } from 'react-router-dom';
+import { retriveDataFromRoute } from '../../utils/hoc';
 
 
 interface IState {
@@ -15,19 +15,19 @@ interface IProps {
     routeData: any;
 }
 
-class Radhika extends Component <IProps, IState> {
+class Radhika extends Component<IProps, IState> {
 
-    state= { loading: true, users: null, error: null };
+    state = { loading: true, users: null, error: null };
 
     componentDidMount( ) {
 
-        axios.get('https://jsonplaceholder.typicode.com/users')
-        .then(response => {
-            this.setState( { loading: false, users: response.data, error: null } );
-        })
-        .catch(error => {
-            this.setState( { loading: false, users: null, error: error } );
-        })
+        axios.get('/users')
+            .then(response => {
+                this.setState( { loading: false, users: response.data, error: null } );
+            })
+            .catch(error => {
+                this.setState( { loading: false, users: null, error: error } );
+            })
     }
      
     renderLoading( ) {
