@@ -1,10 +1,12 @@
 import { Component } from 'react';
-import axios from 'axios';
-import 	{ Link } from 'react-router-dom';
+import axios from '../../axios';
+import 	{ Link, useParams } from 'react-router-dom';
+import { retriveDataFromRoute } from '../../utils/hoc';
 
 
 interface IProps {
     title: any;
+    routeData: any;
 }
 interface IState {
     loading: boolean;
@@ -12,13 +14,13 @@ interface IState {
     error: {message: string} | null
 }
 
-export class Dhanya extends Component<IProps, IState> {
+class Dhanya extends Component<IProps, IState> {
 
     state = {loading: true, data: null, error: null};
 
     componentDidMount( ) {
 
-        axios.get(`https://jsonplaceholder.typicode.com/users`)
+        axios.get(`/users`)
             .then(response => this.setState({loading: false, data: response.data, error: null}))
             .catch(error => this.setState({loading: false, data: null, error: error}));
     }
@@ -75,7 +77,8 @@ export class Dhanya extends Component<IProps, IState> {
 
       return (
         <div>
-            <h2 className="ui horizontal divider header">{this.props.title}</h2> 
+            <h2 className="ui horizontal divider header">{this.props.title}</h2>
+            <h4 className='ui header blue'>Route Data: {this.props.routeData.id}</h4>
             <br/>
             <div className="ui segment">
                 <Link to='/news/2' className="ui orange label">Go to News</Link>
@@ -89,3 +92,5 @@ export class Dhanya extends Component<IProps, IState> {
       );
     }
 }
+
+export default retriveDataFromRoute(Dhanya);

@@ -17,7 +17,7 @@ import Bindu from './pages/Bindu/Bindu';
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import Manooja from './pages/Manooja/Manooja';
-import { Dhanya } from './pages/Dhanya/Dhanya';
+import Dhanya from './pages/Dhanya/Dhanya';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 
 class App extends Component {
@@ -72,7 +72,9 @@ class App extends Component {
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
           <Route path=":id" element={ <Manooja title="This is Manooja's Component"/> }/>
         </Route>  
-        <Route path="/dhanya" element={ <Dhanya title="This is Dhanya's Component"/>}/>
+        <Route path="/dhanya" element={ <Dhanya title="This is Dhanya's Component"/> }>
+          <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/>
+        </Route>
         <Route path="*" element={ <ErrorPage ErrorCode="404" ErrorMsg="The page requested was not found"/> }/>
       </Routes>
     );
