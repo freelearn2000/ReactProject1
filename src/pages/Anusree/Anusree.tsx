@@ -1,6 +1,6 @@
 import { Component } from 'react';
+import { Link, Outlet } from "react-router-dom";
 import axios from '../../axios';
-import { Link } from "react-router-dom";
 import { retriveDataFromRoute } from '../../utils/hoc';
 
 
@@ -41,7 +41,7 @@ class Anusree extends Component<IProps, IState> {
 
     renderError( ) {
 
-        const message = this.state.error? this.state.error[ 'message' ] : '';
+        const message = this.state.error ? this.state.error[ 'message' ] : '';
         const errorJSX = 
         <div className='ui negative message'>
             <h4>{ message }</h4>
@@ -66,17 +66,25 @@ class Anusree extends Component<IProps, IState> {
     render( ) {
 
         return(
-            <div>
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
-                <h3 className='ui header blue'>Route Data: { this.props.routeData.id }</h3>
-                <Link to='/' className="ui blue label"><i className="home icon"></i>Home</Link>
-                <Link to='/about/contact/hr@abc.com' className="ui yellow label"><i className="file alternate outline icon"></i>About</Link>
+                <>  
+                    <Link to='/' className="ui blue label"><i className="home icon"></i>Home</Link>
+                    <Link to='/about/contact/hr@abc.com' className="ui violet label"><i className="file alternate outline icon"></i>About</Link>
+                    <Link to='/anusree/travellblog' className="ui purple label"><i className="car icon"></i>Travell Blog</Link>
+                    <Link to='/anusree/foodblog' className="ui pink label"><i className="mug hot icon"></i>Food Blog</Link>
                     {
-                        this.state.loading ? this.renderLoading( ):
-                        this.state.users ? <><h2>Employee Details</h2>{ this.renderUserdata( ) }</>:
-                        <><h2>Error Data</h2>{ this.renderError( )}</>
-                    }
-            </div>
+                        this.props.routeData.id ?
+                            <>
+                                <h2 className="ui center aligned header">{ this.props.title }</h2>
+                                <h3 className='ui header blue'>Route Data: { this.props.routeData.id }</h3>
+                                    {
+                                        this.state.loading ? this.renderLoading( ):
+                                        this.state.users ? <><h2>Employee Details</h2>{ this.renderUserdata( ) }</>:
+                                        <><h2>Error Data</h2>{ this.renderError( )}</>
+                                    }
+                            </>:
+                            <Outlet/>
+                    }    
+                </>
         )
     }
 }

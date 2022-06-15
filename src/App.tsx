@@ -19,6 +19,8 @@ import Viji from './pages/Viji/Viji';
 import Manooja from './pages/Manooja/Manooja';
 import Dhanya from './pages/Dhanya/Dhanya';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
+import { TravellBlog } from './pages/Anusree/TravellBlog';
+import { FoodBlog } from './pages/Anusree/FoodBlog';
 
 class App extends Component {
   
@@ -32,12 +34,14 @@ class App extends Component {
            <Route path=":id" element={ <NewsPage/> }/>
         </Route>
         <Route path="/about" element={ <AboutPage/> }>
-          <Route path=":id1" element={ <AboutPage/> }>
-            <Route path=":id2" element={ <AboutPage/> }/>
-          </Route>
+            <Route path=":contact" element={ <AboutPage/> }>
+              <Route path=":email" element={ <AboutPage/> }/>
+            </Route>
         </Route>
         <Route path="/anusree" element={ <Anusree title="This is Anusree's Component"/> }>
           <Route path=":id" element={ <Anusree title="This is Anusree's Component"/> }/>
+          <Route path="travellblog" element={ <TravellBlog title="Travell Blog"/> }/>
+          <Route path="foodblog" element={ <FoodBlog title="Food Blog"/> }/>
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>

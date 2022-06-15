@@ -47,14 +47,14 @@ class AboutPage extends Component<IProps> {
                 <h1>This is About Component</h1>
                 <br/>
                 { objLength > 0 &&
-                    <h4 className='ui header blue'>{ this.props.routeData.id1 } : { this.props.routeData.id2 }</h4>
+                    <h4 className='ui header blue'>{ this.props.routeData.contact } : { this.props.routeData.email }</h4>
                 }
                 <p>{this.state.data} !!!</p>
                 <br/>
                 <div className="ui buttons">
                     <button className="ui button">Cancel</button>
                     <div className="or"></div>
-                    <button className="ui positive button" onClick={this.onClickHandler}>Save</button>
+                    <button className="ui positive button" onClick={ this.onClickHandler }>Save</button>
                 </div>
             </div>
         );
