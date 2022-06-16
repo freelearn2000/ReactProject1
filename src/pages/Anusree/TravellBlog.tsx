@@ -11,9 +11,9 @@ export class TravellBlog extends Component<IProps> {
     
     componentDidMount( ) {
 
-        axios.get('/todos')
+        axios.get('/comments')
             .then(response => {
-                this.setState( {loading: false, datas: response.data, error: null} );
+                this.setState( {loading: false, datas: (response.data).splice(0,10), error: null} );
             })
             .catch(error => {
                 this.setState( {loading: false, datas: null, error: error} );
@@ -23,9 +23,10 @@ export class TravellBlog extends Component<IProps> {
     renderLoading( ) {
 
         const loadingJSX =
-        <div className="ui active inverted dimmer">
-            <div className="ui text loader">Loading user data...</div>
-        </div>
+
+            <div className="ui active inverted dimmer">
+                <div className="ui text loader">Loading user data...</div>
+            </div>
         return loadingJSX;
     }
 
@@ -33,20 +34,22 @@ export class TravellBlog extends Component<IProps> {
 
         const message = this.state.error ? this.state.error[ 'message' ] : '';
         const errorJSX = 
-        <div className='ui negative message'>
-            <h4>{ message }</h4>
-        </div>
+
+            <div className='ui negative message'>
+                <h4>{ message }</h4>
+            </div>
         return errorJSX;
     }
 
-    renderUserdata( ) {
+    renderData( ) {
 
         const datas = this.state.datas ? this.state.datas : [ ];
         const dataJSX = datas.map( (data: any ) => {
-           return( 
-            <div key={ data.id } className="ui segment">
-                <h4>{ data.title }</h4>
-            </div>
+           return(
+                <div key={ data.id } className="ui segment">
+                    <h4>{ data.name }</h4>
+                    <p>{ data.body }</p>
+                </div>
            )
         });
         return dataJSX;
@@ -59,7 +62,7 @@ export class TravellBlog extends Component<IProps> {
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
                     {
                         this.state.loading ? this.renderLoading( ):
-                        this.state.datas ? <>{ this.renderUserdata( ) }</>:
+                        this.state.datas ? <>{ this.renderData( ) }</>:
                         <><h2>Error Data</h2>{ this.renderError( )}</>
                     }
             </>
