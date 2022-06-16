@@ -23,6 +23,8 @@ import { TravellBlog } from './pages/Anusree/TravellBlog';
 import { FoodBlog } from './pages/Anusree/FoodBlog';
 import { Health } from './pages/Bindu/Health';
 import { Sports } from './pages/Bindu/Sports';
+import { CanadaWeather } from './pages/Samara/CanadaWeather';
+import { PolandWeather } from './pages/Samara/PolandWeather';
 
 class App extends Component {
   
@@ -61,6 +63,8 @@ class App extends Component {
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route path=":id" element={ <Samara title="Welcome to Samara's Component" /> }/>
+          <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
+          <Route path="polandweather" element={ <PolandWeather title="Poland Weather details"/> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
           <Route path=":id" element={ <Radhika title="This is Radhika's Component" /> }/>
