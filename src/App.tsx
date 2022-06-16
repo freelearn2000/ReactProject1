@@ -40,8 +40,8 @@ class App extends Component {
               <Route path=":email" element={ <AboutPage/> }/>
             </Route>
         </Route>
-        <Route path="/anusree" element={ <Anusree title="This is Anusree's Component"/> }>
-          <Route path=":id" element={ <Anusree title="This is Anusree's Component"/> }/>
+        <Route path="/anusree" element={ <Anusree title="Anusree's Component"/> }>
+          <Route path=":id" element={ <Anusree title="Anusree's Component"/> }/>
           <Route path="travellblog" element={ <TravellBlog title="Travell Blog"/> }/>
           <Route path="foodblog" element={ <FoodBlog title="Food Blog"/> }/>
         </Route>

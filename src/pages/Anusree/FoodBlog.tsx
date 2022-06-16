@@ -13,7 +13,7 @@ export class FoodBlog extends Component<IProps> {
 
         axios.get('/posts')
             .then(response => {
-                this.setState( {loading: false, foods: response.data, error: null} );
+                this.setState( {loading: false, foods:  (response.data).splice(0,10), error: null} );
             })
             .catch(error => {
                 this.setState( {loading: false, foods: null, error: error} );

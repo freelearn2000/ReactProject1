@@ -11,9 +11,9 @@ export class TravellBlog extends Component<IProps> {
     
     componentDidMount( ) {
 
-        axios.get('/todos')
+        axios.get('/comments')
             .then(response => {
-                this.setState( {loading: false, datas: response.data, error: null} );
+                this.setState( {loading: false, datas: (response.data).splice(0,10), error: null} );
             })
             .catch(error => {
                 this.setState( {loading: false, datas: null, error: error} );
@@ -45,7 +45,8 @@ export class TravellBlog extends Component<IProps> {
         const dataJSX = datas.map( (data: any ) => {
            return( 
             <div key={ data.id } className="ui segment">
-                <h4>{ data.title }</h4>
+                <h4>{ data.name }</h4>
+                <p>{ data.body }</p>
             </div>
            )
         });
