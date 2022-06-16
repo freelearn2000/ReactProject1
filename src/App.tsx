@@ -33,6 +33,8 @@ import Home from './pages/Parvathy/home';
 import { Posts } from './pages/Santhosh/Posts';
 import { Users } from './pages/Santhosh/Users';
 import { Hpage } from './pages/Santhosh/Hpage';
+import { National } from './pages/Radhika/National';
+import { Kerala } from './pages/Radhika/Kerala';
 
 class App extends Component {
   
@@ -57,7 +59,7 @@ class App extends Component {
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
-          <Route path="hpage" element={ <Hpage title="Home"/> }/>
+          <Route path="index" element={ <Hpage title="Home"/> }/>
           <Route path="users" element={ <Users title="Users Details"/> }/>
           <Route path="posts" element={ <Posts title="Posts"/> }/>
         </Route>
@@ -71,8 +73,10 @@ class App extends Component {
           <Route path="health" element={ <Health title="Health"/> }/>
           <Route path="sports" element={ <Sports title="Sports"/> }/>
         </Route>
-        <Route path="/radhika" element={ <Radhika title="This is Radhika's Component" /> }>
-          <Route path=":id" element={ <Radhika title="This is Radhika's Component" /> }/>
+        <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
+          <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
+          <Route path="national" element={ <National title="National"/> }/>
+          <Route path="kerala" element={ <Kerala title="Kerala"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route path=":id" element={ <Samara title="Welcome to Samara's Component" /> }/>
