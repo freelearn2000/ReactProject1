@@ -1,6 +1,6 @@
 import { Component } from "react";
 import axios from '../../axios';
-//import { retriveDataFromRoute } from '../../utils/hoc';
+
 
 interface IProps {
     title: any;
@@ -12,7 +12,7 @@ export class Lifestyle extends Component<IProps> {
     
     componentDidMount( ) {
 
-        axios.get('/posts')
+        axios.get('/lifedata')
             .then(response => {
                 this.setState( {loading: false, lifedata: response.data, error: null} );
             })
@@ -42,12 +42,12 @@ export class Lifestyle extends Component<IProps> {
 
     renderUserdata( ) {
 
-        const lifedata = this.state.lifedata ? this.state.lifedata : [ ];
-        const dataJSX = lifedata.map( (lifedata: any ) => {
+        const datas = this.state.lifedata ? this.state.lifedata : [ ];
+        const dataJSX = datas.map( (life: any ) => {
            return( 
-            <div key={ lifedata.id } className="ui segment">
-                <h4>{ lifedata.title }</h4>
-                <p>{ lifedata.body }</p>
+            <div key={ life.id } className="ui segment">
+                <h4>{ life.title }</h4>
+                <p>{ life.body }</p>
             </div>
            )
         });
@@ -68,5 +68,3 @@ export class Lifestyle extends Component<IProps> {
         )
     }
 }
-
-//export default retriveDataFromRoute(Lifestyle);

@@ -1,5 +1,5 @@
 
-export const Home = ( props: any ) => {  
+export const Hpage = ( props: any ) => {  
 
     return (
         <div>
