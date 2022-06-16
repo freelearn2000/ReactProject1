@@ -7,6 +7,8 @@ import NewsPage from './pages/NewsPage/NewsPage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import Anusree from './pages/Anusree/Anusree';
 import Rakhi from './pages/Rakhi/Rakhi';
+import { ScienceBlog } from './pages/Rakhi/ScienceBlog';
+import { TechnologyBlog } from './pages/Rakhi/TechnologyBlog';
 import Santhosh from './pages/Santhosh/Santhosh';
 import Radhika from './pages/Radhika/Radhika';
 import Samara from './pages/Samara/Samara';
@@ -48,8 +50,10 @@ class App extends Component {
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
         </Route>
-        <Route path="/rakhi" element={ <Rakhi title="This is Rakhi's Component"/> }>
-          <Route path=":id" element={ <Rakhi title="This is Rakhi's Component"/> }/>
+        <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>
+          <Route path=":id" element={ <Rakhi title="Rakhi's Component"/> }/>
+          <Route path="science" element={ <ScienceBlog title="Science Blog"/> }/>
+          <Route path="technology" element={ <TechnologyBlog title="Technology Blog"/> }/>
         </Route>
         <Route path="/Bindu" element={ <Bindu title="This is Bindu's Component"/> }>
           <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
