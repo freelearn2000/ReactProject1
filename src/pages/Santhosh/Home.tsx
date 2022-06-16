@@ -1,6 +1,5 @@
 import { Component } from "react";
 
-
 export const Home = ( props: any ) => {  
 
     return (
