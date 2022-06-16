@@ -78,7 +78,7 @@ class Santhosh extends Component<IProps, IState> {
                 <div className="ui grid">
                     <div className="four wide column">
                         <div className="ui secondary vertical menu">
-                            <Link to='/santhosh/home' className="active item">Home</Link>
+                            <Link to='/santhosh/hpage' className="active item">Home</Link>
                             <Link to='/santhosh/users' className="item">Users</Link>
                             <Link to='/santhosh/posts' className="item">Posts</Link>                                                 
                         </div>
