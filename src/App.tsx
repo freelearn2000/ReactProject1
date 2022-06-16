@@ -23,11 +23,9 @@ import Dhanya from './pages/Dhanya/Dhanya';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 import { TravellBlog } from './pages/Anusree/TravellBlog';
 import { FoodBlog } from './pages/Anusree/FoodBlog';
-<<<<<<< HEAD
 import { Product } from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
 import { Skincare } from './pages/Divya/Skincare';
-=======
 import { Health } from './pages/Bindu/Health';
 import { Sports } from './pages/Bindu/Sports';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
@@ -40,7 +38,6 @@ import { Users } from './pages/Santhosh/Users';
 import { Hpage } from './pages/Santhosh/Hpage';
 import { National } from './pages/Radhika/National';
 import { Kerala } from './pages/Radhika/Kerala';
->>>>>>> 700e2117e8b00c5040a2acae90d9e7a4b13d1782
 
 class App extends Component {
   
@@ -69,7 +66,7 @@ class App extends Component {
           <Route path="users" element={ <Users title="Users Details"/> }/>
           <Route path="posts" element={ <Posts title="Posts"/> }/>
         </Route>
-        <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>
+        <Route path="/rakhi" element={ <Rakhi titlne="Rakhi's Component"/> }>
           <Route path=":id" element={ <Rakhi title="Rakhi's Component"/> }/>
           <Route path="science" element={ <ScienceBlog title="Science Blog"/> }/>
           <Route path="technology" element={ <TechnologyBlog title="Technology Blog"/> }/>
