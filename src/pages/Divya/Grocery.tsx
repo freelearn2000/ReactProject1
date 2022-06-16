@@ -63,7 +63,7 @@ export class Grocery extends Component<IProps, IState> {
 
 		return(
             <div>
-                <h2 className="ui horizontal divider header">List of Grocery</h2> 
+                <h2 className="ui horizontal divider header">List of Groceries</h2> 
 				
 					{	this.state.loading ? this.renderLoading( ) :
                 		this.state.products ? this.renderProductData( ) :
