@@ -7,6 +7,8 @@ import NewsPage from './pages/NewsPage/NewsPage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import Anusree from './pages/Anusree/Anusree';
 import Rakhi from './pages/Rakhi/Rakhi';
+import { ScienceBlog } from './pages/Rakhi/ScienceBlog';
+import { TechnologyBlog } from './pages/Rakhi/TechnologyBlog';
 import Santhosh from './pages/Santhosh/Santhosh';
 import Radhika from './pages/Radhika/Radhika';
 import Samara from './pages/Samara/Samara';
@@ -21,9 +23,24 @@ import Dhanya from './pages/Dhanya/Dhanya';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 import { TravellBlog } from './pages/Anusree/TravellBlog';
 import { FoodBlog } from './pages/Anusree/FoodBlog';
+<<<<<<< HEAD
 import { Product } from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
 import { Skincare } from './pages/Divya/Skincare';
+=======
+import { Health } from './pages/Bindu/Health';
+import { Sports } from './pages/Bindu/Sports';
+import { CanadaWeather } from './pages/Samara/CanadaWeather';
+import { PolandWeather } from './pages/Samara/PolandWeather';
+import Books from './pages/Parvathy/books';
+import Cats from './pages/Parvathy/cats';
+import Home from './pages/Parvathy/home';
+import { Posts } from './pages/Santhosh/Posts';
+import { Users } from './pages/Santhosh/Users';
+import { Hpage } from './pages/Santhosh/Hpage';
+import { National } from './pages/Radhika/National';
+import { Kerala } from './pages/Radhika/Kerala';
+>>>>>>> 700e2117e8b00c5040a2acae90d9e7a4b13d1782
 
 class App extends Component {
   
@@ -41,28 +58,42 @@ class App extends Component {
               <Route path=":email" element={ <AboutPage/> }/>
             </Route>
         </Route>
-        <Route path="/anusree" element={ <Anusree title="This is Anusree's Component"/> }>
-          <Route path=":id" element={ <Anusree title="This is Anusree's Component"/> }/>
+        <Route path="/anusree" element={ <Anusree title="Anusree's Component"/> }>
+          <Route path=":id" element={ <Anusree title="Anusree's Component"/> }/>
           <Route path="travellblog" element={ <TravellBlog title="Travell Blog"/> }/>
           <Route path="foodblog" element={ <FoodBlog title="Food Blog"/> }/>
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
+          <Route path="index" element={ <Hpage title="Home"/> }/>
+          <Route path="users" element={ <Users title="Users Details"/> }/>
+          <Route path="posts" element={ <Posts title="Posts"/> }/>
         </Route>
-        <Route path="/rakhi" element={ <Rakhi title="This is Rakhi's Component"/> }>
-          <Route path=":id" element={ <Rakhi title="This is Rakhi's Component"/> }/>
+        <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>
+          <Route path=":id" element={ <Rakhi title="Rakhi's Component"/> }/>
+          <Route path="science" element={ <ScienceBlog title="Science Blog"/> }/>
+          <Route path="technology" element={ <TechnologyBlog title="Technology Blog"/> }/>
         </Route>
         <Route path="/Bindu" element={ <Bindu title="This is Bindu's Component"/> }>
           <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
+          <Route path="health" element={ <Health title="Health"/> }/>
+          <Route path="sports" element={ <Sports title="Sports"/> }/>
         </Route>
-        <Route path="/radhika" element={ <Radhika title="This is Radhika's Component" /> }>
-          <Route path=":id" element={ <Radhika title="This is Radhika's Component" /> }/>
+        <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
+          <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
+          <Route path="national" element={ <National title="National"/> }/>
+          <Route path="kerala" element={ <Kerala title="Kerala"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route path=":id" element={ <Samara title="Welcome to Samara's Component" /> }/>
+          <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
+          <Route path="polandweather" element={ <PolandWeather title="Poland Weather details"/> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
-          <Route path=":id" element={ <Radhika title="This is Radhika's Component" /> }/>
+        <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
+          <Route path="books" element={ <Books title="Books" /> }/>
+          <Route path="cats" element={ <Cats title="Cats" /> }/>
+          <Route path="home" element={ <Home /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
          <Route path=":id" element={ <Vishnupriya title="This is Vishnupriya's Component"/> }/> 

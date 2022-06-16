@@ -1,12 +1,13 @@
 import { Component } from 'react';
 import axios from '../../axios';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { retriveDataFromRoute } from '../../utils/hoc';
 
 
 interface IProps {
     title: string;
     routeData: any;
+    location: any;
 }
 
 interface IState {
@@ -73,16 +74,36 @@ class Rakhi extends Component<IProps, IState> {
     render( ) {
 
         return(
-            <div>
-                <h2 className = 'ui center aligned header block'>{ this.props.title }</h2>
-                <h4 className='ui header blue'>Route Data: {this.props.routeData.id}</h4>
-                <Link to='/' className = "ui teal tag label">Home</Link>
-                <Link to='/news/trending' className = "ui red tag label">News</Link>
+            <div className= "ui basic segments">
+                <h1 className = "ui white ui  inverted header header center aligned segment">{ this.props.title }</h1><br/>
+                <Link to='/' className = "ui label black left aligned">Home</Link>
+                <Link to='/news/trending' className = "ui label black">News</Link>
                 {
-                    this.state.loading ? this.renderLoading( ) :
-                    this.state.users ? <><h2>User Information </h2>{ this.renderUserdata( ) }</> :
-                    this.renderError( )
+                    this.props.routeData.id&&
+                    <h4 className='ui header blue'>Route Data: {this.props.routeData.id}</h4>
                 }
+                <div className= "ui segments grid">
+                    <div className= "ui segment six wide column ">
+                        <div className="ui inverted vertical pointing menu">
+                            <Link className={ this.props.location.pathname.includes('science')? 'active item': 'item'} to='/rakhi/science'>Science<i className="atom icon"></i></Link>
+                            <Link className={ this.props.location.pathname.includes('technology')? 'active item': 'item'} to='/rakhi/technology'>Technology<i className="keyboard outline icon"></i></Link>
+                        </div>
+                    </div>
+                    <div className= "ten wide column">
+                    {
+                        this.props.routeData.id?
+                            <>
+                                {
+                                    this.state.loading ? this.renderLoading( ) :
+                                    this.state.users ? <><h2 className= "ui center aligned header red">User Information </h2>{ this.renderUserdata( ) }</> :
+                                    this.renderError( )
+                                }
+                            </>
+                        :   
+                        <Outlet/>
+                    }
+                    </div>
+                </div>
             </div>
         )
     }

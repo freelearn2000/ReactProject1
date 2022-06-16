@@ -1,21 +1,12 @@
-import { Component } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Component } from "react";
 import axios from '../../axios';
-import { retriveDataFromRoute } from '../../utils/hoc';
-
 
 interface IProps {
-    title: string;
-    routeData: any;
+    title: any;
 }
 
-interface IState {
-    loading: boolean;
-    users: {}[] | null;
-    error: {message: string} | null;
-}
 
-class Santhosh extends Component<IProps, IState> {
+export class Users extends Component<IProps> {
 
     state = {loading: true, users: null, error: null};
     
@@ -74,34 +65,13 @@ class Santhosh extends Component<IProps, IState> {
 
         return(
             <>
-                <h2 className = 'ui center aligned blue header message'>{ this.props.title }</h2>              
-                <div className="ui grid">
-                    <div className="four wide column">
-                        <div className="ui secondary vertical menu">
-                            <Link to='/santhosh/index' className="active item">Home</Link>
-                            <Link to='/santhosh/users' className="item">Users</Link>
-                            <Link to='/santhosh/posts' className="item">Posts</Link>                                                 
-                        </div>
-                    </div>
-                <div className="twelve wide stretched column">
-                    <div className="ui segment">
-                    {
-                    this.props.routeData.id ?
-                        <>                                 
-                            {
-                                this.state.loading ? this.renderLoading( ):
-                                this.state.users ? <> { this.renderUserdata( ) }</>:
-                                <><h2>Error Data</h2>{ this.renderError( )}</>
-                            }
-                        </>:
-                        <Outlet/>
-                    }    
-                    </div>
-                </div>
-                </div>       
+            <h1 className="ui center aligned blue message">{ this.props.title }</h1>                                         
+                {
+                    this.state.loading ? this.renderLoading( ):
+                    this.state.users ? <> { this.renderUserdata( ) }</>:
+                    <><h2>Error Data</h2>{ this.renderError( )}</>
+                }          
             </>
         )
     }
 }
-
-export default retriveDataFromRoute( Santhosh );
