@@ -21,6 +21,9 @@ import Dhanya from './pages/Dhanya/Dhanya';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 import { TravellBlog } from './pages/Anusree/TravellBlog';
 import { FoodBlog } from './pages/Anusree/FoodBlog';
+import { Product } from './pages/Divya/Products';
+import { Grocery } from './pages/Divya/Grocery';
+import { Skincare } from './pages/Divya/Skincare';
 
 class App extends Component {
   
@@ -65,7 +68,11 @@ class App extends Component {
          <Route path=":id" element={ <Vishnupriya title="This is Vishnupriya's Component"/> }/> 
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }>
-          <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/> 
+          <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>
+          <Route path="product" element={ <Product title="Product"/> }>
+            <Route path="grocery" element={ <Grocery/> }/>
+            <Route path="skincare" element={ <Skincare/> }/>
+            </Route>
         </Route>
         <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }>
           <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
