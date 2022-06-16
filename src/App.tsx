@@ -21,6 +21,8 @@ import Dhanya from './pages/Dhanya/Dhanya';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 import { TravellBlog } from './pages/Anusree/TravellBlog';
 import { FoodBlog } from './pages/Anusree/FoodBlog';
+import { Health } from './pages/Bindu/Health';
+import { Sports } from './pages/Bindu/Sports';
 
 class App extends Component {
   
@@ -51,6 +53,8 @@ class App extends Component {
         </Route>
         <Route path="/Bindu" element={ <Bindu title="This is Bindu's Component"/> }>
           <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
+          <Route path="health" element={ <Health title="Health"/> }/>
+          <Route path="sports" element={ <Sports title="Sports"/> }/>
         </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component" /> }>
           <Route path=":id" element={ <Radhika title="This is Radhika's Component" /> }/>
