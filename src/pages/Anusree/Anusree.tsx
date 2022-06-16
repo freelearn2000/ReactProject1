@@ -34,9 +34,10 @@ class Anusree extends Component<IProps, IState> {
     renderLoading( ) {
 
         const loadingJSX =
-        <div className="ui active inverted dimmer">
-            <div className="ui text loader">Loading user data...</div>
-        </div>
+
+            <div className="ui active inverted dimmer">
+                <div className="ui text loader">Loading user data...</div>
+            </div>
         return loadingJSX;
     }
 
@@ -44,9 +45,10 @@ class Anusree extends Component<IProps, IState> {
 
         const message = this.state.error ? this.state.error[ 'message' ] : '';
         const errorJSX = 
-        <div className='ui negative message'>
-            <h4>{ message }</h4>
-        </div>
+
+            <div className='ui negative message'>
+                <h4>{ message }</h4>
+            </div>
         return errorJSX;
     }
 
@@ -55,10 +57,10 @@ class Anusree extends Component<IProps, IState> {
         const users = this.state.users ? this.state.users : [ ];
         const dataJSX = users.map( (user: {name: string, email: string, id: number} ) => {
            return( 
-            <div key={ user.id } className="ui segment">
-                <h4>{ user.name }</h4>
-                <p>{ user.email }</p>
-            </div>
+                <div key={ user.id } className="ui segment">
+                    <h4>{ user.name }</h4>
+                    <p>{ user.email }</p>
+                </div>
            )
         });
         return dataJSX;

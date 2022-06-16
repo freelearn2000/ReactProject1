@@ -23,9 +23,10 @@ export class FoodBlog extends Component<IProps> {
     renderLoading( ) {
 
         const loadingJSX =
-        <div className="ui active inverted dimmer">
-            <div className="ui text loader">Loading user data...</div>
-        </div>
+
+            <div className="ui active inverted dimmer">
+                <div className="ui text loader">Loading user data...</div>
+            </div>
         return loadingJSX;
     }
 
@@ -33,21 +34,22 @@ export class FoodBlog extends Component<IProps> {
 
         const message = this.state.error? this.state.error[ 'message' ] : '';
         const errorJSX = 
-        <div className='ui negative message'>
-            <h4>{ message }</h4>
-        </div>
+
+            <div className='ui negative message'>
+                <h4>{ message }</h4>
+            </div>
         return errorJSX;
     }
 
-    renderUserdata( ) {
+    renderData( ) {
 
         const foods = this.state.foods ? this.state.foods : [ ];
         const dataJSX = foods.map( (food: any ) => {
            return( 
-            <div key={ food.id } className="ui segment">
-                <h4>{ food.title }</h4>
-                <p>{ food.body }</p>
-            </div>
+                <div key={ food.id } className="ui segment">
+                    <h4>{ food.title }</h4>
+                    <p>{ food.body }</p>
+                </div>
            )
         });
         return dataJSX;
@@ -60,7 +62,7 @@ export class FoodBlog extends Component<IProps> {
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
                     {
                         this.state.loading ? this.renderLoading( ):
-                        this.state.foods ? <>{ this.renderUserdata( ) }</>:
+                        this.state.foods ? <>{ this.renderData( ) }</>:
                         <><h2>Error Data</h2>{ this.renderError( )}</>
                     }
             </>
