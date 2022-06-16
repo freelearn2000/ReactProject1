@@ -1,6 +1,6 @@
-import axios from '../../axios';
 import  { Component } from 'react';
-import 	{ Link } from 'react-router-dom';
+import 	{ Link, Outlet } from 'react-router-dom';
+import axios from '../../axios';
 import { retriveDataFromRoute } from '../../utils/hoc';
 
 
@@ -21,7 +21,7 @@ class Divya extends Component<IProps, IState> {
 
 	componentDidMount( ) {
 
-		axios.get(`/users`)
+		axios.get('/users')
 			.then(response => {
 				this.setState( {loading: false, users: response.data, error: null} );
 			})
@@ -75,15 +75,21 @@ class Divya extends Component<IProps, IState> {
             <div>
                 <h2 className="ui horizontal divider header">{this.props.title}</h2> 
 				<br/>
-				<h4>Route Data: { this.props.routeData.id }</h4>
-				<br/>
 				<Link to='/' className="ui button">Home</Link>
 				<Link to='/news/latest' className="ui button">News</Link>
-				<br/>
-                {	this.state.loading ? this.renderLoading( ) :
-                	this.state.users ? this.renderData( ) :
-               		this.renderError( )	} 	
-            </div>
+				<Link to='/divya/product' className="ui button">Products</Link>
+					{
+                        this.props.routeData.id ?
+                            <>
+								<h4>Route Data: { this.props.routeData.id }</h4>
+								<br/>
+								{	this.state.loading ? this.renderLoading( ) :
+                					this.state.users ? this.renderData( ) :
+               						this.renderError( )	}
+                            </>:
+                            <Outlet/>
+                    }    	
+			</div>
         )		
 	}	
 }
