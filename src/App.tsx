@@ -23,6 +23,9 @@ import { TravellBlog } from './pages/Anusree/TravellBlog';
 import { FoodBlog } from './pages/Anusree/FoodBlog';
 import { Health } from './pages/Bindu/Health';
 import { Sports } from './pages/Bindu/Sports';
+import { Posts } from './pages/Santhosh/Posts';
+import { Users } from './pages/Santhosh/Users';
+import { Home } from './pages/Santhosh/Home';
 
 class App extends Component {
   
@@ -47,6 +50,9 @@ class App extends Component {
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
+          <Route path="home" element={ <Home title="Home"/> }/>
+          <Route path="users" element={ <Users title="Users Details"/> }/>
+          <Route path="posts" element={ <Posts title="Posts"/> }/>
         </Route>
         <Route path="/rakhi" element={ <Rakhi title="This is Rakhi's Component"/> }>
           <Route path=":id" element={ <Rakhi title="This is Rakhi's Component"/> }/>
