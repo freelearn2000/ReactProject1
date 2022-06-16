@@ -1,6 +1,6 @@
 import { Component } from "react";
+import { Link,Outlet } from "react-router-dom";
 import axios from '../../axios';
-import { Link } from "react-router-dom";
 import { retriveDataFromRoute } from "../../utils/hoc";
 
 
@@ -21,11 +21,11 @@ class Bindu extends Component <IProps, IState> {
 
     componentDidMount ( ) {
 
-        axios.get( '/users' ) 
-            .then( response => {
+        axios.get('/users') 
+            .then(response => {
                 this.setState( { loading: false, users: response.data, error: null } );
-            }   )
-            .catch( error => { 
+            } )
+            .catch(error => { 
                 this.setState( { loading: false, users: null, error: error } );
              } )
     }
@@ -64,21 +64,29 @@ class Bindu extends Component <IProps, IState> {
         
    render( ) { 
 
-        return(
-            <div className="ui segment">
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
-                <h4 className="ui header blue">Route Data: { this.props.routeData.id }</h4>
-                <Link to='/' className="ui green button">Home</Link>
-                <Link to='/news/trendynews' className="ui green button">News</Link>
-
-                {
-                    this.state.loading ? this.renderLoading( ) : 
-                    this.state.users ? <><h2> Datas of Users</h2>{ this.renderUserdata( )}</> : 
-                    <><h2>Error Data</h2>{ this.rendererror( ) }</>
-                }
-            </div>
+        return( 
+                <>            
+                    <Link to='/' className="ui green button">Home</Link>
+                    <Link to='/news/trendynews' className="ui orange button">News</Link>
+                    <Link to='/Bindu/health' className="ui blue button">Health</Link>
+                    <Link to='/Bindu/sports' className="ui pink button">Sports</Link>
+                    { 
+                        this.props.routeData.id ?
+                            <>  
+                                <h2 className="ui center aligned header">{ this.props.title }</h2>
+                                <h3 className='ui header blue'>Route Data: { this.props.routeData.id }</h3>
+                                {
+                                    this.state.loading ? this.renderLoading( ) : 
+                                    this.state.users ? <><h2> Datas of Users</h2>{ this.renderUserdata( )}</> : 
+                                    <><h2>Error Data</h2>{ this.rendererror( ) }</>
+                                }
+                            </>:
+                            <Outlet/>
+                                
+                    }
+                </>
         )
-    }
+   }    
 } 
 
 export default retriveDataFromRoute ( Bindu );

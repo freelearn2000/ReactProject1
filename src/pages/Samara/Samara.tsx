@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import axios from '../../axios';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { retriveDataFromRoute } from '../../utils/hoc'
 
 
@@ -68,19 +68,24 @@ class Samara extends Component<IProps, IState> {
     render( ) {
         
         return(
-            <div>
-                <h2 className="ui center aligned purple header message">{ this.props.title }</h2>
-                <h4 className='ui header purple'>Route Data: { this.props.routeData.id }</h4>
-                    {
-                        this.state.loading ? this.renderLoading( ) : 
-                        this.state.data ? 
+            <div>  
+                <h2 className="ui center aligned header message">{ this.props.title }</h2>
+                <Link to='/' className="ui purple button">Home</Link>
+                <Link to='/about/ContactNo/8456' className="ui purple button">About</Link>
+                &emsp;&emsp;&emsp;&emsp;
+                <Link to='/samara/canadaweather' className="ui teal button">Canada</Link>
+                <Link to='/samara/polandweather' className="ui teal button">Poland</Link>
+                {
+                    this.props.routeData.id ?
                         <>
-                            <Link to='/' className="ui purple button">Home</Link>
-                            <Link to='/about/ContactNo/8456' className="ui purple button">About</Link>
-                            { this.renderData( ) }
-                        </> : 
-                        this.renderError( )
-                    }
+                            <h4 className='ui header blue'>Route Data: { this.props.routeData.id }</h4>
+                                    {
+                                        this.state.loading ? this.renderLoading( ) : 
+                                        this.state.data ? <>{ this.renderData( ) }</>: 
+                                        this.renderError( )
+                                    }
+                        </>:<Outlet/>
+                }
             </div>
         );
     }

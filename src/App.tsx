@@ -23,6 +23,16 @@ import { Kerala } from './pages/Radhika/Kerala';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 import { TravellBlog } from './pages/Anusree/TravellBlog';
 import { FoodBlog } from './pages/Anusree/FoodBlog';
+import { Health } from './pages/Bindu/Health';
+import { Sports } from './pages/Bindu/Sports';
+import { CanadaWeather } from './pages/Samara/CanadaWeather';
+import { PolandWeather } from './pages/Samara/PolandWeather';
+import Books from './pages/Parvathy/books';
+import Cats from './pages/Parvathy/cats';
+import Home from './pages/Parvathy/home';
+import { Posts } from './pages/Santhosh/Posts';
+import { Users } from './pages/Santhosh/Users';
+import { Hpage } from './pages/Santhosh/Hpage';
 
 class App extends Component {
   
@@ -47,12 +57,17 @@ class App extends Component {
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
+          <Route path="hpage" element={ <Hpage title="Home"/> }/>
+          <Route path="users" element={ <Users title="Users Details"/> }/>
+          <Route path="posts" element={ <Posts title="Posts"/> }/>
         </Route>
         <Route path="/rakhi" element={ <Rakhi title="This is Rakhi's Component"/> }>
           <Route path=":id" element={ <Rakhi title="This is Rakhi's Component"/> }/>
         </Route>
         <Route path="/Bindu" element={ <Bindu title="This is Bindu's Component"/> }>
           <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
+          <Route path="health" element={ <Health title="Health"/> }/>
+          <Route path="sports" element={ <Sports title="Sports"/> }/>
         </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
           <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
@@ -61,9 +76,14 @@ class App extends Component {
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route path=":id" element={ <Samara title="Welcome to Samara's Component" /> }/>
+          <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
+          <Route path="polandweather" element={ <PolandWeather title="Poland Weather details"/> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
-          <Route path=":id" element={ <Radhika title="This is Radhika's Component" /> }/>
+        <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
+          <Route path="books" element={ <Books title="Books" /> }/>
+          <Route path="cats" element={ <Cats title="Cats" /> }/>
+          <Route path="home" element={ <Home /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
          <Route path=":id" element={ <Vishnupriya title="This is Vishnupriya's Component"/> }/> 
