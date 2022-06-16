@@ -18,6 +18,8 @@ import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import Manooja from './pages/Manooja/Manooja';
 import Dhanya from './pages/Dhanya/Dhanya';
+import { National } from './pages/Radhika/National';
+import { Kerala } from './pages/Radhika/Kerala';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 import { TravellBlog } from './pages/Anusree/TravellBlog';
 import { FoodBlog } from './pages/Anusree/FoodBlog';
@@ -52,8 +54,10 @@ class App extends Component {
         <Route path="/Bindu" element={ <Bindu title="This is Bindu's Component"/> }>
           <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
         </Route>
-        <Route path="/radhika" element={ <Radhika title="This is Radhika's Component" /> }>
-          <Route path=":id" element={ <Radhika title="This is Radhika's Component" /> }/>
+        <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
+          <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
+          <Route path="national" element={ <National title="National"/> }/>
+          <Route path="kerala" element={ <Kerala title="Kerala"/>}/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route path=":id" element={ <Samara title="Welcome to Samara's Component" /> }/>
