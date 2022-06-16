@@ -28,6 +28,9 @@ import { PolandWeather } from './pages/Samara/PolandWeather';
 import Books from './pages/Parvathy/books';
 import Cats from './pages/Parvathy/cats';
 import Home from './pages/Parvathy/home';
+import { Posts } from './pages/Santhosh/Posts';
+import { Users } from './pages/Santhosh/Users';
+import { Hpage } from './pages/Santhosh/Hpage';
 
 class App extends Component {
   
@@ -52,6 +55,9 @@ class App extends Component {
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
+          <Route path="hpage" element={ <Hpage title="Home"/> }/>
+          <Route path="users" element={ <Users title="Users Details"/> }/>
+          <Route path="posts" element={ <Posts title="Posts"/> }/>
         </Route>
         <Route path="/rakhi" element={ <Rakhi title="This is Rakhi's Component"/> }>
           <Route path=":id" element={ <Rakhi title="This is Rakhi's Component"/> }/>
