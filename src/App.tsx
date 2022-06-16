@@ -28,6 +28,8 @@ import { PolandWeather } from './pages/Samara/PolandWeather';
 import Books from './pages/Parvathy/books';
 import Cats from './pages/Parvathy/cats';
 import Home from './pages/Parvathy/home';
+import { Lifestyle } from  './pages/Manooja/Lifestyle';
+import { Products } from './pages/Manooja/Products';
 
 class App extends Component {
   
@@ -89,6 +91,8 @@ class App extends Component {
         </Route>
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
           <Route path=":id" element={ <Manooja title="This is Manooja's Component"/> }/>
+          <Route path="lifestyle" element={ <Lifestyle title="Lifestyle"/> }/>
+          <Route path="products" element={ <Products title="Products"/> }/>
         </Route>  
         <Route path="/dhanya" element={ <Dhanya title="This is Dhanya's Component"/> }>
           <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/>

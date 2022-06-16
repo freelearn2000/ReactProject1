@@ -1,6 +1,6 @@
 import { Component } from 'react';
+import { Link, Outlet } from "react-router-dom";
 import axios from '../../axios';
-import { Link } from "react-router-dom";
 import { retriveDataFromRoute } from  '../../utils/hoc';
 
 
@@ -22,7 +22,7 @@ class Manooja extends Component<IProps, IState> {
     componentDidMount( ) {
 
         // Intitiate API call from here
-        axios.get( '/users' )
+        axios.get('/users')
             .then(response => {
                 this.setState( {loading: false, users: response.data, error: null} );
             })
@@ -75,15 +75,24 @@ class Manooja extends Component<IProps, IState> {
                 <br/>
                 <h4 className = "ui header green"> Route Data: { this.props.routeData.id }</h4>
                 <br/>
-                <Link to='/' className="ui button"> HomePage </Link>
+                <Link to='/' className="ui button"> Home </Link>
                 &nbsp;
                 <Link to='/news/Sports News' className="ui button"> News </Link>
+                <div className="ui grid">
+                    <div className="two wide column">
+                        <div className="ui secondary vertical menu">
+                            <Link to='/Manooja/Lifestyle' className="item">Lifestyle</Link>
+                            <Link to='/Manooja/Products' className="item">Products</Link>                                                 
+                        </div>
+                    </div>
+                </div>    
                 <br/>
                 {
                     this.state.loading ? this.renderLoading( ):
                     this.state.users ? <><h2> Users Information </h2>{ this.renderUserdata( ) }</>:
                     <><h2>Error Data</h2>{ this.renderError( ) }</>
                 }
+                <Outlet/>
             </div>
         )
     }
