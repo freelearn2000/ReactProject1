@@ -72,7 +72,7 @@ class App extends Component {
           <Route path="users" element={ <Users title="Users Details"/> }/>
           <Route path="posts" element={ <Posts title="Posts"/> }/>
         </Route>
-        <Route path="/rakhi" element={ <Rakhi titlne="Rakhi's Component"/> }>
+        <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>
           <Route path=":id" element={ <Rakhi title="Rakhi's Component"/> }/>
           <Route path="science" element={ <ScienceBlog title="Science Blog"/> }/>
           <Route path="technology" element={ <TechnologyBlog title="Technology Blog"/> }/>
