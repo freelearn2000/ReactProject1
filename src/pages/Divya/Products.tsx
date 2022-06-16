@@ -54,7 +54,7 @@ export class Product extends Component<IProps> {
                     <p>{ product.body }</p>
 				</div>
 			);
-		});
+		} );
 		return dataJSX;
 	}
 
@@ -67,15 +67,14 @@ export class Product extends Component<IProps> {
                     <div className="row">
                         <div className="three wide  column">
                             <div className="ui vertical fluid menu">
-                            <Link to='/divya/product/grocery' className="item"> <img src={GroImage} /> <br/> Grocery </Link>
-                            <Link to='/divya/product/skincare' className="item"><img src={SkinImage} /> <br/> SkinCare</Link>
+								<Link to='/divya/product/grocery' className="item"> <img alt={GroImage} src={GroImage} /> <br/> Grocery </Link>
+								<Link to='/divya/product/skincare' className="item"><img alt={SkinImage} src={SkinImage} /> <br/> SkinCare</Link>
                             </div>
                         </div>
                         <div className="twelve wide  column"> 	
 						    <Outlet/>		
 						 	<p>Let Us Help You With Your Need! </p>
-						 	<img src={ProImage}/> 
-							 
+						 	<img alt={ProImage} src={ProImage}/>  
                         </div>
                     </div>
                 </div>         
