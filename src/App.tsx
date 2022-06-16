@@ -42,6 +42,8 @@ import { Users } from './pages/Santhosh/Users';
 import { Hpage } from './pages/Santhosh/Hpage';
 import { National } from './pages/Radhika/National';
 import { Kerala } from './pages/Radhika/Kerala';
+import { Politics } from './pages/Aiswarya/Politics';
+import { Arts } from './pages/Aiswarya/Arts'
 
 class App extends Component {
   
@@ -109,6 +111,8 @@ class App extends Component {
         </Route>
         <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }>
           <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
+          <Route path="politics" element={ <Politics title="Politics" /> }/>
+          <Route path="Arts" element={ <Arts title="Arts" /> }/>
         </Route>
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>
           <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>
