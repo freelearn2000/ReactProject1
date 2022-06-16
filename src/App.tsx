@@ -19,7 +19,9 @@ import Bindu from './pages/Bindu/Bindu';
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import Manooja from './pages/Manooja/Manooja';
-import Dhanya from './pages/Dhanya/Dhanya';
+import { Dhanya1 } from './pages/Dhanya/Dhanya1';
+import { FoodBlog as Food } from './pages/Dhanya/FoodBlog';
+import { TravelBlog as Travel } from './pages/Dhanya/TravelBlog';
 import { Products } from './pages/Vishnupriya/Products';
 import { Blog } from './pages/Vishnupriya/Blog';
 import { TravellBlog } from './pages/Anusree/TravellBlog';
@@ -114,8 +116,10 @@ class App extends Component {
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
           <Route path=":id" element={ <Manooja title="This is Manooja's Component"/> }/>
         </Route>  
-        <Route path="/dhanya" element={ <Dhanya title="This is Dhanya's Component"/> }>
-          <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/>
+        <Route path="/dhanya" element={ <Dhanya1 title="This is Dhanya's Component"/> }>
+          {/* <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/> */}
+          <Route path="food" element={ <Food /> } />
+          <Route path="travel" element={ <Travel /> } />
         </Route>
         <Route path="*" element={ <ErrorPage ErrorCode="404" ErrorMsg="The page requested was not found"/> }/>
       </Routes>
