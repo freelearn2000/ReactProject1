@@ -20,9 +20,11 @@ import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import Manooja from './pages/Manooja/Manooja';
 import Dhanya from './pages/Dhanya/Dhanya';
-import { ErrorPage } from './pages/ErrorPage/ErrorPage';
+import { Products } from './pages/Vishnupriya/Products';
+import { Blog } from './pages/Vishnupriya/Blog';
 import { TravellBlog } from './pages/Anusree/TravellBlog';
 import { FoodBlog } from './pages/Anusree/FoodBlog';
+import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 import { Product } from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
 import { Skincare } from './pages/Divya/Skincare';
@@ -93,7 +95,8 @@ class App extends Component {
           <Route path="home" element={ <Home /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
-         <Route path=":id" element={ <Vishnupriya title="This is Vishnupriya's Component"/> }/> 
+         <Route path="products" element={ <Products title="Products details"/> }/>
+         <Route path="blog" element={ <Blog title="Blog"/> }/>
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }>
           <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>
