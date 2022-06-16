@@ -65,12 +65,12 @@ export class Users extends Component<IProps> {
 
         return(
             <>
-                <h1 className="ui center aligned blue message">{ this.props.title }</h1>                                         
-                    {
-                        this.state.loading ? this.renderLoading( ):
-                        this.state.users ? <> { this.renderUserdata( ) }</>:
-                        <><h2>Error Data</h2>{ this.renderError( )}</>
-                    }          
+            <h1 className="ui center aligned blue message">{ this.props.title }</h1>                                         
+                {
+                    this.state.loading ? this.renderLoading( ):
+                    this.state.users ? <> { this.renderUserdata( ) }</>:
+                    <><h2>Error Data</h2>{ this.renderError( )}</>
+                }          
             </>
         )
     }

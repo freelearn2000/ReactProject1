@@ -7,16 +7,16 @@ interface IProps {
 
 export class Posts extends Component<IProps> {
 
-    state={ loading: true, foods: null, error: null };
+    state={ loading: true, users: null, error: null };
     
     componentDidMount( ) {
 
         axios.get('/posts')
             .then(response => {
-                this.setState( {loading: false, foods: response.data, error: null} );
+                this.setState( {loading: false, users: response.data, error: null} );
             })
             .catch(error => {
-                this.setState( {loading: false, foods: null, error: error} );
+                this.setState( {loading: false, users: null, error: error} );
             })
     }
 
@@ -41,12 +41,12 @@ export class Posts extends Component<IProps> {
 
     renderUserdata( ) {
 
-        const foods = this.state.foods ? this.state.foods : [ ];
-        const dataJSX = foods.map( (food: any ) => {
+        const users = this.state.users ? this.state.users : [ ];
+        const dataJSX = users.map( (users: any ) => {
            return( 
-            <div key={ food.id } className="ui segment">
-                <h4>{ food.title }</h4>
-                <p>{ food.body }</p>
+            <div key={ users.id } className="ui segment">
+                <h4>{ users.title }</h4>
+                <p>{ users.body }</p>
             </div>
            )
         });
@@ -60,7 +60,7 @@ export class Posts extends Component<IProps> {
                 <h1 className="ui center aligned blue message">{ this.props.title }</h1>
                     {
                         this.state.loading ? this.renderLoading( ):
-                        this.state.foods ? <>{ this.renderUserdata( ) }</>:
+                        this.state.users ? <>{ this.renderUserdata( ) }</>:
                         <><h2>Error Data</h2>{ this.renderError( )}</>
                     }
             </>
