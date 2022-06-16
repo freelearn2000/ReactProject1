@@ -18,8 +18,6 @@ import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import Manooja from './pages/Manooja/Manooja';
 import Dhanya from './pages/Dhanya/Dhanya';
-import { National } from './pages/Radhika/National';
-import { Kerala } from './pages/Radhika/Kerala';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 import { TravellBlog } from './pages/Anusree/TravellBlog';
 import { FoodBlog } from './pages/Anusree/FoodBlog';
@@ -33,6 +31,8 @@ import Home from './pages/Parvathy/home';
 import { Posts } from './pages/Santhosh/Posts';
 import { Users } from './pages/Santhosh/Users';
 import { Hpage } from './pages/Santhosh/Hpage';
+import { National } from './pages/Radhika/National';
+import { Kerala } from './pages/Radhika/Kerala';
 
 class App extends Component {
   
@@ -57,7 +57,7 @@ class App extends Component {
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
-          <Route path="hpage" element={ <Hpage title="Home"/> }/>
+          <Route path="homepage" element={ <Hpage title="Home"/> }/>
           <Route path="users" element={ <Users title="Users Details"/> }/>
           <Route path="posts" element={ <Posts title="Posts"/> }/>
         </Route>
@@ -72,7 +72,7 @@ class App extends Component {
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
           <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
           <Route path="national" element={ <National title="National"/> }/>
-          <Route path="kerala" element={ <Kerala title="Kerala"/>}/>
+          <Route path="kerala" element={ <Kerala title="Kerala"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route path=":id" element={ <Samara title="Welcome to Samara's Component" /> }/>
