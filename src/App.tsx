@@ -14,14 +14,16 @@ import Radhika from './pages/Radhika/Radhika';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
+import { Home as homepriya } from './pages/Vishnupriya/Home';
+import { ShoppingCart } from './pages/Vishnupriya/ShoppingCart';
+import { Fashion } from './pages/Vishnupriya/Fashion';
+import { Electronics } from './pages/Vishnupriya/Electronics';
 import Divya from './pages/Divya/Divya';
 import Bindu from './pages/Bindu/Bindu';
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import Manooja from './pages/Manooja/Manooja';
 import Dhanya from './pages/Dhanya/Dhanya';
-import { Products } from './pages/Vishnupriya/Products';
-import { Blog } from './pages/Vishnupriya/Blog';
 import { TravellBlog } from './pages/Anusree/TravellBlog';
 import { FoodBlog } from './pages/Anusree/FoodBlog';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
@@ -95,8 +97,11 @@ class App extends Component {
           <Route path="home" element={ <Home /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
-         <Route path="products" element={ <Products title="Products details"/> }/>
-         <Route path="blog" element={ <Blog title="Blog"/> }/>
+         <Route path="home" element={ <Home title="Home"/> }/>
+         <Route path="shoppingcart" element={ <ShoppingCart title="Shipping-Cart"/> }>
+          <Route path="fashion" element={ <Fashion title="Fashion"/> }/>
+          <Route path="electronics" element={ <Electronics title="Electronics"/> }/>
+         </Route>
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }>
           <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>

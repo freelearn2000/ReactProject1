@@ -13,7 +13,7 @@ interface IState {
     error: { message: string } | null;
 }
 
-export class Products extends Component<IProps, IState> {
+export class Electronics extends Component<IProps, IState> {
 
     state = { loading: true, content: null, error: null };
 
