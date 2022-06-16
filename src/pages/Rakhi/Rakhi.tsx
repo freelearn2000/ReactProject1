@@ -2,12 +2,12 @@ import { Component } from 'react';
 import axios from '../../axios';
 import { Link, Outlet } from 'react-router-dom';
 import { retriveDataFromRoute } from '../../utils/hoc';
-import { BlogsMenu } from './BlogsMenu';
 
 
 interface IProps {
     title: string;
     routeData: any;
+    location: any;
 }
 
 interface IState {
@@ -84,7 +84,10 @@ class Rakhi extends Component<IProps, IState> {
                 }
                 <div className= "ui segments grid">
                     <div className= "ui segment six wide column ">
-                        <BlogsMenu item1='Science' item2='Technology'/>
+                        <div className="ui inverted vertical pointing menu">
+                            <Link className={ this.props.location.pathname.includes('science')? 'active item': 'item'} to='/rakhi/science'>Science<i className="atom icon"></i></Link>
+                            <Link className={ this.props.location.pathname.includes('technology')? 'active item': 'item'} to='/rakhi/technology'>Technology<i className="keyboard outline icon"></i></Link>
+                        </div>
                     </div>
                     <div className= "ten wide column">
                     {
