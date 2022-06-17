@@ -9,7 +9,6 @@ import Anusree from './pages/Anusree/Anusree';
 import Rakhi from './pages/Rakhi/Rakhi';
 import { ScienceBlog } from './pages/Rakhi/ScienceBlog';
 import { TechnologyBlog } from './pages/Rakhi/TechnologyBlog';
-import Santhosh from './pages/Santhosh/Santhosh';
 import Radhika from './pages/Radhika/Radhika';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
@@ -37,9 +36,10 @@ import { PolandWeather } from './pages/Samara/PolandWeather';
 import Books from './pages/Parvathy/books';
 import Cats from './pages/Parvathy/cats';
 import Home from './pages/Parvathy/home';
+import Santhosh from './pages/Santhosh/Santhosh';
 import { Posts } from './pages/Santhosh/Posts';
 import { Users } from './pages/Santhosh/Users';
-import { Hpage } from './pages/Santhosh/Hpage';
+import { Home as Home1 } from './pages/Santhosh/Home';
 import { National } from './pages/Radhika/National';
 import { Kerala } from './pages/Radhika/Kerala';
 import { Politics } from './pages/Aiswarya/Politics';
@@ -66,11 +66,12 @@ class App extends Component {
           <Route path="travellblog" element={ <TravellBlog title="Travell Blog"/> }/>
           <Route path="foodblog" element={ <FoodBlog title="Food Blog"/> }/>
         </Route>
-        <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>
-          <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
-          <Route path="index" element={ <Hpage title="Home"/> }/>
+        <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>          
+          <Route index element={ <Home1 title="Home"/> }/>
+          <Route path="Home" element={ <Home1 title="Home"/> }/>
           <Route path="users" element={ <Users title="Users Details"/> }/>
           <Route path="posts" element={ <Posts title="Posts"/> }/>
+          <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
         </Route>
         <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>
           <Route path=":id" element={ <Rakhi title="Rakhi's Component"/> }/>
