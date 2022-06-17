@@ -6,6 +6,9 @@ import { HomePage } from './pages/HomePage/HomePage';
 import NewsPage from './pages/NewsPage/NewsPage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import Anusree from './pages/Anusree/Anusree';
+import TravellBlog from './pages/Anusree/TravellBlog';
+import { Pizza } from './pages/Anusree/Pizza';
+import FoodBlog from './pages/Anusree/FoodBlog';
 import Rakhi from './pages/Rakhi/Rakhi';
 import { ScienceBlog } from './pages/Rakhi/ScienceBlog';
 import { TechnologyBlog } from './pages/Rakhi/TechnologyBlog';
@@ -24,8 +27,6 @@ import { FoodBlog as Food } from './pages/Dhanya/FoodBlog';
 import { TravelBlog as Travel } from './pages/Dhanya/TravelBlog';
 import { Products } from './pages/Vishnupriya/Products';
 import { Blog } from './pages/Vishnupriya/Blog';
-import { TravellBlog } from './pages/Anusree/TravellBlog';
-import { FoodBlog } from './pages/Anusree/FoodBlog';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 import { Product } from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
@@ -45,6 +46,7 @@ import { Kerala } from './pages/Radhika/Kerala';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts'
 
+
 class App extends Component {
   
   render( ) {
@@ -61,10 +63,12 @@ class App extends Component {
               <Route path=":email" element={ <AboutPage/> }/>
             </Route>
         </Route>
-        <Route path="/anusree" element={ <Anusree title="Anusree's Component"/> }>
-          <Route path=":id" element={ <Anusree title="Anusree's Component"/> }/>
-          <Route path="travellblog" element={ <TravellBlog title="Travell Blog"/> }/>
-          <Route path="foodblog" element={ <FoodBlog title="Food Blog"/> }/>
+        <Route path="/anusree" element={ <Anusree title="Anusree's Component"/> } >
+          {/* <Route index element={ <Anusree title="Anusree's Component"/> }/> */}
+          <Route path=":id" element={ <TravellBlog title="Travel Blog"/> }/>
+          <Route path="foodblog" element={ <FoodBlog title="Food Blog"/> }>
+            <Route path="pizza" element={ <Pizza title="Pizza"/> }/>
+          </Route>
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
