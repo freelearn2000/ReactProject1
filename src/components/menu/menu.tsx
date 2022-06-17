@@ -20,17 +20,17 @@ export const Menu = ( props: any ) => {
                     <Link to='/anusree' className="active item">Anusree</Link>
                 :   <Link to='/anusree' className="item">Anusree</Link>}
             { (location.pathname.includes(`/rakhi`))?
-                    <Link to='/rakhi/users' className="active item">Rakhi</Link>
-                :   <Link to='/rakhi/users' className="item">Rakhi</Link>}
+                    <Link to='/rakhi' className="active item">Rakhi</Link>
+                :   <Link to='/rakhi' className="item">Rakhi</Link>}
             { (location.pathname.includes(`/santhosh`))?
-                    <Link to='/santhosh/index' className="active item">Santhosh</Link>
-                :   <Link to='/santhosh/index' className="item">Santhosh</Link> }
+                    <Link to='/santhosh' className="active item">Santhosh</Link>
+                :   <Link to='/santhosh' className="item">Santhosh</Link> }
              { (location.pathname.includes(`/radhika`))?
                     <Link to='/radhika/users' className="active item">Radhika</Link>
                 :   <Link to='/radhika/users' className="item">Radhika</Link>}
             { (location.pathname.includes(`/samara`))?
-                    <Link to='/samara/info' className="active item">Samara</Link>
-                :   <Link to='/samara/info' className="item">Samara</Link>}
+                    <Link to='/samara' className="active item">Samara</Link>
+                :   <Link to='/samara' className="item">Samara</Link>}
         </div>
         <div className="ui eight item menu">
             { (location.pathname.includes(`/parvathy`))?
