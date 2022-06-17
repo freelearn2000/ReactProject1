@@ -89,9 +89,9 @@ class App extends Component {
           <Route path="kerala" element={ <Kerala title="Kerala"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
-          <Route path=":id" element={ <Samara title="Welcome to Samara's Component" /> }/>
           <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
           <Route path="polandweather" element={ <PolandWeather title="Poland Weather details"/> }/>
+          <Route path=":id" element={ <Samara title="Welcome to Samara's Component" /> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
         <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
