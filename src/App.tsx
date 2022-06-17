@@ -24,6 +24,9 @@ import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import Manooja from './pages/Manooja/Manooja';
 import Dhanya from './pages/Dhanya/Dhanya';
+import { Dhanya1 } from './pages/Dhanya/Dhanya1';
+import { FoodBlog as Food } from './pages/Dhanya/FoodBlog';
+import { TravelBlog as Travel } from './pages/Dhanya/TravelBlog';
 import { TravellBlog } from './pages/Anusree/TravellBlog';
 import { FoodBlog } from './pages/Anusree/FoodBlog';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
@@ -42,6 +45,8 @@ import { Users } from './pages/Santhosh/Users';
 import { Hpage } from './pages/Santhosh/Hpage';
 import { National } from './pages/Radhika/National';
 import { Kerala } from './pages/Radhika/Kerala';
+import { Politics } from './pages/Aiswarya/Politics';
+import { Arts } from './pages/Aiswarya/Arts'
 
 class App extends Component {
   
@@ -70,7 +75,7 @@ class App extends Component {
           <Route path="users" element={ <Users title="Users Details"/> }/>
           <Route path="posts" element={ <Posts title="Posts"/> }/>
         </Route>
-        <Route path="/rakhi" element={ <Rakhi titlne="Rakhi's Component"/> }>
+        <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>
           <Route path=":id" element={ <Rakhi title="Rakhi's Component"/> }/>
           <Route path="science" element={ <ScienceBlog title="Science Blog"/> }/>
           <Route path="technology" element={ <TechnologyBlog title="Technology Blog"/> }/>
@@ -108,10 +113,12 @@ class App extends Component {
           <Route path="product" element={ <Product title="Product"/> }>
             <Route path="grocery" element={ <Grocery/> }/>
             <Route path="skincare" element={ <Skincare/> }/>
-            </Route>
+          </Route>
         </Route>
         <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }>
           <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
+          <Route path="politics" element={ <Politics title="Politics" /> }/>
+          <Route path="Arts" element={ <Arts title="Arts" /> }/>
         </Route>
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>
           <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>
@@ -119,8 +126,10 @@ class App extends Component {
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
           <Route path=":id" element={ <Manooja title="This is Manooja's Component"/> }/>
         </Route>  
-        <Route path="/dhanya" element={ <Dhanya title="This is Dhanya's Component"/> }>
-          <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/>
+        <Route path="/dhanya" element={ <Dhanya1 title="This is Dhanya's Component"/> }>
+          {/* <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/> */}
+          <Route path="food" element={ <Food /> } />
+          <Route path="travel" element={ <Travel /> } />
         </Route>
         <Route path="*" element={ <ErrorPage ErrorCode="404" ErrorMsg="The page requested was not found"/> }/>
       </Routes>

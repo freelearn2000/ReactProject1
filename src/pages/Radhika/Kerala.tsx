@@ -63,7 +63,7 @@ export class Kerala extends Component<IProps> {
                 <h2 className="ui center aligned header">{  this.props.title  }</h2>
                 {
                     this.state.loading ? this.renderLoading( ): 
-                    this.state.posts ? <><h3 className="ui center aligned header"></h3>{ this.renderUserdata( ) }</>:
+                    this.state.posts ? this.renderUserdata( ):
                     this.renderError( )
                 }
             </div>

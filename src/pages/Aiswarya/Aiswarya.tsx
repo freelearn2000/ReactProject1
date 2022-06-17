@@ -1,6 +1,6 @@
 import { Component } from "react";
 import axios from '../../axios';
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { retriveDataFromRoute } from "../../utils/hoc";
 
 
@@ -67,21 +67,42 @@ interface IState {
     render( ) {
 
         return (  
-            <div>
-                <h2 className = "ui center aligned header">{ this.props.title }</h2>
-                    <br/>
-                    <h4 className="ui header blue">Route Data: { this.props.routeData.id }</h4>
+            <>
+                     
                     <button className="ui purple basic button"><Link to='/' className="item">Home</Link></button>
                     <button className="ui purple basic button"><Link to='/news/latestnews' className="item">News</Link></button>
-                    <br/>
+                    <h2 className = 'ui center aligned block header'>{ this.props.title }</h2>
+                    <div className ="ui grid">
+                        <div className="four wide column">
+                        <div className="ui vertical pointing menu">
+                            <Link to='/aiswarya/politics' className="item">Politics</Link>
+                            <Link to='/aiswarya/arts' className="item">Arts</Link>
+                            <br/>
+                        </div>
+                    </div>
+                <div className="twelve wide stretched column">
+                <div className="ui segment">
                 {
-                    this.state.loading ? this.renderLoading( ):
-                    this.state.users ? this.renderUserdata( ):
-                    <><h2> Error Data !!!!</h2>{this.rendererror( )}</>
+                    this.props.routeData.id?
+                    <>
+                        
+                        <h3 className='ui header blue'>Route Data: { this.props.routeData.id }</h3>
+                        {
+                            this.state.loading ? this.renderLoading( ):
+                            this.state.users ?<><h2> User Data</h2>{this.renderUserdata( )}</>:
+                            <><h2> Error Data !!!!</h2>{this.rendererror( )}</> 
+                        }
+                    </>:
+                    <Outlet/>
                 }
+                </div>
             </div>
+        </div>
+            </>
         )
     }
 }
 
 export default retriveDataFromRoute( Aiswarya );
+
+

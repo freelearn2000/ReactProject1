@@ -75,7 +75,7 @@ class Rakhi extends Component<IProps, IState> {
 
         return(
             <div className= "ui basic segments">
-                <h1 className = "ui white ui  inverted header header center aligned segment">{ this.props.title }</h1><br/>
+                <h1 className = "ui inverted header center aligned segment">{ this.props.title }</h1><br/>
                 <Link to='/' className = "ui label black left aligned">Home</Link>
                 <Link to='/news/trending' className = "ui label black">News</Link>
                 {
