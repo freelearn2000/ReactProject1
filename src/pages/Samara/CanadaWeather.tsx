@@ -54,8 +54,8 @@ export class CanadaWeather extends Component<IProps, IState> {
         const dataJSX = data.map( (item: any) => {
             return (
                 <div key = { item.id } className="ui floating message">
-                    <h4>{ item.title }</h4>
-                    <p>Email : { item.body }</p>
+                    <h4>Title : { item.title }</h4>
+                    <p>Content : { item.body }</p>
                 </div>
             );
         });
