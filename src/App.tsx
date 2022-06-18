@@ -39,6 +39,7 @@ import { Health } from './pages/Bindu/Health';
 import { Sports } from './pages/Bindu/Sports';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
+import { SamaraHome } from './pages/Samara/SamaraHome';
 import Books from './pages/Parvathy/books';
 import Cats from './pages/Parvathy/cats';
 import Home from './pages/Parvathy/home';
@@ -48,7 +49,8 @@ import { Home as Home1 } from './pages/Santhosh/Home';
 import { National } from './pages/Radhika/National';
 import { Kerala } from './pages/Radhika/Kerala';
 import { Politics } from './pages/Aiswarya/Politics';
-import { Arts } from './pages/Aiswarya/Arts'
+import { Arts } from './pages/Aiswarya/Arts';
+
 
 class App extends Component {
   
@@ -99,9 +101,10 @@ class App extends Component {
           <Route path="kerala" element={ <Kerala title="Kerala"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
+          <Route index element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
           <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
           <Route path="polandweather" element={ <PolandWeather title="Poland Weather details"/> }/>
-          <Route path=":id" element={ <Samara title="Welcome to Samara's Component" /> }/>
+          <Route path=":id" element={ <SamaraHome title="Welcome to our Weather Calculator" /> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
           <Route index element={ <Home /> }/>
