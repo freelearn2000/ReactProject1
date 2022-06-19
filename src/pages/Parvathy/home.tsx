@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { retriveDataFromRoute } from '../../utils/hoc';
+import picture from "./pictures/catimg1.png";
 
 
 class Home1 extends Component {
@@ -8,11 +8,13 @@ class Home1 extends Component {
 
         return (
             <div>
-                <h2 className="ui center aligned header">Welcome to my HomePage</h2>
-                <p className="ui center aligned header">This is my content area !!!!!</p>
+                <h2 className="ui center aligned header">A room without books is like a body without a soul.</h2>
+                <div className="ui image">
+                    <img alt={picture} src={picture}/>
+                </div>
             </div>
         )
     }
 }
 
-export default retriveDataFromRoute(Home1);
+export default (Home1);

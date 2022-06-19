@@ -7,9 +7,14 @@ import NewsPage from './pages/NewsPage/NewsPage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import Anusree from './pages/Anusree/Anusree';
 import Rakhi from './pages/Rakhi/Rakhi';
-import { ScienceBlog } from './pages/Rakhi/ScienceBlog';
-import { TechnologyBlog } from './pages/Rakhi/TechnologyBlog';
-import Santhosh from './pages/Santhosh/Santhosh';
+import RouteData from './pages/Rakhi/RouteData';
+import { HomePage as IndexPage  } from './pages/Rakhi/HomePage';
+import ScienceBlog from './pages/Rakhi/ScienceBlog';
+import TechnologyBlog from './pages/Rakhi/TechnologyBlog';
+import { ContentPage } from './pages/Rakhi/ContentPage';
+import science from './pages/Rakhi/Resources/news.jpg';
+import technology from './pages/Rakhi/Resources/tech.jpg';
+import Santhosh from './pages/Santhosh/Santhosh';;
 import Radhika from './pages/Radhika/Radhika';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
@@ -35,16 +40,18 @@ import { Health } from './pages/Bindu/Health';
 import { Sports } from './pages/Bindu/Sports';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
+import { SamaraHome } from './pages/Samara/SamaraHome';
 import Books from './pages/Parvathy/books';
 import Cats from './pages/Parvathy/cats';
 import Home from './pages/Parvathy/home';
 import { Posts } from './pages/Santhosh/Posts';
 import { Users } from './pages/Santhosh/Users';
-import { Hpage } from './pages/Santhosh/Hpage';
+import { Home as Home1 } from './pages/Santhosh/Home';
 import { National } from './pages/Radhika/National';
 import { Kerala } from './pages/Radhika/Kerala';
 import { Politics } from './pages/Aiswarya/Politics';
-import { Arts } from './pages/Aiswarya/Arts'
+import { Arts } from './pages/Aiswarya/Arts';
+
 
 class App extends Component {
   
@@ -67,16 +74,22 @@ class App extends Component {
           <Route path="travellblog" element={ <TravellBlog title="Travell Blog"/> }/>
           <Route path="foodblog" element={ <FoodBlog title="Food Blog"/> }/>
         </Route>
-        <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>
-          <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
-          <Route path="index" element={ <Hpage title="Home"/> }/>
+        <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>          
+          <Route index element={ <Home1 title="Home"/> }/>
+          <Route path="Home" element={ <Home1 title="Home"/> }/>
           <Route path="users" element={ <Users title="Users Details"/> }/>
           <Route path="posts" element={ <Posts title="Posts"/> }/>
+          <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
         </Route>
         <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>
-          <Route path=":id" element={ <Rakhi title="Rakhi's Component"/> }/>
-          <Route path="science" element={ <ScienceBlog title="Science Blog"/> }/>
-          <Route path="technology" element={ <TechnologyBlog title="Technology Blog"/> }/>
+          <Route path=":id" element={ <RouteData title="Rakhi's Component"/> }/>
+          <Route index element={ <IndexPage title="The value of an idea lies in the using of it!"/> }/>
+          <Route path="science" element={ <ScienceBlog title="Science Blog"/> }>
+            <Route path="top" element={<ContentPage title='Physics-based cryptocurrency transmits energy through blockchain' content='Researchers from Lawrence Livermore National Laboratory (LLNL) have devised a physics-based cryptocurrency that links electrical energy and blockchain technologies in a new way.' image={science}/> }/>
+          </Route>
+          <Route path="technology" element={ <TechnologyBlog title="Technology Blog"/> }>
+            <Route path="trending" element={<ContentPage title='So long, Internet Explorer. The browser retires today' content='The browser retires today. Internet Explorer is finally headed out to pasture.' image={technology}/> }/>
+          </Route>
         </Route>
         <Route path="/Bindu" element={ <Bindu title="This is Bindu's Component"/> }>
           <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
@@ -89,15 +102,16 @@ class App extends Component {
           <Route path="kerala" element={ <Kerala title="Kerala"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
-          <Route path=":id" element={ <Samara title="Welcome to Samara's Component" /> }/>
+          <Route index element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
           <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
           <Route path="polandweather" element={ <PolandWeather title="Poland Weather details"/> }/>
+          <Route path=":id" element={ <SamaraHome title="Welcome to our Weather Calculator" /> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
-        <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
+          <Route index element={ <Home /> }/>
           <Route path="books" element={ <Books title="Books" /> }/>
           <Route path="cats" element={ <Cats title="Cats" /> }/>
-          <Route path="home" element={ <Home /> }/>
+          <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
          <Route path="products" element={ <Products title="Products details"/> }/>

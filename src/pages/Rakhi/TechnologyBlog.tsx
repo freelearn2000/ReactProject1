@@ -1,11 +1,15 @@
 import { Component } from "react";
+import { Link, Outlet } from "react-router-dom";
 import axios from '../../axios';
+import { retriveDataFromRoute } from '../../utils/hoc';
+
 
 interface IProps {
     title: any;
+    location: any;
 }
 
-export class TechnologyBlog extends Component<IProps> {
+class TechnologyBlog extends Component<IProps> {
 
     state={ loading: true, technology: null, error: null };
     
@@ -64,12 +68,20 @@ export class TechnologyBlog extends Component<IProps> {
         return(
             <>
                 <h2 className="ui center aligned header red">{ this.props.title }</h2>
-                    {
-                        this.state.loading ? this.renderLoading( ):
-                        this.state.technology ? <>{ this.renderData( ) }</>:
-                        <><h2>Error Data</h2>{ this.renderError( )}</>
-                    }
+                <Link to='trending' className = "ui label red">Trending</Link>
+                {
+                    this.props.location.pathname.includes('trending')?<Outlet/>:
+                    <>
+                        {	
+                            this.state.loading ? this.renderLoading( ) :
+                            this.state.technology ? this.renderData( ) :
+                            this.renderError( )
+                        }
+                    </>
+                }
             </>
         )
     }
 }
+
+export default retriveDataFromRoute(TechnologyBlog);
