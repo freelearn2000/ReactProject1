@@ -32,7 +32,7 @@ class Anusree extends Component<IProps, IState> {
                         <Link to='foodblog' className={ this.props.location.pathname.includes('food')? 'active item': 'item'}><i className="mug hot icon"></i>Food Blog</Link>
                     </div>
                     <div className="segment">
-                    { (this.props.location.pathname.includes('food')||this.props.location.pathname.includes('travel'))||
+                    { (this.props.location.pathname.includes('food') || this.props.location.pathname.includes('travel')) ||
                     <img className="ui fluid image" alt="Foodimage" src={ BlogImage }/> }
                         <Outlet/>
                     </div>   

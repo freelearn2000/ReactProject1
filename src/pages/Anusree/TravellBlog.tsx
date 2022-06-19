@@ -23,7 +23,7 @@ class TravellBlog extends Component<IProps, IState> {
 
         axios.get('/users')
             .then(response => {
-                this.setState( {loading: false, users: response.data, error: null} );
+                this.setState( {loading: false, users: (response.data).splice(0,5), error: null} );
             })
             .catch(error => {
                 this.setState( {loading: false, users: null, error: error} );
@@ -52,7 +52,6 @@ class TravellBlog extends Component<IProps, IState> {
     }
 
     renderUserdata( ) {
-        //console.log(this.props.routeData)
         const users = this.state.users ? this.state.users : [ ];
         const dataJSX = users.map( (user: {name: string, email: string, id: number} ) => {
            return( 

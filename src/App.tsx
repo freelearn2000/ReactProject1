@@ -69,7 +69,6 @@ class App extends Component {
             </Route>
         </Route>
         <Route path="/anusree" element={ <Anusree title="Anusree's Component"/> } >
-          {/* <Route index element={ <Anusree title="Anusree's Component"/> }/> */}
           <Route path=":id" element={ <TravellBlog title="Travel Blog"/> }/>
           <Route path="foodblog" element={ <FoodBlog title="Food Blog"/> }>
             <Route path="pizza" element={ <Pizza title="Pizza"/> }/>
