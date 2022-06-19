@@ -20,7 +20,7 @@ export class Grocery extends Component<IProps, IState> {
 
 		axios.get('/posts')
 			.then(response => {
-				this.setState( {loading: false, products: response.data, error: null} );
+				this.setState( {loading: false, products: response.data.splice(0,8), error: null} );
 			})
 			.catch(error => {
 				this.setState( {loading: false, products: null, error: error} );
@@ -57,7 +57,7 @@ export class Grocery extends Component<IProps, IState> {
 			
 			);
 		});
-		
+
 		return dataJSX;
 	}
 
