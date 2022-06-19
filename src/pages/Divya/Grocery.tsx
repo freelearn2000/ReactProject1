@@ -54,8 +54,10 @@ export class Grocery extends Component<IProps, IState> {
 				<div key={ product.id } className='ui segment'>
 					<p>{product.title}</p>
 				</div>
+			
 			);
 		});
+		
 		return dataJSX;
 	}
 

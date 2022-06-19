@@ -15,6 +15,10 @@ import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
 import Divya from './pages/Divya/Divya';
+import Product from './pages/Divya/Products';
+import { Grocery } from './pages/Divya/Grocery';
+import { Skincare } from './pages/Divya/Skincare';
+
 import Bindu from './pages/Bindu/Bindu';
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
@@ -27,9 +31,6 @@ import { Blog } from './pages/Vishnupriya/Blog';
 import { TravellBlog } from './pages/Anusree/TravellBlog';
 import { FoodBlog } from './pages/Anusree/FoodBlog';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
-import { Product } from './pages/Divya/Products';
-import { Grocery } from './pages/Divya/Grocery';
-import { Skincare } from './pages/Divya/Skincare';
 import { Health } from './pages/Bindu/Health';
 import { Sports } from './pages/Bindu/Sports';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
@@ -103,11 +104,12 @@ class App extends Component {
          <Route path="blog" element={ <Blog title="Blog"/> }/>
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }>
-          <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>
+        <Route index element={ <Product title="Product"/> }/>
           <Route path="product" element={ <Product title="Product"/> }>
             <Route path="grocery" element={ <Grocery/> }/>
             <Route path="skincare" element={ <Skincare/> }/>
           </Route>
+          <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>
         </Route>
         <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }>
           <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
