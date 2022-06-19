@@ -66,7 +66,6 @@ export class PolandWeather extends Component<IProps, IState> {
         
         return(
             <div>
-                <br/>
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
                     {
                         this.state.loading ? this.renderLoading( ):

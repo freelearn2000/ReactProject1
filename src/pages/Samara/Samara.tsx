@@ -23,6 +23,7 @@ class Samara extends Component<IProps> {
                     <Link to='/samara/polandweather' className="ui teal button">Poland</Link>
                 </div>    
                 <div>
+                    <br/>
                     <Outlet/>
                 </div>
             </>        

@@ -23,6 +23,9 @@ import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
 import Divya from './pages/Divya/Divya';
+import Product from './pages/Divya/Products';
+import { Grocery } from './pages/Divya/Grocery';
+import { Skincare } from './pages/Divya/Skincare';
 import Bindu from './pages/Bindu/Bindu';
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
@@ -33,13 +36,11 @@ import { TravelBlog as Travel } from './pages/Dhanya/TravelBlog';
 import { Products } from './pages/Vishnupriya/Products';
 import { Blog } from './pages/Vishnupriya/Blog';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
-import { Product } from './pages/Divya/Products';
-import { Grocery } from './pages/Divya/Grocery';
-import { Skincare } from './pages/Divya/Skincare';
 import { Health } from './pages/Bindu/Health';
 import { Sports } from './pages/Bindu/Sports';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
+import { SamaraHome } from './pages/Samara/SamaraHome';
 import Books from './pages/Parvathy/books';
 import Cats from './pages/Parvathy/cats';
 import Home from './pages/Parvathy/home';
@@ -49,7 +50,8 @@ import { Home as Home1 } from './pages/Santhosh/Home';
 import { National } from './pages/Radhika/National';
 import { Kerala } from './pages/Radhika/Kerala';
 import { Politics } from './pages/Aiswarya/Politics';
-import { Arts } from './pages/Aiswarya/Arts'
+import { Arts } from './pages/Aiswarya/Arts';
+
 
 
 class App extends Component {
@@ -102,26 +104,28 @@ class App extends Component {
           <Route path="kerala" element={ <Kerala title="Kerala"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
+          <Route index element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
           <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
           <Route path="polandweather" element={ <PolandWeather title="Poland Weather details"/> }/>
-          <Route path=":id" element={ <Samara title="Welcome to Samara's Component" /> }/>
+          <Route path=":id" element={ <SamaraHome title="Welcome to our Weather Calculator" /> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
-        <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
+          <Route index element={ <Home /> }/>
           <Route path="books" element={ <Books title="Books" /> }/>
           <Route path="cats" element={ <Cats title="Cats" /> }/>
-          <Route path="home" element={ <Home /> }/>
+          <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
          <Route path="products" element={ <Products title="Products details"/> }/>
          <Route path="blog" element={ <Blog title="Blog"/> }/>
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }>
-          <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>
+        <Route index element={ <Product title="Product"/> }/>
           <Route path="product" element={ <Product title="Product"/> }>
             <Route path="grocery" element={ <Grocery/> }/>
             <Route path="skincare" element={ <Skincare/> }/>
           </Route>
+          <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>
         </Route>
         <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }>
           <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>

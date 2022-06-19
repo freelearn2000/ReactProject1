@@ -1,11 +1,9 @@
 import { Component } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { retriveDataFromRoute } from '../../utils/hoc';
 
 
 interface IProps {
     title: string;
-    routeData: any;
 }
 
 class Parvathy extends Component<IProps> {
@@ -14,9 +12,6 @@ class Parvathy extends Component<IProps> {
 
         const sideMenuJSX =
             <div className="ui fluid inverted vertical menu">
-                <Link to='/parvathy/home' className="item">
-                    Home
-                </Link>
                 <Link to='/parvathy/books' className="item">
                     books
                 </Link>
@@ -42,20 +37,17 @@ class Parvathy extends Component<IProps> {
 
         return (
             <div>
-                <h2 className="ui center aligned header message">{this.props.title}</h2>
-                <h4 className='ui bottom pointing label header'>Route Data: {this.props.routeData.id}</h4>&nbsp;&nbsp;
-            
+                <h2 className="ui center aligned header message">{ this.props.title }</h2>
                 <Link to='/' className="ui teal basic tag label">Goto HomePage</Link> &nbsp;&nbsp;
                 <Link to='/news/100$' className="ui basic olive tag label">News</Link>
-                
                 <div className="ui secondary segment">
                     <div className="ui internally celled grid">
                         <div className="row">
                             <div className="three wide column">
-                                {this.renderSideMenu()}
+                                { this.renderSideMenu() }
                             </div>
                             <div className="thirteen wide column">
-                                {this.renderContentBox()}
+                                { this.renderContentBox() }
                             </div>
                         </div>
                     </div>
@@ -65,4 +57,4 @@ class Parvathy extends Component<IProps> {
     }
 }
 
-export default retriveDataFromRoute(Parvathy);
+export default (Parvathy);
