@@ -1,6 +1,5 @@
 import { Component } from "react";
 import axios from '../../axios';
-import Imshopcart from '../Vishnupriya/images/shopcartimg.jpg';
 
 
 interface IProps {
@@ -13,15 +12,15 @@ interface IState {
     error: { message: string } | null;
 }
 
-export class ShoppingCart extends Component<IProps, IState> {
+export class Laptops extends Component<IProps, IState> {
 
     state = { loading: true, content: null, error: null };
 
     componentDidMount( ) {
 
-        axios.get('/todos')
+        axios.get('/comments')
             .then(response => {
-                this.setState( {loading: false, content: response.data, error: null} );
+                this.setState( {loading: false, content: response.data.splice(1,10), error: null} );
             })
             .catch(error => {
                 this.setState( {loading: false, content: null, error: error} );
@@ -59,9 +58,12 @@ export class ShoppingCart extends Component<IProps, IState> {
     renderData( ) {
 
         const datas = this.state.content ? this.state.content : [ ];
-        const dataJsx = datas.map( ( item: {id: number, title: string} ) => {
+        const dataJsx = datas.map( ( item: {id: number, name: string, body: string} ) => {
             return (
-                <p key={ item.id }>{ item.title }</p>
+                <div key={ item.id } className="ui two segment">
+                    <h5>Name: { item.name }</h5>
+                    <p>Body: { item.body }</p>
+                </div>
             )
         });
         return dataJsx;
@@ -72,7 +74,12 @@ export class ShoppingCart extends Component<IProps, IState> {
         return (
             <div>
                 <h4 className="ui center aligned header">{ this.props.title }</h4>
-                <img className="ui fluid image" src={Imshopcart}></img>
+                
+                {
+                    this.state.loading ? this.renderLoading( ) :
+                    this.state.content ? this.renderData( ) :
+                    this.renderError( )    
+                }
             </div>
         )   
     }

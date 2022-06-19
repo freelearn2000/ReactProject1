@@ -1,9 +1,13 @@
 import { Component } from "react";
+import { Link, Outlet } from 'react-router-dom';
 import axios from '../../axios';
+import { retriveDataFromRoute } from '../../utils/hoc';
+import Imelec from '../Vishnupriya/images/elecimg.jpg';
 
 
 interface IProps {
     title: string;
+    location: any;
 }
 
 interface IState {
@@ -12,13 +16,13 @@ interface IState {
     error: { message: string } | null;
 }
 
-export class Electronics extends Component<IProps, IState> {
+class Electronics extends Component<IProps, IState> {
 
     state = { loading: true, content: null, error: null };
 
     componentDidMount( ) {
 
-        axios.get('/todos')
+        axios.get('/comments')
             .then(response => {
                 this.setState( {loading: false, content: response.data, error: null} );
             })
@@ -45,39 +49,59 @@ export class Electronics extends Component<IProps, IState> {
     renderError( ) {
 
         const message = this.state.error ? this.state.error[ `message` ] : '';
-        const errorJSX =
+        const errorJsx =
             <div>
                 <div className="ui negative message">
                 <i className="close icon"></i>
                     { message }
                 </div>
             </div>
-        return errorJSX;
+        return errorJsx;
     }
 
     renderData( ) {
 
         const datas = this.state.content ? this.state.content : [ ];
-        const dataJsx = datas.map( ( item: {id: number, title: string} ) => {
+        const ElectronicsJsx = datas.map( ( item: any ) => {
             return (
-                <p key={ item.id }>{ item.title }</p>
+                <div key={ item.id } className="ui two segment">
+                    <h5>Name: { item.name }</h5>
+                    <p>Body: { item.body }</p>
+                </div>
+                    
+               
             )
         });
-        return dataJsx;
+        return ElectronicsJsx;
     }
 
     render( ) {
 
         return (
-            <div>
-                <h4 className="ui center aligned header">{ this.props.title }</h4>
-                
-                {
-                    this.state.loading ? this.renderLoading( ) :
-                    this.state.content ? this.renderData( ) :
-                    this.renderError( )    
-                }
-            </div>
+            <>
+                <h2 className="ui center aligned header">{this.props.title}</h2> 
+                    <div className="row">
+                        <div className="ui two column stackable grid container">
+                            <div className="four wide  column">
+                                <div className="ui vertical fluid menu">
+                                    <div className="ui segment">
+                                        <Link to='/vishnupriya/electronics/mobiles'className={this.props.location.pathname.includes('mobiles')? "active item" : "item"}>Mobiles </Link>
+                                        <Link to='/vishnupriya/electronics/laptops'className={this.props.location.pathname.includes('laptops')? "active item" : "item"}> Laptops </Link>
+                                    </div>
+                                </div>
+                            </div>   
+                            <div className="twelve wide  column"> 
+                                <div className="ui segment">
+                                    <Outlet/>
+                                    { (this.props.location.pathname.includes('mobiles') || this.props.location.pathname.includes('laptops') )||
+                                    <img className="ui fluid image" src={Imelec}></img> }
+                                </div>	
+                            </div>
+                        </div>
+                    </div>
+            </>
         )   
     }
 }
+
+export default retriveDataFromRoute( Electronics );

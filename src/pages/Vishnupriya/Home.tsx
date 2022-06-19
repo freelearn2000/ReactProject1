@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { Link } from 'react-router-dom';
 import axios from '../../axios';
 
 
@@ -19,7 +18,7 @@ export class Home extends Component<IProps, IState> {
 
     componentDidMount( ) {
 
-        axios.get('/todos')
+        axios.get('/users')
             .then(response => {
                 this.setState( {loading: false, content: response.data, error: null} );
             })
@@ -58,10 +57,13 @@ export class Home extends Component<IProps, IState> {
 
     renderData( ) {
 
-        const datas = this.state.content ? this.state.content : [ ];
-        const dataJsx = datas.map( ( item: {id: number, title: string} ) => {
+        const data = this.state.content ? this.state.content : [ ];
+        const dataJsx = data.map( ( item: {id: number, name: string, email: string} ) => {
             return (
-                <p key={ item.id }>{ item.title }</p>
+                <div key={ item.id } className="ui two segment">
+                    <h5>Name: { item.name }</h5>
+                    <p>Email: { item.email }</p>
+                </div>
             )
         });
         return dataJsx;

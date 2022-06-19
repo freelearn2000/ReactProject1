@@ -1,5 +1,7 @@
 import { Component } from "react";
 import { Link, Outlet } from 'react-router-dom';
+import { retriveDataFromRoute } from '../../utils/hoc';
+import  ImLogo  from '../Vishnupriya/images/logo.png';
 
 
 interface IProps {
@@ -13,20 +15,22 @@ class Vishnupriya extends Component<IProps> {
         return (
             <div>
                 <h2 className="ui center aligned gray header message">{ this.props.title }</h2>
-                <div className="ui internally celled grid">
                     <div className="column">
-                        <div className="three wide raw">
-                            <Link to='/vishnupriya/products' className="ui teal label"><i className="fa-brands fa-product-hunt icon"></i>Products</Link>
-                            <Link to='/vishnupriya/blog' className="ui blue label"><i className="blog icon"></i>Blog</Link>         
-                        </div>
-                        <div className="three wide raw">
+                            <div className="ui stackable container menu">
+                                <div className="item">
+                                    <img src={ImLogo}></img>
+                                </div>
+                                <Link to='/vishnupriya/shoppingcart' className="ui blue button">Shopping Cart</Link>
+                                <Link to='/vishnupriya/home' className="ui teal button">Home</Link>
+                                <Link to='/vishnupriya/electronics' className="ui green button">Electronics</Link>
+                            </div>
+                        <div className="four wide raw">
                             <Outlet/>
                         </div>
                     </div>
-                </div>
             </div>
         )   
     }
 }
 
-export default Vishnupriya;
+export default retriveDataFromRoute( Vishnupriya );
