@@ -16,14 +16,14 @@ class Vishnupriya extends Component<IProps> {
             <div>
                 <h2 className="ui center aligned gray header message">{ this.props.title }</h2>
                     <div className="column">
-                            <div className="ui stackable container menu">
-                                <div className="item">
-                                    <img src={ImLogo}></img>
-                                </div>
-                                <Link to='/vishnupriya/shoppingcart' className="ui blue button">Shopping Cart</Link>
-                                <Link to='/vishnupriya/home' className="ui teal button">Home</Link>
-                                <Link to='/vishnupriya/electronics' className="ui green button">Electronics</Link>
+                        <div className="ui stackable container menu">
+                            <div className="item">
+                                <img src={ImLogo}></img>
                             </div>
+                            <Link to='/vishnupriya/shoppingcart' className="ui blue button">Shopping Cart</Link>
+                            <Link to='/vishnupriya/home' className="ui teal button">Home</Link>
+                            <Link to='/vishnupriya/electronics' className="ui green button">Electronics</Link>
+                        </div>
                         <div className="four wide raw">
                             <Outlet/>
                         </div>
