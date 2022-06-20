@@ -24,35 +24,21 @@ import Electronics from './pages/Vishnupriya/Electronics';
 import { Mobiles } from './pages/Vishnupriya/Mobiles';
 import { Laptops } from './pages/Vishnupriya/Laptops';
 import Divya from './pages/Divya/Divya';
-<<<<<<< HEAD
-import Aiswarya from './pages/Aiswarya/Aiswarya';
-import Viji from './pages/Viji/Viji';
-import Manooja from './pages/Manooja/Manooja';
-import Bhome from './pages/Bindu/Bindu';
-
-=======
 import Product from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
 import { Skincare } from './pages/Divya/Skincare';
-import Bindu from './pages/Bindu/Bindu';
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import Manooja from './pages/Manooja/Manooja';
 import Dhanya from './pages/Dhanya/Dhanya';
->>>>>>> 0cf345900af1f2208e53a3b2de61f8c00b2a03d2
 import { Dhanya1 } from './pages/Dhanya/Dhanya1';
 import { FoodBlog as Food } from './pages/Dhanya/FoodBlog';
 import { TravelBlog as Travel } from './pages/Dhanya/TravelBlog';
 import { TravellBlog } from './pages/Anusree/TravellBlog';
 import { FoodBlog } from './pages/Anusree/FoodBlog';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
-<<<<<<< HEAD
-import { Product } from './pages/Divya/Products';
-import { Grocery } from './pages/Divya/Grocery';
-import { Skincare } from './pages/Divya/Skincare';
-import { Bindu1 } from './pages/Bindu/Bindu1';
-=======
->>>>>>> 0cf345900af1f2208e53a3b2de61f8c00b2a03d2
+import { Bindu } from './pages/Bindu/Bindu';
+import { Bhome }  from './pages/Bindu/Bhome';
 import { Health } from './pages/Bindu/Health';
 import { Sports } from './pages/Bindu/Sports';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
@@ -114,13 +100,13 @@ class App extends Component {
             <Route path="trending" element={<ContentPage title='So long, Internet Explorer. The browser retires today' content='The browser retires today. Internet Explorer is finally headed out to pasture.' image={technology}/> }/>
           </Route>
         </Route>
-         <Route path="/Bindu" element={ <Bindu1 title="This is Bindu's Component"/> }>
-         <Route path=":id" element={ <Bindu1 title="This is Bindu's Component"/> }/>
-         <Route path="index" element={ <Bhome title="Home"/> }/>
+         <Route path="/bindu" element={ <Bindu title="This is Bindu's Component"/> }>
+         <Route index element={ <Bhome title="Home"/> }/>
+         <Route path="bhome" element={ <Bhome title="Home"/> }/>
          <Route path="health" element={ <Health title="Health"/> }/>
          <Route path="sports" element={ <Sports title="Sports"/> }/>
-         
-        </Route>
+         <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
+         </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
           <Route index element={ <LatestNews title="LatestNews"/> }/>
           <Route path="india" element={ <India title="India"/> }/>
