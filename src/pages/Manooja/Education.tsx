@@ -64,7 +64,7 @@ export class Education extends Component<IProps, IState> {
 
 		return(
             <div>
-                <h2 className="ui horizontal divider header">List of Educational Institutions</h2> 
+                <h2 className="ui center aligned header">List of Educational Institutions</h2> 
 				
 					{	this.state.loading ? this.renderLoading( ) :
                 		this.state.products ? this.renderServicesData( ) :

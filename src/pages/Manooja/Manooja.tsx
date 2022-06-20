@@ -74,7 +74,7 @@ class Manooja extends Component<IProps, IState> {
                 <h2 className="ui center aligned green header">{ this.props.title }</h2>
                     <div className="ui grid">
                         <div className="four wide column">
-                            <div className="ui vertical pointing menu">
+                            <div className="ui vertical fluid menu">
                                 <Link to='/manooja/index' className="active item">Home</Link>
                                 <Link to='/manooja/business' className="item">Business</Link>
                                 <Link to='/manooja/education' className="item">Education</Link>
