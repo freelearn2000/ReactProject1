@@ -14,7 +14,7 @@ import TechnologyBlog from './pages/Rakhi/TechnologyBlog';
 import { ContentPage } from './pages/Rakhi/ContentPage';
 import science from './pages/Rakhi/Resources/news.jpg';
 import technology from './pages/Rakhi/Resources/tech.jpg';
-import Santhosh from './pages/Santhosh/Santhosh';;
+import Santhosh from './pages/Santhosh/Santhosh';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
@@ -58,6 +58,7 @@ import { India } from './pages/Radhika/India';
 import { Kerala } from './pages/Radhika/Kerala';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
+import { Homepages } from './pages/Aiswarya/Homepages';
 
 
 class App extends Component {
@@ -139,9 +140,10 @@ class App extends Component {
           <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>
         </Route>
         <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }>
-          <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
+        <Route index element={ <Homepages/> }/>
           <Route path="politics" element={ <Politics title="Politics" /> }/>
           <Route path="Arts" element={ <Arts title="Arts" /> }/>
+          <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
         </Route>
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>
           <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>
