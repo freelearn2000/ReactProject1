@@ -1,6 +1,6 @@
 import { Component } from 'react';
+import { Link, Outlet } from "react-router-dom";
 import axios from '../../axios';
-import { Link } from "react-router-dom";
 import { retriveDataFromRoute } from  '../../utils/hoc';
 
 
@@ -22,7 +22,7 @@ class Manooja extends Component<IProps, IState> {
     componentDidMount( ) {
 
         // Intitiate API call from here
-        axios.get( '/users' )
+        axios.get('/users')
             .then(response => {
                 this.setState( {loading: false, users: response.data, error: null} );
             })
@@ -69,24 +69,36 @@ class Manooja extends Component<IProps, IState> {
 
     render( ) {
 
-        return( 
+        return(
             <div>
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
-                <br/>
-                <h4 className = "ui header green"> Route Data: { this.props.routeData.id }</h4>
-                <br/>
-                <Link to='/' className="ui button"> HomePage </Link>
-                &nbsp;
-                <Link to='/news/Sports News' className="ui button"> News </Link>
-                <br/>
-                {
-                    this.state.loading ? this.renderLoading( ):
-                    this.state.users ? <><h2> Users Information </h2>{ this.renderUserdata( ) }</>:
-                    <><h2>Error Data</h2>{ this.renderError( ) }</>
-                }
+                <h2 className="ui center aligned green header">{ this.props.title }</h2>
+                    <div className="ui grid">
+                        <div className="four wide column">
+                            <div className="ui vertical fluid menu">
+                                <Link to='/manooja/index' className="active item">Home</Link>
+                                <Link to='/manooja/business' className="item">Business</Link>
+                                <Link to='/manooja/education' className="item">Education</Link>
+                            </div>
+                        </div>
+                        <div className="twelve wide stretched column">
+                            <div className="ui segment">
+                            {
+                            this.props.routeData.id ?
+                                <>    
+                                    {
+                                        this.state.loading ? this.renderLoading( ): 
+                                        this.state.users ? <><h3 className="ui center aligned header">Details</h3>{ this.renderUserdata( ) }</>:
+                                        this.renderError( )
+                                    }
+                                </>:
+                                <Outlet/>
+                            }
+                            </div>
+                        </div>
+                    </div>
             </div>
-        )
+        );
     }
-} 
+}
 
-export default retriveDataFromRoute ( Manooja );
+export default retriveDataFromRoute(Manooja);
