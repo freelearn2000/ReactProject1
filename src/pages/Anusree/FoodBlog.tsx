@@ -65,7 +65,7 @@ class FoodBlog extends Component<IProps> {
             <>
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
                 <div className="ui basic segment">
-                    <Link to='pizza' className="ui yellow label"><i className="pizza slice icon"></i>Pizza</Link>
+                    <Link to='pizza?content=laudantium enim quasi est quidem magnam voluptate ipsam eos' className="ui yellow label"><i className="pizza slice icon"></i>Pizza</Link>
                 </div>
                 { this.props.location.pathname.includes('pizza') || <img className="ui fluid image" alt="Foodimage" src={ FoodImage }/>}
                 { this.props.location.pathname.includes('pizza') ? <Outlet/>:

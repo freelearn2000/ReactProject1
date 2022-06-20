@@ -36,7 +36,7 @@ class Anusree extends Component<IProps, IState> {
                     <img className="ui fluid image" alt="Foodimage" src={ BlogImage }/> }
                         <Outlet/>
                     </div>   
-                    { this.props.routeData.id && <h3 className='ui header blue'>Route Data: { this.props.routeData.id }</h3> }
+                    { this.props.routeData.travel && <p className='paragraph'>Route Data: { this.props.routeData.travel }</p> }
                 </>
         )
     }

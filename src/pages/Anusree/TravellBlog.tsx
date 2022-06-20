@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Link, Outlet } from "react-router-dom";
 import axios from '../../axios';
 import { retriveDataFromRoute } from '../../utils/hoc';
 import TravelImage from '../Anusree/Images/travell-blog.jpg';
@@ -69,8 +70,12 @@ class TravellBlog extends Component<IProps, IState> {
         return(
                 <>  
                     <h2 className="ui center aligned header">{ this.props.title }</h2>
-                    <img className="ui fluid image" alt="TravelImage" src={ TravelImage }/>       
-                    {
+                    <div className="ui basic segment">
+                    <Link to='paris?content=laudantium enim quasi est quidem magnam voluptate ipsam eos' className="ui teal label"><i className="plane departure icon"></i>Paris</Link>
+                </div>
+                    {this.props.location.pathname.includes('paris') ||<img className="ui fluid image" alt="TravelImage" src={ TravelImage }/>}   
+                    {   
+                        this.props.location.pathname.includes('paris') ? <Outlet/>:
                         this.state.loading ? this.renderLoading( ):
                         this.state.users ? this.renderUserdata( ):
                         <><h2>Error Data</h2>{ this.renderError( )}</>

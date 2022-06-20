@@ -7,7 +7,7 @@ import NewsPage from './pages/NewsPage/NewsPage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import Anusree from './pages/Anusree/Anusree';
 import TravellBlog from './pages/Anusree/TravellBlog';
-import { Pizza } from './pages/Anusree/Pizza';
+import SubPage from './pages/Anusree/SubPage';
 import FoodBlog from './pages/Anusree/FoodBlog';
 import Rakhi from './pages/Rakhi/Rakhi';
 import RouteData from './pages/Rakhi/RouteData';
@@ -17,7 +17,7 @@ import TechnologyBlog from './pages/Rakhi/TechnologyBlog';
 import { ContentPage } from './pages/Rakhi/ContentPage';
 import science from './pages/Rakhi/Resources/news.jpg';
 import technology from './pages/Rakhi/Resources/tech.jpg';
-import Santhosh from './pages/Santhosh/Santhosh';;
+import Santhosh from './pages/Santhosh/Santhosh';
 import Radhika from './pages/Radhika/Radhika';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
@@ -71,9 +71,12 @@ class App extends Component {
             </Route>
         </Route>
         <Route path="/anusree" element={ <Anusree title="Anusree's Component"/> } >
-          <Route path=":id" element={ <TravellBlog title="Travel Blog"/> }/>
+          <Route index element={ <Anusree title="Anusree's Component"/> } />
+          <Route path=":travel" element={ <TravellBlog title="Travel Blog"/> }>
+            <Route path="paris" element={ <SubPage title="Paris"/> }/>
+          </Route>
           <Route path="foodblog" element={ <FoodBlog title="Food Blog"/> }>
-            <Route path="pizza" element={ <Pizza title="Pizza"/> }/>
+            <Route path="pizza" element={ <SubPage title="Pizza"/> }/>
           </Route>
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>          
