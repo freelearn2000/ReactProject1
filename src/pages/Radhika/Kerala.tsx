@@ -48,7 +48,7 @@ export class Kerala extends Component<IProps> {
         const posts = this.state.posts ? this.state.posts : [ ];
         const dataJSX = posts.map( ( post: any ) => {
             return (
-                <div key={ post.id } className="ui blue segment">
+                <div key={ post.id } className="ui green segment">
                     <p><b>News:</b>{ post.body }</p>
                 </div>
             );

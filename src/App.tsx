@@ -10,7 +10,6 @@ import Rakhi from './pages/Rakhi/Rakhi';
 import { ScienceBlog } from './pages/Rakhi/ScienceBlog';
 import { TechnologyBlog } from './pages/Rakhi/TechnologyBlog';
 import Santhosh from './pages/Santhosh/Santhosh';
-import Radhika from './pages/Radhika/Radhika';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
@@ -40,10 +39,12 @@ import Home from './pages/Parvathy/home';
 import { Posts } from './pages/Santhosh/Posts';
 import { Users } from './pages/Santhosh/Users';
 import { Hpage } from './pages/Santhosh/Hpage';
-import { National } from './pages/Radhika/National';
-import { Kerala } from './pages/Radhika/Kerala';
 import { Politics } from './pages/Aiswarya/Politics';
-import { Arts } from './pages/Aiswarya/Arts'
+import { Arts } from './pages/Aiswarya/Arts';
+import Radhika from './pages/Radhika/Radhika';
+import { LatestNews } from './pages/Radhika/LatestNews';
+import { India } from './pages/Radhika/India';
+import { Kerala } from './pages/Radhika/Kerala';
 
 class App extends Component {
   
@@ -83,9 +84,10 @@ class App extends Component {
           <Route path="sports" element={ <Sports title="Sports"/> }/>
         </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
-          <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
-          <Route path="national" element={ <National title="National"/> }/>
+          <Route index element={ <LatestNews title="LatestNews"/> }/>
+          <Route path="india" element={ <India title="India"/> }/>
           <Route path="kerala" element={ <Kerala title="Kerala"/> }/>
+          <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route path=":id" element={ <Samara title="Welcome to Samara's Component" /> }/>

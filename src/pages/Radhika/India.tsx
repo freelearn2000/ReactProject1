@@ -6,7 +6,7 @@ interface IProps {
     title: string;
 }
 
-export class National extends Component<IProps> {
+export class India extends Component<IProps> {
 
     state = { loading: true, posts: null, error: null };
 
