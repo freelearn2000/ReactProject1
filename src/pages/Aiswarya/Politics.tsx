@@ -11,7 +11,7 @@ export class Politics extends Component <IProps> {
 
     componentDidMount ( ) {
 
-        axios.get('/posts')
+        axios.get('/todos')
             .then(response => {
                 this.setState( { loading: false, politics: response.data, error: null} );
             })

@@ -75,8 +75,20 @@ class Divya extends Component<IProps, IState> {
             <div>
                 <h2 className="ui horizontal divider header">{this.props.title}</h2> 
 				<br/>
+				<Link to='/' className="ui button">Home</Link>
+				<Link to='/news/latest' className="ui button">News</Link>
 				<Link to='/divya/product' className="ui button">Products</Link>
-                <Outlet/>         	
+					{
+                        this.props.routeData.id ?
+                            <>
+								<h4>Route Data: { this.props.routeData.id }</h4>
+								<br/>
+								{	this.state.loading ? this.renderLoading( ) :
+                					this.state.users ? this.renderData( ) :
+               						this.renderError( )	}
+                            </>:
+                            <Outlet/>
+                    }    	
 			</div>
         )		
 	}	

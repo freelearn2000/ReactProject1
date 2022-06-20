@@ -14,29 +14,45 @@ import TechnologyBlog from './pages/Rakhi/TechnologyBlog';
 import { ContentPage } from './pages/Rakhi/ContentPage';
 import science from './pages/Rakhi/Resources/news.jpg';
 import technology from './pages/Rakhi/Resources/tech.jpg';
-import Santhosh from './pages/Santhosh/Santhosh';;
-import Radhika from './pages/Radhika/Radhika';
+import Santhosh from './pages/Santhosh/Santhosh';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
+import { Home as Phome } from './pages/Vishnupriya/Home';
+import { ShoppingCart } from './pages/Vishnupriya/ShoppingCart';
+import Electronics from './pages/Vishnupriya/Electronics';
+import { Mobiles } from './pages/Vishnupriya/Mobiles';
+import { Laptops } from './pages/Vishnupriya/Laptops';
 import Divya from './pages/Divya/Divya';
+<<<<<<< HEAD
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import Manooja from './pages/Manooja/Manooja';
 import Bhome from './pages/Bindu/Bindu';
 
+=======
+import Product from './pages/Divya/Products';
+import { Grocery } from './pages/Divya/Grocery';
+import { Skincare } from './pages/Divya/Skincare';
+import Bindu from './pages/Bindu/Bindu';
+import Aiswarya from './pages/Aiswarya/Aiswarya';
+import Viji from './pages/Viji/Viji';
+import Manooja from './pages/Manooja/Manooja';
+import Dhanya from './pages/Dhanya/Dhanya';
+>>>>>>> 0cf345900af1f2208e53a3b2de61f8c00b2a03d2
 import { Dhanya1 } from './pages/Dhanya/Dhanya1';
 import { FoodBlog as Food } from './pages/Dhanya/FoodBlog';
 import { TravelBlog as Travel } from './pages/Dhanya/TravelBlog';
-import { Products } from './pages/Vishnupriya/Products';
-import { Blog } from './pages/Vishnupriya/Blog';
 import { TravellBlog } from './pages/Anusree/TravellBlog';
 import { FoodBlog } from './pages/Anusree/FoodBlog';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
+<<<<<<< HEAD
 import { Product } from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
 import { Skincare } from './pages/Divya/Skincare';
 import { Bindu1 } from './pages/Bindu/Bindu1';
+=======
+>>>>>>> 0cf345900af1f2208e53a3b2de61f8c00b2a03d2
 import { Health } from './pages/Bindu/Health';
 import { Sports } from './pages/Bindu/Sports';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
@@ -45,13 +61,19 @@ import { SamaraHome } from './pages/Samara/SamaraHome';
 import Books from './pages/Parvathy/books';
 import Cats from './pages/Parvathy/cats';
 import Home from './pages/Parvathy/home';
+import { Mhome } from './pages/Manooja/Mhome';
+import { Business } from  './pages/Manooja/Business';
+import { Education } from './pages/Manooja/Education';
 import { Posts } from './pages/Santhosh/Posts';
 import { Users } from './pages/Santhosh/Users';
 import { Home as Home1 } from './pages/Santhosh/Home';
-import { National } from './pages/Radhika/National';
+import Radhika from './pages/Radhika/Radhika';
+import { LatestNews } from './pages/Radhika/LatestNews';
+import { India } from './pages/Radhika/India';
 import { Kerala } from './pages/Radhika/Kerala';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
+import { Homepages } from './pages/Aiswarya/Homepages';
 
 
 class App extends Component {
@@ -100,9 +122,10 @@ class App extends Component {
          
         </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
-          <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
-          <Route path="national" element={ <National title="National"/> }/>
+          <Route index element={ <LatestNews title="LatestNews"/> }/>
+          <Route path="india" element={ <India title="India"/> }/>
           <Route path="kerala" element={ <Kerala title="Kerala"/> }/>
+          <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route index element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
@@ -117,27 +140,37 @@ class App extends Component {
           <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
-         <Route path="products" element={ <Products title="Products details"/> }/>
-         <Route path="blog" element={ <Blog title="Blog"/> }/>
+        <Route index element={ <ShoppingCart title="Shopping-Cart"/> }/>
+         <Route path="shoppingcart" element={ <ShoppingCart title="Shopping-Cart"/> }/>
+         <Route path="home" element={ <Phome title="Home"/> }/>
+         <Route path="electronics" element={ <Electronics title="Electronics"/> }>
+          <Route path="mobiles" element={ <Mobiles title="Mobiles"/> }/>
+          <Route path="laptops" element={ <Laptops title="Laptops"/> }/>
+         </Route>
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }>
-          <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>
+        <Route index element={ <Product title="Product"/> }/>
           <Route path="product" element={ <Product title="Product"/> }>
             <Route path="grocery" element={ <Grocery/> }/>
             <Route path="skincare" element={ <Skincare/> }/>
           </Route>
+          <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>
         </Route>
         <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }>
-          <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
+        <Route index element={ <Homepages/> }/>
           <Route path="politics" element={ <Politics title="Politics" /> }/>
           <Route path="Arts" element={ <Arts title="Arts" /> }/>
+          <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
         </Route>
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>
           <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>
         </Route>
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
           <Route path=":id" element={ <Manooja title="This is Manooja's Component"/> }/>
-        </Route>  
+          <Route path="index" element={ <Mhome title="Home"/> }/>
+          <Route path="business" element={ <Business title="Business"/> }/>
+          <Route path="education" element={ <Education title="Education"/> }/>
+         </Route>  
         <Route path="/dhanya" element={ <Dhanya1 title="This is Dhanya's Component"/> }>
           {/* <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/> */}
           <Route path="food" element={ <Food /> } />

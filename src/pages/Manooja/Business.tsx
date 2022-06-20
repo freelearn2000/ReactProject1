@@ -3,6 +3,7 @@ import axios from '../../axios';
 
 
 interface IProps {
+    title: any;
     
 }
 
@@ -12,7 +13,7 @@ interface IState {
 	error: { message: string } | null;
 }
 
-export class Grocery extends Component<IProps, IState> {
+export class Business extends Component<IProps, IState> {
 
     state = { loading: true, products: null, error: null };
 
@@ -20,7 +21,7 @@ export class Grocery extends Component<IProps, IState> {
 
 		axios.get('/posts')
 			.then(response => {
-				this.setState( {loading: false, products: response.data.splice(0,8), error: null} );
+				this.setState( {loading: false, products: response.data, error: null} );
 			})
 			.catch(error => {
 				this.setState( {loading: false, products: null, error: error} );
@@ -46,7 +47,7 @@ export class Grocery extends Component<IProps, IState> {
 		return errorJSX;
 	}
 
-	renderProductData( ) {
+	renderServicesData( ) {
 
 		const datas = this.state.products ? this.state.products : [ ];
 		const dataJSX = datas.map( (product: {id: number, title: string} ) => {
@@ -54,10 +55,8 @@ export class Grocery extends Component<IProps, IState> {
 				<div key={ product.id } className='ui segment'>
 					<p>{product.title}</p>
 				</div>
-			
 			);
 		});
-
 		return dataJSX;
 	}
 
@@ -65,10 +64,10 @@ export class Grocery extends Component<IProps, IState> {
 
 		return(
             <div>
-                <h2 className="ui horizontal divider header">List of Groceries</h2> 
+                <h2 className="ui center aligned header">List of Business Centers</h2> 
 				
 					{	this.state.loading ? this.renderLoading( ) :
-                		this.state.products ? this.renderProductData( ) :
+                		this.state.products ? this.renderServicesData( ):
                			this.renderError( )	}                        
 			</div>
         )		

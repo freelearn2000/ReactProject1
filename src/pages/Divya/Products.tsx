@@ -4,14 +4,16 @@ import axios from '../../axios';
 import ProImage from '../Divya/Images/Product.png';
 import GroImage from '../Divya/Images/ImGro.png';
 import SkinImage from '../Divya/Images/ImSkin.png';
+import { retriveDataFromRoute } from '../../utils/hoc';
 
 
 interface IProps {
     title: any;
+	location: any;
 }
 
-export class Product extends Component<IProps> {
-
+class Product extends Component<IProps> {
+	
     state = { loading: true, products: null, error: null };
 
 	componentDidMount( ) {
@@ -61,25 +63,30 @@ export class Product extends Component<IProps> {
 	render( ) {
 
 		return(
-            <>
-                <h2 className="ui horizontal divider header">{this.props.title}</h2> 
-                <div className="ui interenally celled grid">
-                    <div className="row">
-                        <div className="three wide  column">
-                            <div className="ui vertical fluid menu">
-								<Link to='/divya/product/grocery' className="item"> <img alt={GroImage} src={GroImage} /> <br/> Grocery </Link>
-								<Link to='/divya/product/skincare' className="item"><img alt={SkinImage} src={SkinImage} /> <br/> SkinCare</Link>
+			<>			
+				<h2 className="ui horizontal divider header">{this.props.title}</h2>
+				<div className="ui two column stackable grid container">
+  					<div className="row">
+						<div className="three wide  column">
+                        	<div className="ui vertical fluid menu">
+			 					<Link to='/divya/product/grocery' className= {this.props.location.pathname.includes('grocery')?"active item":"item"}><img alt={GroImage} src={GroImage} /> <br/> Grocery </Link>
+			 					<Link to='/divya/product/skincare' className={this.props.location.pathname.includes('skincare')?"active item":"item"}><img alt={SkinImage} src={SkinImage} /> <br/> SkinCare</Link>
                             </div>
                         </div>
-                        <div className="twelve wide  column"> 	
-						    <Outlet/>		
-						 	<p>Let Us Help You With Your Need! </p>
-						 	<img alt={ProImage} src={ProImage}/>  
-                        </div>
-                    </div>
-                </div>         
-            </>
+						<div className="twelve wide  column"> 	
+			 			    <Outlet/>	
+							{ (this.props.location.pathname.includes('grocery') || this.props.location.pathname.includes('skincare') ) ||
+							  <>
+							  <p>Let Us Help You With Your Need! </p>
+			 			 	  <img alt={ProImage} src={ProImage}/> 
+							  </>
+							}
+                        </div>  
+  					</div>
+				</div>
+			</>
         )		
 	}	
 }
 
+export default retriveDataFromRoute( Product );
