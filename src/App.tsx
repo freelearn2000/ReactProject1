@@ -37,10 +37,9 @@ import { PolandWeather } from './pages/Samara/PolandWeather';
 import Books from './pages/Parvathy/books';
 import Cats from './pages/Parvathy/cats';
 import Home from './pages/Parvathy/home';
-<<<<<<< HEAD
-import { Lifestyle } from  './pages/Manooja/Lifestyle';
-import { Products } from './pages/Manooja/Products';
-=======
+import { Mhome } from './pages/Manooja/Mhome';
+import { Business } from  './pages/Manooja/Business';
+import { Education } from './pages/Manooja/Education';
 import { Posts } from './pages/Santhosh/Posts';
 import { Users } from './pages/Santhosh/Users';
 import { Hpage } from './pages/Santhosh/Hpage';
@@ -48,7 +47,6 @@ import { National } from './pages/Radhika/National';
 import { Kerala } from './pages/Radhika/Kerala';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts'
->>>>>>> d66d2356c5314ad7d1dd3b79e4d180fa3b3e5819
 
 class App extends Component {
   
@@ -124,9 +122,10 @@ class App extends Component {
         </Route>
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
           <Route path=":id" element={ <Manooja title="This is Manooja's Component"/> }/>
-          <Route path="lifestyle" element={ <Lifestyle title="Lifestyle"/> }/>
-          <Route path="products" element={ <Products title="Products"/> }/>
-        </Route>  
+          <Route path="index" element={ <Mhome title="Home"/> }/>
+          <Route path="business" element={ <Business title="Business"/> }/>
+          <Route path="education" element={ <Education title="Education"/> }/>
+         </Route>  
         <Route path="/dhanya" element={ <Dhanya1 title="This is Dhanya's Component"/> }>
           {/* <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/> */}
           <Route path="food" element={ <Food /> } />

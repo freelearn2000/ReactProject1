@@ -69,33 +69,36 @@ class Manooja extends Component<IProps, IState> {
 
     render( ) {
 
-        return( 
+        return(
             <div>
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
-                <br/>
-                <h4 className = "ui header green"> Route Data: { this.props.routeData.id }</h4>
-                <br/>
-                <Link to='/' className="ui button"> Home </Link>
-                &nbsp;
-                <Link to='/news/Sports News' className="ui button"> News </Link>
-                <div className="ui grid">
-                    <div className="two wide column">
-                        <div className="ui secondary vertical menu">
-                            <Link to='/Manooja/Lifestyle' className="item">Lifestyle</Link>
-                            <Link to='/Manooja/Products' className="item">Products</Link>                                                 
+                <h2 className="ui center aligned green header">{ this.props.title }</h2>
+                    <div className="ui grid">
+                        <div className="four wide column">
+                            <div className="ui vertical pointing menu">
+                                <Link to='/manooja/index' className="active item">Home</Link>
+                                <Link to='/manooja/business' className="item">Business</Link>
+                                <Link to='/manooja/education' className="item">Education</Link>
+                            </div>
+                        </div>
+                        <div className="twelve wide stretched column">
+                            <div className="ui segment">
+                            {
+                            this.props.routeData.id ?
+                                <>    
+                                    {
+                                        this.state.loading ? this.renderLoading( ): 
+                                        this.state.users ? <><h3 className="ui center aligned header">Details</h3>{ this.renderUserdata( ) }</>:
+                                        this.renderError( )
+                                    }
+                                </>:
+                                <Outlet/>
+                            }
+                            </div>
                         </div>
                     </div>
-                </div>    
-                <br/>
-                {
-                    this.state.loading ? this.renderLoading( ):
-                    this.state.users ? <><h2> Users Information </h2>{ this.renderUserdata( ) }</>:
-                    <><h2>Error Data</h2>{ this.renderError( ) }</>
-                }
-                <Outlet/>
             </div>
-        )
+        );
     }
-} 
+}
 
-export default retriveDataFromRoute ( Manooja );
+export default retriveDataFromRoute(Manooja);
