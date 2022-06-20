@@ -20,7 +20,7 @@ export class Skincare extends Component<IProps, IState> {
 
 		axios.get('/comments')
 			.then(response => {
-				this.setState( {loading: false, products: response.data, error: null} );
+				this.setState( {loading: false, products: response.data.splice(0,8), error: null} );
 			})
 			.catch(error => {
 				this.setState( {loading: false, products: null, error: error} );
