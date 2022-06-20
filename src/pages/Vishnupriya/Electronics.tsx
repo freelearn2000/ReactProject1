@@ -79,14 +79,14 @@ class Electronics extends Component<IProps, IState> {
 
         return (
             <>
-                <h2 className="ui center aligned header">{this.props.title}</h2> 
+                <h4 className="ui center aligned header">{this.props.title}</h4> 
                     <div className="row">
                         <div className="ui two column stackable grid container">
                             <div className="four wide  column">
                                 <div className="ui vertical fluid menu">
                                     <div className="ui segment">
-                                        <Link to='/vishnupriya/electronics/mobiles'className={this.props.location.pathname.includes('mobiles')? "active item" : "item"}>Mobiles </Link>
-                                        <Link to='/vishnupriya/electronics/laptops'className={this.props.location.pathname.includes('laptops')? "active item" : "item"}> Laptops </Link>
+                                        <Link to='/vishnupriya/electronics/mobiles'className={this.props.location.pathname.includes('mobiles')? "active item" : "item"}><i className="mobile icon"></i>Mobiles </Link>
+                                        <Link to='/vishnupriya/electronics/laptops'className={this.props.location.pathname.includes('laptops')? "active item" : "item"}><i className="laptop icon"></i>Laptops </Link>
                                     </div>
                                 </div>
                             </div>   
