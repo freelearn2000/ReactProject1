@@ -20,10 +20,11 @@ import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
 import Divya from './pages/Divya/Divya';
-import Bindu from './pages/Bindu/Bindu';
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import Manooja from './pages/Manooja/Manooja';
+import Bhome from './pages/Bindu/Bindu';
+
 import { Dhanya1 } from './pages/Dhanya/Dhanya1';
 import { FoodBlog as Food } from './pages/Dhanya/FoodBlog';
 import { TravelBlog as Travel } from './pages/Dhanya/TravelBlog';
@@ -35,6 +36,7 @@ import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 import { Product } from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
 import { Skincare } from './pages/Divya/Skincare';
+import { Bindu1 } from './pages/Bindu/Bindu1';
 import { Health } from './pages/Bindu/Health';
 import { Sports } from './pages/Bindu/Sports';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
@@ -90,10 +92,12 @@ class App extends Component {
             <Route path="trending" element={<ContentPage title='So long, Internet Explorer. The browser retires today' content='The browser retires today. Internet Explorer is finally headed out to pasture.' image={technology}/> }/>
           </Route>
         </Route>
-        <Route path="/Bindu" element={ <Bindu title="This is Bindu's Component"/> }>
-          <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
-          <Route path="health" element={ <Health title="Health"/> }/>
-          <Route path="sports" element={ <Sports title="Sports"/> }/>
+         <Route path="/Bindu" element={ <Bindu1 title="This is Bindu's Component"/> }>
+         <Route path=":id" element={ <Bindu1 title="This is Bindu's Component"/> }/>
+         <Route path="index" element={ <Bhome title="Home"/> }/>
+         <Route path="health" element={ <Health title="Health"/> }/>
+         <Route path="sports" element={ <Sports title="Sports"/> }/>
+         
         </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
           <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
