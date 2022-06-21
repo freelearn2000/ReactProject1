@@ -46,7 +46,7 @@ import { PolandWeather } from './pages/Samara/PolandWeather';
 import { SamaraHome } from './pages/Samara/SamaraHome';
 import Books from './pages/Parvathy/books';
 import Cats from './pages/Parvathy/cats';
-import Home from './pages/Parvathy/home';
+import MyHome from './pages/Parvathy/home';
 import { Mhome } from './pages/Manooja/Mhome';
 import { Business } from  './pages/Manooja/Business';
 import { Education } from './pages/Manooja/Education';
@@ -125,7 +125,8 @@ class App extends Component {
           <Route path=":id" element={ <SamaraHome title="Welcome to our Weather Calculator" /> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
-          <Route index element={ <Home /> }/>
+          <Route index element={ <MyHome /> }/>
+          <Route path="home" element={ <MyHome /> }/>
           <Route path="books" element={ <Books title="Books" /> }/>
           <Route path="cats" element={ <Cats title="Cats" /> }/>
           <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
