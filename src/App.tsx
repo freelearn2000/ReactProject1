@@ -79,8 +79,8 @@ class App extends Component {
               <Route path=":email" element={ <AboutPage/> }/>
             </Route>
         </Route>
-        <Route path="/anusree" element={ <Anusree title="Anusree's Component"/> } >
-          <Route index element={ <Anusree title="Anusree's Component"/> } />
+        <Route path="/anusree"  element={ <Anusree title="Anusree's Component"/> } >
+          {/* <Route index element={ <Anusree title="Anusree's Component"/> } /> */}
           <Route path=":travel" element={ <TravellBlog title="Travel Blog"/> }>
             <Route path="paris" element={ <SubPage title="Paris"/> }/>
           </Route>
