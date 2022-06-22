@@ -12,6 +12,9 @@ class Parvathy extends Component<IProps> {
 
         const sideMenuJSX =
             <div className="ui fluid inverted vertical menu">
+                <Link to='/parvathy/home' className="item">
+                    home
+                </Link>
                 <Link to='/parvathy/books' className="item">
                     books
                 </Link>
