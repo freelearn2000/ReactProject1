@@ -26,6 +26,8 @@ import { Skincare } from './pages/Divya/Skincare';
 import Bindu from './pages/Bindu/Bindu';
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
+import { Nepal } from './pages/Viji/Nepal';
+import { Bangladesh } from './pages/Viji/Bangladesh';
 import Manooja from './pages/Manooja/Manooja';
 import { Dhanya1 } from './pages/Dhanya/Dhanya1';
 import { FoodBlog as Food } from './pages/Dhanya/FoodBlog';
@@ -130,6 +132,8 @@ class App extends Component {
           <Route path="Arts" element={ <Arts title="Arts" /> }/>
         </Route>
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>
+        <Route path="nepal" element={ <Nepal title="Details of Nepal"/> }/>
+         <Route path="bangladesh" element={ <Bangladesh title="Details of Bangladesh"/> }/>
           <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>
         </Route>
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
