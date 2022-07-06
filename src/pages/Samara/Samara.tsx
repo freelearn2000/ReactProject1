@@ -21,11 +21,9 @@ class Samara extends Component<IProps> {
                     &emsp;&emsp;&emsp;&emsp;
                     <Link to='/samara/canadaweather' className="ui teal button">Canada</Link>
                     <Link to='/samara/polandweather' className="ui teal button">Poland</Link>
-                </div>    
-                <div>
-                    <br/>
+                </div>  
+                    <br/>  
                     <Outlet/>
-                </div>
             </>        
         );
     }

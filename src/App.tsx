@@ -123,7 +123,7 @@ class App extends Component {
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route index element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
           <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
-          <Route path="polandweather" element={ <PolandWeather title="Poland Weather details"/> }/>
+          <Route path="polandweather" element={ <PolandWeather title="Poland weather details"/> }/>
           <Route path=":id" element={ <SamaraHome title="Welcome to our Weather Calculator" /> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
