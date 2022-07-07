@@ -5,14 +5,13 @@ import { Component, createContext, useContext } from "react";
 const mycontext = createContext('');
 
 // Provider
-export class Abc extends Component {
+export class Aboutcontext extends Component {
     
     render( ) {
         return (
             <>
-            <h1>Context</h1>
                 <mycontext.Provider value={'Santhosh'}>
-                     <Middle/>
+                    <Middle/>
                 </mycontext.Provider>
             </>
         );        
@@ -23,7 +22,7 @@ class Middle extends Component {
 
     render( ) {
         return (
-            <Child3/>
+            <Child1/>
         );
     }
 }
@@ -36,7 +35,7 @@ class Child1 extends Component {
             <mycontext.Consumer>
                 { value =>
                     (
-                        <> <h1> Context value accessed from child1 : {value} </h1></>
+                        <> <h3> Context value accessed from child1 : {value} </h3></>
                     )
                 }
             </mycontext.Consumer>
@@ -44,24 +43,24 @@ class Child1 extends Component {
     }
 }
 
-// b. Consumer
-class Child2 extends Component {
+// // b. Consumer
+// class Child2 extends Component {
 
-    static contextType = mycontext;
+//     static contextType = mycontext;
 
-    render( ) {
-        return (
-            <>Context value accessed from child2 : {this.context};</>
-        );
-    }
-}
+//     render( ) {
+//         return (
+//             <>Context value accessed from child2 : {this.context};</>
+//         );
+//     }
+// }
 
-// c. Consumer
-const Child3 = (props: any) =>{
+// // c. Consumer
+// const Child3 = (props: any) =>{
 
-    const context = useContext(mycontext);
+//     const context = useContext(mycontext);
 
-    return (
-        <>Context value accessed from child3 : {context}</>
-    );
-}
+//     return (
+//         <>Context value accessed from child3 : {context}</>
+//     );
+// }
