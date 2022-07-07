@@ -5,7 +5,7 @@ interface IProps {
 }
 
 
-export class LatestNews extends Component<IProps> {
+export class Entertainment extends Component<IProps> {
 
     render( ) {
 

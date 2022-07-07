@@ -57,9 +57,9 @@ import { Users } from './pages/Santhosh/Users';
 import { Home as Home1 } from './pages/Santhosh/Home';
 import { Abc } from './pages/Santhosh/Abc';
 import Radhika from './pages/Radhika/Radhika';
-import { LatestNews } from './pages/Radhika/LatestNews';
-import { India } from './pages/Radhika/India';
-import { Kerala } from './pages/Radhika/Kerala';
+import { Entertainment } from './pages/Radhika/Entertainment';
+import { Art } from './pages/Radhika/Art';
+import { Dance } from './pages/Radhika/Dance';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
@@ -117,9 +117,9 @@ class App extends Component {
          <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
-          <Route index element={ <LatestNews title="LatestNews"/> }/>
-          <Route path="india" element={ <India title="India"/> }/>
-          <Route path="kerala" element={ <Kerala title="Kerala"/> }/>
+          <Route index element={ <Entertainment title="Entertainment"/> }/>
+          <Route path="art" element={ <Art title="Art"/> }/>
+          <Route path="dance" element={ <Dance title="Dance"/> }/>
           <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
