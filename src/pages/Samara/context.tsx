@@ -8,7 +8,7 @@ const MyContext = createContext('');
 // Provider
 export class Context extends Component {
 
-    render() {
+    render( ) {
         return(
             <MyContext.Provider value={'John'}>
                 <Middle/>
@@ -19,7 +19,7 @@ export class Context extends Component {
 
 export class Middle extends Component {
 
-    render() {
+    render( ) {
         return(
             <Child/>
         );
@@ -28,7 +28,7 @@ export class Middle extends Component {
 
 export class Child extends Component {
 
-    render() {
+    render( ) {
         return(
             <MyContext.Consumer>
             {
