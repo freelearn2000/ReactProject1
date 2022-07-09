@@ -46,6 +46,7 @@ import { Sports } from './pages/Bindu/Sports';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
 import { SamaraHome } from './pages/Samara/SamaraHome';
+import { Context } from './pages/Samara/context';
 import Books from './pages/Parvathy/books';
 import Cats from './pages/Parvathy/cats';
 import MyHome from './pages/Parvathy/home';
@@ -126,6 +127,7 @@ class App extends Component {
           <Route index element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
           <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
           <Route path="polandweather" element={ <PolandWeather title="Poland weather details"/> }/>
+          <Route path="context" element={ <Context/> } />
           <Route path=":id" element={ <SamaraHome title="Welcome to our Weather Calculator" /> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
