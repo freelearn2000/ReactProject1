@@ -1,4 +1,5 @@
 import { Component, createContext } from 'react';
+import { useContext } from 'react';
 
 
 // Create context object
@@ -10,9 +11,12 @@ export class Context extends Component {
 
     render( ) {
         return(
-            <MyContext.Provider value={'John'}>
-                <Middle/>
-            </MyContext.Provider>
+            <>
+                <MyContext.Provider value={'Weather'}>
+                    <Middle/>
+                </MyContext.Provider>
+                <Child2/>
+            </>
         );
     }
 }
@@ -21,11 +25,12 @@ export class Middle extends Component {
 
     render( ) {
         return(
-            <Child/>
+            <Child2/>
         );
     }
 }
 
+// a. Consumer
 export class Child extends Component {
 
     render( ) {
@@ -40,4 +45,26 @@ export class Child extends Component {
         );
     }
 }
+// b. Consumer
+export class Child1 extends Component {
+
+    static contextType = MyContext;
+
+    render( ) {
+        return(
+            <>Context value accessed from Child1 : { this.context }</>
+        );
+    }
+}
+
+//c. Consumer
+export const Child2 = ( props: any ) => {
+
+    const context = useContext(MyContext);
+
+    return(
+        <h3>Context value accessed from Child2 : { context }</h3>
+    );
+} 
+
 
