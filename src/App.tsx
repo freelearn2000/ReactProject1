@@ -65,6 +65,7 @@ import { Dance } from './pages/Radhika/Dance';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
+import { CounterContext } from './pages/Rakhi/CounterContext';
 
 
 
@@ -110,7 +111,8 @@ class App extends Component {
           </Route>
           <Route path="technology" element={ <TechnologyBlog title="Technology Blog"/> }>
             <Route path="trending" element={<ContentPage title='So long, Internet Explorer. The browser retires today' content='The browser retires today. Internet Explorer is finally headed out to pasture.' image={technology}/> }/>
-          </Route>
+            </Route>
+          <Route path="counter" element={ <CounterContext/> }></Route>
         </Route>
          <Route path="/bindu" element={ <Bindu title="This is Bindu's Component"/> }>
          <Route index element={ <Bhome title="Home"/> }/>
@@ -120,7 +122,7 @@ class App extends Component {
          <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
-          <Route index element={ <Entertainment title="Entertainment"/> }/>
+          <Route index element={ <Entertainment /> }/>
           <Route path="art" element={ <Art title="Art"/> }/>
           <Route path="dance" element={ <Dance title="Dance"/> }/>
           <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
