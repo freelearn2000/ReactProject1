@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Link, Outlet } from "react-router-dom";
 import axios from '../../axios';
+import { userContext } from "../../context/global";
 import { retriveDataFromRoute } from '../../utils/hoc';
 
 
@@ -67,6 +68,17 @@ class TechnologyBlog extends Component<IProps> {
 
         return(
             <>
+                <div className="ui segment block header inverted blue center aligned grid">
+                    <userContext.Consumer>
+                        { userName =>
+                            (
+                                <> 
+                                    {userName}'s Blog
+                                </>
+                            )
+                        }
+                    </userContext.Consumer>
+                </div>
                 <h2 className="ui center aligned header red">{ this.props.title }</h2>
                 <Link to='trending' className = "ui label red">Trending</Link>
                 {

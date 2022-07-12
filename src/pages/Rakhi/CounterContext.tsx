@@ -1,8 +1,8 @@
 import { Component, createContext, useContext } from "react";
+import { counterContext } from '../../context/global';
 
-const counterContext = createContext(0);
 
-export class CounterContext extends Component{
+export class CounterContext extends Component {
 
     render( ){
         return(
@@ -19,7 +19,7 @@ export class CounterContext extends Component{
     }
 }
 
-export class Child1 extends Component{
+export class Child1 extends Component {
 
     render( ){
         return(
@@ -28,7 +28,7 @@ export class Child1 extends Component{
     }
 }
 
-export class Child2 extends Component{
+export class Child2 extends Component {
 
     render( ){
         return(
@@ -37,7 +37,7 @@ export class Child2 extends Component{
                     (
                         <> 
                             <h4>Child2</h4>
-                            <p>Counter value consumed from context : {counter} (Provided value) </p>
+                            <p>Counter value consumed from context : {counter} (Provided value from child1) </p>
                         </>
                     )
                 }
@@ -46,7 +46,7 @@ export class Child2 extends Component{
     }
 }
 
-export class Child3 extends Component{
+export class Child3 extends Component {
     
     static contextType = counterContext;
 
@@ -60,7 +60,7 @@ export class Child3 extends Component{
     }
 }
 
-export const Child4 = (props: any) =>{
+export const Child4 = (props: any) => {
 
     const context = useContext(counterContext);
 

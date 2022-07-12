@@ -4,6 +4,7 @@ import { retriveDataFromRoute } from '../../utils/hoc';
 
 
 import axios from '../../axios';
+import { userContext } from "../../context/global";
 
 interface IProps {
     title: any;
@@ -68,6 +69,17 @@ class ScienceBlog extends Component<IProps> {
 
         return(
             <>
+                <div className="ui segment block header inverted blue center aligned grid">
+                    <userContext.Consumer>
+                        { userName =>
+                            (
+                                <> 
+                                    Welcome {userName}! 
+                                </>
+                            )
+                        }
+                    </userContext.Consumer>
+                </div>
                 <h2 className= "ui center aligned header red">{ this.props.title }</h2>
                 <Link to='top' className = "ui label red">Week's top</Link>
                     {
