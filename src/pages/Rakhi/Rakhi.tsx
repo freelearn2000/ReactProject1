@@ -18,6 +18,7 @@ class Rakhi extends Component<IProps> {
                 {/* {<Link to='/' className = "ui label black left aligned">Home</Link>
                 <Link to='/news/trending' className = "ui label black">News</Link>} */}
                 <Link to='/rakhi/users' className = "ui label black">Users</Link>
+                <Link to='counter' className = "ui label black">Counter Context</Link>
                 <div className= "ui segments grid">
                     <div className= "ui segment six wide column ">
                         <div className="ui inverted vertical pointing menu">

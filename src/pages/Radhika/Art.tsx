@@ -6,7 +6,7 @@ interface IProps {
     title: string;
 }
 
-export class Kerala extends Component<IProps> {
+export class Art extends Component<IProps> {
 
     state = { loading: true, posts: null, error: null };
 
@@ -46,10 +46,10 @@ export class Kerala extends Component<IProps> {
     renderUserdata( ) {
 
         const posts = this.state.posts ? this.state.posts : [ ];
-        const dataJSX = posts.map( ( post: any ) => {
+        const dataJSX = posts.map( ( posts: any ) => {
             return (
-                <div key={ post.id } className="ui green segment">
-                    <p><b>News:</b>{ post.body }</p>
+                <div key={ posts.id } className="ui green segment">
+                    <p><b>Headline:</b>{ posts.title }</p>
                 </div>
             );
         });
@@ -60,7 +60,7 @@ export class Kerala extends Component<IProps> {
 
         return(
             <div>
-                <h2 className="ui center aligned header">{  this.props.title  }</h2>
+                <h2 className="ui center aligned header">{ this.props.title }</h2>
                 {
                     this.state.loading ? this.renderLoading( ): 
                     this.state.posts ? this.renderUserdata( ):

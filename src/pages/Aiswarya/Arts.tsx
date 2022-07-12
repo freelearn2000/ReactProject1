@@ -1,5 +1,8 @@
-import { Component } from "react";
+import { Component, createContext, useContext } from "react";
 import axios from '../../axios';
+
+// Create Context object
+const MyContext = createContext('');
 
 interface IProps {
     title: any;
@@ -58,6 +61,10 @@ export class Arts extends Component <IProps> {
         return (
             <>
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
+
+                <MyContext.Provider value={'Poetry'}>
+                    <Art/>
+                </MyContext.Provider>
                 {
                     this.state.loading ? this.renderLoading( ):
                     this.state.culture ? this.renderUserdata( ):
@@ -66,4 +73,22 @@ export class Arts extends Component <IProps> {
             </>
         )
     }
+}
+
+class Art extends Component {
+    
+    render () {
+        return(
+            <Middlechild/>
+        );
+
+    }
+}
+const Middlechild = ( props:any ) => {
+
+    const context = useContext(MyContext);
+
+        return(
+            <> <b>Context value: {context}</b></>
+        );
 }

@@ -72,7 +72,7 @@ export class ShoppingCart extends Component<IProps, IState> {
         return (
             <div>
                 <h4 className="ui center aligned header">{ this.props.title }</h4>
-                <img className="ui fluid image" src={Imshopcart}></img>
+                <img className="ui fluid image" src={Imshopcart} alt={""}></img>
             </div>
         )   
     }
