@@ -56,7 +56,7 @@ import { Education } from './pages/Manooja/Education';
 import { Posts } from './pages/Santhosh/Posts';
 import { Users } from './pages/Santhosh/Users';
 import { Home as Home1 } from './pages/Santhosh/Home';
-import { Aboutcontext } from './pages/Santhosh/Aboutcontext';
+import { Login } from './pages/Santhosh/Login';
 import Radhika from './pages/Radhika/Radhika';
 import { Entertainment } from './pages/Radhika/Entertainment';
 import { Art } from './pages/Radhika/Art';
@@ -97,7 +97,7 @@ class App extends Component {
           <Route path="Home" element={ <Home1 title="Home"/> }/>
           <Route path="users" element={ <Users title="Users Details"/> }/>
           <Route path="posts" element={ <Posts title="Posts"/> }/>
-          <Route path="aboutcontext" element={ <Aboutcontext/> } />
+          <Route path="login" element={ <Login/> } />
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
         </Route>
         <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>

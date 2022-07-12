@@ -5,14 +5,14 @@ import { Component, createContext, useContext } from "react";
 const mycontext = createContext('');
 
 // Provider
-export class Aboutcontext extends Component {
+export class Login extends Component {
     
     render( ) {
         return (
             <>
                 <mycontext.Provider value={'Santhosh'}>
                     <Middle/>
-                </mycontext.Provider>
+                </mycontext.Provider>               
             </>
         );        
     }
@@ -35,11 +35,11 @@ class Child1 extends Component {
             <mycontext.Consumer>
                 { value =>
                     (
-                        <> <h3> Context value accessed from child1 : {value} </h3></>
-                    )
-                }
-            </mycontext.Consumer>
-        );
+                        <> <h3 className="ui center aligned blue header message"> Context value- Signed in as : {value} </h3> </>
+                    )                    
+                }            
+            </mycontext.Consumer>          
+        );      
     }
 }
 
@@ -55,7 +55,7 @@ class Child1 extends Component {
 //     }
 // }
 
-// // c. Consumer
+// // // c. Consumer
 // const Child3 = (props: any) =>{
 
 //     const context = useContext(mycontext);
