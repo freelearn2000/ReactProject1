@@ -175,7 +175,7 @@ class App extends Component {
           <Route path="index" element={ <Mhome title="Home"/> }/>
           <Route path="business" element={ <Business title="Business"/> }/>
           <Route path="education" element={ <Education title="Education"/> }/>
-          <Route path="conextnew" element={ <Contextnew/> }/>
+          <Route path="contextnew" element={ <Contextnew/> }/>
          </Route>  
         <Route path="/dhanya" element={ <Dhanya1 title="This is Dhanya's Component"/> }>
           {/* <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/> */}
