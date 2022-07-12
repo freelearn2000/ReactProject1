@@ -6,6 +6,7 @@ import { HomePage } from './pages/HomePage/HomePage';
 import NewsPage from './pages/NewsPage/NewsPage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import Anusree from './pages/Anusree/Anusree';
+import { ContextSample } from './pages/Anusree/ContextPage';
 import TravellBlog from './pages/Anusree/TravellBlog';
 import SubPage from './pages/Anusree/SubPage';
 import FoodBlog from './pages/Anusree/FoodBlog';
@@ -91,6 +92,7 @@ class App extends Component {
           <Route path="foodblog" element={ <FoodBlog title="Food Blog"/> }>
             <Route path="pizza" element={ <SubPage title="Pizza"/> }/>
           </Route>
+          <Route path="context" element={ <ContextSample title="Context Example"/> }/>
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>          
           <Route index element={ <Home1 title="Home"/> }/>
