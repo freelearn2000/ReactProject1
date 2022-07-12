@@ -70,10 +70,10 @@ class TechnologyBlog extends Component<IProps> {
             <>
                 <div className="ui segment block header inverted blue center aligned grid">
                     <userContext.Consumer>
-                        { userName =>
+                        { user =>
                             (
                                 <> 
-                                    {userName}'s Blog
+                                    {user.name}'s Blog
                                 </>
                             )
                         }

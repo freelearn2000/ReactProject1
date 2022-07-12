@@ -71,10 +71,11 @@ class ScienceBlog extends Component<IProps> {
             <>
                 <div className="ui segment block header inverted blue center aligned grid">
                     <userContext.Consumer>
-                        { userName =>
+                        { user =>
                             (
                                 <> 
-                                    Welcome {userName}! 
+                                    Welcome {user.name}!<br/>
+                                    Enjoy the {user.viewMode}'s View!
                                 </>
                             )
                         }

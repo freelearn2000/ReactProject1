@@ -28,7 +28,7 @@ class Rakhi extends Component<IProps> {
                         </div>
                     </div>
                     <div className= "ten wide column">
-                        <userContext.Provider value={'Rakhi'}>
+                        <userContext.Provider value={{name:'Rakhi', viewMode:'Admin'}}>
                             <Outlet/>
                         </userContext.Provider>
                     </div>
