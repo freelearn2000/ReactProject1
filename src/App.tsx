@@ -15,7 +15,7 @@ import RouteData from './pages/Rakhi/RouteData';
 import { HomePage as IndexPage  } from './pages/Rakhi/HomePage';
 import ScienceBlog from './pages/Rakhi/ScienceBlog';
 import TechnologyBlog from './pages/Rakhi/TechnologyBlog';
-import { ContentPage } from './pages/Rakhi/ContentPage';
+import { Contents } from './pages/Rakhi/Contents';
 import science from './pages/Rakhi/Resources/news.jpg';
 import technology from './pages/Rakhi/Resources/tech.jpg';
 import Santhosh from './pages/Santhosh/Santhosh';
@@ -108,10 +108,10 @@ class App extends Component {
           <Route path=":id" element={ <RouteData title="Rakhi's Component"/> }/>
           <Route index element={ <IndexPage title="The value of an idea lies in the using of it!"/> }/>
           <Route path="science" element={ <ScienceBlog title="Science Blog"/> }>
-            <Route path="top" element={<ContentPage title='Physics-based cryptocurrency transmits energy through blockchain' content='Researchers from Lawrence Livermore National Laboratory (LLNL) have devised a physics-based cryptocurrency that links electrical energy and blockchain technologies in a new way.' image={science}/> }/>
+            <Route path="top" element={<Contents title='Physics-based cryptocurrency transmits energy through blockchain' content='Researchers from Lawrence Livermore National Laboratory (LLNL) have devised a physics-based cryptocurrency that links electrical energy and blockchain technologies in a new way.' image={science}/> }/>
           </Route>
           <Route path="technology" element={ <TechnologyBlog title="Information Technology"/> }>
-            <Route path="trending" element={<ContentPage title='So long, Internet Explorer. The browser retires today' content='The browser retires today. Internet Explorer is finally headed out to pasture.' image={technology}/> }/>
+            <Route path="trending" element={<Contents title='So long, Internet Explorer. The browser retires today' content='The browser retires today. Internet Explorer is finally headed out to pasture.' image={technology}/> }/>
             </Route>
           <Route path="counter" element={ <CounterContext/> }></Route>
         </Route>

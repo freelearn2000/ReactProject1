@@ -1,4 +1,4 @@
-import { Component, Provider } from 'react';
+import { Component } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { retriveDataFromRoute } from '../../utils/hoc';
 import { userContext } from '../../context/global';

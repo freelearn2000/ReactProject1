@@ -1,4 +1,4 @@
-export const ContentPage = ( props: any ) => {
+export const Contents = ( props: any ) => {
     return(
         <>
             <div className="ui segment">
