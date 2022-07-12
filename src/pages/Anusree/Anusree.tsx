@@ -23,6 +23,7 @@ class Anusree extends Component<IProps, IState> {
         return(
                 <>  
                     <h2 className="ui center aligned block header">{ this.props.title }</h2>
+                    <Link to='context'><button className="ui button">Context</button></Link>
                     
                     <div className="ui two item menu">
                         {/* <Link to='/' className="item"><i className="home icon"></i>Home</Link>
@@ -32,12 +33,14 @@ class Anusree extends Component<IProps, IState> {
                         <Link to='foodblog' className={ this.props.location.pathname.includes('food')? 'active item': 'item'}><i className="mug hot icon"></i>Food Blog</Link>
                     </div>
                     <div className="segment">
-                    { (this.props.location.pathname.includes('food') || this.props.location.pathname.includes('travel')) ||
+                    { (this.props.location.pathname.includes('food') || this.props.location.pathname.includes('travel')|| this.props.location.pathname.includes('context')) ||
                     <img className="ui fluid image" alt="Foodimage" src={ BlogImage }/> }
                         <Outlet/>
                     </div>   
                     { this.props.routeData.travel && <p className='paragraph'>Route Data: { this.props.routeData.travel }</p> }
-                </>
+                    </>
+                
+                
         )
     }
 }

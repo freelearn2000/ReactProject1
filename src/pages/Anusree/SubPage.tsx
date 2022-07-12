@@ -6,6 +6,8 @@ interface IProps {
     location: any;
 }
 
+
+
 class SubPage extends Component<IProps> {
     search = this.props.location.search;
     content = new URLSearchParams(this.search).get('content');
@@ -15,14 +17,15 @@ class SubPage extends Component<IProps> {
     render( ) {
 
         return(
-            
             <div className="ui segment">
-                 
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
-               <p className="paragraph">{this.contents}</p>
+                <p className="paragraph">{ this.contents }</p>
+                
             </div>
-        )
+        );
     }
 }
+
+
 
 export default retriveDataFromRoute(SubPage);

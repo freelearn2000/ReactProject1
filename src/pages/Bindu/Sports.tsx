@@ -1,9 +1,16 @@
-import { Component } from "react";
+import { Component, Context, createContext, useContext } from "react";
 import axios from '../../axios';
 
 interface IProps {
     title: any;
 }
+
+
+//Create Context Object
+
+const  SportsContext = createContext('');
+
+
 
 export class Sports extends Component<IProps> {
 
@@ -56,13 +63,84 @@ export class Sports extends Component<IProps> {
 
         return(
             <>
+                <h2 className="ui center aligned header">Context</h2>
+                <SportsContext.Provider value = {'P.T.Usha'}>
+                  <Athletics/>
+                </SportsContext.Provider>
+                
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
                     {
                         this.state.loading ? this.renderLoading( ):
-                        this.state.sports ? <>{ this.renderUserdata( ) }</>:
+                        this.state.sports ? <> { this.renderUserdata( ) }</>:
                         <><h2>Error Data</h2>{ this.renderError( )}</>
                     }
+                    
             </>
         )
     }
 }
+
+class Athletics extends Component {
+
+    render() {
+
+        return(      
+             <>  
+                <hr color="blue" />
+                <h5>Atheletics [Wrapped ContextProvider in the maincomponent  Sports]</h5>
+                <Running/>
+             </>
+        )
+    }
+   }
+
+    class Running extends Component {
+
+        render() {
+
+                return(
+                <>
+                 <h5>Running [consumer]</h5>
+                 <SportsContext.Consumer>
+                    {value =>(
+                        <>
+                         Best Athlet { value }                      
+                        </>
+                     )
+                    }
+                 </SportsContext.Consumer>
+                  <Sprint />
+                </>
+            )
+        }
+    
+      }
+
+        class Sprint extends Component {
+
+            static contextType = SportsContext;
+            render() {
+        
+                return(
+        
+                    <>
+                     <h5>Sprint [static]  </h5>
+                     Olympian Bronze medal winner : { this.context}
+                     <Marathon />
+                    </>
+                )
+            }    
+        }
+
+       const Marathon = () => { 
+            const context = useContext(SportsContext);
+
+             return(
+
+                <>
+                  <h5>Marathon [ useContext]</h5>
+                   Arjun Award winner 1983 { context }
+                   <hr color = "blue" />
+                </>
+             )
+        }
