@@ -1,11 +1,15 @@
 import { Component } from "react";
+import { Link, Outlet } from "react-router-dom";
+import { retriveDataFromRoute } from '../../utils/hoc';
 import axios from '../../axios';
+import FoodImage from '../Anusree/Images/food-blog.jpg';
 
 interface IProps {
     title: any;
+    location: any;
 }
 
-export class FoodBlog extends Component<IProps> {
+class FoodBlog extends Component<IProps> {
 
     state={ loading: true, foods: null, error: null };
     
@@ -13,7 +17,7 @@ export class FoodBlog extends Component<IProps> {
 
         axios.get('/posts')
             .then(response => {
-                this.setState( {loading: false, foods:  (response.data).splice(0,10), error: null} );
+                this.setState( {loading: false, foods:  (response.data).splice(0,5), error: null} );
             })
             .catch(error => {
                 this.setState( {loading: false, foods: null, error: error} );
@@ -60,12 +64,19 @@ export class FoodBlog extends Component<IProps> {
         return(
             <>
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
-                    {
-                        this.state.loading ? this.renderLoading( ):
-                        this.state.foods ? <>{ this.renderData( ) }</>:
-                        <><h2>Error Data</h2>{ this.renderError( )}</>
-                    }
+                <div className="ui basic segment">
+                    <Link to='pizza?content=laudantium enim quasi est quidem magnam voluptate ipsam eos' className="ui yellow label"><i className="pizza slice icon"></i>Pizza</Link>
+                </div>
+                { this.props.location.pathname.includes('pizza') || <img className="ui fluid image" alt="Foodimage" src={ FoodImage }/>}
+                { this.props.location.pathname.includes('pizza') ? <Outlet/>:
+                    (this.state.loading ? this.renderLoading( ):
+                    this.state.foods ? <>{ this.renderData( ) }</>:
+                    <><h2>Error Data</h2>{ this.renderError( )}</>) 
+                }
+                   
             </>
         )
     }
 }
+
+export default retriveDataFromRoute( FoodBlog );

@@ -2,7 +2,7 @@ import { Component } from "react";
 import picture from "./pictures/catimg1.png";
 
 
-class Home1 extends Component {
+class Home extends Component {
 
     render() {
 
@@ -17,4 +17,4 @@ class Home1 extends Component {
     }
 }
 
-export default (Home1);
+export default (Home);

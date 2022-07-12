@@ -6,7 +6,7 @@ interface IProps {
     title: string;
 }
 
-export class National extends Component<IProps> {
+export class Dance extends Component<IProps> {
 
     state = { loading: true, posts: null, error: null };
 
@@ -46,10 +46,10 @@ export class National extends Component<IProps> {
     renderUserdata( ) {
 
         const posts = this.state.posts ? this.state.posts : [ ];
-        const dataJSX = posts.map( ( posts: any ) => {
+        const dataJSX = posts.map( ( post: any ) => {
             return (
-                <div key={ posts.id } className="ui green segment">
-                    <p><b>Headline:</b>{ posts.title }</p>
+                <div key={ post.id } className="ui green segment">
+                    <p><b>News:</b>{ post.body }</p>
                 </div>
             );
         });
@@ -60,7 +60,7 @@ export class National extends Component<IProps> {
 
         return(
             <div>
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
+                <h2 className="ui center aligned header">{  this.props.title  }</h2>
                 {
                     this.state.loading ? this.renderLoading( ): 
                     this.state.posts ? this.renderUserdata( ):

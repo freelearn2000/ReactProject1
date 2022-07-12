@@ -68,15 +68,16 @@ interface IState {
 
         return (  
             <>
-                     
-                    <button className="ui purple basic button"><Link to='/' className="item">Home</Link></button>
-                    <button className="ui purple basic button"><Link to='/news/latestnews' className="item">News</Link></button>
-                    <h2 className = 'ui center aligned block header'>{ this.props.title }</h2>
+                    <h3 className = 'ui center aligned block header'><i><u>{ this.props.title }</u></i></h3>
+                    <button className="ui  button"><Link to='/' className="item"><i>Home</i></Link></button>
+                    <button className="ui  button"><Link to='/news/latestnews' className="item"><i>News</i></Link></button>
+                    
                     <div className ="ui grid">
                         <div className="four wide column">
                         <div className="ui vertical pointing menu">
-                            <Link to='/aiswarya/politics' className="item">Politics</Link>
-                            <Link to='/aiswarya/arts' className="item">Arts</Link>
+                            
+                            <Link to='/aiswarya/politics' className="item"><i>Politics</i></Link>
+                            <Link to='/aiswarya/arts' className="item"><i>Arts</i></Link>
                             <br/>
                         </div>
                     </div>

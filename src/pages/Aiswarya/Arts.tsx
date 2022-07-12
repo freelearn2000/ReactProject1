@@ -11,7 +11,7 @@ export class Arts extends Component <IProps> {
 
     componentDidMount ( ) {
 
-        axios.get('/todos')
+        axios.get('/comments')
             .then(response => {
                 this.setState( { loading: false, culture: response.data, error: null} );
             })
