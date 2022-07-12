@@ -6,9 +6,9 @@ export const Home = ( props: any ) => {
         <div>
             <h3>Welcome to Home Page</h3>  
             <div className="ui buttons">
-                <button className="ui blue button">Cancel</button>
+                <Link to='/Santhosh'  className="ui blue button">Cancel</Link> 
                 <div className="or"></div>                             
-                <Link to='/Santhosh/Abc'  className="ui green button">Continue....</Link> 
+                <Link to='/Santhosh/Login' className="ui green button">Login....</Link> 
             </div>
         </div>
     );

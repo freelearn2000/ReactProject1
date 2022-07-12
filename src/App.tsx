@@ -46,6 +46,7 @@ import { Sports } from './pages/Bindu/Sports';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
 import { SamaraHome } from './pages/Samara/SamaraHome';
+import { Context } from './pages/Samara/context';
 import Books from './pages/Parvathy/books';
 import Cats from './pages/Parvathy/cats';
 import MyHome from './pages/Parvathy/home';
@@ -55,7 +56,7 @@ import { Education } from './pages/Manooja/Education';
 import { Posts } from './pages/Santhosh/Posts';
 import { Users } from './pages/Santhosh/Users';
 import { Home as Home1 } from './pages/Santhosh/Home';
-import { Abc } from './pages/Santhosh/Abc';
+import { Login } from './pages/Santhosh/Login';
 import Radhika from './pages/Radhika/Radhika';
 import { Entertainment } from './pages/Radhika/Entertainment';
 import { Art } from './pages/Radhika/Art';
@@ -96,7 +97,7 @@ class App extends Component {
           <Route path="Home" element={ <Home1 title="Home"/> }/>
           <Route path="users" element={ <Users title="Users Details"/> }/>
           <Route path="posts" element={ <Posts title="Posts"/> }/>
-          <Route path="abc" element={ <Abc/> } />
+          <Route path="login" element={ <Login/> } />
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
         </Route>
         <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>
@@ -126,6 +127,7 @@ class App extends Component {
           <Route index element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
           <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
           <Route path="polandweather" element={ <PolandWeather title="Poland weather details"/> }/>
+          <Route path="context" element={ <Context/> } />
           <Route path=":id" element={ <SamaraHome title="Welcome to our Weather Calculator" /> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
