@@ -1,6 +1,9 @@
-import  { Component } from 'react';
+import  { Component, createContext, useContext } from 'react';
 import axios from '../../axios';
 
+
+// Create Context object
+const MyContext = createContext('');
 
 interface IProps {
     
@@ -66,11 +69,37 @@ export class Grocery extends Component<IProps, IState> {
 		return(
             <div>
                 <h2 className="ui horizontal divider header">List of Groceries</h2> 
-				
+					<MyContext.Provider value={'Healthcare'}>
+                    	<Healthcare/>
+                	</MyContext.Provider> 
+					
 					{	this.state.loading ? this.renderLoading( ) :
                 		this.state.products ? this.renderProductData( ) :
-               			this.renderError( )	}                        
+               			this.renderError( )	}                       
 			</div>
         )		
 	}	
+}
+
+
+class Healthcare extends Component {
+
+    render( ) {
+
+        return(
+            <Babycare/>
+        );
+    }
+}
+
+// a.Consumer
+const Babycare = (props: any) => {
+
+    const context = useContext(MyContext);
+
+    return(
+        <>
+        <h5>Context value: {context}</h5>
+        </>
+    );
 }
