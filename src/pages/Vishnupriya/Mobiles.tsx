@@ -1,6 +1,9 @@
-import { Component } from "react";
+import { Component, Context, createContext, useContext } from "react";
 import axios from '../../axios';
 
+
+// Create Context object
+const MyContext = createContext('');
 
 interface IProps {
     title: string;
@@ -71,13 +74,68 @@ export class Mobiles extends Component<IProps, IState> {
         return (
             <div>
                 <h4 className="ui center aligned header">{ this.props.title }</h4>
+
+                <MyContext.Provider value={'Accessories'}>
+                    <Accessories/>
+                </MyContext.Provider>
                 
                 {
                     this.state.loading ? this.renderLoading( ) :
                     this.state.content ? this.renderData( ) :
                     this.renderError( )    
                 }
+                
             </div>
         )   
     }
 }
+
+class Accessories extends Component {
+
+    render( ) {
+
+        return(
+            <Headset/>
+        );
+    }
+}
+
+// a.Consumer
+const Headset = (props: any) => {
+
+    const context = useContext(MyContext);
+
+    return(
+        <>
+        <h5>Context value: {context}</h5>
+        </>
+    );
+}
+
+// b.Consumer
+// class Headset extends Component {
+
+//     render( ) {
+//         return(
+//             <MyContext.Consumer>
+//                 {value => 
+//                     (
+//                         <> <h3> Context value: {value} </h3></>
+//                     )
+//                 }
+//             </MyContext.Consumer>
+//         )
+//     }
+// }
+
+// c.Consumer
+// class Headset extends Component {
+
+//     static contextType = MyContext;
+
+//     render( ) {
+//         return(
+//             <> Context value: {this.context} </>
+//         )
+//     }
+// }

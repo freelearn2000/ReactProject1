@@ -94,7 +94,7 @@ class Electronics extends Component<IProps, IState> {
                                 <div className="ui segment">
                                     <Outlet/>
                                     { (this.props.location.pathname.includes('mobiles') || this.props.location.pathname.includes('laptops') )||
-                                    <img className="ui fluid image" src={Imelec}></img> }
+                                    <img className="ui fluid image" src={Imelec} alt={"ProImage"}></img> }
                                 </div>	
                             </div>
                         </div>

@@ -2,6 +2,7 @@ import WeatherImage from '../Samara/weather.jpg';
 
 
 export const SamaraHome = ( props: any ) => {
+    
     return(
         <div>     
             <h1 className = "ui center aligned blue header"><i>{ props.title }</i></h1>

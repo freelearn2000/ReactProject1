@@ -46,6 +46,7 @@ import { Sports } from './pages/Bindu/Sports';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
 import { SamaraHome } from './pages/Samara/SamaraHome';
+import { Context } from './pages/Samara/context';
 import Books from './pages/Parvathy/books';
 import Cats from './pages/Parvathy/cats';
 import MyHome from './pages/Parvathy/home';
@@ -55,10 +56,11 @@ import { Education } from './pages/Manooja/Education';
 import { Posts } from './pages/Santhosh/Posts';
 import { Users } from './pages/Santhosh/Users';
 import { Home as Home1 } from './pages/Santhosh/Home';
+import { Login } from './pages/Santhosh/Login';
 import Radhika from './pages/Radhika/Radhika';
-import { LatestNews } from './pages/Radhika/LatestNews';
-import { India } from './pages/Radhika/India';
-import { Kerala } from './pages/Radhika/Kerala';
+import { Entertainment } from './pages/Radhika/Entertainment';
+import { Art } from './pages/Radhika/Art';
+import { Dance } from './pages/Radhika/Dance';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
@@ -95,6 +97,7 @@ class App extends Component {
           <Route path="Home" element={ <Home1 title="Home"/> }/>
           <Route path="users" element={ <Users title="Users Details"/> }/>
           <Route path="posts" element={ <Posts title="Posts"/> }/>
+          <Route path="login" element={ <Login/> } />
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
         </Route>
         <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>
@@ -115,15 +118,16 @@ class App extends Component {
          <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
-          <Route index element={ <LatestNews title="LatestNews"/> }/>
-          <Route path="india" element={ <India title="India"/> }/>
-          <Route path="kerala" element={ <Kerala title="Kerala"/> }/>
+          <Route index element={ <Entertainment title="Entertainment"/> }/>
+          <Route path="art" element={ <Art title="Art"/> }/>
+          <Route path="dance" element={ <Dance title="Dance"/> }/>
           <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route index element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
           <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
           <Route path="polandweather" element={ <PolandWeather title="Poland weather details"/> }/>
+          <Route path="context" element={ <Context/> } />
           <Route path=":id" element={ <SamaraHome title="Welcome to our Weather Calculator" /> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
