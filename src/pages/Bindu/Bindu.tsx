@@ -26,7 +26,7 @@ export class Bindu extends Component<IProps> {
                             <Link to='/bindu/health' className="ui pink basic tag label">Health</Link>
                             <br/>
                             <br/>
-                            <Link to='/bindu/sports' className="ui pink basic tag label">Sports</Link>
+                            <Link to='/bindu/sports' className="ui pink basic tag label">Context</Link>
                         </div>
                     </div>
                     <div className="thirteen wide column">
