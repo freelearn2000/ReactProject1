@@ -1,20 +1,17 @@
-import { Component, createContext } from 'react';
+import { Component } from 'react';
 import { useContext } from 'react';
-
-
-// Create context object
-const MyContext = createContext('');
+import { ContextWeather } from '../../context/global';
 
 
 // Provider
-export class Context extends Component {
+export class WeatherContext extends Component {
 
     render( ) {
         return(
             <>
-                <MyContext.Provider value={'Weather'}>
+                < ContextWeather.Provider value={'Rainy'}>
                     <Middle/>
-                </MyContext.Provider>
+                </ ContextWeather.Provider>
                 <Child2/>
             </>
         );
@@ -35,20 +32,20 @@ export class Child extends Component {
 
     render( ) {
         return(
-            <MyContext.Consumer>
+            <ContextWeather.Consumer>
             {
                 value => (
                     <h3> Context value accessed from Child : { value }</h3>
                 )
             }
-            </MyContext.Consumer>
+            </ContextWeather.Consumer>
         );
     }
 }
 // b. Consumer
 export class Child1 extends Component {
 
-    static contextType = MyContext;
+    static contextType = ContextWeather;
 
     render( ) {
         return(
@@ -60,7 +57,7 @@ export class Child1 extends Component {
 //c. Consumer
 export const Child2 = ( props: any ) => {
 
-    const context = useContext(MyContext);
+    const context = useContext(ContextWeather);
 
     return(
         <h3>Context value accessed from Child2 : { context }</h3>
