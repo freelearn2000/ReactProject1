@@ -32,7 +32,7 @@ class Parvathy extends Component<IProps> {
     renderContentBox() {
 
         const contentJSX =
-            <div className="ui tertiary inverted teal segment">
+            <div>
                <Outlet/>
             </div>
 

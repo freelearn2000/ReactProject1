@@ -14,9 +14,11 @@ class PetsContext extends Component<IProps> {
         return (
             <div>
                 <h2 className="ui center aligned header">Context</h2>
+                <div className="ui inverted segment">
                 <PetsWorldContext.Provider value={'welcomee'}>
                     <Middle />
                 </PetsWorldContext.Provider>
+                </div>
             </div>
         )
     }
@@ -35,13 +37,15 @@ export class Child extends Component {
 
     render() {
         return (
+            <span className="ui inverted blue text" >
             <PetsWorldContext.Consumer>
                 {
                     value => (
-                        <h3> Context value accessed from Child : { value } </h3>
+                        <p> Context value accessed from Child : { value } </p>
                     )
                 }
             </PetsWorldContext.Consumer>
+            </span>
         );
     }
 }
