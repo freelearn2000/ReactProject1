@@ -27,6 +27,7 @@ import { ShoppingCart } from './pages/Vishnupriya/ShoppingCart';
 import Electronics from './pages/Vishnupriya/Electronics';
 import { Mobiles } from './pages/Vishnupriya/Mobiles';
 import { Laptops } from './pages/Vishnupriya/Laptops';
+import { UserCont } from './pages/Vishnupriya/UserContext'; 
 import Divya from './pages/Divya/Divya';
 import Product from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
@@ -150,6 +151,8 @@ class App extends Component {
           <Route path="mobiles" element={ <Mobiles title="Mobiles"/> }/>
           <Route path="laptops" element={ <Laptops title="Laptops"/> }/>
          </Route>
+         <Route path="usercontext" element={ <UserCont/> }></Route>
+
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }>
         <Route index element={ <Product title="Product"/> }/>

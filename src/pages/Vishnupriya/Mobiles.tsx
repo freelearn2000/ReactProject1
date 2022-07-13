@@ -1,5 +1,7 @@
 import { Component, createContext, useContext } from "react";
 import axios from '../../axios';
+import { UserContext } from '../../context/global';
+
 
 
 // Create Context object
@@ -72,13 +74,13 @@ export class Mobiles extends Component<IProps, IState> {
     render( ) {
 
         return (
-            <div>
+            <div>               
                 <h4 className="ui center aligned header">{ this.props.title }</h4>
 
-                <MyContext.Provider value={'Accessories'}>
-                    <Accessories/>
-                </MyContext.Provider>
-                
+                    <MyContext.Provider value={'Accessories'}>
+                        <Accessories/>
+                    </MyContext.Provider>
+
                 {
                     this.state.loading ? this.renderLoading( ) :
                     this.state.content ? this.renderData( ) :
