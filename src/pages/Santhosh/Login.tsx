@@ -1,5 +1,5 @@
-import { Component, createContext, useContext } from "react";
-import { LoginContext } from "../../context/global"
+import { Component, useContext } from "react";
+import { LoginContext } from "../../context/global";
 
 // Provider
 export class Login extends Component {
@@ -39,25 +39,3 @@ class Child1 extends Component {
         );      
     }
 }
-
-// // b. Consumer
-// class Child2 extends Component {
-
-//     static contextType = mycontext;
-
-//     render( ) {
-//         return (
-//             <>Context value accessed from child2 : {this.context};</>
-//         );
-//     }
-// }
-
-// // // c. Consumer
-// const Child3 = (props: any) =>{
-
-//     const context = useContext(mycontext);
-
-//     return (
-//         <>Context value accessed from child3 : {context}</>
-//     );
-// }
