@@ -10,6 +10,7 @@ import { ContextSample } from './pages/Anusree/Context';
 import TravellBlog from './pages/Anusree/TravellBlog';
 import SubPage from './pages/Anusree/SubPage';
 import FoodBlog from './pages/Anusree/FoodBlog';
+import { UseRefExample, CreateRefExample } from './pages/Anusree/RefExample';
 import Rakhi from './pages/Rakhi/Rakhi';
 import RouteData from './pages/Rakhi/RouteData';
 import { HomePage as IndexPage  } from './pages/Rakhi/HomePage';
@@ -99,6 +100,8 @@ class App extends Component {
             <Route path="pizza" element={ <SubPage title="Pizza"/> }/>
           </Route>
           <Route path="context" element={ <ContextSample title="Context Example"/> }/>
+          <Route path="useref" element={ <UseRefExample/> }/>
+          <Route path="createref" element={ <CreateRefExample/> }/>
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>          
           <Route index element={ <Home1 title="Home"/> }/>
