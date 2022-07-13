@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Link, Outlet } from 'react-router-dom';
+import { UserContext } from "../../context/global";
 import { retriveDataFromRoute } from '../../utils/hoc';
 import  ImLogo  from '../Vishnupriya/images/logo.png';
 
@@ -18,14 +19,17 @@ class Vishnupriya extends Component<IProps> {
                     <div className="column">
                         <div className="ui stackable container menu">
                             <div className="item">
-                                <img src={ImLogo}></img>
+                                <img src={ImLogo} alt={ImLogo} ></img>
                             </div>
                             <Link to='/vishnupriya/shoppingcart' className="ui blue button">Shopping Cart</Link>
                             <Link to='/vishnupriya/home' className="ui teal button">Home</Link>
                             <Link to='/vishnupriya/electronics' className="ui green button">Electronics</Link>
+                            <Link to='/vishnupriya/usercontext' className = "ui blue button">User Context</Link>
                         </div>
                         <div className="four wide raw">
-                            <Outlet/>
+                            <UserContext.Provider value={{name:"Vishnupriya", userRole:'Admin'}}>
+                                <Outlet/>
+                            </UserContext.Provider>
                         </div>
                     </div>
             </div>
