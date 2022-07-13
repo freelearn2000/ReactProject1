@@ -10,3 +10,5 @@ export const ContextWeather = createContext('');
 export const MyMusic = createContext('');
 
 export const  SportsContext = createContext('');
+
+export const PetsWorldContext = createContext('1');
