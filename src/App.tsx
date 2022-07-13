@@ -21,16 +21,22 @@ import technology from './pages/Rakhi/Resources/tech.jpg';
 import Santhosh from './pages/Santhosh/Santhosh';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
+import PetsContext from './pages/Parvathy/PetsContext';
+import Books from './pages/Parvathy/Books';
+import Cats from './pages/Parvathy/Cats';
+import MyHome from './pages/Parvathy/Home';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
 import { Home as Phome } from './pages/Vishnupriya/Home';
 import { ShoppingCart } from './pages/Vishnupriya/ShoppingCart';
 import Electronics from './pages/Vishnupriya/Electronics';
 import { Mobiles } from './pages/Vishnupriya/Mobiles';
 import { Laptops } from './pages/Vishnupriya/Laptops';
+import { UserCont } from './pages/Vishnupriya/UserContext'; 
 import Divya from './pages/Divya/Divya';
 import Product from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
 import { Skincare } from './pages/Divya/Skincare';
+import { AuthUser } from './pages/Divya/UserContext'; 
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import { Nepal } from './pages/Viji/Nepal';
@@ -48,9 +54,6 @@ import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
 import { SamaraHome } from './pages/Samara/SamaraHome';
 import { WeatherContext } from './pages/Samara/WeatherContext';
-import Books from './pages/Parvathy/books';
-import Cats from './pages/Parvathy/cats';
-import MyHome from './pages/Parvathy/home';
 import { Mhome } from './pages/Manooja/Mhome';
 import { Business } from  './pages/Manooja/Business';
 import { Education } from './pages/Manooja/Education';
@@ -67,7 +70,7 @@ import { MusicContext } from './pages/Radhika/MusicContext';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
-import { CounterContext } from './pages/Rakhi/CounterContext';
+import { Counter } from './pages/Rakhi/CounterContext';
 
 
 
@@ -114,7 +117,7 @@ class App extends Component {
           <Route path="technology" element={ <TechnologyBlog title="Information Technology"/> }>
             <Route path="trending" element={<Contents title='So long, Internet Explorer. The browser retires today' content='The browser retires today. Internet Explorer is finally headed out to pasture.' image={technology}/> }/>
             </Route>
-          <Route path="counter" element={ <CounterContext/> }></Route>
+          <Route path="counter" element={ <Counter/> }></Route>
         </Route>
          <Route path="/bindu" element={ <Bindu title="This is Bindu's Component"/> }>
          <Route index element={ <Bhome title="Home"/> }/>
@@ -142,6 +145,7 @@ class App extends Component {
           <Route path="home" element={ <MyHome /> }/>
           <Route path="books" element={ <Books title="Books" /> }/>
           <Route path="cats" element={ <Cats title="Cats" /> }/>
+          <Route path="petscontext" element={ <PetsContext title="Context" /> }/>
           <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
@@ -152,6 +156,7 @@ class App extends Component {
           <Route path="mobiles" element={ <Mobiles title="Mobiles"/> }/>
           <Route path="laptops" element={ <Laptops title="Laptops"/> }/>
          </Route>
+         <Route path="usercontext" element={ <UserCont/> }></Route>
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }>
         <Route index element={ <Product title="Product"/> }/>
@@ -160,6 +165,8 @@ class App extends Component {
             <Route path="skincare" element={ <Skincare/> }/>
           </Route>
           <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>
+          <Route path="usercontext" element={ <AuthUser/> }></Route>
+
         </Route>
         <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }>
         <Route index element={ <Homepages/> }/>

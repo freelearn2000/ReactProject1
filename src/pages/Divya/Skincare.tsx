@@ -1,5 +1,6 @@
 import  { Component } from 'react';
 import axios from '../../axios';
+import { User } from '../../context/global';
 
 
 interface IProps {
@@ -63,6 +64,13 @@ export class Skincare extends Component<IProps, IState> {
 
 		return(
             <div>
+				<User.Consumer>
+                    {user => (
+                        <>  
+                            <h5> Hi, {user.name} !!!</h5>
+                        </>
+                    )}
+                </User.Consumer>
                 <h2 className="ui horizontal divider header">List of Skincare Products</h2> 
 				
 					{	this.state.loading ? this.renderLoading( ) :
