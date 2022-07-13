@@ -19,3 +19,5 @@ export const LoginContext = createContext({name:'',type:''});
 export const  SportsContext = createContext('');
 
 export const PetsWorldContext = createContext('1');
+
+export const YogaContext = createContext({instructor:'', type:''});
