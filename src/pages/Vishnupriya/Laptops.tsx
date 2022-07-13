@@ -1,5 +1,7 @@
 import { Component } from "react";
 import axios from '../../axios';
+import { User } from '../../context/global';
+
 
 
 interface IProps {
@@ -73,6 +75,13 @@ export class Laptops extends Component<IProps, IState> {
 
         return (
             <div>
+                <User.Consumer>
+                    {user => (
+                        <>  
+                            <h5 className = "ui header blue">  {user.name} !!!</h5>
+                        </>
+                    )}
+                </User.Consumer>
                 <h4 className="ui center aligned header">{ this.props.title }</h4>
                 
                 {
