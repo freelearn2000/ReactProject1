@@ -22,9 +22,9 @@ import Santhosh from './pages/Santhosh/Santhosh';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
 import PetsContext from './pages/Parvathy/PetsContext';
-import Books from './pages/Parvathy/books'
-import Cats from './pages/Parvathy/cats';
-import MyHome from './pages/Parvathy/home';
+import Books from './pages/Parvathy/Books';
+import Cats from './pages/Parvathy/Cats';
+import MyHome from './pages/Parvathy/Home';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
 import { Home as Phome } from './pages/Vishnupriya/Home';
 import { ShoppingCart } from './pages/Vishnupriya/ShoppingCart';
