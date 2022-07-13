@@ -13,7 +13,7 @@ export class CreateRef extends Component {
     render( ) {
 
         return(
-            <div className="ui segment">
+            <div className="ui basic segment">
                 <h4 className="ui primary header">User Login</h4>
                 <form className="ui form formStyle attached fluid">
                     <div className="field">
@@ -47,7 +47,7 @@ export const UseRef = ( ) => {
     }, [])
 
     return( 
-        <div className="ui segment">
+        <div className="ui basic segment">
             <h4 className="ui primary header">User Login</h4>
             <div className="ui form formStyle attached fluid">
                 <div className="two fields">
