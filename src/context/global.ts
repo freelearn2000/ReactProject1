@@ -1,5 +1,4 @@
 import { createContext } from "react";
-import { start } from "repl";
 
 
 export const CounterContext = createContext(0);
@@ -19,3 +18,7 @@ export const LoginContext = createContext({name:'',type:''});
 export const  SportsContext = createContext('');
 
 export const PetsWorldContext = createContext('1');
+
+export const NewContext = createContext('User');
+
+export const NewTheme = createContext('Dark theme');
