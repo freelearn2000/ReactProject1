@@ -1,10 +1,9 @@
 import { Component, createRef, useEffect, useRef } from "react";
-import { Link, Outlet } from 'react-router-dom';
 
 
-class Refs extends Component {
+export class CreateRef extends Component {
    
-    focusElement;
+    focusElement:any;
     
     constructor( props: any  ) {
         super( props );
@@ -15,8 +14,6 @@ class Refs extends Component {
 
         return(
             <div className="ui segment">
-                <Link to='search' className = "ui label">Search</Link>
-                <Outlet/>
                 <h4 className="ui primary header">User Login</h4>
                 <form className="ui form formStyle attached fluid">
                     <div className="field">
@@ -40,21 +37,32 @@ class Refs extends Component {
 
 }
 
-export const Search = ( ) => {
+export const UseRef = ( ) => {
 
-    const searchElement = useRef<any>();
+    const focusElement = useRef<any>();
 
     useEffect( ( ) => {
 
-        searchElement.current.focus();
+        focusElement.current.focus();
     }, [])
 
     return( 
-        <div className="ui disabled icon input">
-            <i className="search icon"></i>
-            <input type="text"  ref={searchElement}></input>
+        <div className="ui segment">
+            <h4 className="ui primary header">User Login</h4>
+            <div className="ui form formStyle attached fluid">
+                <div className="two fields">
+                    <div className="field">
+                        <label>User Name</label>
+                        <input placeholder="User Name" type="text" ref={focusElement}/>
+                    </div>
+                    <div className="field">
+                        <label>Password</label>
+                        <input placeholder="Password" type="text"/>
+                    </div>
+                </div>
+                <button className="ui blue submit button">Submit</button>
+            </div>
         </div>
     );
 }
 
-export default Refs;
