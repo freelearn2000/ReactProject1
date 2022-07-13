@@ -1,12 +1,10 @@
 import { Component, createContext, useContext } from "react";
+import { NewContext, NewTheme } from '../../context/global'
 
 interface IProps {
     title: any;
 }
 
-//Create Content object
-const NewContext = createContext('User');
-const NewTheme = createContext('Dark theme');
 
 export class ContextSample extends Component<IProps> {
  

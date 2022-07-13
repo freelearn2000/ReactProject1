@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { Link, Outlet } from "react-router-dom";
 import { retriveDataFromRoute } from '../../utils/hoc';
 import BlogImage from '../Anusree/Images/blog-image.jpg';
+import { UserContext } from '../../context/global';
 
 
 interface IProps {
@@ -26,8 +27,6 @@ class Anusree extends Component<IProps, IState> {
                     <Link to='context'><button className="ui button">Context</button></Link>
                     
                     <div className="ui two item menu">
-                        {/* <Link to='/' className="item"><i className="home icon"></i>Home</Link>
-                        <Link to='/about/contact/hr@abc.com' className="item"><i className="file alternate outline icon"></i>About</Link> */}
                         <Link to='travelblog' className={ this.props.location.pathname.includes('travel')? 'active item': 'item'}>
                             <i className="car icon"></i>Travell Blog</Link>
                         <Link to='foodblog' className={ this.props.location.pathname.includes('food')? 'active item': 'item'}><i className="mug hot icon"></i>Food Blog</Link>
@@ -35,7 +34,9 @@ class Anusree extends Component<IProps, IState> {
                     <div className="segment">
                     { (this.props.location.pathname.includes('food') || this.props.location.pathname.includes('travel')|| this.props.location.pathname.includes('context')) ||
                     <img className="ui fluid image" alt="Foodimage" src={ BlogImage }/> }
-                        <Outlet/>
+                        <UserContext.Provider value={{name:'Anusree', viewMode:'Admin'}}>
+                            <Outlet/>
+                        </UserContext.Provider>
                     </div>   
                     { this.props.routeData.travel && <p className='paragraph'>Route Data: { this.props.routeData.travel }</p> }
                     </>

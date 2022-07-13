@@ -1,5 +1,4 @@
-import { Component } from 'react';
-import { useContext } from 'react';
+import { Component, useContext } from 'react';
 import { ContextWeather, ContextRain } from '../../context/global';
 
 
@@ -42,7 +41,6 @@ export class Child extends Component {
                     )
                 }
                 </ContextRain.Consumer>
-                
             </>
         );
     }
