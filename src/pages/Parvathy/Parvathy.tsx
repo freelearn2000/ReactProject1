@@ -21,6 +21,9 @@ class Parvathy extends Component<IProps> {
                 <Link to='/parvathy/cats' className="item">
                     cats
                 </Link>
+                <Link to='/parvathy/petsContext' className="item">
+                    context
+                </Link>
             </div>
 
         return sideMenuJSX;
