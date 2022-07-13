@@ -71,7 +71,7 @@ import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
 import { Counter } from './pages/Rakhi/CounterContext';
-
+import { Contextpage } from './pages/Aiswarya/Contextpage';
 
 
 class App extends Component {
@@ -171,6 +171,7 @@ class App extends Component {
         <Route index element={ <Homepages/> }/>
           <Route path="politics" element={ <Politics title="Politics" /> }/>
           <Route path="Arts" element={ <Arts title="Arts" /> }/>
+          <Route path="context" element={ <Contextpage title="Context"/> }/>
           <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
         </Route>
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>

@@ -7,7 +7,10 @@ export const UserContext = createContext({name:'Guest', viewMode:'Guest'});
 
 export const User = createContext({name:'Guest', userRole:'Guest'});
 
+// Samara
 export const ContextWeather = createContext('');
+
+export const ContextRain = createContext( {place: 'Canada', weather: 'Rainy'} );
 
 // Radhika
 export const MyMusic = createContext('');
