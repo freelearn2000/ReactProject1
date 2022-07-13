@@ -4,7 +4,7 @@ import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
 import { HomePage } from './pages/HomePage/HomePage';
 import NewsPage from './pages/NewsPage/NewsPage';
-import AboutPage from './pages/AboutPage/AboutPage';
+import About from './pages/About/About';
 import Anusree from './pages/Anusree/Anusree';
 import { ContextSample } from './pages/Anusree/ContextPage';
 import TravellBlog from './pages/Anusree/TravellBlog';
@@ -81,9 +81,9 @@ class App extends Component {
         <Route path="/news" element={ <NewsPage/> }>
            <Route path=":id" element={ <NewsPage/> }/>
         </Route>
-        <Route path="/about" element={ <AboutPage/> }>
-            <Route path=":contact" element={ <AboutPage/> }>
-              <Route path=":email" element={ <AboutPage/> }/>
+        <Route path="/about" element={ <About/> }>
+            <Route path=":contact" element={ <About/> }>
+              <Route path=":email" element={ <About/> }/>
             </Route>
         </Route>
         <Route path="/anusree"  element={ <Anusree title="Anusree's Component"/> } >
