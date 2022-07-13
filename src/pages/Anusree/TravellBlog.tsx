@@ -1,8 +1,11 @@
 import { Component } from 'react';
 import { Link, Outlet } from "react-router-dom";
+
 import axios from '../../axios';
 import { retriveDataFromRoute } from '../../utils/hoc';
 import TravelImage from '../Anusree/Images/travell-blog.jpg';
+import { UserContext } from "../../context/global";
+
 
 interface IProps {
     title: any;
@@ -70,9 +73,21 @@ class TravellBlog extends Component<IProps, IState> {
         return(
                 <>  
                     <h2 className="ui center aligned header">{ this.props.title }</h2>
+                    <div className="ui segment block center aligned grid">
+                        <UserContext.Consumer>
+                            { user =>
+                                (
+                                    <> 
+                                        Welcome {user.name}!
+                                    </>
+                                )
+                            }
+                        </UserContext.Consumer>
+                    </div>
                     <div className="ui basic segment">
-                    <Link to='paris?content=laudantium enim quasi est quidem magnam voluptate ipsam eos' className="ui teal label"><i className="plane departure icon"></i>Paris</Link>
-                </div>
+                        <Link to='paris?content=laudantium enim quasi est quidem magnam voluptate ipsam eos' className="ui teal label"><i className="plane departure icon"></i>Paris</Link>
+                    </div>
+                    
                     {this.props.location.pathname.includes('paris') ||<img className="ui fluid image" alt="TravelImage" src={ TravelImage }/>}   
                     {   
                         this.props.location.pathname.includes('paris') ? <Outlet/>:

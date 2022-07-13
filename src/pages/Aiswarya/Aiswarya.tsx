@@ -78,6 +78,8 @@ interface IState {
                             
                             <Link to='/aiswarya/politics' className="item"><i>Politics</i></Link>
                             <Link to='/aiswarya/arts' className="item"><i>Arts</i></Link>
+                            <Link to='/aiswarya/Context' className="item"><i>Context</i></Link>
+
                             <br/>
                         </div>
                     </div>

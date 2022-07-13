@@ -2,11 +2,11 @@ import { Component } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
-import { HomePage } from './pages/HomePage/HomePage';
+import { HomePage } from './pages/Home/Home';
 import NewsPage from './pages/NewsPage/NewsPage';
 import About from './pages/About/About';
 import Anusree from './pages/Anusree/Anusree';
-import { ContextSample } from './pages/Anusree/ContextPage';
+import { ContextSample } from './pages/Anusree/Context';
 import TravellBlog from './pages/Anusree/TravellBlog';
 import SubPage from './pages/Anusree/SubPage';
 import FoodBlog from './pages/Anusree/FoodBlog';
@@ -21,6 +21,10 @@ import technology from './pages/Rakhi/Resources/tech.jpg';
 import Santhosh from './pages/Santhosh/Santhosh';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
+import PetsContext from './pages/Parvathy/PetsContext';
+import Books from './pages/Parvathy/Books';
+import Cats from './pages/Parvathy/Cats';
+import MyHome from './pages/Parvathy/Home';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
 import { Home as Phome } from './pages/Vishnupriya/Home';
 import { ShoppingCart } from './pages/Vishnupriya/ShoppingCart';
@@ -32,6 +36,7 @@ import Divya from './pages/Divya/Divya';
 import Product from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
 import { Skincare } from './pages/Divya/Skincare';
+import { AuthUser } from './pages/Divya/UserContext'; 
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import { Nepal } from './pages/Viji/Nepal';
@@ -48,14 +53,11 @@ import { Sports } from './pages/Bindu/Sports';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
 import { SamaraHome } from './pages/Samara/SamaraHome';
-import { Context } from './pages/Samara/context';
-import Books from './pages/Parvathy/books';
-import Cats from './pages/Parvathy/cats';
-import MyHome from './pages/Parvathy/home';
+import { WeatherContext } from './pages/Samara/WeatherContext';
 import { Mhome } from './pages/Manooja/Mhome';
 import { Business } from  './pages/Manooja/Business';
 import { Education } from './pages/Manooja/Education';
-import { Contextnew } from './pages/Manooja/Contextnew';
+import { ContextYoga } from './pages/Manooja/ContextYoga';
 import { Posts } from './pages/Santhosh/Posts';
 import { Users } from './pages/Santhosh/Users';
 import { Home as Home1 } from './pages/Santhosh/Home';
@@ -64,11 +66,12 @@ import Radhika from './pages/Radhika/Radhika';
 import { Entertainment } from './pages/Radhika/Entertainment';
 import { Art } from './pages/Radhika/Art';
 import { Dance } from './pages/Radhika/Dance';
+import { MusicContext } from './pages/Radhika/MusicContext';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
-import { CounterContext } from './pages/Rakhi/CounterContext';
-
+import { Counter } from './pages/Rakhi/CounterContext';
+import { Contextpage } from './pages/Aiswarya/Contextpage';
 
 
 class App extends Component {
@@ -88,7 +91,6 @@ class App extends Component {
             </Route>
         </Route>
         <Route path="/anusree"  element={ <Anusree title="Anusree's Component"/> } >
-          {/* <Route index element={ <Anusree title="Anusree's Component"/> } /> */}
           <Route path=":travel" element={ <TravellBlog title="Travel Blog"/> }>
             <Route path="paris" element={ <SubPage title="Paris"/> }/>
           </Route>
@@ -114,7 +116,7 @@ class App extends Component {
           <Route path="technology" element={ <TechnologyBlog title="Information Technology"/> }>
             <Route path="trending" element={<Contents title='So long, Internet Explorer. The browser retires today' content='The browser retires today. Internet Explorer is finally headed out to pasture.' image={technology}/> }/>
             </Route>
-          <Route path="counter" element={ <CounterContext/> }></Route>
+          <Route path="counter" element={ <Counter/> }></Route>
         </Route>
          <Route path="/bindu" element={ <Bindu title="This is Bindu's Component"/> }>
          <Route index element={ <Bhome title="Home"/> }/>
@@ -124,16 +126,17 @@ class App extends Component {
          <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
-          <Route index element={ <Entertainment /> }/>
+          <Route index element={ <Entertainment title="Entertainment"/> }/>
           <Route path="art" element={ <Art title="Art"/> }/>
           <Route path="dance" element={ <Dance title="Dance"/> }/>
+          <Route path="musiccontext" element={ <MusicContext /> } />
           <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route index element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
           <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
           <Route path="polandweather" element={ <PolandWeather title="Poland weather details"/> }/>
-          <Route path="context" element={ <Context/> } />
+          <Route path="context" element={ <WeatherContext/> } />
           <Route path=":id" element={ <SamaraHome title="Welcome to our Weather Calculator" /> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
@@ -141,6 +144,7 @@ class App extends Component {
           <Route path="home" element={ <MyHome /> }/>
           <Route path="books" element={ <Books title="Books" /> }/>
           <Route path="cats" element={ <Cats title="Cats" /> }/>
+          <Route path="petscontext" element={ <PetsContext title="Context" /> }/>
           <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
@@ -152,7 +156,6 @@ class App extends Component {
           <Route path="laptops" element={ <Laptops title="Laptops"/> }/>
          </Route>
          <Route path="usercontext" element={ <UserCont/> }></Route>
-
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }>
         <Route index element={ <Product title="Product"/> }/>
@@ -161,11 +164,14 @@ class App extends Component {
             <Route path="skincare" element={ <Skincare/> }/>
           </Route>
           <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>
+          <Route path="usercontext" element={ <AuthUser/> }></Route>
+
         </Route>
         <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }>
         <Route index element={ <Homepages/> }/>
           <Route path="politics" element={ <Politics title="Politics" /> }/>
           <Route path="Arts" element={ <Arts title="Arts" /> }/>
+          <Route path="context" element={ <Contextpage title="Context"/> }/>
           <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
         </Route>
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>
@@ -178,7 +184,7 @@ class App extends Component {
           <Route path="index" element={ <Mhome title="Home"/> }/>
           <Route path="business" element={ <Business title="Business"/> }/>
           <Route path="education" element={ <Education title="Education"/> }/>
-          <Route path="contextnew" element={ <Contextnew/> }/>
+          <Route path="contextyoga" element={ <ContextYoga/> }/>
          </Route>  
         <Route path="/dhanya" element={ <Dhanya1 title="This is Dhanya's Component"/> }>
           {/* <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/> */}

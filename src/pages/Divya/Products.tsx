@@ -5,6 +5,7 @@ import ProImage from '../Divya/Images/Product.png';
 import GroImage from '../Divya/Images/ImGro.png';
 import SkinImage from '../Divya/Images/ImSkin.png';
 import { retriveDataFromRoute } from '../../utils/hoc';
+import { User }  from '../../context/global';
 
 
 interface IProps {
@@ -73,8 +74,10 @@ class Product extends Component<IProps> {
 			 					<Link to='/divya/product/skincare' className={this.props.location.pathname.includes('skincare')?"active item":"item"}><img alt={SkinImage} src={SkinImage} /> <br/> SkinCare</Link>
                             </div>
                         </div>
-						<div className="twelve wide  column"> 	
-			 			    <Outlet/>	
+						<div className="twelve wide  column"> 
+							<User.Provider value={{name:"Divya", userRole:'Admin'}}>
+                                <Outlet/>
+                            </User.Provider>	
 							{ (this.props.location.pathname.includes('grocery') || this.props.location.pathname.includes('skincare') ) ||
 							  <>
 							  <p>Let Us Help You With Your Need! </p>
