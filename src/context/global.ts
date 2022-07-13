@@ -27,4 +27,3 @@ export const YogaContext = createContext({instructor:'', type:''});
 export const NewContext = createContext('User');
 
 export const NewTheme = createContext('Dark theme');
-
