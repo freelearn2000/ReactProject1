@@ -1,8 +1,5 @@
 import { Component, createContext, useContext } from "react";
-
-
-// Create Context object
-const mycontext = createContext('');
+import { LoginContext } from "../../context/global"
 
 // Provider
 export class Login extends Component {
@@ -10,9 +7,9 @@ export class Login extends Component {
     render( ) {
         return (
             <>
-                <mycontext.Provider value={'Santhosh'}>
+                <LoginContext.Provider value={{name: 'Santhosh',type: 'Admin'}}>
                     <Middle/>
-                </mycontext.Provider>               
+                </LoginContext.Provider>               
             </>
         );        
     }
@@ -32,13 +29,13 @@ class Child1 extends Component {
 
     render( ) {
         return (
-            <mycontext.Consumer>
+            <LoginContext.Consumer>
                 { value =>
                     (
-                        <> <h3 className="ui center aligned blue header message"> Context value- Signed in as : {value} </h3> </>
+                        <> <h4 className="ui left aligned blue header message"> User Name: {value.name} <br/> User Type: {value.type} </h4> </>
                     )                    
                 }            
-            </mycontext.Consumer>          
+            </LoginContext.Consumer>          
         );      
     }
 }
