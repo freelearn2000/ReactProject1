@@ -5,7 +5,7 @@ interface IProps {
     routeData: any;
 }
 
-class AboutPage extends Component<IProps> {
+class About extends Component<IProps> {
 
     state = {data: 'Welcome to our component state.', xyz: {name: 'steve'}};
 
@@ -61,4 +61,4 @@ class AboutPage extends Component<IProps> {
     }
 }
 
-export default retriveDataFromRoute( AboutPage );
+export default retriveDataFromRoute( About );
