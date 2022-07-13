@@ -1,8 +1,10 @@
 import { createContext } from "react";
 
 
-export const counterContext = createContext(0);
+export const CounterContext = createContext(0);
+export const User = createContext({name:'Guest', userRole:'Guest'})
+export const UserContext = createContext({name:'Guest', viewMode:'Guest'});
 
-export const userContext = createContext({name:'Guest', viewMode:'Guest'});
+export const ContextWeather = createContext('');
 
-export const UserContext = createContext({name:'Guest', userRole:'Guest'})
+export const MyMusic = createContext('');

@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { retriveDataFromRoute } from '../../utils/hoc';
-import { userContext } from '../../context/global';
+import { UserContext } from '../../context/global';
 
 
 interface IProps {
@@ -28,9 +28,9 @@ class Rakhi extends Component<IProps> {
                         </div>
                     </div>
                     <div className= "ten wide column">
-                        <userContext.Provider value={{name:'Rakhi', viewMode:'Admin'}}>
+                        <UserContext.Provider value={{name:'Rakhi', viewMode:'Admin'}}>
                             <Outlet/>
-                        </userContext.Provider>
+                        </UserContext.Provider>
                     </div>
                 </div>
             </div>

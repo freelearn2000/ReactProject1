@@ -49,7 +49,7 @@ import { Sports } from './pages/Bindu/Sports';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
 import { SamaraHome } from './pages/Samara/SamaraHome';
-import { Context } from './pages/Samara/context';
+import { WeatherContext } from './pages/Samara/WeatherContext';
 import Books from './pages/Parvathy/books';
 import Cats from './pages/Parvathy/cats';
 import MyHome from './pages/Parvathy/home';
@@ -65,11 +65,11 @@ import Radhika from './pages/Radhika/Radhika';
 import { Entertainment } from './pages/Radhika/Entertainment';
 import { Art } from './pages/Radhika/Art';
 import { Dance } from './pages/Radhika/Dance';
+import { MusicContext } from './pages/Radhika/MusicContext';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
-import { CounterContext } from './pages/Rakhi/CounterContext';
-import { UserContext } from './context/global';
+import { Counter } from './pages/Rakhi/CounterContext';
 
 
 
@@ -116,7 +116,7 @@ class App extends Component {
           <Route path="technology" element={ <TechnologyBlog title="Information Technology"/> }>
             <Route path="trending" element={<Contents title='So long, Internet Explorer. The browser retires today' content='The browser retires today. Internet Explorer is finally headed out to pasture.' image={technology}/> }/>
             </Route>
-          <Route path="counter" element={ <CounterContext/> }></Route>
+          <Route path="counter" element={ <Counter/> }></Route>
         </Route>
          <Route path="/bindu" element={ <Bindu title="This is Bindu's Component"/> }>
          <Route index element={ <Bhome title="Home"/> }/>
@@ -126,16 +126,17 @@ class App extends Component {
          <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
-          <Route index element={ <Entertainment /> }/>
+          <Route index element={ <Entertainment title="Entertainment"/> }/>
           <Route path="art" element={ <Art title="Art"/> }/>
           <Route path="dance" element={ <Dance title="Dance"/> }/>
+          <Route path="musiccontext" element={ <MusicContext /> } />
           <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route index element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
           <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
           <Route path="polandweather" element={ <PolandWeather title="Poland weather details"/> }/>
-          <Route path="context" element={ <Context/> } />
+          <Route path="context" element={ <WeatherContext/> } />
           <Route path=":id" element={ <SamaraHome title="Welcome to our Weather Calculator" /> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>

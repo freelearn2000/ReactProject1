@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Link, Outlet } from 'react-router-dom';
-import { UserContext } from "../../context/global";
+import { User } from "../../context/global";
 import { retriveDataFromRoute } from '../../utils/hoc';
 import  ImLogo  from '../Vishnupriya/images/logo.png';
 
@@ -27,9 +27,9 @@ class Vishnupriya extends Component<IProps> {
                             <Link to='/vishnupriya/usercontext' className = "ui blue button">User Context</Link>
                         </div>
                         <div className="four wide raw">
-                            <UserContext.Provider value={{name:"Vishnupriya", userRole:'Admin'}}>
+                            <User.Provider value={{name:"Vishnupriya", userRole:'Admin'}}>
                                 <Outlet/>
-                            </UserContext.Provider>
+                            </User.Provider>
                         </div>
                     </div>
             </div>

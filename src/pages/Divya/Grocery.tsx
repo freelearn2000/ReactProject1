@@ -1,6 +1,6 @@
 import  { Component } from 'react';
 import axios from '../../axios';
-import { UserContext } from '../../context/global';
+import { User } from '../../context/global';
 
 
 interface IProps {
@@ -66,13 +66,13 @@ export class Grocery extends Component<IProps, IState> {
 
 		return(
             <div>
-				<UserContext.Consumer>
+				<User.Consumer>
                     {user => (
                         <>  
-                            <h5 className = "ui header blue"> Hi, {user.name} !!!</h5>
+                            <h5> Hi, {user.name} !!!</h5>
                         </>
                     )}
-                </UserContext.Consumer>
+                </User.Consumer>
                 <h2 className="ui horizontal divider header">List of Groceries</h2> 
 		
 					

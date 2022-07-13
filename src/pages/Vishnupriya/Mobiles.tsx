@@ -1,6 +1,6 @@
 import { Component, createContext, useContext } from "react";
 import axios from '../../axios';
-import { UserContext } from '../../context/global';
+import { User } from '../../context/global';
 
 
 
@@ -75,13 +75,13 @@ export class Mobiles extends Component<IProps, IState> {
 
         return (
             <div>
-                <UserContext.Consumer>
+                <User.Consumer>
                     {user => (
                         <>  
                             <h5 className = "ui header blue"> {user.name}'s Mobile cart !!!</h5>
                         </>
                     )}
-                </UserContext.Consumer>
+                </User.Consumer>
                 
                 <h4 className="ui center aligned header">{ this.props.title }</h4>
 

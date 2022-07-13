@@ -17,6 +17,7 @@ class Radhika extends Component<IProps> {
                         <div className="ui secondary vertical menu">
                             <Link to='/radhika/art' className="active item">Art</Link>
                             <Link to='/radhika/dance' className="active item">Dance</Link>
+                            <Link to='/radhika/musiccontext' className="active item">Music Context</Link>
                         </div>
                     </div>
                     <div className="twelve wide stretched column">

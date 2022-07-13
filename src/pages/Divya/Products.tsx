@@ -5,7 +5,7 @@ import ProImage from '../Divya/Images/Product.png';
 import GroImage from '../Divya/Images/ImGro.png';
 import SkinImage from '../Divya/Images/ImSkin.png';
 import { retriveDataFromRoute } from '../../utils/hoc';
-import { UserContext }  from '../../context/global';
+import { User }  from '../../context/global';
 
 
 interface IProps {
@@ -75,9 +75,9 @@ class Product extends Component<IProps> {
                             </div>
                         </div>
 						<div className="twelve wide  column"> 
-							<UserContext.Provider value={{name:"Divya", userRole:'Admin'}}>
+							<User.Provider value={{name:"Divya", userRole:'Admin'}}>
                                 <Outlet/>
-                            </UserContext.Provider>	
+                            </User.Provider>	
 							{ (this.props.location.pathname.includes('grocery') || this.props.location.pathname.includes('skincare') ) ||
 							  <>
 							  <p>Let Us Help You With Your Need! </p>

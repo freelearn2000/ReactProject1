@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { UserContext }  from '../../context/global';
+import { User }  from '../../context/global';
 
 
 export class AuthUser extends Component {
@@ -7,9 +7,9 @@ export class AuthUser extends Component {
     render( ) {
         return(
             <div className="ui segment">
-                <UserContext.Provider value={{name: 'Divya', userRole: 'Admin'}}>
+                <User.Provider value={{name: 'Divya', userRole: 'Admin'}}>
                     <AuthUser2/>
-                </UserContext.Provider>
+                </User.Provider>
             </div>
         )
     }
@@ -28,13 +28,13 @@ export class AuthUser3 extends Component {
 
     render( ){
         return(
-            <UserContext.Consumer>
+            <User.Consumer>
                 { user  => (
                     <div>
                         <h2>Welcome!! {user.name}</h2>
                     </div>
                 )}
-            </UserContext.Consumer>
+            </User.Consumer>
         )
     }
 }
