@@ -18,6 +18,8 @@ import TechnologyBlog from './pages/Rakhi/TechnologyBlog';
 import { Contents } from './pages/Rakhi/Contents';
 import science from './pages/Rakhi/Resources/news.jpg';
 import technology from './pages/Rakhi/Resources/tech.jpg';
+import { Counter } from './pages/Rakhi/CounterContext';
+import Refs, { Search } from './pages/Rakhi/Refs';
 import Santhosh from './pages/Santhosh/Santhosh';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
@@ -70,7 +72,6 @@ import { MusicContext } from './pages/Radhika/MusicContext';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
-import { Counter } from './pages/Rakhi/CounterContext';
 import { Contextpage } from './pages/Aiswarya/Contextpage';
 
 
@@ -117,6 +118,9 @@ class App extends Component {
             <Route path="trending" element={<Contents title='So long, Internet Explorer. The browser retires today' content='The browser retires today. Internet Explorer is finally headed out to pasture.' image={technology}/> }/>
             </Route>
           <Route path="counter" element={ <Counter/> }></Route>
+          <Route path="refs" element={ <Refs/> }>
+            <Route path="search" element={ <Search/> }></Route>
+          </Route>
         </Route>
          <Route path="/bindu" element={ <Bindu title="This is Bindu's Component"/> }>
          <Route index element={ <Bhome title="Home"/> }/>
