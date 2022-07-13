@@ -26,6 +26,7 @@ export class Dhanya1 extends Component<IProps> {
                         <div className="ui vertical text menu">
                             <Link to='/dhanya/food' className="item">Food Blog</Link>
                             <Link to='/dhanya/travel' className="item">Travel Blog</Link>
+                            <Link to='/dhanya/context' className="item">Context</Link>
                         </div>
                     </div>
                     <div className="thirteen wide column">

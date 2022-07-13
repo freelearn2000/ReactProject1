@@ -19,3 +19,6 @@ export const LoginContext = createContext({name:'',type:''});
 export const  SportsContext = createContext('');
 
 export const PetsWorldContext = createContext('1');
+
+// Dhanya
+export const ContextTravel = createContext('Ruveneimi');

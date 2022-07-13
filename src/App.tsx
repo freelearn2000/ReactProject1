@@ -46,6 +46,7 @@ import { Dhanya1 } from './pages/Dhanya/Dhanya1';
 import { FoodBlog as Food } from './pages/Dhanya/FoodBlog';
 import { TravelBlog as Travel } from './pages/Dhanya/TravelBlog';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
+import { TravelContext } from './pages/Dhanya/TravelContext';
 import { Bindu } from './pages/Bindu/Bindu';
 import { Bhome }  from './pages/Bindu/Bhome';
 import { Health } from './pages/Bindu/Health';
@@ -190,6 +191,7 @@ class App extends Component {
           {/* <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/> */}
           <Route path="food" element={ <Food /> } />
           <Route path="travel" element={ <Travel /> } />
+          <Route path="context" element={ <TravelContext/> } />
         </Route>
         <Route path="*" element={ <ErrorPage ErrorCode="404" ErrorMsg="The page requested was not found"/> }/>
       </Routes>
