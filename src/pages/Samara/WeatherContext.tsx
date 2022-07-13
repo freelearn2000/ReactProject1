@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { useContext } from 'react';
-import { ContextWeather } from '../../context/global';
+import { ContextWeather, ContextRain } from '../../context/global';
 
 
 // Provider
@@ -12,7 +12,7 @@ export class WeatherContext extends Component {
                 < ContextWeather.Provider value={'Rainy'}>
                     <Middle/>
                 </ ContextWeather.Provider>
-                <Child2/>
+                <Child/>
             </>
         );
     }
@@ -22,7 +22,9 @@ export class Middle extends Component {
 
     render( ) {
         return(
-            <Child2/>
+            <>
+                <Child2/>
+            </>
         );
     }
 }
@@ -32,20 +34,23 @@ export class Child extends Component {
 
     render( ) {
         return(
-            <ContextWeather.Consumer>
-            {
-                value => (
-                    <h3> Context value accessed from Child : { value }</h3>
-                )
-            }
-            </ContextWeather.Consumer>
+            <>
+                <ContextRain.Consumer>
+                {
+                    value => (
+                        <h3> Context value accessed from Child : { value.place }'s weather is { value.weather }</h3>
+                    )
+                }
+                </ContextRain.Consumer>
+                
+            </>
         );
     }
 }
 // b. Consumer
 export class Child1 extends Component {
 
-    static contextType = ContextWeather;
+    static contextType = ContextRain;
 
     render( ) {
         return(
