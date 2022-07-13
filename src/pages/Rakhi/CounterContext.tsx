@@ -1,17 +1,17 @@
 import { Component, useContext } from "react";
-import { counterContext } from '../../context/global';
+import { CounterContext } from '../../context/global';
 
 
-export class CounterContext extends Component {
+export class Counter extends Component {
 
     render( ){
         return(
             <div className="ui segment">
                 <h4>Parent Component</h4>
                 <p>Provided the counter value from context to Child1</p>
-                <counterContext.Provider value={1}>
+                <CounterContext.Provider value={1}>
                     <Child1/>
-                </counterContext.Provider> 
+                </CounterContext.Provider> 
                 <Child3/>
                 <Child4/>               
             </div>
@@ -32,7 +32,7 @@ export class Child2 extends Component {
 
     render( ){
         return(
-            <counterContext.Consumer>
+            <CounterContext.Consumer>
                 { counter =>
                     (
                         <> 
@@ -41,14 +41,14 @@ export class Child2 extends Component {
                         </>
                     )
                 }
-            </counterContext.Consumer>
+            </CounterContext.Consumer>
         )
     }
 }
 
 export class Child3 extends Component {
     
-    static contextType = counterContext;
+    static contextType = CounterContext;
 
     render( ){
         return(
@@ -62,7 +62,7 @@ export class Child3 extends Component {
 
 export const Child4 = (props: any) => {
 
-    const context = useContext(counterContext);
+    const context = useContext(CounterContext);
 
     return (
         <>
