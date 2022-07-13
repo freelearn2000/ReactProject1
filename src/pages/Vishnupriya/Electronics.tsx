@@ -3,6 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 import axios from '../../axios';
 import { retriveDataFromRoute } from '../../utils/hoc';
 import Imelec from '../Vishnupriya/images/elecimg.jpg';
+import { User } from '../../context/global';
 
 
 interface IProps {
@@ -78,7 +79,16 @@ class Electronics extends Component<IProps, IState> {
     render( ) {
 
         return (
+            
             <>
+                <User.Consumer>
+                    {user => (
+                        <>  
+                            <h4 className = "ui header blue"> Hi {user.name} !</h4>
+                        </>
+                    )}
+                </User.Consumer>
+
                 <h4 className="ui center aligned header">{this.props.title}</h4> 
                     <div className="row">
                         <div className="ui two column stackable grid container">

@@ -1,5 +1,7 @@
 import { Component, createContext, useContext } from "react";
 import axios from '../../axios';
+import { User } from '../../context/global';
+
 
 
 // Create Context object
@@ -73,12 +75,20 @@ export class Mobiles extends Component<IProps, IState> {
 
         return (
             <div>
+                <User.Consumer>
+                    {user => (
+                        <>  
+                            <h5 className = "ui header blue"> {user.name}'s Mobile cart !!!</h5>
+                        </>
+                    )}
+                </User.Consumer>
+                
                 <h4 className="ui center aligned header">{ this.props.title }</h4>
 
                 <MyContext.Provider value={'Accessories'}>
                     <Accessories/>
                 </MyContext.Provider>
-                
+
                 {
                     this.state.loading ? this.renderLoading( ) :
                     this.state.content ? this.renderData( ) :

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import axios from '../../axios';
 import Imshopcart from '../Vishnupriya/images/shopcartimg.jpg';
+import { User } from '../../context/global';
 
 
 interface IProps {
@@ -70,7 +71,16 @@ export class ShoppingCart extends Component<IProps, IState> {
     render( ) {
 
         return (
+
             <div>
+                <User.Consumer>
+                    {user => (
+                        <>  
+                            <h4 className = "ui header blue"> Welcome {user.name} !!!</h4>
+                        </>
+                    )}
+                </User.Consumer>
+                
                 <h4 className="ui center aligned header">{ this.props.title }</h4>
                 <img className="ui fluid image" src={Imshopcart} alt={""}></img>
             </div>
