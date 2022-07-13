@@ -1,4 +1,4 @@
-import { Component, useContext} from "react";
+import { Component } from "react";
 import { YogaContext } from '../../context/global';
 
 
@@ -20,7 +20,7 @@ class Middle extends Component {
 
     render( ) {
         return(
-            <Child2/>
+            <Child/>
         );
     }
 }
@@ -41,24 +41,3 @@ export class Child extends Component {
     }
 }
 
-// b. Consumer
-export class Child1 extends Component {
-
-    static contextType = YogaContext;
-
-    render( ) {
-        return(
-            <>Context value accessed from Child1 : { this.context }</>
-        );
-    }
-}
-
-//c. Consumer
-export const Child2 = ( props: any ) => {
-
-    const context = useContext(YogaContext);
-
-    return(
-        <>Context value accessed from Child2 : { context }</>
-    );
-} 

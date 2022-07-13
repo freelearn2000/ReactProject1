@@ -22,10 +22,7 @@ export const  SportsContext = createContext('');
 
 export const PetsWorldContext = createContext('1');
 
-<<<<<<< HEAD
 export const YogaContext = createContext({instructor:'', type:''});
-=======
 export const NewContext = createContext('User');
 
 export const NewTheme = createContext('Dark theme');
->>>>>>> 5ce72b694515308de5e7dbed04437da5a7efce68
