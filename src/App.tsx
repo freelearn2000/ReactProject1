@@ -21,6 +21,10 @@ import technology from './pages/Rakhi/Resources/tech.jpg';
 import Santhosh from './pages/Santhosh/Santhosh';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
+import PetsContext from './pages/Parvathy/PetsContext';
+import Books from './pages/Parvathy/books'
+import Cats from './pages/Parvathy/cats';
+import MyHome from './pages/Parvathy/home';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
 import { Home as Phome } from './pages/Vishnupriya/Home';
 import { ShoppingCart } from './pages/Vishnupriya/ShoppingCart';
@@ -50,9 +54,6 @@ import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
 import { SamaraHome } from './pages/Samara/SamaraHome';
 import { WeatherContext } from './pages/Samara/WeatherContext';
-import Books from './pages/Parvathy/books';
-import Cats from './pages/Parvathy/cats';
-import MyHome from './pages/Parvathy/home';
 import { Mhome } from './pages/Manooja/Mhome';
 import { Business } from  './pages/Manooja/Business';
 import { Education } from './pages/Manooja/Education';
@@ -144,6 +145,7 @@ class App extends Component {
           <Route path="home" element={ <MyHome /> }/>
           <Route path="books" element={ <Books title="Books" /> }/>
           <Route path="cats" element={ <Cats title="Cats" /> }/>
+          <Route path="petscontext" element={ <PetsContext title="Context" /> }/>
           <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
