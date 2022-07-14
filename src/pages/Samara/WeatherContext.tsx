@@ -36,8 +36,8 @@ export class Child extends Component {
             <>
                 <ContextRain.Consumer>
                 {
-                    value => (
-                        <h3> Context value accessed from Child : { value.place }'s weather is { value.weather }</h3>
+                    weatherData => (
+                        <h3>Context value accessed from Child : { weatherData.place }'s weather is { weatherData.weather }</h3>
                     )
                 }
                 </ContextRain.Consumer>
@@ -48,7 +48,7 @@ export class Child extends Component {
 // b. Consumer
 export class Child1 extends Component {
 
-    static contextType = ContextRain;
+    static contextType = ContextWeather;
 
     render( ) {
         return(
