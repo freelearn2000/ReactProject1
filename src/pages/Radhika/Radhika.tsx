@@ -18,7 +18,10 @@ class Radhika extends Component<IProps> {
                             <Link to='/radhika/art' className="active item">Art</Link>
                             <Link to='/radhika/dance' className="active item">Dance</Link>
                             <Link to='/radhika/musiccontext' className="active item">Music Context</Link>
+                            <Link to='searchreff' className="active item">Create Ref</Link>
+                            <Link to='searchreff1' className="active item">Use Ref</Link>
                         </div>
+                        
                     </div>
                     <div className="twelve wide stretched column">
                         <div className="ui segment">

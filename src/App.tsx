@@ -72,6 +72,7 @@ import { Entertainment } from './pages/Radhika/Entertainment';
 import { Art } from './pages/Radhika/Art';
 import { Dance } from './pages/Radhika/Dance';
 import { MusicContext } from './pages/Radhika/MusicContext';
+import { SearchReff, SearchReff1 } from './pages/Radhika/Reff';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
@@ -140,6 +141,8 @@ class App extends Component {
           <Route path="art" element={ <Art title="Art"/> }/>
           <Route path="dance" element={ <Dance title="Dance"/> }/>
           <Route path="musiccontext" element={ <MusicContext /> } />
+          <Route path="searchReff1" element={ <SearchReff1 /> } />
+          <Route path="searchReff" element={ <SearchReff /> } />
           <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
