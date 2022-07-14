@@ -45,6 +45,7 @@ import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import { Nepal } from './pages/Viji/Nepal';
 import { Bangladesh } from './pages/Viji/Bangladesh';
+import { UseRefSample, CreateRefSample } from './pages/Viji/MyRefExample';
 import Manooja from './pages/Manooja/Manooja';
 import { Dhanya1 } from './pages/Dhanya/Dhanya1';
 import { FoodBlog as Food } from './pages/Dhanya/FoodBlog';
@@ -63,6 +64,7 @@ import { Mhome } from './pages/Manooja/Mhome';
 import { Business } from  './pages/Manooja/Business';
 import { Education } from './pages/Manooja/Education';
 import { ContextYoga } from './pages/Manooja/ContextYoga';
+import { ContextColor } from './pages/Viji/ContextColor';
 import { Posts } from './pages/Santhosh/Posts';
 import { Users } from './pages/Santhosh/Users';
 import { Home as Home1 } from './pages/Santhosh/Home';
@@ -187,8 +189,11 @@ class App extends Component {
           <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
         </Route>
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>
-        <Route path="nepal" element={ <Nepal title="Details of Nepal"/> }/>
-         <Route path="bangladesh" element={ <Bangladesh title="Details of Bangladesh"/> }/>
+          <Route path="nepal" element={ <Nepal title="Details of Nepal"/> }/>
+          <Route path="bangladesh" element={ <Bangladesh title="Details of Bangladesh"/> }/>
+          <Route path="contextcolor" element={ <ContextColor/> }/>
+          <Route path="useref" element={ <UseRefSample/> }/>
+          <Route path="createref" element={ <CreateRefSample/> }/>
           <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>
         </Route>
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Link, Outlet } from 'react-router-dom';
 
+
 interface IProps {
     title: string;   
 }
@@ -16,7 +17,10 @@ class Viji extends Component<IProps> {
                     <div className="column">
                         <div className="three wide raw">
                             <Link to='/viji/nepal' className="ui teal label">Nepal</Link>
-                            <Link to='/viji/bangladesh' className="ui teal label">Bangladesh</Link>         
+                            <Link to='/viji/bangladesh' className="ui teal label">Bangladesh</Link>  
+                            <Link to='/viji/contextcolor' className="ui teal label">ColorContext</Link> 
+                            <Link to='/viji/useref' className="ui teal label">useRef</Link>  
+                            <Link to='/viji/createref' className="ui teal label">createRef</Link>    
                         </div>
                         <div className="three wide raw">
                             <Outlet/>
