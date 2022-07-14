@@ -51,6 +51,7 @@ import { Bindu } from './pages/Bindu/Bindu';
 import { Bhome }  from './pages/Bindu/Bhome';
 import { Health } from './pages/Bindu/Health';
 import { Sports } from './pages/Bindu/Sports';
+import { CreateRefExample1, UserefExample } from './pages/Bindu/RefExample1';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
 import { SamaraHome } from './pages/Samara/SamaraHome';
@@ -126,6 +127,8 @@ class App extends Component {
          <Route path="bhome" element={ <Bhome title="Home"/> }/>
          <Route path="health" element={ <Health title="Health"/> }/>
          <Route path="sports" element={ <Sports title="Sports"/> }/>
+         <Route path="useref" element={ <UserefExample/> }/>
+          <Route path="createref" element={ <CreateRefExample1/> }/>
          <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
