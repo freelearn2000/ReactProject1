@@ -94,4 +94,5 @@ class FoodBlog extends Component<IProps> {
     }
 }
 
+
 export default retriveDataFromRoute( FoodBlog );

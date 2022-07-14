@@ -69,7 +69,7 @@ class ScienceBlog extends Component<IProps> {
 
         return(
             <>
-                <div className="ui segment block header inverted blue center aligned grid">
+                <div className="ui segment block header inverted blue center aligned">
                     <UserContext.Consumer>
                         { user =>
                             (

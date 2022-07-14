@@ -6,7 +6,7 @@ export class Counter extends Component {
 
     render( ){
         return(
-            <div className="ui segment">
+            <div className="ui basic segment">
                 <h4>Parent Component</h4>
                 <p>Provided the counter value from context to Child1</p>
                 <CounterContext.Provider value={1}>
