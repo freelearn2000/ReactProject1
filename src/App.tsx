@@ -63,6 +63,7 @@ import { Mhome } from './pages/Manooja/Mhome';
 import { Business } from  './pages/Manooja/Business';
 import { Education } from './pages/Manooja/Education';
 import { ContextYoga } from './pages/Manooja/ContextYoga';
+import { RefCreateExample,RefUseExample } from './pages/Manooja/RefUseExample1';
 import Santhosh from './pages/Santhosh/Santhosh';
 import { Posts } from './pages/Santhosh/Posts';
 import { Users } from './pages/Santhosh/Users';
@@ -206,6 +207,8 @@ class App extends Component {
           <Route path="business" element={ <Business title="Business"/> }/>
           <Route path="education" element={ <Education title="Education"/> }/>
           <Route path="contextyoga" element={ <ContextYoga/> }/>
+          <Route path="useref" element={ <RefUseExample/> }/>
+          <Route path="createref" element={ <RefCreateExample/> }/>
          </Route>  
         <Route path="/dhanya" element={ <Dhanya1 title="This is Dhanya's Component"/> }>
           {/* <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/> */}

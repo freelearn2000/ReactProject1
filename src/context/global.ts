@@ -22,7 +22,9 @@ export const  SportsContext = createContext('');
 
 export const PetsWorldContext = createContext('1');
 
+// Manooja
 export const YogaContext = createContext({instructor:'', type:''});
+
 export const NewContext = createContext('User');
 
 export const NewTheme = createContext('Dark theme');
