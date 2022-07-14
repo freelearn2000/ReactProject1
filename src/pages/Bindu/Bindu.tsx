@@ -19,7 +19,6 @@ export class Bindu extends Component<IProps> {
                 <div className="row">
                     <div className="three wide column">
                         <div className="ui vertical text menu">
-
                             <Link to='/bindu/bhome' className="ui pink basic tag label">Home</Link>
                             <br/>
                             <br/>
@@ -27,6 +26,12 @@ export class Bindu extends Component<IProps> {
                             <br/>
                             <br/>
                             <Link to='/bindu/sports' className="ui pink basic tag label">Context</Link>
+                            <br/>
+                            <br/>
+                            <Link to='/bindu/useref' className="ui pink basic tag label">useRef</Link>
+                            <br/>
+                            <br/>
+                            <Link to='/bindu/createref' className="ui pink basic tag label">createRef</Link>
                         </div>
                     </div>
                     <div className="thirteen wide column">

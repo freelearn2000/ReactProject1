@@ -27,6 +27,7 @@ import PetsContext from './pages/Parvathy/PetsContext';
 import Books from './pages/Parvathy/Books';
 import Cats from './pages/Parvathy/Cats';
 import MyHome from './pages/Parvathy/Home';
+import { UseRef1, CreateRef1 } from './pages/Parvathy/UseRef1';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
 import { Home as Phome } from './pages/Vishnupriya/Home';
 import { ShoppingCart } from './pages/Vishnupriya/ShoppingCart';
@@ -52,6 +53,7 @@ import { Bindu } from './pages/Bindu/Bindu';
 import { Bhome }  from './pages/Bindu/Bhome';
 import { Health } from './pages/Bindu/Health';
 import { Sports } from './pages/Bindu/Sports';
+import { CreateRefExample1, UserefExample } from './pages/Bindu/RefExample1';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
 import { SamaraHome } from './pages/Samara/SamaraHome';
@@ -132,6 +134,8 @@ class App extends Component {
          <Route path="bhome" element={ <Bhome title="Home"/> }/>
          <Route path="health" element={ <Health title="Health"/> }/>
          <Route path="sports" element={ <Sports title="Sports"/> }/>
+         <Route path="useref" element={ <UserefExample/> }/>
+          <Route path="createref" element={ <CreateRefExample1/> }/>
          <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
@@ -154,6 +158,8 @@ class App extends Component {
           <Route path="books" element={ <Books title="Books" /> }/>
           <Route path="cats" element={ <Cats title="Cats" /> }/>
           <Route path="petscontext" element={ <PetsContext title="Context" /> }/>
+          <Route path="useref" element={ <UseRef1/> }/>
+          <Route path="createref" element={ <CreateRef1/> }/>
           <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
