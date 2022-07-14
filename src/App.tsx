@@ -108,11 +108,11 @@ class App extends Component {
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>          
           <Route index element={ <Home1 title="Home"/> }/>
-          <Route path="Home" element={ <Home1 title="Home"/> }/>
+          <Route path="home" element={ <Home1 title="Home"/> }/>
           <Route path="users" element={ <Users title="Users Details"/> }/>
           <Route path="posts" element={ <Posts title="Posts"/> }/>
           <Route path="login" element={ <Login/> } />
-          <Route path="ref" element={ <CRef/> } />
+          <Route path="cref" element={ <CRef/> } />
           <Route path="uref" element={ <URef/> } />
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
         </Route>

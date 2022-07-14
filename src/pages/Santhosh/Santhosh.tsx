@@ -16,11 +16,12 @@ class Santhosh extends Component<IProps> {
                 <div className="ui grid" style={{ backgroundColor: 'lightblue'}}>
                     <div className="four wide column">
                         <div className="ui secondary vertical menu">
-                            <Link to='/santhosh' className="item">Home</Link>
-                            <Link to='/santhosh/users' className="item">Users</Link>
-                            <Link to='/santhosh/posts' className="item">Posts</Link> 
-                            <Link to='/santhosh/Login' className="item">Context</Link> 
-                            <Link to='/santhosh/Ref' className="item">Ref</Link> 
+                            <Link to='' className="item">Home</Link>
+                            <Link to='users' className="item">Users</Link>
+                            <Link to='posts' className="item">Posts</Link> 
+                            <Link to='login' className="item">Context</Link>                            
+                            <Link to='cref' className="item">CreateRef</Link> 
+                            <Link to='uref' className="item">UseRef</Link> 
                             <Link to='/' className="item">SignOut</Link> 
                         </div>
                     </div>

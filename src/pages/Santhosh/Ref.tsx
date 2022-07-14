@@ -24,7 +24,7 @@ export class CreateRef extends Component {
                             <input type="text" placeholder="Password"/>
                         </div>
                         <div className="ui buttons">
-                            <Link to='/santhosh/' className = "ui blue button">Cancel</Link>                          
+                            <Link to='/santhosh' className = "ui blue button">Cancel</Link>                          
                             <div className="or"></div>
                             <button className="ui positive button" >Submit</button>
                         </div>
@@ -53,18 +53,15 @@ export const UseRef =( ) => {
     return(
         <>
             <div className="ui basic segment">
-                <h4 className="ui primary header">User Login</h4>
+                <h4 className="ui primary header">Search</h4>
                 <form className="ui form formStyle attached fluid">
                     <div className="field">                            
-                        <input type="text" placeholder="User Name" ref={ inputRef }/>
-                    </div>
-                    <div className="field">                        
-                        <input type="text" placeholder="Password"/>
-                    </div>
+                        <input type="text" placeholder="Search" ref={ inputRef }/>
+                    </div>                
                     <div className="ui buttons">
-                        <button className="ui blue button">Cancel</button>
+                    <Link to='/santhosh' className = "ui blue button">Cancel</Link>     
                         <div className="or"></div>
-                        <button className="ui positive button" >Submit</button>
+                        <button className="ui positive button" >Search</button>
                     </div>
                 </form>
             </div>                    
