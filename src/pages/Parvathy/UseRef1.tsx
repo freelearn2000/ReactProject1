@@ -11,7 +11,7 @@ export const UseRef1 = ( ) => {
         <div className="segment">
             <h4 className="ui heading">Sample Code UseRef</h4>
             <div className="ui input focus">
-                <input type="text" placeholder="Search..." ref={ myRef }/>
+                <input type="text" placeholder="Password" ref={ myRef }/>
             </div> 
         </div>
     )
@@ -35,7 +35,7 @@ export class CreateRef1 extends Component {
             <div className="segment">
                 <h4 className="ui heading">Sample Code CreateRef</h4>
                 <div className="ui input focus">
-                    <input type="text" placeholder="Search..." ref={ this.myRef }/>
+                    <input type="text" placeholder="Username" ref={ this.myRef }/>
                 </div> 
             </div>
          )
