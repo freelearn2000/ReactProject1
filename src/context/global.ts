@@ -3,6 +3,7 @@ import { createContext } from "react";
 
 export const CounterContext = createContext(0);
 
+
 export const UserContext = createContext({name:'Guest', viewMode:'Guest'});
 
 export const User = createContext({name:'Guest', userRole:'Guest'});
