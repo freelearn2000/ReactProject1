@@ -22,6 +22,8 @@ class Samara extends Component<IProps> {
                             <Link to='/samara/canadaweather' className="active item">Canada</Link>
                             <Link to='/samara/polandweather' className="active item">Poland</Link>
                             <Link to='/samara/context' className="active item">Context</Link>
+                            <Link to='/samara/createref' className="active item">createRef</Link>
+                            <Link to='/samara/useref' className="active item">useRef</Link>
                         </div>
                     </div>
                     <div className="twelve wide stretched column">
