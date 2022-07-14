@@ -19,6 +19,8 @@ import TechnologyBlog from './pages/Rakhi/TechnologyBlog';
 import { Contents } from './pages/Rakhi/Contents';
 import science from './pages/Rakhi/Resources/news.jpg';
 import technology from './pages/Rakhi/Resources/tech.jpg';
+import { Counter } from './pages/Rakhi/CounterContext';
+import {  CreateRef, UseRef } from './pages/Rakhi/Refs';
 import Santhosh from './pages/Santhosh/Santhosh';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
@@ -26,6 +28,7 @@ import PetsContext from './pages/Parvathy/PetsContext';
 import Books from './pages/Parvathy/Books';
 import Cats from './pages/Parvathy/Cats';
 import MyHome from './pages/Parvathy/Home';
+import { UseRef1, CreateRef1 } from './pages/Parvathy/UseRef1';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
 import { Home as Phome } from './pages/Vishnupriya/Home';
 import { ShoppingCart } from './pages/Vishnupriya/ShoppingCart';
@@ -72,7 +75,6 @@ import { MusicContext } from './pages/Radhika/MusicContext';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
-import { Counter } from './pages/Rakhi/CounterContext';
 import { Contextpage } from './pages/Aiswarya/Contextpage';
 
 
@@ -119,8 +121,10 @@ class App extends Component {
           </Route>
           <Route path="technology" element={ <TechnologyBlog title="Information Technology"/> }>
             <Route path="trending" element={<Contents title='So long, Internet Explorer. The browser retires today' content='The browser retires today. Internet Explorer is finally headed out to pasture.' image={technology}/> }/>
-            </Route>
+          </Route>
           <Route path="counter" element={ <Counter/> }></Route>
+          <Route path="createref" element={ <CreateRef/> }></Route>
+          <Route path="useref" element={ <UseRef/> }></Route>
         </Route>
          <Route path="/bindu" element={ <Bindu title="This is Bindu's Component"/> }>
          <Route index element={ <Bhome title="Home"/> }/>
@@ -151,6 +155,8 @@ class App extends Component {
           <Route path="books" element={ <Books title="Books" /> }/>
           <Route path="cats" element={ <Cats title="Cats" /> }/>
           <Route path="petscontext" element={ <PetsContext title="Context" /> }/>
+          <Route path="useref" element={ <UseRef1/> }/>
+          <Route path="createref" element={ <CreateRef1/> }/>
           <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
