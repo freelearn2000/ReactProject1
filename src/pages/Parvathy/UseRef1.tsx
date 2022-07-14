@@ -10,9 +10,14 @@ export const UseRef1 = ( ) => {
     return(
         <div className="segment">
             <h4 className="ui heading">Sample Code UseRef</h4>
-            <div className="ui input focus">
-                <input type="text" placeholder="Password" ref={ myRef }/>
-            </div> 
+            <div className="ui form">
+                <div className="field">
+                    <label>Password</label>
+                    <div className="ui input focus">
+                        <input type="text" placeholder="Password" ref={ myRef }/>
+                    </div>
+                </div> 
+            </div>
         </div>
     )
 }
@@ -34,9 +39,16 @@ export class CreateRef1 extends Component {
          return(
             <div className="segment">
                 <h4 className="ui heading">Sample Code CreateRef</h4>
-                <div className="ui input focus">
-                    <input type="text" placeholder="Username" ref={ this.myRef }/>
-                </div> 
+                <div className="ui form">
+                    <div className="field">
+                        <div className="field success">
+                            <label>UserName</label>
+                            <div className="ui input focus">
+                                <input type="text" placeholder="Username" ref={ this.myRef }/>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
             </div>
          )
     }
