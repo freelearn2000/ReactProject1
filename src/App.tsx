@@ -21,7 +21,6 @@ import science from './pages/Rakhi/Resources/news.jpg';
 import technology from './pages/Rakhi/Resources/tech.jpg';
 import { Counter } from './pages/Rakhi/CounterContext';
 import {  CreateRef, UseRef } from './pages/Rakhi/Refs';
-import Santhosh from './pages/Santhosh/Santhosh';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
 import PetsContext from './pages/Parvathy/PetsContext';
@@ -61,10 +60,12 @@ import { Mhome } from './pages/Manooja/Mhome';
 import { Business } from  './pages/Manooja/Business';
 import { Education } from './pages/Manooja/Education';
 import { ContextYoga } from './pages/Manooja/ContextYoga';
+import Santhosh from './pages/Santhosh/Santhosh';
 import { Posts } from './pages/Santhosh/Posts';
 import { Users } from './pages/Santhosh/Users';
 import { Home as Home1 } from './pages/Santhosh/Home';
 import { Login } from './pages/Santhosh/Login';
+import { CreateRef as CRef, UseRef as URef } from './pages/Santhosh/Ref';
 import Radhika from './pages/Radhika/Radhika';
 import { Entertainment } from './pages/Radhika/Entertainment';
 import { Art } from './pages/Radhika/Art';
@@ -109,6 +110,8 @@ class App extends Component {
           <Route path="users" element={ <Users title="Users Details"/> }/>
           <Route path="posts" element={ <Posts title="Posts"/> }/>
           <Route path="login" element={ <Login/> } />
+          <Route path="ref" element={ <CRef/> } />
+          <Route path="uref" element={ <URef/> } />
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
         </Route>
         <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>

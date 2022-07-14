@@ -1,11 +1,15 @@
 import HomeImage from '../Santhosh/Resources/img-1.jpg';
 
-export const Home = ( props: any ) => {  
+const currTime = new Date().toLocaleTimeString;
 
+export const Home = ( props: any ) => {  
+    
+    const current = new Date();
+     
     return (
-        <div>
-            <h4>Welcome to Home Page</h4>  
+        <>
+            <h4>You are Signed in : currTime </h4>  
             <img className="ui fluid image" src={ HomeImage } alt=""/>
-        </div>
+        </>
     );
 }
