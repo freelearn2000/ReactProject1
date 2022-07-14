@@ -1,14 +1,62 @@
-import { Component } from 'react';
+import { Component, createRef, useRef, useEffect } from 'react';
 
 
-export class Ref extends Component {
+export class CreateRefs extends Component {
+
+    focusRef:any;
+
+    constructor( props:any ) {
+        super( props );
+        this.focusRef = createRef<any>();
+    }
+
     render( ) {
+
         return(
-            <>
-                <h3>Ref Component</h3>
-                <input type="text" value="reference_value"/>
-            </>
-            
+            <div className="ui form">
+                <h4 className="ui heading">Eg: CreateRef</h4>
+                <div className="fields">
+                    <div className="field">
+                        <label>First name</label>
+                        <input type="text" placeholder="First Name" ref={ this.focusRef }/>
+                    </div>
+                    <div className="field">
+                        <label>Last name</label>
+                        <input type="text" placeholder="Last Name"/>
+                    </div>
+                </div>
+            </div>
         );
     }
+
+    componentDidMount( ) {
+
+        this.focusRef.current.focus( );
+    }
+}
+
+export const UseRefs = ( ) => {
+
+    const focusRef = useRef<any>();
+
+    useEffect( ( ) => {
+
+        focusRef.current.focus();
+    }, [])
+
+    return(
+        <div className="ui form">
+                <h4 className="ui heading">Eg: UseRef</h4>
+                <div className="fields">
+                    <div className="field">
+                        <label>First name</label>
+                        <input type="text" placeholder="First Name" ref={ focusRef }/>
+                    </div>
+                    <div className="field">
+                        <label>Last name</label>
+                        <input type="text" placeholder="Last Name"/>
+                    </div>
+                </div>
+            </div>
+    )
 }
