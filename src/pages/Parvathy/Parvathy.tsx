@@ -46,6 +46,8 @@ class Parvathy extends Component<IProps> {
                 <h2 className="ui center aligned header message">{ this.props.title }</h2>
                 <Link to='/' className="ui teal basic tag label">Goto HomePage</Link> &nbsp;&nbsp;
                 <Link to='/news/100$' className="ui basic olive tag label">News</Link>
+                <Link to='createref' className="ui basic olive tag label">CreateRef</Link>
+                <Link to='useref' className="ui basic olive tag label">UseRef</Link>
                 <div className="ui secondary segment">
                     <div className="ui internally celled grid">
                         <div className="row">

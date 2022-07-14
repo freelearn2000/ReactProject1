@@ -28,6 +28,7 @@ import PetsContext from './pages/Parvathy/PetsContext';
 import Books from './pages/Parvathy/Books';
 import Cats from './pages/Parvathy/Cats';
 import MyHome from './pages/Parvathy/Home';
+import { UseRef1, CreateRef1 } from './pages/Parvathy/UseRef1';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
 import { Home as Phome } from './pages/Vishnupriya/Home';
 import { ShoppingCart } from './pages/Vishnupriya/ShoppingCart';
@@ -151,6 +152,8 @@ class App extends Component {
           <Route path="books" element={ <Books title="Books" /> }/>
           <Route path="cats" element={ <Cats title="Cats" /> }/>
           <Route path="petscontext" element={ <PetsContext title="Context" /> }/>
+          <Route path="useref" element={ <UseRef1/> }/>
+          <Route path="createref" element={ <CreateRef1/> }/>
           <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
