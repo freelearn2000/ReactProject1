@@ -1,4 +1,4 @@
-import { Component, useContext } from "react";
+import { Component } from "react";
 import { LoginContext } from "../../context/global";
 
 // Provider
