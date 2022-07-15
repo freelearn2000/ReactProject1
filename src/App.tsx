@@ -61,7 +61,7 @@ import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
 import { SamaraHome } from './pages/Samara/SamaraHome';
 import { WeatherContext } from './pages/Samara/WeatherContext';
-import { RefSample1, RefSample2 } from './pages/Samara/RefSample';
+import { RefSample } from './pages/Samara/RefSample';
 import { Mhome } from './pages/Manooja/Mhome';
 import { Business } from  './pages/Manooja/Business';
 import { Education } from './pages/Manooja/Education';
@@ -159,8 +159,7 @@ class App extends Component {
           <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
           <Route path="polandweather" element={ <PolandWeather title="Poland weather details"/> }/>
           <Route path="context" element={ <WeatherContext/> } />
-          <Route path="createref" element={ <RefSample1/> }/>
-          <Route path="useref" element={ <RefSample2/> }/>
+          <Route path="ref" element={ <RefSample/> }/>
           <Route path=":id" element={ <SamaraHome title="Welcome to our Weather Calculator" /> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>

@@ -43,3 +43,17 @@ export const RefSample2 = ( ) => {
         </div>
     );
 }
+
+export const RefSample = ( ) => {
+    return (
+        <div className="ui segments">
+            <div className="ui segment">
+                <RefSample1/>
+            </div>
+            <div className="ui segment">
+                <RefSample2/>
+            </div>
+        </div>
+      );
+
+}
