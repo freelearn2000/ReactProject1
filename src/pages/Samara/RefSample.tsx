@@ -14,9 +14,12 @@ export class RefSample1 extends Component {
         return(
             <div>
                 <h3>createRef Sample</h3>
-                <div className="ui input">
-                    <input type="text" placeholder="Name" ref={ this.inputRef }/>
-                </div>
+                <form className="ui form">
+                    <div className="field">
+                        <label>Name</label>
+                        <input type="text" placeholder="Name" ref={ this.inputRef }/>
+                    </div>
+                </form>    
             </div>    
         );
     }
@@ -37,9 +40,12 @@ export const RefSample2 = ( ) => {
     return(
         <div>
             <h3>useRef Sample</h3>
-            <div className="ui input">
-                <input type="text" placeholder="Name" ref={ inputRef }/>
-            </div>
+            <form className="ui form">
+                    <div className="field">
+                        <label>Name</label>
+                        <input type="text" placeholder="Name" ref={ inputRef }/>
+                    </div>
+                </form>   
         </div>
     );
 }
