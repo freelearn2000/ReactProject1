@@ -84,7 +84,7 @@ import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
 import { Contextpage } from './pages/Aiswarya/Contextpage';
-
+import { Createref, Useref } from './pages/Aiswarya/Createref';
 
 class App extends Component {
   
@@ -200,6 +200,8 @@ class App extends Component {
           <Route path="politics" element={ <Politics title="Politics" /> }/>
           <Route path="Arts" element={ <Arts title="Arts" /> }/>
           <Route path="context" element={ <Contextpage title="Context"/> }/>
+          <Route path="createref" element={ <Createref/> }></Route>
+         <Route path="useref" element={ <Useref/> }></Route>
           <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
         </Route>
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>
