@@ -1,13 +1,14 @@
 import { Component, createRef, useEffect, useRef } from "react";
 
 
+// createRef in Class component
 export class CreateRef extends Component {
    
-    focusElement:any;
+    scrollElement:any;
     
     constructor( props: any  ) {
         super( props );
-        this.focusElement = createRef<any>();
+        this.scrollElement = createRef<any>();
     }
     
     render( ) {
@@ -18,7 +19,7 @@ export class CreateRef extends Component {
                 <form className="ui form formStyle attached fluid">
                     <div className="field">
                         <label htmlFor="">User Name:</label>
-                        <input type="text" placeholder="User Name or Email Id" ref={ this.focusElement }/>
+                        <input type="text" placeholder="User Name or Email Id" ref={ this.scrollElement }/>
                     </div>
                     <div className="field">
                         <label htmlFor="">Password:</label>
@@ -32,11 +33,12 @@ export class CreateRef extends Component {
 
     componentDidMount( ) {
         
-        this.focusElement.current.focus();
+        this.scrollElement.current.scrollIntoView ();
     }
 
 }
 
+// useRef in Functional component
 export const UseRef = ( ) => {
 
     const focusElement = useRef<any>();
@@ -48,19 +50,24 @@ export const UseRef = ( ) => {
 
     return( 
         <div className="ui basic segment">
-            <h4 className="ui primary header">User Login</h4>
-            <div className="ui form formStyle attached fluid">
-                <div className="two fields">
-                    <div className="field">
-                        <label>User Name</label>
-                        <input placeholder="User Name" type="text" ref={focusElement}/>
-                    </div>
-                    <div className="field">
-                        <label>Password</label>
-                        <input placeholder="Password" type="text"/>
-                    </div>
-                </div>
-                <button className="ui blue submit button">Submit</button>
+            <div className="ui input focus">
+                <input 
+                    type="text" 
+                    placeholder="Search..."
+                    ref={focusElement} />
+            </div>
+        </div>
+    );
+}
+
+export const Refs= ( ) => {
+    return (
+        <div className="ui basic segments">
+            <div className="ui basic segment">
+                <UseRef/>
+            </div>
+            <div className="ui segments">
+                <CreateRef/>
             </div>
         </div>
     );

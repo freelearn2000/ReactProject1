@@ -1,9 +1,9 @@
 import { createContext } from "react";
 
-
+// Rakhi
 export const CounterContext = createContext(0);
 
-
+// Rakhi
 export const UserContext = createContext({name:'Guest', viewMode:'Guest'});
 
 export const User = createContext({name:'Guest', userRole:'Guest'});

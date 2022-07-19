@@ -15,12 +15,12 @@ import Rakhi from './pages/Rakhi/Rakhi';
 import RouteData from './pages/Rakhi/RouteData';
 import { HomePage as IndexPage  } from './pages/Rakhi/HomePage';
 import ScienceBlog from './pages/Rakhi/ScienceBlog';
-import TechnologyBlog from './pages/Rakhi/TechnologyBlog';
+import { Technology } from './pages/Rakhi/TechnologyBlog';
 import { Contents } from './pages/Rakhi/Contents';
 import science from './pages/Rakhi/Resources/news.jpg';
 import technology from './pages/Rakhi/Resources/tech.jpg';
-import { Counter } from './pages/Rakhi/CounterContext';
-import {  CreateRef, UseRef } from './pages/Rakhi/Refs';
+import { Context } from './pages/Rakhi/CounterContext';
+import { Refs } from './pages/Rakhi/Refs';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
 import PetsContext from './pages/Parvathy/PetsContext';
@@ -129,12 +129,11 @@ class App extends Component {
           <Route path="science" element={ <ScienceBlog title="Science Blog"/> }>
             <Route path="top" element={<Contents title='Physics-based cryptocurrency transmits energy through blockchain' content='Researchers from Lawrence Livermore National Laboratory (LLNL) have devised a physics-based cryptocurrency that links electrical energy and blockchain technologies in a new way.' image={science}/> }/>
           </Route>
-          <Route path="technology" element={ <TechnologyBlog title="Information Technology"/> }>
+          <Route path="technology" element={ <Technology title="Information Technology"/> }>
             <Route path="trending" element={<Contents title='So long, Internet Explorer. The browser retires today' content='The browser retires today. Internet Explorer is finally headed out to pasture.' image={technology}/> }/>
           </Route>
-          <Route path="counter" element={ <Counter/> }></Route>
-          <Route path="createref" element={ <CreateRef/> }></Route>
-          <Route path="useref" element={ <UseRef/> }></Route>
+          <Route path="context" element={ <Context/> }></Route>
+          <Route path="refs" element={ <Refs/> }></Route>
         </Route>
          <Route path="/bindu" element={ <Bindu title="This is Bindu's Component"/> }>
          <Route index element={ <Bhome title="Home"/> }/>

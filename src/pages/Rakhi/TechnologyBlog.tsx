@@ -1,31 +1,33 @@
-import { Component } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import axios from '../../axios';
 import {UserContext } from "../../context/global";
-import { retriveDataFromRoute } from '../../utils/hoc';
 
+// Axios in Functional Component
+export const Technology = ( props: any ) => {
 
-interface IProps {
-    title: any;
-    location: any;
-}
+    const [loading, setLoading] = useState<boolean>(true);
+    const [data, setData] = useState<any>(null);
+    const [error, setError] = useState<any>(null);
 
-class TechnologyBlog extends Component<IProps> {
+    const location = useLocation( );
+    const routeData = useParams( );
 
-    state={ loading: true, technology: null, error: null };
-    
-    componentDidMount( ) {
+    useEffect(( ) => {
 
         axios.get('/comments')
-            .then(response => {
-                this.setState( {loading: false, technology: (response.data).splice(0, 10), error: null} );
-            })
-            .catch(error => {
-                this.setState( {loading: false, technology: null, error: error} );
-            })
-    }
+            .then( response => { 
+                setLoading(false);
+                setData(response.data.slice(0,5));
+                setError(null)})
+            .catch( error => { 
+                setLoading(false);
+                setData(null);
+                setError(error)} )
 
-    renderLoading( ) {
+    }, []);
+
+    const renderLoading = ( ) => {
 
         const loadingJSX =
             <div className = "ui icon message">
@@ -40,21 +42,11 @@ class TechnologyBlog extends Component<IProps> {
         return loadingJSX;
     }
 
-    renderError( ) {
+    const renderData = ( ) => {
 
-        const message = this.state.error? this.state.error[ 'message' ] : '';
-        const errorJSX = 
-        <div className='ui negative message'>
-            <h4>{ message }</h4>
-        </div>
-        return errorJSX;
-    }
-
-    renderData( ) {
-
-        const technology = this.state.technology ? this.state.technology : [ ];
-        const dataJSX = technology.map( (data: any ) => {
-           return( 
+        const technologyData = data ? data : [ ];
+        const dataJSX = technologyData.map( (data: any ) => {
+           return(
             <div key={ data.id } className="ui segment">
                 <h4>{ data.name }</h4>
                 <p>{ data.body }</p>
@@ -64,36 +56,41 @@ class TechnologyBlog extends Component<IProps> {
         return dataJSX;
     }
 
-    render( ) {
+    const renderError = ( ) => {
 
-        return(
-            <>
-                <div className="ui segment block header inverted blue center aligned">
-                    <UserContext.Consumer>
-                        { user =>
-                            (
-                                <> 
-                                    {user.name}'s Blog
-                                </>
-                            )
-                        }
-                    </UserContext.Consumer>
-                </div>
-                <h2 className="ui center aligned header red">{ this.props.title }</h2>
-                <Link to='trending' className = "ui label red">Trending</Link>
-                {
-                    this.props.location.pathname.includes('trending')?<Outlet/>:
-                    <>
-                        {	
-                            this.state.loading ? this.renderLoading( ) :
-                            this.state.technology ? this.renderData( ) :
-                            this.renderError( )
-                        }
-                    </>
-                }
-            </>
-        )
+        const message = error ? error[ 'message' ] : '';
+        const errorJSX = 
+        <div className='ui negative message'>
+            <h4>{ message }</h4>
+        </div>
+        return errorJSX;
     }
-}
 
-export default retriveDataFromRoute(TechnologyBlog);
+    return(
+        <>
+            <div className="ui segment block header inverted blue center aligned">
+                <UserContext.Consumer>
+                    { user =>
+                        (
+                            <> 
+                                {user.name}'s Blog
+                            </>
+                        )
+                    }
+                </UserContext.Consumer>
+            </div>
+            <h2 className="ui center aligned header red">{props.title }</h2>
+            <Link to='trending' className = "ui label red">Trending</Link>
+            {
+                location.pathname.includes('trending')?<Outlet/>:
+                <>
+                    {	
+                        loading ? renderLoading( ) :
+                        data ? renderData( ) :
+                        renderError( )
+                    }
+                </>
+            }
+        </>
+    )
+}
