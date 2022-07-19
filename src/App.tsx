@@ -46,6 +46,7 @@ import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import { Nepal } from './pages/Viji/Nepal';
 import { Bangladesh } from './pages/Viji/Bangladesh';
+import { UseRefSample, CreateRefSample } from './pages/Viji/MyRefExample';
 import Manooja from './pages/Manooja/Manooja';
 import { Dhanya1 } from './pages/Dhanya/Dhanya1';
 import { FoodBlog as Food } from './pages/Dhanya/FoodBlog';
@@ -60,11 +61,12 @@ import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
 import { SamaraHome } from './pages/Samara/SamaraHome';
 import { WeatherContext } from './pages/Samara/WeatherContext';
-import { RefSample1, RefSample2 } from './pages/Samara/RefSample';
+import { RefSample } from './pages/Samara/RefSample';
 import { Mhome } from './pages/Manooja/Mhome';
 import { Business } from  './pages/Manooja/Business';
 import { Education } from './pages/Manooja/Education';
 import { ContextYoga } from './pages/Manooja/ContextYoga';
+import { ContextColor } from './pages/Viji/ContextColor';
 import { RefCreateExample,RefUseExample } from './pages/Manooja/RefUseExample1';
 import Santhosh from './pages/Santhosh/Santhosh';
 import { Posts } from './pages/Santhosh/Posts';
@@ -82,7 +84,7 @@ import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
 import { Contextpage } from './pages/Aiswarya/Contextpage';
-
+import { Createref, Useref } from './pages/Aiswarya/Createref';
 
 class App extends Component {
   
@@ -157,8 +159,7 @@ class App extends Component {
           <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
           <Route path="polandweather" element={ <PolandWeather title="Poland weather details"/> }/>
           <Route path="context" element={ <WeatherContext/> } />
-          <Route path="createref" element={ <RefSample1/> }/>
-          <Route path="useref" element={ <RefSample2/> }/>
+          <Route path="ref" element={ <RefSample/> }/>
           <Route path=":id" element={ <SamaraHome title="Welcome to our Weather Calculator" /> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
@@ -199,11 +200,16 @@ class App extends Component {
           <Route path="politics" element={ <Politics title="Politics" /> }/>
           <Route path="Arts" element={ <Arts title="Arts" /> }/>
           <Route path="context" element={ <Contextpage title="Context"/> }/>
+          <Route path="createref" element={ <Createref/> }></Route>
+         <Route path="useref" element={ <Useref/> }></Route>
           <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
         </Route>
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>
-        <Route path="nepal" element={ <Nepal title="Details of Nepal"/> }/>
-         <Route path="bangladesh" element={ <Bangladesh title="Details of Bangladesh"/> }/>
+          <Route path="nepal" element={ <Nepal title="Details of Nepal"/> }/>
+          <Route path="bangladesh" element={ <Bangladesh title="Details of Bangladesh"/> }/>
+          <Route path="contextcolor" element={ <ContextColor/> }/>
+          <Route path="useref" element={ <UseRefSample/> }/>
+          <Route path="createref" element={ <CreateRefSample/> }/>
           <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>
         </Route>
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
@@ -243,3 +249,4 @@ class App extends Component {
 }
 
 export default App;
+
