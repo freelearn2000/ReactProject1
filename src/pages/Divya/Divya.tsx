@@ -77,6 +77,8 @@ class Divya extends Component<IProps, IState> {
 				<br/>
 				<Link to='/divya/product' className="ui button">Products</Link>
 				<Link to='/divya/usercontext' className = "ui button">User Context</Link>
+				<Link to='/divya/createref' className = "ui button">Create Ref</Link>
+				<Link to='/divya/useref' className = "ui button">Use Ref</Link>
                 <Outlet/>         	
 			</div>
         )		

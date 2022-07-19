@@ -25,6 +25,8 @@ class Vishnupriya extends Component<IProps> {
                             <Link to='/vishnupriya/home' className="ui teal button">Home</Link>
                             <Link to='/vishnupriya/electronics' className="ui green button">Electronics</Link>
                             <Link to='/vishnupriya/usercontext' className = "ui blue button">User Context</Link>
+                            <Link to='/vishnupriya/createref' className="ui teel button">CreateRef</Link>
+                            <Link to='/vishnupriya/useref' className="ui teel button">UseRef</Link>
                         </div>
                         <div className="four wide raw">
                             <User.Provider value={{name:"Vishnupriya", userRole:'Admin'}}>

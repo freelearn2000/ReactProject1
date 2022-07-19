@@ -78,7 +78,9 @@ class Manooja extends Component<IProps, IState> {
                                 <Link to='/manooja/index' className="active item">Home</Link>
                                 <Link to='/manooja/business' className="item">Business</Link>
                                 <Link to='/manooja/education' className="item">Education</Link>
-                                <Link to='/manooja/contextnew' className="item">Context</Link>
+                                <Link to='/manooja/contextyoga' className="item">YogaContext</Link>
+                                <Link to='/manooja/useref' className="item">UseRef</Link>
+                                <Link to='/manooja/createref' className="item">CreateRef</Link>
                             </div>
                         </div>
                         <div className="twelve wide stretched column">

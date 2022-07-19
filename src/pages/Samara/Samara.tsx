@@ -11,23 +11,27 @@ interface IProps {
 class Samara extends Component<IProps> {
 
     render( ) {
-        
         return(
-            <>
-                <div>  
-                    <h2 className="ui center aligned header message">{ this.props.title }</h2>
-                    <Link to='/' className="ui purple button">Home</Link>
-                    <Link to='/about/ContactNo/8456' className="ui purple button">About</Link>
-                    &emsp;&emsp;&emsp;&emsp;
-                    <Link to='/samara/canadaweather' className="ui teal button">Canada</Link>
-                    <Link to='/samara/polandweather' className="ui teal button">Poland</Link>
-                    &emsp;&emsp;&emsp;&emsp;
-                    <Link to='/samara/context' className="ui purple button">Context</Link>
-
-                </div>  
-                    <br/>  
-                    <Outlet/>
-            </>        
+            <div>
+                <h2 className="ui center aligned header message">{ this.props.title }</h2>
+                <Link to='/' className="ui purple button">Home</Link>
+                <Link to='/about/ContactNo/8456' className="ui purple button">About</Link>
+                <div className="ui aligned grid">
+                    <div className="four wide column">
+                        <div className="ui secondary vertical menu">
+                            <Link to='/samara/canadaweather' className="active item"><b>Canada</b></Link>
+                            <Link to='/samara/polandweather' className="active item"><b>Poland</b></Link>
+                            <Link to='/samara/context' className="active item"><b>Context</b></Link>
+                            <Link to='/samara/ref' className="active item"><b>Ref</b></Link>
+                        </div>
+                    </div>
+                    <div className="twelve wide stretched column">
+                        <div className="ui segment">
+                            <Outlet/> 
+                        </div>
+                    </div>
+                </div>
+            </div>
         );
     }
 }

@@ -58,7 +58,7 @@ import { WeatherContext } from './pages/Samara/WeatherContext';
 import { Mhome } from './pages/Manooja/Mhome';
 import { Business } from  './pages/Manooja/Business';
 import { Education } from './pages/Manooja/Education';
-import { Contextnew } from './pages/Manooja/Contextnew';
+import { ContextYoga } from './pages/Manooja/ContextYoga';
 import { Posts } from './pages/Santhosh/Posts';
 import { Users } from './pages/Santhosh/Users';
 import { Home as Home1 } from './pages/Santhosh/Home';
@@ -185,7 +185,7 @@ class App extends Component {
           <Route path="index" element={ <Mhome title="Home"/> }/>
           <Route path="business" element={ <Business title="Business"/> }/>
           <Route path="education" element={ <Education title="Education"/> }/>
-          <Route path="contextnew" element={ <Contextnew/> }/>
+          <Route path="contextnew" element={ <ContextYoga/> }/>
          </Route>  
         <Route path="/dhanya" element={ <Dhanya1 title="This is Dhanya's Component"/> }>
           {/* <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/> */}
