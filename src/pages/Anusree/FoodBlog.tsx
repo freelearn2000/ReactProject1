@@ -1,8 +1,11 @@
 import { Component } from "react";
 import { Link, Outlet } from "react-router-dom";
+
 import { retriveDataFromRoute } from '../../utils/hoc';
 import axios from '../../axios';
 import FoodImage from '../Anusree/Images/food-blog.jpg';
+import { UserContext } from "../../context/global";
+
 
 interface IProps {
     title: any;
@@ -64,6 +67,18 @@ class FoodBlog extends Component<IProps> {
         return(
             <>
                 <h2 className="ui center aligned header">{ this.props.title }</h2>
+                <div className="ui segment block center aligned grid">
+                        <UserContext.Consumer>
+                            { user =>
+                                (
+                                    <> 
+                                        Welcome {user.name}!<br/>
+                                        You are viewing {user.viewMode}
+                                    </>
+                                )
+                            }
+                        </UserContext.Consumer>
+                    </div>
                 <div className="ui basic segment">
                     <Link to='pizza?content=laudantium enim quasi est quidem magnam voluptate ipsam eos' className="ui yellow label"><i className="pizza slice icon"></i>Pizza</Link>
                 </div>

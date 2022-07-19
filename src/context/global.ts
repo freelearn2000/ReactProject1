@@ -1,5 +1,4 @@
 import { createContext } from "react";
-import { start } from "repl";
 
 
 export const CounterContext = createContext(0);
@@ -8,7 +7,10 @@ export const UserContext = createContext({name:'Guest', viewMode:'Guest'});
 
 export const User = createContext({name:'Guest', userRole:'Guest'});
 
+// Samara
 export const ContextWeather = createContext('');
+
+export const ContextRain = createContext( {place: 'Canada', weather: 'Rainy'} );
 
 // Radhika
 export const MyMusic = createContext('');
@@ -22,3 +24,6 @@ export const PetsWorldContext = createContext('1');
 
 // Dhanya
 export const ContextTravel = createContext('Ruveneimi');
+export const NewContext = createContext('User');
+
+export const NewTheme = createContext('Dark theme');

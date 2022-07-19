@@ -2,11 +2,11 @@ import { Component } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
-import { HomePage } from './pages/HomePage/HomePage';
+import { HomePage } from './pages/Home/Home';
 import NewsPage from './pages/NewsPage/NewsPage';
 import About from './pages/About/About';
 import Anusree from './pages/Anusree/Anusree';
-import { ContextSample } from './pages/Anusree/ContextPage';
+import { ContextSample } from './pages/Anusree/Context';
 import TravellBlog from './pages/Anusree/TravellBlog';
 import SubPage from './pages/Anusree/SubPage';
 import FoodBlog from './pages/Anusree/FoodBlog';
@@ -72,7 +72,7 @@ import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
 import { Counter } from './pages/Rakhi/CounterContext';
-
+import { Contextpage } from './pages/Aiswarya/Contextpage';
 
 
 class App extends Component {
@@ -92,7 +92,6 @@ class App extends Component {
             </Route>
         </Route>
         <Route path="/anusree"  element={ <Anusree title="Anusree's Component"/> } >
-          {/* <Route index element={ <Anusree title="Anusree's Component"/> } /> */}
           <Route path=":travel" element={ <TravellBlog title="Travel Blog"/> }>
             <Route path="paris" element={ <SubPage title="Paris"/> }/>
           </Route>
@@ -173,6 +172,7 @@ class App extends Component {
         <Route index element={ <Homepages/> }/>
           <Route path="politics" element={ <Politics title="Politics" /> }/>
           <Route path="Arts" element={ <Arts title="Arts" /> }/>
+          <Route path="context" element={ <Contextpage title="Context"/> }/>
           <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
         </Route>
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>

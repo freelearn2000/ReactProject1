@@ -5,21 +5,21 @@ interface IProps {
 }
 
 //Create Content object
-const NewContext = createContext('User');
-const NewTheme = createContext('Dark theme');
+const MyContext = createContext('Admin');
+const NewTheme = createContext('Poerty');
 
-export class ContextSample extends Component<IProps> {
+export class Contextpage extends Component<IProps> {
  
     render( ) {
-        //console.log('context sample');
+        //console.log('context Example');
         return( 
             <div className="ui segment">
             <h2 className="ui center aligned header">{ this.props.title }</h2>
-                <NewContext.Provider value={'Anu'}>
+                <MyContext.Provider value={'Aiswarya'}>
                     <Child2/>
-                </NewContext.Provider>
+                </MyContext.Provider>
                 <Child4/> 
-                <Child5/>
+               
             </div>
         );
     }
@@ -43,11 +43,11 @@ class Child3 extends Component {
 
         return(
             <div>
-                <NewContext.Consumer>
+                <MyContext.Consumer>
                     {
-                        value => (<>Context value accessed from child3:{value}</>)
+                        value => (<>Name:{value}</>)
                     }
-                </NewContext.Consumer>
+                </MyContext.Consumer>
             </div>
         );
     }
@@ -55,20 +55,14 @@ class Child3 extends Component {
 
 class Child4 extends Component {
 
-    static contextType = NewContext;
+    static contextType = MyContext;
     render( ) {
 
         return(
             <>
-                Context value accessed from contexttype : {this.context}
+                Desigination: {this.context}
             </>
         );
     }
 }
 
-const Child5 = ( ) => {
-    const context = useContext(NewTheme);
-    return (
-        <p>  Context value using useContext : {context}</p>
-    )
-}
