@@ -10,6 +10,7 @@ import { ContextSample } from './pages/Anusree/Context';
 import TravellBlog from './pages/Anusree/TravellBlog';
 import SubPage from './pages/Anusree/SubPage';
 import FoodBlog from './pages/Anusree/FoodBlog';
+import { UseRefExample, CreateRefExample } from './pages/Anusree/RefExample';
 import Rakhi from './pages/Rakhi/Rakhi';
 import RouteData from './pages/Rakhi/RouteData';
 import { HomePage as IndexPage  } from './pages/Rakhi/HomePage';
@@ -18,25 +19,29 @@ import TechnologyBlog from './pages/Rakhi/TechnologyBlog';
 import { Contents } from './pages/Rakhi/Contents';
 import science from './pages/Rakhi/Resources/news.jpg';
 import technology from './pages/Rakhi/Resources/tech.jpg';
-import Santhosh from './pages/Santhosh/Santhosh';
+import { Counter } from './pages/Rakhi/CounterContext';
+import {  CreateRef, UseRef } from './pages/Rakhi/Refs';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
 import PetsContext from './pages/Parvathy/PetsContext';
 import Books from './pages/Parvathy/Books';
 import Cats from './pages/Parvathy/Cats';
 import MyHome from './pages/Parvathy/Home';
+import { UseRef1, CreateRef1 } from './pages/Parvathy/UseRef1';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
 import { Home as Phome } from './pages/Vishnupriya/Home';
 import { ShoppingCart } from './pages/Vishnupriya/ShoppingCart';
 import Electronics from './pages/Vishnupriya/Electronics';
 import { Mobiles } from './pages/Vishnupriya/Mobiles';
 import { Laptops } from './pages/Vishnupriya/Laptops';
-import { UserCont } from './pages/Vishnupriya/UserContext'; 
+import { UserCont } from './pages/Vishnupriya/UserContext';
+import { CreateRefs, UseRefs } from './pages/Vishnupriya/Ref';
 import Divya from './pages/Divya/Divya';
 import Product from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
 import { Skincare } from './pages/Divya/Skincare';
-import { AuthUser } from './pages/Divya/UserContext'; 
+import { AuthUser } from './pages/Divya/UserContext';
+import { CreateRefDiv, UseRefDiv } from './pages/Divya/Ref';
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import { Nepal } from './pages/Viji/Nepal';
@@ -45,34 +50,37 @@ import Manooja from './pages/Manooja/Manooja';
 import { Dhanya1 } from './pages/Dhanya/Dhanya1';
 import { FoodBlog as Food } from './pages/Dhanya/FoodBlog';
 import { TravelBlog as Travel } from './pages/Dhanya/TravelBlog';
-import { TravelRef1 } from './pages/Dhanya/TraveRef';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
-import { TravelContext } from './pages/Dhanya/TravelContext';
 import { Bindu } from './pages/Bindu/Bindu';
 import { Bhome }  from './pages/Bindu/Bhome';
 import { Health } from './pages/Bindu/Health';
 import { Sports } from './pages/Bindu/Sports';
+import { CreateRefExample1, UserefExample } from './pages/Bindu/RefExample1';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
 import { SamaraHome } from './pages/Samara/SamaraHome';
 import { WeatherContext } from './pages/Samara/WeatherContext';
+import { RefSample1, RefSample2 } from './pages/Samara/RefSample';
 import { Mhome } from './pages/Manooja/Mhome';
 import { Business } from  './pages/Manooja/Business';
 import { Education } from './pages/Manooja/Education';
 import { ContextYoga } from './pages/Manooja/ContextYoga';
+import { RefCreateExample,RefUseExample } from './pages/Manooja/RefUseExample1';
+import Santhosh from './pages/Santhosh/Santhosh';
 import { Posts } from './pages/Santhosh/Posts';
 import { Users } from './pages/Santhosh/Users';
 import { Home as Home1 } from './pages/Santhosh/Home';
 import { Login } from './pages/Santhosh/Login';
+import { CreateRef as CRef, UseRef as URef } from './pages/Santhosh/Ref';
 import Radhika from './pages/Radhika/Radhika';
 import { Entertainment } from './pages/Radhika/Entertainment';
 import { Art } from './pages/Radhika/Art';
 import { Dance } from './pages/Radhika/Dance';
 import { MusicContext } from './pages/Radhika/MusicContext';
+import { SearchReff, SearchReff1 } from './pages/Radhika/Reff';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
-import { Counter } from './pages/Rakhi/CounterContext';
 import { Contextpage } from './pages/Aiswarya/Contextpage';
 
 
@@ -100,13 +108,17 @@ class App extends Component {
             <Route path="pizza" element={ <SubPage title="Pizza"/> }/>
           </Route>
           <Route path="context" element={ <ContextSample title="Context Example"/> }/>
+          <Route path="useref" element={ <UseRefExample/> }/>
+          <Route path="createref" element={ <CreateRefExample/> }/>
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>          
           <Route index element={ <Home1 title="Home"/> }/>
-          <Route path="Home" element={ <Home1 title="Home"/> }/>
+          <Route path="home" element={ <Home1 title="Home"/> }/>
           <Route path="users" element={ <Users title="Users Details"/> }/>
           <Route path="posts" element={ <Posts title="Posts"/> }/>
           <Route path="login" element={ <Login/> } />
+          <Route path="cref" element={ <CRef/> } />
+          <Route path="uref" element={ <URef/> } />
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
         </Route>
         <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>
@@ -117,14 +129,18 @@ class App extends Component {
           </Route>
           <Route path="technology" element={ <TechnologyBlog title="Information Technology"/> }>
             <Route path="trending" element={<Contents title='So long, Internet Explorer. The browser retires today' content='The browser retires today. Internet Explorer is finally headed out to pasture.' image={technology}/> }/>
-            </Route>
+          </Route>
           <Route path="counter" element={ <Counter/> }></Route>
+          <Route path="createref" element={ <CreateRef/> }></Route>
+          <Route path="useref" element={ <UseRef/> }></Route>
         </Route>
          <Route path="/bindu" element={ <Bindu title="This is Bindu's Component"/> }>
          <Route index element={ <Bhome title="Home"/> }/>
          <Route path="bhome" element={ <Bhome title="Home"/> }/>
          <Route path="health" element={ <Health title="Health"/> }/>
          <Route path="sports" element={ <Sports title="Sports"/> }/>
+         <Route path="useref" element={ <UserefExample/> }/>
+          <Route path="createref" element={ <CreateRefExample1/> }/>
          <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
@@ -132,6 +148,8 @@ class App extends Component {
           <Route path="art" element={ <Art title="Art"/> }/>
           <Route path="dance" element={ <Dance title="Dance"/> }/>
           <Route path="musiccontext" element={ <MusicContext /> } />
+          <Route path="searchReff1" element={ <SearchReff1 /> } />
+          <Route path="searchReff" element={ <SearchReff /> } />
           <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
@@ -139,6 +157,8 @@ class App extends Component {
           <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
           <Route path="polandweather" element={ <PolandWeather title="Poland weather details"/> }/>
           <Route path="context" element={ <WeatherContext/> } />
+          <Route path="createref" element={ <RefSample1/> }/>
+          <Route path="useref" element={ <RefSample2/> }/>
           <Route path=":id" element={ <SamaraHome title="Welcome to our Weather Calculator" /> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
@@ -147,6 +167,8 @@ class App extends Component {
           <Route path="books" element={ <Books title="Books" /> }/>
           <Route path="cats" element={ <Cats title="Cats" /> }/>
           <Route path="petscontext" element={ <PetsContext title="Context" /> }/>
+          <Route path="useref" element={ <UseRef1/> }/>
+          <Route path="createref" element={ <CreateRef1/> }/>
           <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
@@ -158,6 +180,8 @@ class App extends Component {
           <Route path="laptops" element={ <Laptops title="Laptops"/> }/>
          </Route>
          <Route path="usercontext" element={ <UserCont/> }></Route>
+         <Route path="createref" element={ <CreateRefs/> }></Route>
+         <Route path="useref" element={ <UseRefs/> }></Route>
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }>
         <Route index element={ <Product title="Product"/> }/>
@@ -167,7 +191,8 @@ class App extends Component {
           </Route>
           <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>
           <Route path="usercontext" element={ <AuthUser/> }></Route>
-
+          <Route path="createref" element={ <CreateRefDiv/>}></Route>
+          <Route path="useref" element={<UseRefDiv/>}></Route>
         </Route>
         <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }>
         <Route index element={ <Homepages/> }/>
@@ -186,14 +211,14 @@ class App extends Component {
           <Route path="index" element={ <Mhome title="Home"/> }/>
           <Route path="business" element={ <Business title="Business"/> }/>
           <Route path="education" element={ <Education title="Education"/> }/>
-          <Route path="contextnew" element={ <ContextYoga/> }/>
+          <Route path="contextyoga" element={ <ContextYoga/> }/>
+          <Route path="useref" element={ <RefUseExample/> }/>
+          <Route path="createref" element={ <RefCreateExample/> }/>
          </Route>  
         <Route path="/dhanya" element={ <Dhanya1 title="This is Dhanya's Component"/> }>
           {/* <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/> */}
           <Route path="food" element={ <Food /> } />
           <Route path="travel" element={ <Travel /> } />
-          <Route path="context" element={ <TravelContext/> } />
-          <Route path="ref" element={ <TravelRef1/> }/>
         </Route>
         <Route path="*" element={ <ErrorPage ErrorCode="404" ErrorMsg="The page requested was not found"/> }/>
       </Routes>
