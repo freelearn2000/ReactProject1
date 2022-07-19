@@ -81,7 +81,7 @@ class Dhanya extends Component<IProps, IState> {
             <h4 className='ui header blue'>Route Data: {this.props.routeData.id}</h4>
             <br/>
             <div className="ui segment">
-                <Link to='/news/2' className="ui orange label">Go to News</Link>
+                <Link to='/news/2' className="ui orange label">News</Link>
             </div>
             <br/>
             {	this.state.loading ? this.renderLoading( ) :

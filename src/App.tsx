@@ -45,6 +45,7 @@ import Manooja from './pages/Manooja/Manooja';
 import { Dhanya1 } from './pages/Dhanya/Dhanya1';
 import { FoodBlog as Food } from './pages/Dhanya/FoodBlog';
 import { TravelBlog as Travel } from './pages/Dhanya/TravelBlog';
+import { TravelRef1 } from './pages/Dhanya/TraveRef';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 import { TravelContext } from './pages/Dhanya/TravelContext';
 import { Bindu } from './pages/Bindu/Bindu';
@@ -192,6 +193,7 @@ class App extends Component {
           <Route path="food" element={ <Food /> } />
           <Route path="travel" element={ <Travel /> } />
           <Route path="context" element={ <TravelContext/> } />
+          <Route path="ref" element={ <TravelRef1/> }/>
         </Route>
         <Route path="*" element={ <ErrorPage ErrorCode="404" ErrorMsg="The page requested was not found"/> }/>
       </Routes>
