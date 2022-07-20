@@ -7,6 +7,7 @@ export class Login extends Component {
     render( ) {
         return (
             <>
+                <h4 className="ui center aligned header red">Context</h4>
                 <LoginContext.Provider value={{name: 'Santhosh',type: 'Admin'}}>
                     <Middle/>
                 </LoginContext.Provider>               

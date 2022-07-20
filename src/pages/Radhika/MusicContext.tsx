@@ -1,8 +1,9 @@
 import { Component, useContext } from 'react';
 import { MyMusic } from '../../context/global';
 
+// Class Component
 
-export class MusicContext extends Component { 
+class MusiccContext extends Component { 
 
     render( ) {
         return (
@@ -32,19 +33,25 @@ class Music extends Component {
         );
     }
 }
+
 class Classical extends Component {
 
     render ( ) {
         return ( 
-                <div>
-                    <MyMusic.Consumer>
+            <div>
+                <MyMusic.Consumer>
                     { value =>
                         (
-                            <> Music : { value }  </>
+                            <> 
+                            <h3>Context using Class Component</h3>
+                            <p>
+                            Music : { value } 
+                            </p>
+                            </>
                         )
                     }
-                    </MyMusic.Consumer>
-                </div>
+                </MyMusic.Consumer>
+            </div>
         );
     }
 }
@@ -56,18 +63,42 @@ class Hindustani extends Component {
 
     render( ) {
          return (
-            <> Play the music from : {this.context}; </>
+            <> 
+            Play the music from : {this.context};
+            </>
          );
     }
 }
 
-
+// Functional Component 
 
 const Ghazal = (props: any) =>{
 
     const context = useContext(MyMusic);
 
     return (
+        <>
+        <h3>Context using Functional Component</h3>
         <p>Play the music from :  {context}; </p>
+        </>
     );
+}
+
+// Wrapper Class 
+
+export class MusicContext extends Component {
+
+    render ( ) {
+
+        return (
+            <div className="ui segments">
+                <div className="ui segment">
+                    <MusiccContext/>
+                </div>
+                <div className="ui segment">
+                    
+                </div>
+            </div>
+        );
+    }
 }
