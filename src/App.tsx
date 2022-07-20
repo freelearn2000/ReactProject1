@@ -40,8 +40,8 @@ import Divya from './pages/Divya/Divya';
 import Product from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
 import { Skincare } from './pages/Divya/Skincare';
-import { AuthUser } from './pages/Divya/UserContext';
-import { CreateRefDiv, UseRefDiv } from './pages/Divya/Ref';
+import { ContextDiv } from './pages/Divya/UserContext';
+import { RefDiv } from './pages/Divya/Ref';
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import { Nepal } from './pages/Viji/Nepal';
@@ -190,9 +190,8 @@ class App extends Component {
             <Route path="skincare" element={ <Skincare/> }/>
           </Route>
           <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>
-          <Route path="usercontext" element={ <AuthUser/> }></Route>
-          <Route path="createref" element={ <CreateRefDiv/>}></Route>
-          <Route path="useref" element={<UseRefDiv/>}></Route>
+          <Route path="context" element={ <ContextDiv/> }></Route>
+          <Route path="ref" element={ <RefDiv/>}></Route>
         </Route>
         <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }>
         <Route index element={ <Homepages/> }/>

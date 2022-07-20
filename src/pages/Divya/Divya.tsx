@@ -75,10 +75,9 @@ class Divya extends Component<IProps, IState> {
             <div>
                 <h2 className="ui horizontal divider header">{this.props.title}</h2> 
 				<br/>
-				<Link to='/divya/product' className="ui button">Products</Link>
-				<Link to='/divya/usercontext' className = "ui button">User Context</Link>
-				<Link to='/divya/createref' className = "ui button">Create Ref</Link>
-				<Link to='/divya/useref' className = "ui button">Use Ref</Link>
+				<Link to='/divya/product' className="ui button">Axios</Link>
+				<Link to='/divya/context' className = "ui button">Context</Link>
+				<Link to='/divya/ref' className = "ui button">Ref</Link>
                 <Outlet/>         	
 			</div>
         )		

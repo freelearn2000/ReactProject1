@@ -1,6 +1,6 @@
 import { Component, createRef, useEffect, useRef } from "react";
 
-export class CreateRefDiv extends Component {
+class CreateRefDiv extends Component {
 
     divRef:any;
     
@@ -18,7 +18,7 @@ export class CreateRefDiv extends Component {
         return (
 
             <div className="ui segment">
-                <h4>Create Ref</h4>
+                <h4>Class Component - Ref</h4>
                 <input type="text" placeholder="Search..." ref={this.divRef}/>
                 <i className="inverted circular search link icon"></i>
             </div>   
@@ -26,7 +26,7 @@ export class CreateRefDiv extends Component {
     }
 }
 
-export const UseRefDiv = () => {
+const UseRefDiv = () => {
 
     const divRef = useRef<any> ( );
 
@@ -35,7 +35,7 @@ export const UseRefDiv = () => {
     return  (
 
         <div className="ui segment">
-            <h4>Use Ref</h4>
+            <h4>Functional Component - Ref</h4>
             <div className="ui right action left icon input">
                 <i className="search icon"></i>
                 <input type="text" placeholder="Search" ref={divRef}/>
@@ -50,4 +50,17 @@ export const UseRefDiv = () => {
             </div>
         </div>
     )
+}
+
+export const RefDiv = ( ) => {
+    return (
+        <div className="ui segment">
+            <div className="ui segment">
+                <CreateRefDiv/>
+            </div>
+            <div className="ui segments">
+                <UseRefDiv/>
+            </div>
+        </div>
+    );
 }

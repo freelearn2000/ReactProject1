@@ -13,6 +13,7 @@ interface IState {
 	error: { message: string } | null;
 }
 
+// Axios Class Component
 export class Grocery extends Component<IProps, IState> {
 
     state = { loading: true, products: null, error: null };
@@ -21,7 +22,7 @@ export class Grocery extends Component<IProps, IState> {
 
 		axios.get('/posts')
 			.then(response => {
-				this.setState( {loading: false, products: response.data.splice(0,8), error: null} );
+				this.setState( {loading: false, products: response.data.splice(0,5), error: null} );
 			})
 			.catch(error => {
 				this.setState( {loading: false, products: null, error: error} );
