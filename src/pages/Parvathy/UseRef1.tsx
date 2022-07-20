@@ -1,15 +1,15 @@
 import { Component, createRef, useEffect, useRef } from "react";
 
 
-export const UseRef1 = ( ) => {
+const UseRef1 = ( ) => {
 
     const myRef = useRef<any>( );
     
-    useEffect(()=>{myRef.current = myRef?.current?.focus()},[])
+    useEffect( () => { myRef.current = myRef?.current?.focus() }, [] )
 
     return(
         <div className="segment">
-            <h4 className="ui heading">Sample Code UseRef</h4>
+            <h4 className="ui heading">Functional Component - UseRef</h4>
             <div className="ui form">
                 <div className="field">
                     <label>Password</label>
@@ -22,23 +22,23 @@ export const UseRef1 = ( ) => {
     )
 }
 
-export class CreateRef1 extends Component {
+class CreateRef1 extends Component {
 
     myRef:any;
     
-    constructor(props:any) {
-        super(props);
+    constructor( props:any ) {
+        super( props );
         this.myRef = createRef<any>()
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.myRef = this.myRef.current.focus();
     }
 
     render () {
          return(
             <div className="segment">
-                <h4 className="ui heading">Sample Code CreateRef</h4>
+                <h4 className="ui heading">Class Component - CreateRef</h4>
                 <div className="ui form">
                     <div className="field">
                         <div className="field success">
@@ -52,4 +52,18 @@ export class CreateRef1 extends Component {
             </div>
          )
     }
+}
+
+export const RefSample1 = ( ) => {
+    return (
+        <div className="ui segments">
+            <div className="ui segment">
+                <CreateRef1/>
+            </div>
+            <div className="ui segment">
+                <UseRef1/>
+            </div>
+        </div>
+      );
+
 }

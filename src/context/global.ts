@@ -1,9 +1,9 @@
 import { createContext } from "react";
 
-
+// Rakhi
 export const CounterContext = createContext(0);
 
-
+// Rakhi
 export const UserContext = createContext({name:'Guest', viewMode:'Guest'});
 
 export const User = createContext({name:'Guest', userRole:'Guest'});
@@ -22,8 +22,11 @@ export const LoginContext = createContext({name:'',type:''});
 // Bindu
 export const  SportsContext = createContext('');
 
+// Parvathy
 export const PetsWorldContext = createContext('1');
 
+// Dhanya
+export const ContextTravel = createContext('Ruveneimi');
 // Manooja
 export const YogaContext = createContext({instructor:'', type:''});
 

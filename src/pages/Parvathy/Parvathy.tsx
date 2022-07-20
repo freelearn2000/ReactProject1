@@ -16,13 +16,16 @@ class Parvathy extends Component<IProps> {
                     home
                 </Link>
                 <Link to='/parvathy/books' className="item">
-                    books
+                    api1
                 </Link>
                 <Link to='/parvathy/cats' className="item">
-                    cats
+                    api2
                 </Link>
                 <Link to='/parvathy/petsContext' className="item">
                     context
+                </Link>
+                <Link to='/parvathy/ref' className="item">
+                    ref
                 </Link>
             </div>
 
@@ -46,8 +49,7 @@ class Parvathy extends Component<IProps> {
                 <h2 className="ui center aligned header message">{ this.props.title }</h2>
                 <Link to='/' className="ui teal basic tag label">Goto HomePage</Link> &nbsp;&nbsp;
                 <Link to='/news/100$' className="ui basic olive tag label">News</Link>&nbsp;&nbsp;
-                <Link to='createref' className="ui basic green tag label">CreateRef</Link>&nbsp;&nbsp;
-                <Link to='useref' className="ui basic blue tag label">UseRef</Link>
+                
                 <div className="ui secondary segment">
                     <div className="ui internally celled grid">
                         <div className="row">

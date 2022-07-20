@@ -1,16 +1,16 @@
 import { Component } from "react";
 import { Link, Outlet } from 'react-router-dom';
 import { retriveDataFromRoute } from '../../utils/hoc';
-
-
 import axios from '../../axios';
 import { UserContext } from "../../context/global";
+
 
 interface IProps {
     title: any;
     location: any;
 }
 
+// Axios in Class Component
 class ScienceBlog extends Component<IProps> {
 
     state = { loading: true, science: null, error: null };
@@ -19,7 +19,7 @@ class ScienceBlog extends Component<IProps> {
 
         axios.get('/posts')
             .then(response => {
-                this.setState( {loading: false, science: (response.data).splice(0, 10), error: null} );
+                this.setState( {loading: false, science: (response.data).splice(0, 5), error: null} );
             })
             .catch(error => {
                 this.setState( {loading: false, science: null, error: error} );

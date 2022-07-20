@@ -15,19 +15,19 @@ import Rakhi from './pages/Rakhi/Rakhi';
 import RouteData from './pages/Rakhi/RouteData';
 import { HomePage as IndexPage  } from './pages/Rakhi/HomePage';
 import ScienceBlog from './pages/Rakhi/ScienceBlog';
-import TechnologyBlog from './pages/Rakhi/TechnologyBlog';
+import { Technology } from './pages/Rakhi/TechnologyBlog';
 import { Contents } from './pages/Rakhi/Contents';
 import science from './pages/Rakhi/Resources/news.jpg';
 import technology from './pages/Rakhi/Resources/tech.jpg';
-import { Counter } from './pages/Rakhi/CounterContext';
-import {  CreateRef, UseRef } from './pages/Rakhi/Refs';
+import { Context } from './pages/Rakhi/CounterContext';
+import { Refs } from './pages/Rakhi/Refs';
 import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
 import PetsContext from './pages/Parvathy/PetsContext';
 import Books from './pages/Parvathy/Books';
 import Cats from './pages/Parvathy/Cats';
 import MyHome from './pages/Parvathy/Home';
-import { UseRef1, CreateRef1 } from './pages/Parvathy/UseRef1';
+import { RefSample1 } from './pages/Parvathy/UseRef1';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
 import { Home as Phome } from './pages/Vishnupriya/Home';
 import { ShoppingCart } from './pages/Vishnupriya/ShoppingCart';
@@ -69,22 +69,24 @@ import { ContextYoga } from './pages/Manooja/ContextYoga';
 import { ContextColor } from './pages/Viji/ContextColor';
 import { RefCreateExample,RefUseExample } from './pages/Manooja/RefUseExample1';
 import Santhosh from './pages/Santhosh/Santhosh';
-import { Posts } from './pages/Santhosh/Posts';
+import { Ref } from './pages/Santhosh/Ref';
 import { Users } from './pages/Santhosh/Users';
+import { Posts } from './pages/Santhosh/Posts';
 import { Home as Home1 } from './pages/Santhosh/Home';
 import { Login } from './pages/Santhosh/Login';
-import { CreateRef as CRef, UseRef as URef } from './pages/Santhosh/Ref';
+import Santhosh1 from './pages/Santhosh/Santhosh1';
 import Radhika from './pages/Radhika/Radhika';
 import { Entertainment } from './pages/Radhika/Entertainment';
 import { Art } from './pages/Radhika/Art';
 import { Dance } from './pages/Radhika/Dance';
 import { MusicContext } from './pages/Radhika/MusicContext';
-import { SearchReff, SearchReff1 } from './pages/Radhika/Reff';
+import { SearchRef } from './pages/Radhika/Reff';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
 import { Contextpage } from './pages/Aiswarya/Contextpage';
 import { Createref, Useref } from './pages/Aiswarya/Createref';
+
 
 class App extends Component {
   
@@ -116,11 +118,11 @@ class App extends Component {
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>          
           <Route index element={ <Home1 title="Home"/> }/>
           <Route path="home" element={ <Home1 title="Home"/> }/>
-          <Route path="users" element={ <Users title="Users Details"/> }/>
-          <Route path="posts" element={ <Posts title="Posts"/> }/>
+          <Route path="users" element={ <Users title="Axios - Class Component"/> }/>
+          <Route path="posts" element={ <Posts title="Axios - Functional Component"/> }/>
+          <Route path="santhosh1" element={ <Posts title="Route Params"/> }/>
           <Route path="login" element={ <Login/> } />
-          <Route path="cref" element={ <CRef/> } />
-          <Route path="uref" element={ <URef/> } />
+          <Route path="ref" element={ <Ref/> } />        
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
         </Route>
         <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>
@@ -129,12 +131,11 @@ class App extends Component {
           <Route path="science" element={ <ScienceBlog title="Science Blog"/> }>
             <Route path="top" element={<Contents title='Physics-based cryptocurrency transmits energy through blockchain' content='Researchers from Lawrence Livermore National Laboratory (LLNL) have devised a physics-based cryptocurrency that links electrical energy and blockchain technologies in a new way.' image={science}/> }/>
           </Route>
-          <Route path="technology" element={ <TechnologyBlog title="Information Technology"/> }>
+          <Route path="technology" element={ <Technology title="Information Technology"/> }>
             <Route path="trending" element={<Contents title='So long, Internet Explorer. The browser retires today' content='The browser retires today. Internet Explorer is finally headed out to pasture.' image={technology}/> }/>
           </Route>
-          <Route path="counter" element={ <Counter/> }></Route>
-          <Route path="createref" element={ <CreateRef/> }></Route>
-          <Route path="useref" element={ <UseRef/> }></Route>
+          <Route path="context" element={ <Context/> }></Route>
+          <Route path="refs" element={ <Refs/> }></Route>
         </Route>
          <Route path="/bindu" element={ <Bindu title="This is Bindu's Component"/> }>
          <Route index element={ <Bhome title="Home"/> }/>
@@ -149,8 +150,7 @@ class App extends Component {
           <Route path="art" element={ <Art title="Art"/> }/>
           <Route path="dance" element={ <Dance title="Dance"/> }/>
           <Route path="musiccontext" element={ <MusicContext /> } />
-          <Route path="searchReff1" element={ <SearchReff1 /> } />
-          <Route path="searchReff" element={ <SearchReff /> } />
+          <Route path="searchref" element={ <SearchRef /> } />
           <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
@@ -164,11 +164,10 @@ class App extends Component {
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
           <Route index element={ <MyHome /> }/>
           <Route path="home" element={ <MyHome /> }/>
-          <Route path="books" element={ <Books title="Books" /> }/>
-          <Route path="cats" element={ <Cats title="Cats" /> }/>
+          <Route path="books" element={ <Books title="Axios: Class Component" /> }/>
+          <Route path="cats" element={ <Cats title="Axios: Functional Component" /> }/>
           <Route path="petscontext" element={ <PetsContext title="Context" /> }/>
-          <Route path="useref" element={ <UseRef1/> }/>
-          <Route path="createref" element={ <CreateRef1/> }/>
+          <Route path="ref" element={ <RefSample1/> }/>
           <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
@@ -248,3 +247,4 @@ class App extends Component {
 }
 
 export default App;
+
