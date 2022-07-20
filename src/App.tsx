@@ -74,6 +74,7 @@ import { Users } from './pages/Santhosh/Users';
 import { Posts } from './pages/Santhosh/Posts';
 import { Home as Home1 } from './pages/Santhosh/Home';
 import { Login } from './pages/Santhosh/Login';
+import Santhosh1 from './pages/Santhosh/Santhosh1';
 import Radhika from './pages/Radhika/Radhika';
 import { Entertainment } from './pages/Radhika/Entertainment';
 import { Art } from './pages/Radhika/Art';
@@ -119,6 +120,7 @@ class App extends Component {
           <Route path="home" element={ <Home1 title="Home"/> }/>
           <Route path="users" element={ <Users title="Axios - Class Component"/> }/>
           <Route path="posts" element={ <Posts title="Axios - Functional Component"/> }/>
+          <Route path="santhosh1" element={ <Posts title="Route Params"/> }/>
           <Route path="login" element={ <Login/> } />
           <Route path="ref" element={ <Ref/> } />        
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
