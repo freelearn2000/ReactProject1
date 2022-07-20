@@ -1,7 +1,6 @@
 import { Component, createRef, useEffect, useRef } from "react";
 
-
-export class Createref extends Component {
+class CreateRef extends Component {
    
     focusElement:any;
     
@@ -14,7 +13,7 @@ export class Createref extends Component {
 
         return(
         <div className="ui basic segment">
-            <h4 className="ui left aligned heading "><u>CreateRef</u></h4> 
+            <h4 className="ui left aligned heading "><u>CreateRef in class component </u></h4> 
                 <h4 className="ui primary header"> Login Page</h4>
                 <form className="ui form formStyle attached fluid">
                     <div className="two fields">
@@ -40,7 +39,7 @@ export class Createref extends Component {
 
 }
 
-export const Useref = ( ) => {
+const Useref = ( ) => {
 
     const focusElement = useRef<any>();
 
@@ -51,10 +50,24 @@ export const Useref = ( ) => {
 
     return( 
         <>
-          <h4 className="ui left aligned header"><u>UseRef</u></h4>  
+          <h4 className="ui left aligned header"><u>UseRef in Functional component</u></h4>  
           <input type="text" placeholder="Search..."  ref = { focusElement }></input>
           <button className="ui submit button">Search</button>
         </>
     );
+}
+
+export const Createref =( ) => {
+    return (
+        <div className="ui segments">
+            <div className="ui segment">
+                <CreateRef/>
+            </div>
+            <div className="ui segment">
+                <Useref/>
+            </div>
+        </div>
+      );
+
 }
 

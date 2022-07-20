@@ -76,11 +76,11 @@ interface IState {
                         <div className="four wide column">
                         <div className="ui vertical pointing menu">
                             
-                            <Link to='/aiswarya/politics' className="item"><i>Politics</i></Link>
-                            <Link to='/aiswarya/arts' className="item"><i>Arts</i></Link>
+                            <Link to='/aiswarya/politics' className="item"><i>Axios in Class Component</i></Link>
+                            <Link to='/aiswarya/arts' className="item"><i>Axios in Functional Component</i></Link>
                             <Link to='/aiswarya/Context' className="item"><i>Context</i></Link>
-                            <Link to='/aiswarya/CreateRef' className="item"><i>CreateRef</i></Link>
-                            <Link to='/aiswarya/UseRef' className="item"><i>UseRef</i></Link>
+                            <Link to='/aiswarya/CreateRef' className="item"><i>Ref</i></Link>
+                            
 
                             <br/>
                         </div>

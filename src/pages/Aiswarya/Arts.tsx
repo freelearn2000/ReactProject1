@@ -1,29 +1,31 @@
+import { useEffect, useState } from "react"; 
+import { Link, Outlet, useLocation,useParams } from "react-router-dom"; 
 import { Component, createContext, useContext } from "react";
+import { UserContext } from "../../context/global"; 
 import axios from '../../axios';
 
-// Create Context object
-const MyContext = createContext('');
+ // Axios in Class Component 
 
-interface IProps {
-    title: any;
-}
+export const Arts = ( props: any) => { 
 
-export class Arts extends Component <IProps> {
+    const [loading, setLoading] = useState<boolean>(true); 
+    const [datavalue, setData] = useState<any>(true); 
+    const [error, setError] = useState<any>(true);
 
-    state = { loading: true, culture: null, error: null };
+    const location = useLocation( );
+    const routeData = useParams( ); 
 
-    componentDidMount ( ) {
+useEffect( ( ) => { 
+    axios.get('/comments') 
+        .then(response => { setLoading(false);
+            setData(response.data.slice(0,5)); 
+            setError(null)}) 
+        .catch(error => { setLoading(true); 
+            setData(null); 
+            setError(error)}) 
+        }, []); 
 
-        axios.get('/comments')
-            .then(response => {
-                this.setState( { loading: false, culture: response.data, error: null} );
-            })
-            .catch(error => {
-                this.setState( { loading: false, culture: null, error: error} );
-            })  
-        }
-
-    renderLoading( ) {
+    const renderLoading= ( ) => {
 
         const loadingJSX = 
             <div className="ui active inverted dimmer">
@@ -32,9 +34,9 @@ export class Arts extends Component <IProps> {
         return loadingJSX;
     }
 
-    rendererror( ) {
+    const rendererror = ( ) => {
 
-        const message = this.state.error? this.state.error['message'] : '';
+        const message = error ? error['message'] : '';
         const errorJSX = 
             <div>
                 <h4>{ message }</h4>
@@ -42,9 +44,9 @@ export class Arts extends Component <IProps> {
         return errorJSX;
     }
 
-    renderUserdata( ) {
+    const renderUserdata = ( ) => {
         
-        const culture = this.state.culture ? this.state.culture : [ ];
+        const culture = datavalue ? datavalue : [ ];
         const DataJSX = culture.map( (cultures: any) => {
             return(
                 <div key={ cultures.id } className="ui segment">
@@ -56,39 +58,15 @@ export class Arts extends Component <IProps> {
     return DataJSX;
     }
 
-    render( ) {
-
         return (
             <>
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
+                <h2 className="ui center aligned header">{ props.title }</h2>
 
-                <MyContext.Provider value={'Poetry'}>
-                    <Art/>
-                </MyContext.Provider>
                 {
-                    this.state.loading ? this.renderLoading( ):
-                    this.state.culture ? this.renderUserdata( ):
-                    <><h2> Error Data !!!!</h2>{this.rendererror( )}</>
+                    loading ? renderLoading( ):
+                    datavalue ? renderUserdata( ):
+                    <><h2> Error Data !!!!</h2>{rendererror( )}</>
                 }
             </>
         )
     }
-}
-
-class Art extends Component {
-    
-    render () {
-        return(
-            <Middlechild/>
-        );
-
-    }
-}
-const Middlechild = ( props:any ) => {
-
-    const context = useContext(MyContext);
-
-        return(
-            <> <b>Context value: {context}</b></>
-        );
-}
