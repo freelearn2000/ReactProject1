@@ -5,7 +5,7 @@ interface IProps {
     title: any;
 }
 
-
+// Axios - Class component
 export class Users extends Component<IProps> {
 
     state = {loading: true, users: null, error: null};
@@ -51,12 +51,14 @@ export class Users extends Component<IProps> {
 
         const users = this.state.users ? this.state.users : [ ];
         const dataJSX = users.map( ( user: { id: number, name: string, email: string}, index ) => {
+            if( user.id < 6) {
             return(
                 <div key={user.id + index} className = 'ui segment'>
                     <h4>Name: {user.name}</h4>
                     <p>Email: {user.email}</p>
                 </div>
             );
+            }
         });
         return dataJSX;
     }
@@ -72,6 +74,6 @@ export class Users extends Component<IProps> {
                     <><h2>Error Data</h2>{ this.renderError( )}</>
                 }          
             </>
-        )
+        );
     }
 }
