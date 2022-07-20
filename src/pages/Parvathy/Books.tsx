@@ -25,7 +25,7 @@ class Books extends Component<IProps, IState> {
         // Intitiate API call from here
         axios.get('/users')
             .then(response => {
-                this.setState( {loading: false, users: response.data, error: null} );
+                this.setState( {loading: false, users: response.data.splice(0, 3), error: null} );
             })
             .catch(error => {
                 this.setState( {loading: false, users: null, error: error} );

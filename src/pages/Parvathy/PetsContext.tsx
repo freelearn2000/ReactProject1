@@ -1,4 +1,4 @@
-import React, { Component, useContext } from "react";
+import { Component, useContext } from "react";
 import { PetsWorldContext } from "../../context/global";
 
 
@@ -52,7 +52,9 @@ export class Child extends Component {
             <PetsWorldContext.Consumer>
                 {
                     value => (
+                        
                         <> Context value accessed from Child &nbsp;&nbsp; :&nbsp;&nbsp;<span className="ui inverted yellow text" > { value } </span><br /></>
+                        
                     )
                 }
             </PetsWorldContext.Consumer>
