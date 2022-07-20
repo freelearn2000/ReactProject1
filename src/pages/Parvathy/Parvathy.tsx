@@ -16,10 +16,10 @@ class Parvathy extends Component<IProps> {
                     home
                 </Link>
                 <Link to='/parvathy/books' className="item">
-                    books
+                    api1
                 </Link>
                 <Link to='/parvathy/cats' className="item">
-                    cats
+                    api2
                 </Link>
                 <Link to='/parvathy/petsContext' className="item">
                     context
