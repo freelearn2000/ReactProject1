@@ -1,7 +1,7 @@
 import { Component, createRef, useEffect, useRef } from "react";
 
 
-export class RefSample1 extends Component {
+class RefSample1 extends Component {
     inputRef: any;
 
     constructor( props: any ) {
@@ -13,7 +13,7 @@ export class RefSample1 extends Component {
     render( ) {
         return(
             <div>
-                <h3>createRef Sample</h3>
+                <h3>createRef Sample - class component</h3>
                 <form className="ui form">
                     <div className="field">
                         <label>Name</label>
@@ -29,7 +29,7 @@ export class RefSample1 extends Component {
     }    
 }
 
-export const RefSample2 = ( ) => {
+const RefSample2 = ( ) => {
 
     const inputRef = useRef<any>( );
 
@@ -39,7 +39,7 @@ export const RefSample2 = ( ) => {
 
     return(
         <div>
-            <h3>useRef Sample</h3>
+            <h3>useRef Sample - functional component</h3>
             <form className="ui form">
                     <div className="field">
                         <label>Name</label>
