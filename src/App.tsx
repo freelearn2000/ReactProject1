@@ -151,7 +151,7 @@ class App extends Component {
           <Route path="art" element={ <Art title="Art"/> }/>
           <Route path="dance" element={ <Dance title="Dance"/> }/>
           <Route path="musiccontext" element={ <MusicContext /> } />
-          <Route path="searchRef" element={ <SearchRef /> } />
+          <Route path="searchref" element={ <SearchRef /> } />
           <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
