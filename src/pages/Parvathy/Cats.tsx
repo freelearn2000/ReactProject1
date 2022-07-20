@@ -1,62 +1,53 @@
-import { Component } from "react";
+import { useEffect, useState } from "react";
 import axios from '../../axios';
 import { retriveDataFromRoute } from '../../utils/hoc';
+
 
 
 interface IProps {
     title: string;
 }
 
-interface IState {
-    loading: boolean,
-    users: {}[] | null,
-    error: { message: string } | null;
-}
+// Axios in Functional Component
+export const Cats = ( props: any ) => {
 
-class Cats extends Component<IProps, IState> {
+    const [loading, setLoading] = useState<boolean>(true);
+    const [users, setUsers] = useState<any>(null);
+    const [error, setError] = useState<any>(null);
 
-    state = { loading: true, users: null, error: null };
+   
 
-    // initialization
-    componentDidMount() {
+    useEffect( ( ) => {
 
-        // Intitiate API call from here
         axios.get('/users')
-            .then(response => {
-                this.setState( {loading: false, users: response.data, error: null} );
-            })
-            .catch(error => {
-                this.setState( {loading: false, users: null, error: error} );
-            });
-    }
+            .then( response => { 
+                setLoading(false);
+                setUsers(response.data.slice(0,5));
+                setError(null)})
+            .catch( error => { 
+                setLoading(false);
+                setUsers(null);
+                setError(error)} )
 
-    renderLoading() {
+    }, [] );
+
+    const renderLoading = ( ) => {
 
         const loadingJSX =
-            <div className="ui segment">
+        <div className="ui segment">
                 <p>Please wait a little...</p>
                 <div className="ui active inverted dimmer">
                     <div className="ui green text loader">Loading</div>
                 </div>
             </div>
+            
         return loadingJSX;
     }
 
-    renderError() {
+    const renderData = ( ) => {
 
-        const message = this.state.error ? this.state.error['message'] : '';
-        const errorJSX =
-            <div>
-                <br />
-                <h4>{ message }</h4>
-            </div>
-        return errorJSX;
-    }
-
-    renderData() {
-
-        const users = this.state.users ? this.state.users : [];
-        const dataJSX = users.map( (item: { name: string, id: number } ) => {
+        const users1 = users ? users : [];
+        const dataJSX = users1.map( (item: { name: string, id: number } ) => {
             return (
                 <div key={ item.id } className="ui center aligned message">
                     <h4>{ item.name }</h4>
@@ -66,18 +57,27 @@ class Cats extends Component<IProps, IState> {
         return dataJSX;
     }
 
-    render() {
+    const renderError = ( ) => {
 
-        return (
+        const message = error ? error[ 'message' ] : '';
+        const errorJSX =
             <div>
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
+                <br />
+                <h4>{ message }</h4>
+            </div>
+        return errorJSX;
+    }
+
+    return(
+        <div>
+                <h2 className="ui center aligned header">{ props.title }</h2>
                 {
-                    this.state.loading ? this.renderLoading() :
-                    this.state.users ? this.renderData() : this.renderError()         
+                    loading ? renderLoading() :
+                    users ? renderData() : renderError()         
                 }
             </div>
-        )
-    }
+        
+    )
 }
 
 export default retriveDataFromRoute(Cats);

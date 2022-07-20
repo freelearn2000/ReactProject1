@@ -1,69 +1,78 @@
-import { Component } from "react";
+import { Component, useEffect, useState } from "react";
 import axios from '../../axios';
 
-interface IProps {
-    title: any;
-}
+//  Axios in Functional component
+export const Posts  = ( props: any ) => {
 
-export class Posts extends Component<IProps> {
+    const [loading, setloading] = useState(true);
+    const [data, setdata] = useState(null);
+    const [error, seterror ] = useState(null);
 
-    state={ loading: true, users: null, error: null };
-    
-    componentDidMount( ) {
-
+    useEffect( ( ) => {
         axios.get('/posts')
-            .then(response => {
-                this.setState( {loading: false, users: response.data, error: null} );
-            })
-            .catch(error => {
-                this.setState( {loading: false, users: null, error: error} );
-            })
-    }
+        .then(response => {
+            setloading(false);
+            setdata(response.data);
+            seterror(null);
+        })
+        .catch(error => {
+            setloading(false);
+            setdata(null);
+            seterror(error);
+        })
+    }, []);
 
-    renderLoading( ) {
 
-        const loadingJSX =
-        <div className="ui active inverted dimmer">
-            <div className="ui text loader">Loading user data...</div>
-        </div>
-        return loadingJSX;
-    }
-
-    renderError( ) {
-
-        const message = this.state.error? this.state.error[ 'message' ] : '';
-        const errorJSX = 
-        <div className='ui negative message'>
-            <h4>{ message }</h4>
-        </div>
-        return errorJSX;
-    }
-
-    renderUserdata( ) {
-
-        const users = this.state.users ? this.state.users : [ ];
-        const dataJSX = users.map( (users: any ) => {
-           return( 
-            <div key={ users.id } className="ui segment">
-                <h4>{ users.title }</h4>
-                <p>{ users.body }</p>
+    const renderLoading = ( ) => {
+        const loadingJSX =  
+            <div className = "ui icon message">
+                <i className = "notched circle loading icon"></i>
+                <div className = "content">
+                    <div className = "header">
+                        Just one second
+                    </div>
+                    <p>We're fetching that content for you.</p>
+                </div>
             </div>
-           )
+        return loadingJSX;
+
+    }
+    const renderUserdata = ( ) => {
+        const data1 = data ? data : [ ];
+        const dataJSX = data1.map( ( item: any ) => {
+            if( item.id < 6) {
+                return(
+                    <div key={ item.id } className = 'ui segment'>
+                        <h4>Id: {item.id}</h4>
+                        <p>Title: {item.title}</p>
+                    </div>
+                );
+            }
         });
         return dataJSX;
+
+        
+    }
+    const renderError = ( ) => {
+        const errorMessage = error? error['message'] : '';
+        const errorJSX = 
+            <div>
+                <div className = "ui negative message">
+                    <p>{ errorMessage }</p>
+                </div>
+            </div>
+        return errorJSX;
+
     }
 
-    render( ) {
-
-        return(
-            <>
-                <h1 className="ui center aligned blue message">{ this.props.title }</h1>
-                    {
-                        this.state.loading ? this.renderLoading( ):
-                        this.state.users ? <>{ this.renderUserdata( ) }</>:
-                        <><h2>Error Data</h2>{ this.renderError( )}</>
-                    }
-            </>
-        )
-    }
+    return(
+        <>
+        <h1 className="ui center aligned blue message">{ props.title }</h1>                                         
+            {
+                loading ? renderLoading( ):
+                data ? <> { renderUserdata( ) }</>:
+                <><h2>Error Data</h2>{ renderError( )}</>
+            }          
+        </>
+    );
 }

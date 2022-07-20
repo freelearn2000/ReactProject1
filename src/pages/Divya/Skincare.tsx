@@ -1,34 +1,29 @@
-import  { Component } from 'react';
 import axios from '../../axios';
-import { User } from '../../context/global';
+import { useEffect, useState } from "react";
 
 
-interface IProps {
-    
-}
+// Axios Functional Component
+export const Skincare = ( props: any ) => {
 
-interface IState {
-	loading: boolean;
-	products: { } [ ] | null;
-	error: { message: string } | null;
-}
+    const [loading, setLoading] = useState<boolean>(true);
+    const [data, setData] = useState<any>(null);
+    const [error, setError] = useState<any>(null);
 
-export class Skincare extends Component<IProps, IState> {
+    useEffect(( ) => {
 
-    state = { loading: true, products: null, error: null };
+        axios.get('/comments')
+            .then( response => { 
+                setLoading(false);
+                setData(response.data.slice(0,5));
+                setError(null)})
+            .catch( error => { 
+                setLoading(false);
+                setData(null);
+                setError(error)} )
 
-	componentDidMount( ) {
+    }, []);
 
-		axios.get('/comments')
-			.then(response => {
-				this.setState( {loading: false, products: response.data.splice(0,8), error: null} );
-			})
-			.catch(error => {
-				this.setState( {loading: false, products: null, error: error} );
-		});   
-    }
-
-	renderLoading( ) {
+	const renderLoading = ( ) => {
 
 		const loadingJSX = 
 			<div className="ui horizontal divider header">
@@ -37,9 +32,9 @@ export class Skincare extends Component<IProps, IState> {
 		return loadingJSX;
 	}
 
-	renderError( ) {
+	const renderError = ( ) => {
 
-		const message = this.state.error? this.state.error[ 'message' ] : '';
+		const message = error.error? error.error[ 'message' ] : '';
 		const errorJSX = 
 			<div>
 				<h4 className="negative ui button">{ message }</h4>
@@ -47,10 +42,10 @@ export class Skincare extends Component<IProps, IState> {
 		return errorJSX;
 	}
 
-	renderProductData( ) {
+	const renderProductData = ( ) => {
 
-		const datas = this.state.products ? this.state.products : [ ];
-		const dataJSX = datas.map( (product: {id: number, name: string} ) => {
+		const datas = data ? data : [ ];
+		const dataJSX = datas.map( (product: any ) => {
 			return(
 				<div key={ product.id } className='ui segment'>
 					<p>{product.name}</p>
@@ -60,23 +55,15 @@ export class Skincare extends Component<IProps, IState> {
 		return dataJSX;
 	}
 
-	render( ) {
-
-		return(
+    return(
             <div>
-				<User.Consumer>
-                    {user => (
-                        <>  
-                            <h5> Hi, {user.name} !!!</h5>
-                        </>
-                    )}
-                </User.Consumer>
+
                 <h2 className="ui horizontal divider header">List of Skincare Products</h2> 
 				
-					{	this.state.loading ? this.renderLoading( ) :
-                		this.state.products ? this.renderProductData( ) :
-               			this.renderError( )	}                        
+					{	loading ? renderLoading( ) :
+                		data ? renderProductData( ) :
+						renderError( )	}                        
 			</div>
         )		
-	}	
-}
+    }
+

@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, useEffect, useState } from "react";
 import axios from '../../axios';
 
 interface IProps {
@@ -13,7 +13,7 @@ export class Health extends Component<IProps> {
 
         axios.get('/posts')
             .then(response => {
-                this.setState( {loading: false, nature: response.data, error: null} );
+                this.setState( {loading: false, nature: response.data.splice(0,5), error: null} );
             })
             .catch(error => {
                 this.setState( {loading: false, nature: null, error: error} );
@@ -57,7 +57,7 @@ export class Health extends Component<IProps> {
 
         return(
             <>
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
+                <h2 className="ui center aligned header">{ this.props.title } [Class Component]</h2>
                     {
                         this.state.loading ? this.renderLoading( ):
                         this.state.nature ? <>{ this.renderUserdata( ) }</>:
@@ -66,4 +66,53 @@ export class Health extends Component<IProps> {
             </>
         )
     }
+}
+
+export const Wealth = ( ) =>  {
+    const [wealth, setWealth] = useState<any>( []);
+
+    useEffect(( ) =>{
+      
+        axios.get('/todos')
+        .then(response => {
+           setWealth( response.data.splice(0,5) );
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    },[ ] )
+   
+    return(
+           
+        <> 
+             <h2 className="ui center aligned header">Wealth [functional Component]</h2>
+            {
+                wealth.map((item: any)=>{
+
+                    return( 
+                        <div key={ item.id } className="ui segment">
+                            <h4>{ item.title }</h4>
+                        </div>
+                       )
+                })
+            }
+            
+        </>
+    )
+}
+
+export const AxiosExample = ( ) => { 
+
+        return ( 
+
+        <div className="ui segments">
+            <div className="ui segment">
+                <Health  title="Health"/>
+            </div>
+            <div className="ui segments">
+                <Wealth/>
+            </div>
+        </div>
+
+      );
 }

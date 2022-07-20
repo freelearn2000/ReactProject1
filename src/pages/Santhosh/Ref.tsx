@@ -1,7 +1,7 @@
 import { Component, createRef, useEffect, useRef } from "react";
 import { Link } from 'react-router-dom';
 
-export class CreateRef extends Component {
+class CreateRef extends Component {
 
     inputRef: any;
     
@@ -15,7 +15,7 @@ export class CreateRef extends Component {
         return (
             <>
                 <div className="ui basic segment">
-                    <h4 className="ui primary header">User Login</h4>
+                    <h4 className="ui primary header">CreateRef - Class component</h4>
                     <form className="ui form formStyle attached fluid">
                         <div className="field">                            
                             <input type="text" placeholder="User Name" ref={ this.inputRef }/>
@@ -41,7 +41,7 @@ export class CreateRef extends Component {
 }
 
 
-export const UseRef =( ) => {
+const UseRef =( ) => {
 
     const inputRef = useRef<any>();
 
@@ -53,7 +53,7 @@ export const UseRef =( ) => {
     return(
         <>
             <div className="ui basic segment">
-                <h4 className="ui primary header">Search</h4>
+                <h4 className="ui primary header">UseRef - Functional component</h4>
                 <form className="ui form formStyle attached fluid">
                     <div className="field">                            
                         <input type="text" placeholder="Search" ref={ inputRef }/>
@@ -70,3 +70,16 @@ export const UseRef =( ) => {
 }
 
 
+export const Ref =( ) => {
+    return (
+        <div className="ui segments">
+            <div className="ui segment">
+                <CreateRef/>
+            </div>
+            <div className="ui segment">
+                <UseRef/>
+            </div>
+        </div>
+      );
+
+}
