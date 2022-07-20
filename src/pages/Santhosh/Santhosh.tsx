@@ -18,8 +18,7 @@ class Santhosh extends Component<IProps> {
                         <div className="ui secondary vertical menu">
                             <Link to='' className="item">Home</Link>
                             <Link to='users' className="item">Axios in  Class Component</Link>
-                            <Link to='posts' className="item">Axios in  Functional Component </Link>    
-                            <Link to='santhosh1' className = "item">Route Params</Link>                      
+                            <Link to='posts' className="item">Axios in  Functional Component </Link>                                               
                             <Link to='login' className="item">Context</Link>                            
                             <Link to='ref' className="item">Ref</Link>                             
                             <Link to='/' className="item">SignOut</Link> 
