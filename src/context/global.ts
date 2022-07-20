@@ -6,7 +6,11 @@ export const CounterContext = createContext(0);
 // Rakhi
 export const UserContext = createContext({name:'Guest', viewMode:'Guest'});
 
+// Divya & Vishnupriya
 export const User = createContext({name:'Guest', userRole:'Guest'});
+
+// Vishnupriya
+export const Pcontext = createContext('');
 
 // Samara
 export const ContextWeather = createContext('');

@@ -1,39 +1,34 @@
-import { Component } from "react";
+import { useState, useEffect } from "react";
 import axios from '../../axios';
-import { User } from '../../context/global';
 
+     
+//Axios - Functional Component
 
+export const Laptops = ( props: any ) => {
 
-interface IProps {
-    title: string;
-}
+    const [loading, setLoading] = useState<any>(true);
+    const [content, setContent] = useState<any>(null);
+    const [error, setError] = useState<any>(null);
 
-interface IState {
-    loading: boolean;
-    content: { } [ ] | null;
-    error: { message: string } | null;
-}
-
-export class Laptops extends Component<IProps, IState> {
-
-    state = { loading: true, content: null, error: null };
-
-    componentDidMount( ) {
-
+    useEffect( () => {
         axios.get('/comments')
             .then(response => {
-                this.setState( {loading: false, content: response.data.splice(1,10), error: null} );
+                setLoading(false);
+                setContent(response.data.splice(1,10));
+                setError(null);
             })
             .catch(error => {
-                this.setState( {loading: false, content: null, error: error} );
+                setLoading(false);
+                setContent(null);
+                setError(error);
             })
-    }
+    }, [] ) 
 
-    renderLoading( ) {
+    const renderLoading = ( ) => {
 
         const loadingJSX = 
             <div>
-                <h2>{ this.props.title }</h2>
+                {/* <h2>{ props.title }</h2> */}
                 <div className="ui segment">
                     <p>Loading...</p>
                     <div className="ui active dimmer">
@@ -44,9 +39,9 @@ export class Laptops extends Component<IProps, IState> {
         return loadingJSX;
     }
 
-    renderError( ) {
+    const renderError = ( ) => {
 
-        const message = this.state.error ? this.state.error[ `message` ] : '';
+        const message = error ? error[ `message` ] : '';
         const errorJSX =
             <div>
                 <div className="ui negative message">
@@ -57,10 +52,10 @@ export class Laptops extends Component<IProps, IState> {
         return errorJSX;
     }
 
-    renderData( ) {
+    const renderData = ( ) => {
 
-        const datas = this.state.content ? this.state.content : [ ];
-        const dataJsx = datas.map( ( item: {id: number, name: string, body: string} ) => {
+        const data = content ? content : [ ];
+        const dataJsx = data.map( ( item: {id: number, name: string, body: string} ) => {
             return (
                 <div key={ item.id } className="ui two segment">
                     <h5>Name: { item.name }</h5>
@@ -71,25 +66,15 @@ export class Laptops extends Component<IProps, IState> {
         return dataJsx;
     }
 
-    render( ) {
-
-        return (
-            <div>
-                <User.Consumer>
-                    {user => (
-                        <>  
-                            <h5 className = "ui header blue">  {user.name} !!!</h5>
-                        </>
-                    )}
-                </User.Consumer>
-                <h4 className="ui center aligned header">{ this.props.title }</h4>
+    return(
+        <div>
+            <h4 className="ui center aligned header">{ props.title }</h4>
                 
                 {
-                    this.state.loading ? this.renderLoading( ) :
-                    this.state.content ? this.renderData( ) :
-                    this.renderError( )    
+                    loading ? renderLoading( ) :
+                    content ? renderData( ) :
+                    renderError( )    
                 }
-            </div>
-        )   
-    }
+        </div>
+    );
 }

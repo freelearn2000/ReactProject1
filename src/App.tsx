@@ -29,13 +29,13 @@ import Cats from './pages/Parvathy/Cats';
 import MyHome from './pages/Parvathy/Home';
 import { UseRef1, CreateRef1 } from './pages/Parvathy/UseRef1';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
-import { Home as Phome } from './pages/Vishnupriya/Home';
+import { Axiosp } from './pages/Vishnupriya/Axiosp';
 import { ShoppingCart } from './pages/Vishnupriya/ShoppingCart';
 import Electronics from './pages/Vishnupriya/Electronics';
 import { Mobiles } from './pages/Vishnupriya/Mobiles';
 import { Laptops } from './pages/Vishnupriya/Laptops';
-import { UserCont } from './pages/Vishnupriya/UserContext';
-import { CreateRefs, UseRefs } from './pages/Vishnupriya/Ref';
+import { Contextz } from './pages/Vishnupriya/Contextz';
+import { Refz } from './pages/Vishnupriya/Ref';
 import Divya from './pages/Divya/Divya';
 import Product from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
@@ -174,14 +174,13 @@ class App extends Component {
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
         <Route index element={ <ShoppingCart title="Shopping-Cart"/> }/>
          <Route path="shoppingcart" element={ <ShoppingCart title="Shopping-Cart"/> }/>
-         <Route path="home" element={ <Phome title="Home"/> }/>
+         <Route path="axiosp" element={ <Axiosp title="Axios"/> }/>
          <Route path="electronics" element={ <Electronics title="Electronics"/> }>
           <Route path="mobiles" element={ <Mobiles title="Mobiles"/> }/>
           <Route path="laptops" element={ <Laptops title="Laptops"/> }/>
          </Route>
-         <Route path="usercontext" element={ <UserCont/> }></Route>
-         <Route path="createref" element={ <CreateRefs/> }></Route>
-         <Route path="useref" element={ <UseRefs/> }></Route>
+         <Route path="contextz" element={ <Contextz/> }></Route>
+         <Route path="refz" element={ <Refz/> }></Route>
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }>
         <Route index element={ <Product title="Product"/> }/>

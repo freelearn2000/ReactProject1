@@ -22,12 +22,11 @@ class Vishnupriya extends Component<IProps> {
                                 <img src={ImLogo} alt={ImLogo} ></img>
                             </div>
                             <Link to='/vishnupriya/shoppingcart' className="ui blue button">Shopping Cart</Link>
-                            <Link to='/vishnupriya/home' className="ui teal button">Home</Link>
-                            <Link to='/vishnupriya/electronics' className="ui green button">Electronics</Link>
-                            <Link to='/vishnupriya/usercontext' className = "ui blue button">User Context</Link>
-                            <Link to='/vishnupriya/createref' className="ui teel button">CreateRef</Link>
-                            <Link to='/vishnupriya/useref' className="ui teel button">UseRef</Link>
-                        </div>
+                            <Link to='/vishnupriya/axiosp' className="ui teal button">Axios</Link>
+                            <Link to='/vishnupriya/electronics' className="ui green button">AxiosElectronics</Link>
+                            <Link to='/vishnupriya/contextz' className = "ui blue button">Context</Link>
+                            <Link to='/vishnupriya/refz' className="ui teel button">Ref</Link>
+                            </div>
                         <div className="four wide raw">
                             <User.Provider value={{name:"Vishnupriya", userRole:'Admin'}}>
                                 <Outlet/>

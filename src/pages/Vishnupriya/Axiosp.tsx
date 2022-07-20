@@ -12,7 +12,7 @@ interface IState {
     error: { message: string } | null;
 }
 
-export class Home extends Component<IProps, IState> {
+export class Axiosp extends Component<IProps, IState> {
 
     state = { loading: true, content: null, error: null };
 

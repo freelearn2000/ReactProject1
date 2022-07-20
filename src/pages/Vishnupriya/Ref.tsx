@@ -1,5 +1,6 @@
 import { Component, createRef, useRef, useEffect } from 'react';
 
+// Class Component
 
 export class CreateRefs extends Component {
 
@@ -14,7 +15,7 @@ export class CreateRefs extends Component {
 
         return(
             <div className="ui form">
-                <h4 className="ui heading">Eg: CreateRef</h4>
+                <h4 className="ui heading">Class Component: CreateRef</h4>
                 <div className="fields">
                     <div className="field">
                         <label>First name</label>
@@ -35,6 +36,9 @@ export class CreateRefs extends Component {
     }
 }
 
+
+// Functional Component
+
 export const UseRefs = ( ) => {
 
     const focusRef = useRef<any>();
@@ -46,7 +50,7 @@ export const UseRefs = ( ) => {
 
     return(
         <div className="ui form">
-                <h4 className="ui heading">Eg: UseRef</h4>
+                <h4 className="ui heading">Functional Component: UseRef</h4>
                 <div className="fields">
                     <div className="field">
                         <label>First name</label>
@@ -59,4 +63,17 @@ export const UseRefs = ( ) => {
                 </div>
             </div>
     )
+}
+
+export const Refz = ( ) => {
+    return(
+        <div>
+            <div className='ui segment'>
+                <CreateRefs/>
+            </div>
+            <div className='ui segment'>
+                <UseRefs/>
+            </div>
+        </div>
+    );
 }
