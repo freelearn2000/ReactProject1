@@ -43,17 +43,18 @@ export class Sports extends Component<IProps> {
 
     renderUserdata( ) {
 
-        const sports = this.state.sports ? this.state.sports : [ ];
-        const dataJSX = sports.map( (sports: any ) => {
-           return( 
-            <div key={ sports.id } className="ui segment">
-                <h4>{ sports.title }</h4>
-            </div>
-           )
-        });
-        return dataJSX;
+        //const sports = this.state.sports ? this.state.sports : [ ];
+        // const dataJSX = sports.map( (sports: any ) => {
+        //    return(  
+            
+        //     <div key={ sports.id } className="ui segment">
+        //         <h4>{ sports.title }</h4>
+        //     </div>
+        //    )
+        // });
+        // return dataJSX;
     }
-
+    
     render( ) {
 
         return(
@@ -63,7 +64,7 @@ export class Sports extends Component<IProps> {
                         <Athletics/>
                     </SportsContext.Provider>
                     
-                    <h2 className="ui center aligned header">{ this.props.title }</h2>
+                    <h2 className="ui center aligned header"> </h2>
                         {
                             this.state.loading ? this.renderLoading( ):
                             this.state.sports ? <> { this.renderUserdata( ) }</>:
@@ -81,7 +82,7 @@ class Athletics extends Component {
         return(      
              <>  
                 <hr color="blue" />
-                <h5>Atheletics [Wrapped ContextProvider in the maincomponent  Sports]</h5>
+                <h5>Atheletics [Wrapped ContextProvider in the maincomponent  Sports] Class Component </h5>
                 <Running/>
              </>
         )
@@ -94,11 +95,11 @@ class Running extends Component {
 
         return(
                 <>
-                 <h5>Running [consumer]</h5>
+                 <h5>Running [consumer] Class component</h5>
                  <SportsContext.Consumer>
                     { value => (
                       <>
-                        Best Athlet { value }                      
+                        Best Athlet  <span style={{color: 'blue'}}>{ value } </span>                      
                       </>
                      )
                     }
@@ -116,8 +117,8 @@ class Sprint extends Component {
                 return(
         
                     <>
-                        <h5>Sprint [static]  </h5>
-                            Olympian Bronze medal winner : { this.context}
+                        <h5>Sprint [static] Class component </h5>
+                            Olympian Bronze medal winner : {this.context}
                         <Marathon />
                     </>
                 )
@@ -130,8 +131,8 @@ const Marathon = () => {
          return(
 
                 <>
-                   <h5>Marathon [ useContext]</h5>
-                   Arjun Award winner 1983 { context }
+                   <h5>Marathon [ useContext] Functional Component</h5>
+                   Arjun Award winner 1983 <span style={{color: 'blue'}}>{ context } </span> 
                    <hr color = "blue" />
                    
                 </>

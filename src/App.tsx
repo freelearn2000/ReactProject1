@@ -40,8 +40,8 @@ import Divya from './pages/Divya/Divya';
 import Product from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
 import { Skincare } from './pages/Divya/Skincare';
-import { AuthUser } from './pages/Divya/UserContext';
-import { CreateRefDiv, UseRefDiv } from './pages/Divya/Ref';
+import { ContextDiv } from './pages/Divya/UserContext';
+import { RefDiv } from './pages/Divya/Ref';
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import { Nepal } from './pages/Viji/Nepal';
@@ -54,9 +54,9 @@ import { TravelBlog as Travel } from './pages/Dhanya/TravelBlog';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 import { Bindu } from './pages/Bindu/Bindu';
 import { Bhome }  from './pages/Bindu/Bhome';
-import { Health } from './pages/Bindu/Health';
+import {AxiosExample  } from './pages/Bindu/AxiosExample';
 import { Sports } from './pages/Bindu/Sports';
-import { CreateRefExample1, UserefExample } from './pages/Bindu/RefExample1';
+import { RefExample1 } from './pages/Bindu/RefExample1';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
 import { SamaraHome } from './pages/Samara/SamaraHome';
@@ -79,7 +79,7 @@ import { Entertainment } from './pages/Radhika/Entertainment';
 import { Art } from './pages/Radhika/Art';
 import { Dance } from './pages/Radhika/Dance';
 import { MusicContext } from './pages/Radhika/MusicContext';
-import { SearchReff, SearchReff1 } from './pages/Radhika/Reff';
+import { SearchRef } from './pages/Radhika/Reff';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
@@ -138,10 +138,9 @@ class App extends Component {
          <Route path="/bindu" element={ <Bindu title="This is Bindu's Component"/> }>
          <Route index element={ <Bhome title="Home"/> }/>
          <Route path="bhome" element={ <Bhome title="Home"/> }/>
-         <Route path="health" element={ <Health title="Health"/> }/>
+         <Route path="api" element={ <AxiosExample /> }/>
          <Route path="sports" element={ <Sports title="Sports"/> }/>
-         <Route path="useref" element={ <UserefExample/> }/>
-          <Route path="createref" element={ <CreateRefExample1/> }/>
+         <Route path="Ref" element={ <RefExample1 /> }/>
          <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
@@ -149,8 +148,7 @@ class App extends Component {
           <Route path="art" element={ <Art title="Art"/> }/>
           <Route path="dance" element={ <Dance title="Dance"/> }/>
           <Route path="musiccontext" element={ <MusicContext /> } />
-          <Route path="searchReff1" element={ <SearchReff1 /> } />
-          <Route path="searchReff" element={ <SearchReff /> } />
+          <Route path="searchref" element={ <SearchRef /> } />
           <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
@@ -164,8 +162,8 @@ class App extends Component {
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
           <Route index element={ <MyHome /> }/>
           <Route path="home" element={ <MyHome /> }/>
-          <Route path="books" element={ <Books title="Books" /> }/>
-          <Route path="cats" element={ <Cats title="Cats" /> }/>
+          <Route path="books" element={ <Books title="Axios: Class Component" /> }/>
+          <Route path="cats" element={ <Cats title="Axios: Functional Component" /> }/>
           <Route path="petscontext" element={ <PetsContext title="Context" /> }/>
           <Route path="ref" element={ <RefSample1/> }/>
           <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
@@ -189,9 +187,8 @@ class App extends Component {
             <Route path="skincare" element={ <Skincare/> }/>
           </Route>
           <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>
-          <Route path="usercontext" element={ <AuthUser/> }></Route>
-          <Route path="createref" element={ <CreateRefDiv/>}></Route>
-          <Route path="useref" element={<UseRefDiv/>}></Route>
+          <Route path="context" element={ <ContextDiv/> }></Route>
+          <Route path="ref" element={ <RefDiv/>}></Route>
         </Route>
         <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }>
         <Route index element={ <Homepages/> }/>

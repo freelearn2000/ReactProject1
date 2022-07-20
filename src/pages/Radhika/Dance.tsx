@@ -1,28 +1,29 @@
-import { Component } from 'react';
+import {  useState, useEffect } from 'react';
 import axios from '../../axios';
 
+// Axios implemented through Functional Component
 
-interface IProps {
-    title: string;
-}
+export const Dance = ( props: any ) => {
 
-export class Dance extends Component<IProps> {
-
-    state = { loading: true, posts: null, error: null };
-
-    componentDidMount( ) {
-
+    const[loading, setLoading] = useState<boolean>(true);
+    const[data, setData] = useState<any>(null);
+    const[error, setError] = useState<any>(null);
+    
+    useEffect( () =>  {
         axios.get('/posts')
             .then(response => {
-                this.setState( { loading: false, posts: response.data, error: null } );
+                setLoading(false);
+                setData(response.data);
+                setError(null);
             })
             .catch(error => {
-                this.setState( { loading: false, posts: null, error: error } );
+                setLoading(false);
+                setData(null);
+                setError(error);
             })
-    }
-     
-    renderLoading( ) {
+    }, []);
 
+    const renderLoading = ( ) => {
         const loadingJSX = 
         <div>
             <i className="notched circle loading icon"></i>
@@ -33,40 +34,43 @@ export class Dance extends Component<IProps> {
         return loadingJSX;
     }
 
-    renderError( ) {
-
-        const message = this.state.error ? this.state.error[ 'message' ] : '';
+    const renderError = ( ) => {
+        
+        const message = error ? error[ 'message' ] : '';
         const errorJSX = 
                 <div className="ui red message">
                     <h4>{ message }</h4>
                 </div>
         return errorJSX;
+
     }
 
-    renderUserdata( ) {
+    const renderUserdata = ( ) => {
 
-        const posts = this.state.posts ? this.state.posts : [ ];
+        const posts = data ? data : [ ];
         const dataJSX = posts.map( ( post: any ) => {
+            if( post.id<6 ) {
             return (
                 <div key={ post.id } className="ui green segment">
                     <p><b>News:</b>{ post.body }</p>
                 </div>
             );
+            }
         });
         return dataJSX;
-    }
-    
-    render( ) {
 
-        return(
-            <div>
-                <h2 className="ui center aligned header">{  this.props.title  }</h2>
-                {
-                    this.state.loading ? this.renderLoading( ): 
-                    this.state.posts ? this.renderUserdata( ):
-                    this.renderError( )
-                }
-            </div>
-        );
-    }
+    }   
+
+    return(
+               
+        <div>
+        <h2 className="ui center aligned header">{ props.title }</h2>
+            {
+                loading ? renderLoading( ): 
+                data ? renderUserdata( ):
+                renderError( )
+            }
+        </div>
+    );
+    
 }

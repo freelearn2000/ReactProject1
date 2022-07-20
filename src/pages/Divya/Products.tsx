@@ -70,8 +70,8 @@ class Product extends Component<IProps> {
   					<div className="row">
 						<div className="three wide  column">
                         	<div className="ui vertical fluid menu">
-			 					<Link to='/divya/product/grocery' className= {this.props.location.pathname.includes('grocery')?"active item":"item"}><img alt={GroImage} src={GroImage} /> <br/> Grocery </Link>
-			 					<Link to='/divya/product/skincare' className={this.props.location.pathname.includes('skincare')?"active item":"item"}><img alt={SkinImage} src={SkinImage} /> <br/> SkinCare</Link>
+			 					<Link to='/divya/product/grocery' className= {this.props.location.pathname.includes('grocery')?"active item":"item"}><img alt={GroImage} src={GroImage} /> <br/> Axios Class </Link>
+			 					<Link to='/divya/product/skincare' className={this.props.location.pathname.includes('skincare')?"active item":"item"}><img alt={SkinImage} src={SkinImage} /> <br/> Axios Fun.</Link>
                             </div>
                         </div>
 						<div className="twelve wide  column"> 

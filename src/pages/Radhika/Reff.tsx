@@ -1,6 +1,8 @@
 import { Component, createRef, useRef, useEffect } from "react";
 
-export class SearchReff extends Component {
+// Class Components
+
+class SearchReff extends Component {
 
     searchRef: any = null;
 
@@ -32,9 +34,9 @@ export class SearchReff extends Component {
     }
 }
 
+// Functional Component
 
-
-export const  SearchReff1 = ( ) => {
+const  SearchReff1 = ( ) => {
 
     const searchRef: any = useRef( );
 
@@ -54,4 +56,20 @@ export const  SearchReff1 = ( ) => {
             </div>
         </>
     )
+}
+
+export class SearchRef extends Component {
+
+    render ( ) {
+        return (
+            <div className="ui segments">
+                <div className="ui segment">
+                    <SearchReff/>
+                </div>
+                <div className="ui segment">
+                    <SearchReff1/>
+                </div>
+            </div>
+        );
+    }
 }
