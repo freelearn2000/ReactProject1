@@ -165,8 +165,8 @@ class App extends Component {
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
           <Route index element={ <MyHome /> }/>
           <Route path="home" element={ <MyHome /> }/>
-          <Route path="books" element={ <Books title="Books" /> }/>
-          <Route path="cats" element={ <Cats title="Cats" /> }/>
+          <Route path="books" element={ <Books title="Axios: Class Component" /> }/>
+          <Route path="cats" element={ <Cats title="Axios: Functional Component" /> }/>
           <Route path="petscontext" element={ <PetsContext title="Context" /> }/>
           <Route path="ref" element={ <RefSample1/> }/>
           <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
