@@ -173,8 +173,8 @@ class App extends Component {
          <Route path="shoppingcart" element={ <ShoppingCart title="Shopping-Cart"/> }/>
          <Route path="axiosp" element={ <Axiosp title="Axios"/> }/>
          <Route path="electronics" element={ <Electronics title="Electronics"/> }>
-          <Route path="mobiles" element={ <Mobiles title="Mobiles"/> }/>
-          <Route path="laptops" element={ <Laptops title="Laptops"/> }/>
+          <Route path="mobiles" element={ <Mobiles title="Axios-Class Component"/> }/>
+          <Route path="laptops" element={ <Laptops title="Axios-Functional Component"/> }/>
          </Route>
          <Route path="contextz" element={ <Contextz/> }></Route>
          <Route path="refz" element={ <Refz/> }></Route>

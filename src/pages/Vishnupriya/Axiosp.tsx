@@ -20,7 +20,7 @@ export class Axiosp extends Component<IProps, IState> {
 
         axios.get('/users')
             .then(response => {
-                this.setState( {loading: false, content: response.data, error: null} );
+                this.setState( {loading: false, content: response.data.splice(0,5), error: null} );
             })
             .catch(error => {
                 this.setState( {loading: false, content: null, error: error} );

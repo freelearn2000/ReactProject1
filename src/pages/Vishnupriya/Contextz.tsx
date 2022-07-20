@@ -33,8 +33,8 @@ export class User3 extends Component {
             <User.Consumer>
                 { user  => (
                     <div>
-                        <h2>Class Component</h2>
-                        <h4>Welcome! {user.userRole}</h4>
+                        <h4>Class Component: createContext </h4>
+                        <h6>Welcome! {user.userRole}</h6>
                     </div>
                 )}
             </User.Consumer>
@@ -94,8 +94,8 @@ const Headset2 = (props: any) => {
 
     return(
         <>
-        <h2>Functional Component</h2>
-        <h4> Context value: {context}</h4>
+        <h4>Functional Component: useContext</h4>
+        <h6> Context value: {context}</h6>
         </>
     );
 }

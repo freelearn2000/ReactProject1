@@ -14,7 +14,7 @@ export const Laptops = ( props: any ) => {
         axios.get('/comments')
             .then(response => {
                 setLoading(false);
-                setContent(response.data.splice(1,10));
+                setContent(response.data.splice(1,5));
                 setError(null);
             })
             .catch(error => {
