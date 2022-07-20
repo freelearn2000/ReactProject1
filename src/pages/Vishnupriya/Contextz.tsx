@@ -93,17 +93,17 @@ const Headset2 = (props: any) => {
     const context = useContext(Pcontext);
 
     return(
-        <>
+        <div>
         <h4>Functional Component: useContext</h4>
         <h6> Context value: {context}</h6>
-        </>
+        </div>
     );
 }
 
 export const Contextz = ( ) => {
     return(
         <div>
-            <div className='ui segment'>
+            <div>
                 <UserCont/>
             </div>
             <div className='ui segment'>
