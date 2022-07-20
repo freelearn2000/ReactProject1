@@ -69,11 +69,11 @@ import { ContextYoga } from './pages/Manooja/ContextYoga';
 import { ContextColor } from './pages/Viji/ContextColor';
 import { RefCreateExample,RefUseExample } from './pages/Manooja/RefUseExample1';
 import Santhosh from './pages/Santhosh/Santhosh';
-import { Posts } from './pages/Santhosh/Posts';
+import { Ref } from './pages/Santhosh/Ref';
 import { Users } from './pages/Santhosh/Users';
+import { Posts } from './pages/Santhosh/Posts';
 import { Home as Home1 } from './pages/Santhosh/Home';
 import { Login } from './pages/Santhosh/Login';
-import { CreateRef as CRef, UseRef as URef } from './pages/Santhosh/Ref';
 import Radhika from './pages/Radhika/Radhika';
 import { Entertainment } from './pages/Radhika/Entertainment';
 import { Art } from './pages/Radhika/Art';
@@ -85,6 +85,7 @@ import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
 import { Contextpage } from './pages/Aiswarya/Contextpage';
 import { Createref, Useref } from './pages/Aiswarya/Createref';
+
 
 class App extends Component {
   
@@ -116,11 +117,10 @@ class App extends Component {
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>          
           <Route index element={ <Home1 title="Home"/> }/>
           <Route path="home" element={ <Home1 title="Home"/> }/>
-          <Route path="users" element={ <Users title="Users Details"/> }/>
-          <Route path="posts" element={ <Posts title="Posts"/> }/>
+          <Route path="users" element={ <Users title="Axios - Class Component"/> }/>
+          <Route path="posts" element={ <Posts title="Axios - Functional Component"/> }/>
           <Route path="login" element={ <Login/> } />
-          <Route path="cref" element={ <CRef/> } />
-          <Route path="uref" element={ <URef/> } />
+          <Route path="ref" element={ <Ref/> } />        
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
         </Route>
         <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>

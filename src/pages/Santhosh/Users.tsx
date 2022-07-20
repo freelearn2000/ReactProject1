@@ -5,7 +5,7 @@ interface IProps {
     title: any;
 }
 
-// Axios - Class component
+// Axios in Class component
 export class Users extends Component<IProps> {
 
     state = {loading: true, users: null, error: null};

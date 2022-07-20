@@ -1,85 +1,78 @@
-import { Component, createRef, useEffect, useRef } from "react";
-import { Link } from 'react-router-dom';
+import { Component, useEffect, useState } from "react";
+import axios from '../../axios';
 
-class CreateRef extends Component {
+//  Axios in Functional component
+export const Posts  = ( props: any ) => {
 
-    inputRef: any;
-    
-    constructor( props: any ) {
-        super(props);
-
-        this.inputRef = createRef( );
-    }
-
-    render( ) {
-        return (
-            <>
-                <div className="ui basic segment">
-                    <h4 className="ui primary header">Ref - Class component</h4>
-                    <form className="ui form formStyle attached fluid">
-                        <div className="field">                            
-                            <input type="text" placeholder="User Name" ref={ this.inputRef }/>
-                        </div>
-                        <div className="field">                        
-                            <input type="text" placeholder="Password"/>
-                        </div>
-                        <div className="ui buttons">
-                            <Link to='/santhosh' className = "ui blue button">Cancel</Link>                          
-                            <div className="or"></div>
-                            <button className="ui positive button" >Submit</button>
-                        </div>
-                    </form>
-                </div>                    
-            </>
-        )        
-    }
-
-    componentDidMount( ) {
-       // console.log(this.inputRef);
-        this.inputRef.current.focus();
-    }
-}
-
-
-const UseRef =( ) => {
-
-    const inputRef = useRef<any>();
+    const [loading, setloading] = useState(true);
+    const [data, setdata] = useState(null);
+    const [error, seterror ] = useState(null);
 
     useEffect( ( ) => {
+        axios.get('/posts')
+        .then(response => {
+            setloading(false);
+            setdata(response.data);
+            seterror(null);
+        })
+        .catch(error => {
+            setloading(false);
+            setdata(null);
+            seterror(error);
+        })
+    }, []);
+
+
+    const renderLoading = ( ) => {
+        const loadingJSX =  
+            <div className = "ui icon message">
+                <i className = "notched circle loading icon"></i>
+                <div className = "content">
+                    <div className = "header">
+                        Just one second
+                    </div>
+                    <p>We're fetching that content for you.</p>
+                </div>
+            </div>
+        return loadingJSX;
+
+    }
+    const renderUserdata = ( ) => {
+        const data1 = data ? data : [ ];
+        const dataJSX = data1.map( ( item: any ) => {
+            if( item.id < 6) {
+                return(
+                    <div key={ item.id } className = 'ui segment'>
+                        <h4>Id: {item.id}</h4>
+                        <p>Title: {item.title}</p>
+                    </div>
+                );
+            }
+        });
+        return dataJSX;
+
         
-        inputRef.current.focus();
-    }, []) 
+    }
+    const renderError = ( ) => {
+        const errorMessage = error? error['message'] : '';
+        const errorJSX = 
+            <div>
+                <div className = "ui negative message">
+                    <p>{ errorMessage }</p>
+                </div>
+            </div>
+        return errorJSX;
+
+    }
 
     return(
         <>
-            <div className="ui basic segment">
-                <h4 className="ui primary header">Ref - Functional component</h4>
-                <form className="ui form formStyle attached fluid">
-                    <div className="field">                            
-                        <input type="text" placeholder="Search" ref={ inputRef }/>
-                    </div>                
-                    <div className="ui buttons">
-                    <Link to='/santhosh' className = "ui blue button">Cancel</Link>     
-                        <div className="or"></div>
-                        <button className="ui positive button" >Search</button>
-                    </div>
-                </form>
-            </div>                    
+        <h1 className="ui center aligned blue message">{ props.title }</h1>                                         
+            {
+                loading ? renderLoading( ):
+                data ? <> { renderUserdata( ) }</>:
+                <><h2>Error Data</h2>{ renderError( )}</>
+            }          
         </>
-    )
-}
-
-
-export const Ref =( ) => {
-    return (
-        <div className="ui segments">
-            <div className="ui segment">
-                <CreateRef/>
-            </div>
-            <div className="ui segment">
-                <UseRef/>
-            </div>
-        </div>
-      );
-
+    );
 }
