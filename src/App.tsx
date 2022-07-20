@@ -54,9 +54,9 @@ import { TravelBlog as Travel } from './pages/Dhanya/TravelBlog';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 import { Bindu } from './pages/Bindu/Bindu';
 import { Bhome }  from './pages/Bindu/Bhome';
-import { Health } from './pages/Bindu/Health';
+import {AxiosExample  } from './pages/Bindu/AxiosExample';
 import { Sports } from './pages/Bindu/Sports';
-import { CreateRefExample1, UserefExample } from './pages/Bindu/RefExample1';
+import { RefExample1 } from './pages/Bindu/RefExample1';
 import { CanadaWeather } from './pages/Samara/CanadaWeather';
 import { PolandWeather } from './pages/Samara/PolandWeather';
 import { SamaraHome } from './pages/Samara/SamaraHome';
@@ -139,10 +139,9 @@ class App extends Component {
          <Route path="/bindu" element={ <Bindu title="This is Bindu's Component"/> }>
          <Route index element={ <Bhome title="Home"/> }/>
          <Route path="bhome" element={ <Bhome title="Home"/> }/>
-         <Route path="health" element={ <Health title="Health"/> }/>
+         <Route path="api" element={ <AxiosExample /> }/>
          <Route path="sports" element={ <Sports title="Sports"/> }/>
-         <Route path="useref" element={ <UserefExample/> }/>
-          <Route path="createref" element={ <CreateRefExample1/> }/>
+         <Route path="Ref" element={ <RefExample1 /> }/>
          <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
