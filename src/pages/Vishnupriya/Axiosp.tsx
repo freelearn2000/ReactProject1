@@ -12,7 +12,7 @@ interface IState {
     error: { message: string } | null;
 }
 
-export class Home extends Component<IProps, IState> {
+export class Axiosp extends Component<IProps, IState> {
 
     state = { loading: true, content: null, error: null };
 
@@ -20,7 +20,7 @@ export class Home extends Component<IProps, IState> {
 
         axios.get('/users')
             .then(response => {
-                this.setState( {loading: false, content: response.data, error: null} );
+                this.setState( {loading: false, content: response.data.splice(0,5), error: null} );
             })
             .catch(error => {
                 this.setState( {loading: false, content: null, error: error} );

@@ -1,33 +1,30 @@
-import { Component } from 'react';
+import { useEffect, useState } from "react";
 import axios from '../../axios';
 
 
-interface IProps {
-    title: string;
-}
+// Axios in Functional Component
+export const PolandWeather = ( props: any ) => {
 
-interface IState {
-    loading: boolean;
-    data: { } [ ] | null;
-    error: { message: string } | null;
-}
+    const [loading, setLoading] = useState<boolean>(true);
+    const [data, setData] = useState<any>(null);
+    const [error, setError] = useState<any>(null);
 
-export class PolandWeather extends Component<IProps, IState> {
-
-    state = { loading: true, data: null, error: null };
-
-    componentDidMount( ) {
+    useEffect( ( ) => {
 
         axios.get('/albums')
-        .then(response => {
-            this.setState( {loading: false, data: response.data, error: null} );
-        })
-        .catch(error => {
-            this.setState( {loading: false, data: null, error: error} );
-        })
-    }
+            .then( response => { 
+                setLoading(false);
+                setData(response.data);
+                setError(null)})
+            .catch( error => { 
+                setLoading(false);
+                setData(null);
+                setError(error)} )
 
-    renderLoading( ) {
+    }, [] );
+
+
+    const renderLoading = ( ) => {
 
         const loadingJSX = 
             <div className = "ui segment">
@@ -38,9 +35,9 @@ export class PolandWeather extends Component<IProps, IState> {
         return loadingJSX;
     }
 
-    renderError( ) {
+    const renderError = ( ) => {
 
-        const message = this.state.error? this.state.error[ 'message' ] : '';
+        const message = error? error[ 'message' ] : '';
         const errorJSX = 
             <div>
                 <h3 className = "ui red message">{ message }</h3>
@@ -48,31 +45,31 @@ export class PolandWeather extends Component<IProps, IState> {
         return errorJSX;
     }
 
-    renderData( ) {
+    const renderData = ( ) => {
 
-        const data = this.state.data ? this.state.data : [ ];
-        const dataJSX = data.map( (item: any ) => {
-            return (
-                <div key = { item.id } className="ui floating message">
-                    <h4>ID : { item.id }</h4>
-                    <p>Title : { item.title }</p>
-                </div>
-            );
+        const datas = data ? data : [ ];
+        const dataJSX = datas.map( (item: any) => {
+            if ( item.id < 6 ) {
+                return (
+                    <div key = { item.id } className="ui floating message">
+                        <h4>ID : { item.id }</h4>
+                        <p>Title : { item.title }</p>
+                    </div>
+                );
+            }
         });
         return dataJSX
     }
-    
-    render( ) {
-        
-        return(
-            <div>
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
-                    {
-                        this.state.loading ? this.renderLoading( ):
-                        this.state.data ? <>{ this.renderData( ) }</>:
-                        <><h2>Error Data</h2>{ this.renderError( )}</>
-                    }
-            </div>
-        );
-    }
+
+    return (
+
+        <div>
+            <h2 className="ui center aligned header">{ props.title }</h2>
+                {
+                    loading ? renderLoading( ):
+                    data ? <>{ renderData( ) }</>:
+                    <><h2>Error Data</h2>{ renderError( )}</>
+                }
+        </div>
+    );
 }

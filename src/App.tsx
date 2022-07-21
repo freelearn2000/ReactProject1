@@ -29,13 +29,13 @@ import Cats from './pages/Parvathy/Cats';
 import MyHome from './pages/Parvathy/Home';
 import { RefSample1 } from './pages/Parvathy/UseRef1';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
-import { Home as Phome } from './pages/Vishnupriya/Home';
+import { Axiosp } from './pages/Vishnupriya/Axiosp';
 import { ShoppingCart } from './pages/Vishnupriya/ShoppingCart';
 import Electronics from './pages/Vishnupriya/Electronics';
 import { Mobiles } from './pages/Vishnupriya/Mobiles';
 import { Laptops } from './pages/Vishnupriya/Laptops';
-import { UserCont } from './pages/Vishnupriya/UserContext';
-import { CreateRefs, UseRefs } from './pages/Vishnupriya/Ref';
+import { Contextz } from './pages/Vishnupriya/Contextz';
+import { Refz } from './pages/Vishnupriya/Ref';
 import Divya from './pages/Divya/Divya';
 import Product from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
@@ -84,7 +84,7 @@ import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
 import { Contextpage } from './pages/Aiswarya/Contextpage';
-import { Createref, Useref } from './pages/Aiswarya/Createref';
+import { Createref} from './pages/Aiswarya/Createref';
 
 
 class App extends Component {
@@ -171,14 +171,13 @@ class App extends Component {
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
         <Route index element={ <ShoppingCart title="Shopping-Cart"/> }/>
          <Route path="shoppingcart" element={ <ShoppingCart title="Shopping-Cart"/> }/>
-         <Route path="home" element={ <Phome title="Home"/> }/>
+         <Route path="axiosp" element={ <Axiosp title="Axios"/> }/>
          <Route path="electronics" element={ <Electronics title="Electronics"/> }>
-          <Route path="mobiles" element={ <Mobiles title="Mobiles"/> }/>
-          <Route path="laptops" element={ <Laptops title="Laptops"/> }/>
+          <Route path="mobiles" element={ <Mobiles title="Axios-Class Component"/> }/>
+          <Route path="laptops" element={ <Laptops title="Axios-Functional Component"/> }/>
          </Route>
-         <Route path="usercontext" element={ <UserCont/> }></Route>
-         <Route path="createref" element={ <CreateRefs/> }></Route>
-         <Route path="useref" element={ <UseRefs/> }></Route>
+         <Route path="contextz" element={ <Contextz/> }></Route>
+         <Route path="refz" element={ <Refz/> }></Route>
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }>
         <Route index element={ <Product title="Product"/> }/>
@@ -192,11 +191,11 @@ class App extends Component {
         </Route>
         <Route path="/aiswarya" element={ <Aiswarya title="Aiswarya's Component"/> }>
         <Route index element={ <Homepages/> }/>
-          <Route path="politics" element={ <Politics title="Politics" /> }/>
-          <Route path="Arts" element={ <Arts title="Arts" /> }/>
+          <Route path="politics" element={ <Politics title="Axios: Class Component" /> }/>
+          <Route path="Arts" element={ <Arts title="Axios: Functional Component" /> }/>
           <Route path="context" element={ <Contextpage title="Context"/> }/>
           <Route path="createref" element={ <Createref/> }></Route>
-         <Route path="useref" element={ <Useref/> }></Route>
+         
           <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
         </Route>
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>

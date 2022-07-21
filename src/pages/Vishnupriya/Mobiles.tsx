@@ -1,11 +1,6 @@
-import { Component, createContext, useContext } from "react";
+import { Component } from "react";
 import axios from '../../axios';
-import { User } from '../../context/global';
 
-
-
-// Create Context object
-const MyContext = createContext('');
 
 interface IProps {
     title: string;
@@ -17,6 +12,7 @@ interface IState {
     error: { message: string } | null;
 }
 
+// Axios - Class Component
 export class Mobiles extends Component<IProps, IState> {
 
     state = { loading: true, content: null, error: null };
@@ -25,7 +21,7 @@ export class Mobiles extends Component<IProps, IState> {
 
         axios.get('/todos')
             .then(response => {
-                this.setState( {loading: false, content: response.data.splice(0,10), error: null} );
+                this.setState( {loading: false, content: response.data.splice(0,5), error: null} );
             })
             .catch(error => {
                 this.setState( {loading: false, content: null, error: error} );
@@ -74,78 +70,15 @@ export class Mobiles extends Component<IProps, IState> {
     render( ) {
 
         return (
-            <div>
-                <User.Consumer>
-                    {user => (
-                        <>  
-                            <h5 className = "ui header blue"> {user.name}'s Mobile cart !!!</h5>
-                        </>
-                    )}
-                </User.Consumer>
-                
+            <div> 
                 <h4 className="ui center aligned header">{ this.props.title }</h4>
-
-                <MyContext.Provider value={'Accessories'}>
-                    <Accessories/>
-                </MyContext.Provider>
-
                 {
                     this.state.loading ? this.renderLoading( ) :
                     this.state.content ? this.renderData( ) :
                     this.renderError( )    
-                }
-                
+                }               
             </div>
         )   
     }
 }
 
-class Accessories extends Component {
-
-    render( ) {
-
-        return(
-            <Headset/>
-        );
-    }
-}
-
-// a.Consumer
-const Headset = (props: any) => {
-
-    const context = useContext(MyContext);
-
-    return(
-        <>
-        <h5>Context value: {context}</h5>
-        </>
-    );
-}
-
-// b.Consumer
-// class Headset extends Component {
-
-//     render( ) {
-//         return(
-//             <MyContext.Consumer>
-//                 {value => 
-//                     (
-//                         <> <h3> Context value: {value} </h3></>
-//                     )
-//                 }
-//             </MyContext.Consumer>
-//         )
-//     }
-// }
-
-// c.Consumer
-// class Headset extends Component {
-
-//     static contextType = MyContext;
-
-//     render( ) {
-//         return(
-//             <> Context value: {this.context} </>
-//         )
-//     }
-// }

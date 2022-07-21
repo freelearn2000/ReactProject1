@@ -50,14 +50,16 @@ export class CanadaWeather extends Component<IProps, IState> {
 
     renderData( ) {
 
-        const data = this.state.data ? this.state.data : [ ];
-        const dataJSX = data.map( (item: any) => {
-            return (
-                <div key = { item.id } className="ui floating message">
-                    <h4>Title : { item.title }</h4>
-                    <p>Content : { item.body }</p>
-                </div>
-            );
+        const datas = this.state.data ? this.state.data : [ ];
+        const dataJSX = datas.map( (item: any) => {
+            if( item.id < 6 ) {
+                return (
+                    <div key = { item.id } className="ui floating message">
+                        <h4>Title : { item.title }</h4>
+                        <p>Content : { item.body }</p>
+                    </div>
+                );
+            }
         });
         return dataJSX
     }
