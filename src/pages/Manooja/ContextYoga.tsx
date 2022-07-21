@@ -1,13 +1,14 @@
 import { Component } from "react";
-import { YogaContext } from '../../context/global';
+import { YogaContext, CContext } from '../../context/global';
 
 
-// Provider
-export class ContextYoga extends Component {
+// Providing the Context object in class component
+class Child1 extends Component {
 
     render( ) {
         return(
             <>
+                <h4 className="ui center aligned header green">Context object in Class Component</h4>
                 <YogaContext.Provider value={{instructor: 'Michale', type: 'Meditation'}}>
                     <Middle/>
                 </YogaContext.Provider>
@@ -39,5 +40,38 @@ export class Child extends Component {
             </YogaContext.Consumer>
         );
     }
+}
+
+// Consuming the Context object in Functional component
+const Child2 = (props: any) => {
+
+    return (
+        <>
+            <h4 className="ui center aligned header green">Context object in Functional component</h4>
+            <CContext.Consumer>
+                { value =>
+                    (
+                        <> 
+                            <h4 className="ui left aligned blue header message">Instructor Name: {value.instructor } <br/> Type: {value.type} </h4> 
+                        </>
+                    )
+                }
+            </CContext.Consumer>
+        </>
+    );
+}
+
+export const ContextYoga= ( ) => {
+
+    return (
+        <div className="ui basic segments">
+            <div className="ui segment">
+                <Child1/>
+            </div>
+            <div className="ui segment">
+                <Child2/>
+            </div>
+        </div>
+    );
 }
 

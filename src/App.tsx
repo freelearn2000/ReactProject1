@@ -67,7 +67,7 @@ import { Business } from  './pages/Manooja/Business';
 import { Education } from './pages/Manooja/Education';
 import { ContextYoga } from './pages/Manooja/ContextYoga';
 import { ContextColor } from './pages/Viji/ContextColor';
-import { RefCreateExample,RefUseExample } from './pages/Manooja/RefUseExample1';
+import { ExampleRef } from './pages/Manooja/RefUseExample1';
 import Santhosh from './pages/Santhosh/Santhosh';
 import { Ref } from './pages/Santhosh/Ref';
 import { Users } from './pages/Santhosh/Users';
@@ -212,8 +212,7 @@ class App extends Component {
           <Route path="business" element={ <Business title="Business"/> }/>
           <Route path="education" element={ <Education title="Education"/> }/>
           <Route path="contextyoga" element={ <ContextYoga/> }/>
-          <Route path="useref" element={ <RefUseExample/> }/>
-          <Route path="createref" element={ <RefCreateExample/> }/>
+          <Route path="ref" element={ <ExampleRef/> }/>
          </Route>  
         <Route path="/dhanya" element={ <Dhanya1 title="This is Dhanya's Component"/> }>
           {/* <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/> */}

@@ -34,8 +34,11 @@ export const PetsWorldContext = createContext('1');
 export const ContextTravel = createContext('Ruveneimi');
 // Manooja
 export const YogaContext = createContext({instructor:'', type:''});
+export const CContext = createContext({instructor:'Abhijith', type:'Yin Yoga'});
+
 
 export const ColorContext = createContext({color:'', type:''});
+
 
 export const NewContext = createContext('User');
 

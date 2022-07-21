@@ -6,18 +6,17 @@ export class  RefCreateExample extends Component {
     inputRef : any;
     constructor(props:any) {
          super(props);
-         this.inputRef = createRef<any>()  
-                
+
+         this.inputRef = createRef<any>()          
         } 
     componentDidMount() {
             this.inputRef = this.inputRef.current.focus();
         }
 
     render( ) {
-
         return(
             <>
-             <h4 className="ui left aligned blue header message"> Samplecode CreateRef</h4>
+             <h4 className="ui left aligned blue header message"> Samplecode CreateRef[Class Component]</h4>
              <input type="text" placeholder="Search..."  ref = { this.inputRef }></input>
             </>
         );
@@ -32,8 +31,23 @@ export const  RefUseExample = ( ) => {
     
     return(
         <>
-          <h4 className="ui left aligned blue header message">Sample useRef</h4>  
+          <h4 className="ui left aligned blue header message">Samplecode useRef[Functional Component]</h4>  
           <input type="text" placeholder="Search..."  ref = { inputRef }></input>
         </>
     )
+}
+
+export const ExampleRef = ( ) => { 
+    console.log("refexample1");
+    return (
+        <div className="ui segments">
+            <div className="ui segment">
+                <RefCreateExample/>
+            </div>
+            <div className="ui segment">
+                <RefUseExample/>
+            </div>
+        </div>
+      );
+
 }
