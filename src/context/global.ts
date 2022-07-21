@@ -18,6 +18,7 @@ export const MyMusic = createContext('');
 
 // Santhosh 
 export const LoginContext = createContext({name:'',type:''});
+export const UContext = createContext({name:'Santhosh', type:'Guest'});
 
 // Bindu
 export const  SportsContext = createContext('');
