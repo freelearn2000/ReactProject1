@@ -9,7 +9,7 @@ export const UseRefSample = ( ) => {
 
     return(
         <div className="segment">
-            <h4 className="ui heading">Sample Code for UseRef</h4>
+            <h4 className="ui heading">Sample Code for UseRef - Functional Component</h4>
             <div className="ui input focus">
                 <input type="text" placeholder="Search..." ref={ myRef }/>
             </div> 
@@ -33,7 +33,7 @@ export class CreateRefSample extends Component {
     render () {
          return(
             <div className="segment">
-                <h4 className="ui heading">Sample Code for CreateRef</h4>
+                <h4 className="ui heading">Sample Code for CreateRef - Class Component</h4>
                 <div className="ui input focus">
                     <input type="text" placeholder="Search..." ref={ this.myRef }/>
                 </div> 
@@ -41,7 +41,7 @@ export class CreateRefSample extends Component {
          )
     }
 }
-export const RefSample = ( ) => {
+export const RefeSample = ( ) => {
     return(
         <div>
             <div className='ui segment'>

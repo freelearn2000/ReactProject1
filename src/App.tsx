@@ -46,7 +46,7 @@ import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import { Nepal } from './pages/Viji/Nepal';
 import { Bangladesh } from './pages/Viji/Bangladesh';
-import { UseRefSample, CreateRefSample } from './pages/Viji/MyRefExample';
+import { RefeSample } from './pages/Viji/MyRefExample';
 import Manooja from './pages/Manooja/Manooja';
 import { Dhanya1 } from './pages/Dhanya/Dhanya1';
 import { FoodBlog as Food } from './pages/Dhanya/FoodBlog';
@@ -199,10 +199,10 @@ class App extends Component {
           <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
         </Route>
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>
-          <Route path="nepal" element={ <Nepal title="Details of Nepal"/> }/>
-          <Route path="bangladesh" element={ <Bangladesh title="Details of Bangladesh"/> }/>
+          <Route path="nepal" element={ <Nepal title="Axios - Class Component"/> }/>
+          <Route path="bangladesh" element={ <Bangladesh title="Axios - Functional Component"/> }/>
           <Route path="contextcolor" element={ <ContextColor/> }/>
-          <Route path="MyRefExample" element={ <RefSample/> }/>
+          <Route path="MyRefExample" element={ <RefeSample/> }/>
           <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>
         </Route>
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
