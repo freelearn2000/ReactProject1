@@ -5,15 +5,15 @@ import axios from '../../axios';
 
 export const Dance = ( props: any ) => {
 
-    const[loading, setLoading] = useState<boolean>(true);
-    const[data, setData] = useState<any>(null);
-    const[error, setError] = useState<any>(null);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [data, setData] = useState<any>(null);
+    const [error, setError] = useState<any>(null);
     
     useEffect( () =>  {
         axios.get('/posts')
             .then(response => {
                 setLoading(false);
-                setData(response.data);
+                setData(response.data.splice(0,5));
                 setError(null);
             })
             .catch(error => {
@@ -24,6 +24,7 @@ export const Dance = ( props: any ) => {
     }, []);
 
     const renderLoading = ( ) => {
+
         const loadingJSX = 
         <div>
             <i className="notched circle loading icon"></i>
@@ -49,20 +50,16 @@ export const Dance = ( props: any ) => {
 
         const posts = data ? data : [ ];
         const dataJSX = posts.map( ( post: any ) => {
-            if( post.id<6 ) {
             return (
                 <div key={ post.id } className="ui green segment">
                     <p><b>News:</b>{ post.body }</p>
                 </div>
             );
-            }
         });
         return dataJSX;
-
     }   
 
     return(
-               
         <div>
         <h2 className="ui center aligned header">{ props.title }</h2>
             {
@@ -72,5 +69,4 @@ export const Dance = ( props: any ) => {
             }
         </div>
     );
-    
 }
