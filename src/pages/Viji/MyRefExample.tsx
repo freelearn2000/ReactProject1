@@ -41,3 +41,15 @@ export class CreateRefSample extends Component {
          )
     }
 }
+export const RefSample = ( ) => {
+    return(
+        <div>
+            <div className='ui segment'>
+                <CreateRefSample/>
+            </div>
+            <div className='ui segment'>
+                <UseRefSample/>
+            </div>
+        </div>
+    );
+}

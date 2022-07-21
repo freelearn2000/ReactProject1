@@ -202,8 +202,7 @@ class App extends Component {
           <Route path="nepal" element={ <Nepal title="Details of Nepal"/> }/>
           <Route path="bangladesh" element={ <Bangladesh title="Details of Bangladesh"/> }/>
           <Route path="contextcolor" element={ <ContextColor/> }/>
-          <Route path="useref" element={ <UseRefSample/> }/>
-          <Route path="createref" element={ <CreateRefSample/> }/>
+          <Route path="MyRefExample" element={ <RefSample/> }/>
           <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>
         </Route>
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
