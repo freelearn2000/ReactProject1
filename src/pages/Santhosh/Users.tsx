@@ -11,9 +11,10 @@ export class Users extends Component<IProps> {
     state = {loading: true, users: null, error: null};
     
     componentDidMount( ) {
+        
         axios.get('/users')
             .then(response => {
-                this.setState( {loading: false, users: response.data, error: null} );
+                this.setState( {loading: false, users: response.data.splice(0,5), error: null} );
             })
             .catch(error => {
                 this.setState( {loading: false, users: null, error: error} );
@@ -51,14 +52,12 @@ export class Users extends Component<IProps> {
 
         const users = this.state.users ? this.state.users : [ ];
         const dataJSX = users.map( ( user: { id: number, name: string, email: string}, index ) => {
-            if( user.id < 6) {
             return(
                 <div key={user.id + index} className = 'ui segment'>
                     <h4>Name: {user.name}</h4>
                     <p>Email: {user.email}</p>
                 </div>
             );
-            }
         });
         return dataJSX;
     }
