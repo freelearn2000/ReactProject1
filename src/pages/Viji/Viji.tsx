@@ -16,8 +16,8 @@ class Viji extends Component<IProps> {
                 <div className="ui internally celled grid">
                     <div className="column">
                         <div className="three wide raw">
-                            <Link to='/viji/nepal' className="ui teal label">Nepal</Link>
-                            <Link to='/viji/bangladesh' className="ui teal label">Bangladesh</Link>  
+                            <Link to='/viji/nepal' className="ui teal label">Axios1 - Class</Link>
+                            <Link to='/viji/bangladesh' className="ui teal label">Axios2 - Class</Link>  
                             <Link to='/viji/contextcolor' className="ui teal label">ColorContext</Link> 
                             <Link to='/viji/useref' className="ui teal label">useRef</Link>  
                             <Link to='/viji/createref' className="ui teal label">createRef</Link>    
