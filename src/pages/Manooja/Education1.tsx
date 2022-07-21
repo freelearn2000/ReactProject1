@@ -13,15 +13,13 @@ interface IState {
 	error: { message: string } | null;
 }
 
-// Axios implemented through Class Component
-
-export class Business extends Component<IProps, IState> {
+export class Education extends Component<IProps, IState> {
 
     state = { loading: true, products: null, error: null };
 
 	componentDidMount( ) {
 
-		axios.get('/posts')
+		axios.get('/comments')
 			.then(response => {
 				this.setState( {loading: false, products: response.data, error: null} );
 			})
@@ -52,10 +50,10 @@ export class Business extends Component<IProps, IState> {
 	renderServicesData( ) {
 
 		const datas = this.state.products ? this.state.products : [ ];
-		const dataJSX = datas.map( (product: {id: number, title: string} ) => {
+		const dataJSX = datas.map( (product: {id: number, name: string} ) => {
 			return(
 				<div key={ product.id } className='ui segment'>
-					<p>{product.title}</p>
+					<p>{product.name}</p>
 				</div>
 			);
 		});
@@ -66,10 +64,10 @@ export class Business extends Component<IProps, IState> {
 
 		return(
             <div>
-                <h2 className="ui center aligned header">List of Business Centers</h2> 
+                <h2 className="ui center aligned header">List of Educational Institutions</h2> 
 				
 					{	this.state.loading ? this.renderLoading( ) :
-                		this.state.products ? this.renderServicesData( ):
+                		this.state.products ? this.renderServicesData( ) :
                			this.renderError( )	}                        
 			</div>
         )		

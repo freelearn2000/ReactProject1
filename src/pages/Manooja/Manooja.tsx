@@ -76,11 +76,10 @@ class Manooja extends Component<IProps, IState> {
                         <div className="four wide column">
                             <div className="ui vertical fluid menu">
                                 <Link to='/manooja/index' className="active item">Home</Link>
-                                <Link to='/manooja/business' className="item">Business</Link>
-                                <Link to='/manooja/education' className="item">Education</Link>
-                                <Link to='/manooja/contextyoga' className="item">YogaContext</Link>
-                                <Link to='/manooja/useref' className="item">UseRef</Link>
-                                <Link to='/manooja/createref' className="item">CreateRef</Link>
+                                <Link to='/manooja/business' className="item">Axios-Class component</Link>
+                                <Link to='/manooja/education' className="item">Axios-Functional Component</Link>
+                                <Link to='/manooja/contextyoga' className="item">Context</Link>
+                                <Link to='/manooja/ref' className="item">Ref</Link>
                             </div>
                         </div>
                         <div className="twelve wide stretched column">
