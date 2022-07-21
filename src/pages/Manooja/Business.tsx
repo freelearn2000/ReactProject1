@@ -52,12 +52,14 @@ export class Business extends Component<IProps, IState> {
 	renderServicesData( ) {
 
 		const datas = this.state.products ? this.state.products : [ ];
-		const dataJSX = datas.map( (product: {id: number, title: string} ) => {
+		const dataJSX = datas.map( (product: {id: number, title: string}, ) => {
+			if (product.id < 6)	{
 			return(
 				<div key={ product.id } className='ui segment'>
 					<p>{product.title}</p>
 				</div>
 			);
+			}	
 		});
 		return dataJSX;
 	}
