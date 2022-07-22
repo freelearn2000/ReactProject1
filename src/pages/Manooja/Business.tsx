@@ -7,17 +7,17 @@ interface IProps {
     
 }
 
-interface IState {
-	loading: boolean;
-	products: { } [ ] | null;
-	error: { message: string } | null;
-}
+// interface IState {
+// 	loading: boolean;
+// 	products: { } [ ] | null;
+// 	error: { message: string } | null;
+// }
 
 // Axios implemented through Class Component
 
-export class Business extends Component<IProps, IState> {
+export class Business extends Component<IProps> {
 
-    state = { loading: true, products: null, error: null };
+    state = { loading: true, products: null, error: null }
 
 	componentDidMount( ) {
 
@@ -52,14 +52,14 @@ export class Business extends Component<IProps, IState> {
 	renderServicesData( ) {
 
 		const datas = this.state.products ? this.state.products : [ ];
-		const dataJSX = datas.map( (product: {id: number, title: string}, ) => {
-			if (product.id < 6)	{
+		const dataJSX = datas.map( (products: any ) => {
+			if (products.id < 6)	{
 			return(
-				<div key={ product.id } className='ui segment'>
-					<p>{product.title}</p>
+				<div key={ products.id } className='ui segment'>
+					<p>{products.title}</p>
 				</div>
 			);
-			}	
+		}	
 		});
 		return dataJSX;
 	}
@@ -72,7 +72,8 @@ export class Business extends Component<IProps, IState> {
 				
 					{	this.state.loading ? this.renderLoading( ) :
                 		this.state.products ? this.renderServicesData( ):
-               			this.renderError( )	}                        
+               			this.renderError( )
+					}                        
 			</div>
         )		
 	}	
