@@ -4,15 +4,15 @@ import axios from '../../axios';
 //  Axios in Functional Component
 export const Education  = ( props: any ) => {
 
-    const [loading, setloading] = useState(true);
-    const [data, setdata] = useState(null);
-    const [error, seterror ] = useState(null);
+    const [loading, setloading] = useState<any>(true);
+    const [data, setdata] = useState<any>(null);
+    const [error, seterror ] = useState<any>(null);
 
     useEffect( ( ) => {
         axios.get('/posts')
         .then(response => {
             setloading(false);
-            setdata(response.data);
+            setdata(response.data.slice(0,5));
             seterror(null);
         })
         .catch(error => {
@@ -40,15 +40,13 @@ export const Education  = ( props: any ) => {
     const renderUserdata = ( ) => {
         const data1 = data ? data : [ ];
         const dataJSX = data1.map( ( item: any ) => {
-            if( item.id < 7) {
                 return(
                     <div key={ item.id } className = 'ui segment'>
                         <h4>Id: {item.id}</h4>
                         <p>Title: {item.title}</p>
                     </div>
                 );
-            }
-        });
+            });
 
         return dataJSX;        
     }
