@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, useContext } from "react";
 import { LoginContext, UContext } from '../../context/global';
 
 //Providing the Context object in class component
@@ -8,7 +8,7 @@ class Child1 extends Component {
         return (
             <>
                 <h4 className="ui center aligned header red">Context object in Class Component</h4>
-                <LoginContext.Provider value={{name: 'Santhosh',type: 'Admin'}}>
+                <LoginContext.Provider value={{name: 'Santhosh', type: 'Admin'}}>
                     <Middle/>
                 </LoginContext.Provider>               
             </>
@@ -42,21 +42,26 @@ class Child2 extends Component {
 }
 
 // Consuming the Context object in Functional component
-const Child3 = (props: any) => {
+
+const  Child3 = ( ) => {
+
+    return(
+        <UContext.Provider value={'Santhosh'}>
+            <Child4/>
+        </UContext.Provider>
+    );
+}
+
+
+const Child4 = (props: any) => {
+
+    const context = useContext(UContext);
 
     return (
-        <>
-            <h4 className="ui center aligned header red">Context object in Functional component</h4>
-            <UContext.Consumer>
-                { user =>
-                    (
-                        <> 
-                            <h4 className="ui left aligned blue header message"> User Name: {user.name} <br/> User Type: {user.type} </h4>  
-                        </>
-                    )
-                }
-            </UContext.Consumer>
-        </>
+        <div>
+            <h4 className="ui center aligned header red">Context object in Functional Component</h4>
+            <h4 className="ui left aligned blue header message"> User Name: {context}</h4> 
+        </div>
     );
 }
 

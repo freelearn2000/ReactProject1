@@ -16,7 +16,7 @@ export class Art extends Component<IProps> {
 
         axios.get('/posts')
             .then(response => {
-                this.setState( { loading: false, posts: response.data, error: null } );
+                this.setState( { loading: false, posts: response.data.splice(0,5), error: null } );
             })
             .catch(error => {
                 this.setState( { loading: false, posts: null, error: error } );
@@ -26,12 +26,12 @@ export class Art extends Component<IProps> {
     renderLoading( ) {
 
         const loadingJSX = 
-        <div>
-            <i className="notched circle loading icon"></i>
-            <div className="content">
-                <h4>Loading ....</h4>
-            </div>
-        </div> 
+            <div>
+                <i className="notched circle loading icon"></i>
+                <div className="content">
+                    <h4>Loading ....</h4>
+                </div>
+            </div> 
         return loadingJSX;
     }
 
@@ -49,13 +49,11 @@ export class Art extends Component<IProps> {
 
         const posts = this.state.posts ? this.state.posts : [ ];
         const dataJSX = posts.map( ( posts: any ) => {
-            if(posts.id<6) {
                 return (
                     <div key={ posts.id } className="ui green segment">
                         <p><b>Headline:</b>{ posts.title }</p>
                     </div>
                 );
-            }
         });
         return dataJSX;
     }
