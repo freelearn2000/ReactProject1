@@ -16,7 +16,7 @@ export class Art extends Component<IProps> {
 
         axios.get('/posts')
             .then(response => {
-                this.setState( { loading: false, posts: response.data.splice(0,5), error: null } );
+                this.setState( { loading: false, posts: response.data.slice(0,5), error: null } );
             })
             .catch(error => {
                 this.setState( { loading: false, posts: null, error: error } );

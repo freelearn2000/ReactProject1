@@ -9,11 +9,11 @@ export const Dance = ( props: any ) => {
     const [data, setData] = useState<any>(null);
     const [error, setError] = useState<any>(null);
     
-    useEffect( () =>  {
+    useEffect( ( ) =>  {
         axios.get('/posts')
             .then(response => {
                 setLoading(false);
-                setData(response.data.splice(0,5));
+                setData(response.data.slice(0,5));
                 setError(null);
             })
             .catch(error => {

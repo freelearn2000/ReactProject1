@@ -63,10 +63,10 @@ export class SearchRef extends Component {
     render ( ) {
         return (
             <div className="ui segments">
-                <div className="ui segment">
+                <div className="ui green segment">
                     <SearchReff/>
                 </div>
-                <div className="ui segment">
+                <div className="ui green segment">
                     <SearchReff1/>
                 </div>
             </div>

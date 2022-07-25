@@ -25,10 +25,6 @@ class Music extends Component {
                 <MyMusic.Provider value={'Hindustani'}>
                     <Hindustani/>  
                 </MyMusic.Provider>
-
-                <MyMusic.Provider value={'Ghazal'}>
-                    <Ghazal/>  
-                </MyMusic.Provider>  
             </div>
         );
     }
@@ -72,7 +68,23 @@ class Hindustani extends Component {
 
 // Functional Component 
 
-const Ghazal = (props: any) =>{
+const  Ghazal = ( ) => {
+
+    return(
+        <MyMusic.Provider value={'Ghazal'}>
+            <Ghazal1/>  
+        </MyMusic.Provider>  
+    );
+}
+
+const Ghazal1 = ( ) => {
+
+    return(
+        <Ghazal2/>
+    )
+}
+
+const Ghazal2 = (props: any) =>{
 
     const context = useContext(MyMusic);
 
@@ -92,11 +104,11 @@ export class MusicContext extends Component {
 
         return (
             <div className="ui segments">
-                <div className="ui segment">
+                <div className="ui green segment">
                     <MusiccContext/>
                 </div>
-                <div className="ui segment">
-                    
+                <div className="ui green segment">
+                    <Ghazal/>
                 </div>
             </div>
         );
