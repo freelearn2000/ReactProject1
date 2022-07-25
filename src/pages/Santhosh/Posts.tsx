@@ -13,7 +13,7 @@ export const Posts  = ( props: any ) => {
         axios.get('/posts')
         .then(response => {
             setloading(false);
-            setdata(response.data.splice(0,5));
+            setdata(response.data.slice(0,5));
             seterror(null);
         })
         .catch(error => {

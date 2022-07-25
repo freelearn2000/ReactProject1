@@ -13,7 +13,7 @@ export class Politics extends Component <IProps> {
 
         axios.get('/todos')
             .then(response => {
-                this.setState( { loading: false, politics: response.data, error: null} );
+                this.setState( { loading: false, politics: response.data.slice(0,5), error: null} );
             })
             .catch(error => {
                 this.setState( { loading: false, politics: null, error: error} );

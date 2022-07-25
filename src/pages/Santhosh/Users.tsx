@@ -14,7 +14,7 @@ export class Users extends Component<IProps> {
         
         axios.get('/users')
             .then(response => {
-                this.setState( {loading: false, users: response.data.splice(0,5), error: null} );
+                this.setState( {loading: false, users: response.data.slice(0,5), error: null} );
             })
             .catch(error => {
                 this.setState( {loading: false, users: null, error: error} );
