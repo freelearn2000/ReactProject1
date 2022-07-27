@@ -44,6 +44,7 @@ import { ContextDiv } from './pages/Divya/UserContext';
 import { RefDiv } from './pages/Divya/Ref';
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
+import { Gismapping } from './pages/Viji/Gismapping';
 import { Nepal } from './pages/Viji/Nepal';
 import { Bangladesh } from './pages/Viji/Bangladesh';
 import { RefeSample } from './pages/Viji/MyRefExample';
@@ -199,6 +200,8 @@ class App extends Component {
           <Route path=":id" element={ <Aiswarya title="Aiswarya's Component"/> }/>
         </Route>
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>
+        <Route index element={ <Gismapping title="map-display"/> }/>
+         <Route path="gis" element={ <Gismapping title="map-display"/> }/>
           <Route path="nepal" element={ <Nepal title="Axios - Class Component"/> }/>
           <Route path="bangladesh" element={ <Bangladesh title="Axios - Functional Component"/> }/>
           <Route path="contextcolor" element={ <ContextColor/> }/>

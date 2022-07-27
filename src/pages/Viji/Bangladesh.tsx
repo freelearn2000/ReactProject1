@@ -57,7 +57,7 @@ export const Bangladesh = ( props: any ) => {
         const data = content ? content : [ ];
         const dataJsx = data.map( ( item: {id: number, title: string} ) => {
             return (
-                <div key={ item.id } className="ui two segment">
+                <div key={ item.id } className="ui left aligned blue header message">
                     <h5>Id: { item.id }</h5>
                     <p>Title: { item.title }</p>
                 </div>
