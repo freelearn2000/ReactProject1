@@ -21,10 +21,10 @@ class Vishnupriya extends Component<IProps> {
                             <div className="item">
                                 <img src={ImLogo} alt={ImLogo} ></img>
                             </div>
-                            <Link to='/vishnupriya/shoppingcart' className="ui blue button">Shopping Cart</Link>
-                            <Link to='/vishnupriya/axiosp' className="ui teal button">Axios</Link>
-                            <Link to='/vishnupriya/electronics' className="ui green button">AxiosElectronics</Link>
-                            <Link to='/vishnupriya/contextz' className = "ui blue button">Context</Link>
+                            <Link to='/vishnupriya/shoppingcart' className="ui teel button">Shopping Cart</Link>
+                            <Link to='/vishnupriya/axiosp' className="ui teel button">Axios</Link>
+                            <Link to='/vishnupriya/electronics' className="ui teel button">Routing</Link>
+                            <Link to='/vishnupriya/contextz' className = "ui teel button">Context</Link>
                             <Link to='/vishnupriya/refz' className="ui teel button">Ref</Link>
                             </div>
                         <div className="four wide raw">

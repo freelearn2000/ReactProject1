@@ -15,7 +15,7 @@ export class CreateRefs extends Component {
 
         return(
             <div className="ui form">
-                <h4 className="ui heading">Class Component: CreateRef</h4>
+                <h4 className="ui heading">Class Component</h4>
                 <div className="fields">
                     <div className="field">
                         <label>First name</label>
@@ -50,7 +50,7 @@ export const UseRefs = ( ) => {
 
     return(
         <div className="ui form">
-                <h4 className="ui heading">Functional Component: UseRef</h4>
+                <h4 className="ui heading">Functional Component</h4>
                 <div className="fields">
                     <div className="field">
                         <label>First name</label>

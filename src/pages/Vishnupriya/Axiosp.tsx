@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, useState, useEffect } from "react";
 import axios from '../../axios';
 
 
@@ -12,13 +12,14 @@ interface IState {
     error: { message: string } | null;
 }
 
-export class Axiosp extends Component<IProps, IState> {
+// Axios - Class Component
+export class AxiosMobiles extends Component<IProps, IState> {
 
     state = { loading: true, content: null, error: null };
 
     componentDidMount( ) {
 
-        axios.get('/users')
+        axios.get('/todos')
             .then(response => {
                 this.setState( {loading: false, content: response.data.splice(0,5), error: null} );
             })
@@ -57,12 +58,11 @@ export class Axiosp extends Component<IProps, IState> {
 
     renderData( ) {
 
-        const data = this.state.content ? this.state.content : [ ];
-        const dataJsx = data.map( ( item: {id: number, name: string, email: string} ) => {
+        const datas = this.state.content ? this.state.content : [ ];
+        const dataJsx = datas.map( ( item: {id: number, title: string} ) => {
             return (
-                <div key={ item.id } className="ui two segment">
-                    <h5>Name: { item.name }</h5>
-                    <p>Email: { item.email }</p>
+                <div className='ui two segment'>
+                    <p key={ item.id }>{ item.title }</p>
                 </div>
             )
         });
@@ -72,15 +72,104 @@ export class Axiosp extends Component<IProps, IState> {
     render( ) {
 
         return (
-            <div>
-                <h4 className="ui center aligned header">{ this.props.title }</h4>
-                
+            <div className="ui segment">
+                <h2 className="ui center aligned header">{ this.props.title }</h2>
                 {
                     this.state.loading ? this.renderLoading( ) :
                     this.state.content ? this.renderData( ) :
                     this.renderError( )    
-                }
+                }               
             </div>
         )   
     }
+}
+     
+//Axios - Functional Component
+
+export const AxiosLaptops = ( props: any ) => {
+
+    const [loading, setLoading] = useState<any>(true);
+    const [content, setContent] = useState<any>(null);
+    const [error, setError] = useState<any>(null);
+
+    useEffect( () => {
+        axios.get('/comments')
+            .then(response => {
+                setLoading(false);
+                setContent(response.data.splice(1,5));
+                setError(null);
+            })
+            .catch(error => {
+                setLoading(false);
+                setContent(null);
+                setError(error);
+            })
+    }, [] ) 
+
+    const renderLoading = ( ) => {
+
+        const loadingJSX = 
+            <div>
+                {/* <h2>{ props.title }</h2> */}
+                <div className="ui segment">
+                    <p>Loading...</p>
+                    <div className="ui active dimmer">
+                        <div className="ui loader">Please wait...</div>
+                    </div>
+                </div>
+            </div>
+        return loadingJSX;
+    }
+
+    const renderError = ( ) => {
+
+        const message = error ? error[ `message` ] : '';
+        const errorJSX =
+            <div>
+                <div className="ui negative message">
+                <i className="close icon"></i>
+                    { message }
+                </div>
+            </div>
+        return errorJSX;
+    }
+
+    const renderData = ( ) => {
+
+        const data = content ? content : [ ];
+        const dataJsx = data.map( ( item: {id: number, name: string, body: string} ) => {
+            return (
+                <div key={ item.id } className="ui two segment">
+                    <h5>Name: { item.name }</h5>
+                    <p>Body: { item.body }</p>
+                </div>
+            )
+        });
+        return dataJsx;
+    }
+
+    return(
+        <div>
+            <h2 className="ui center aligned header">{ props.title }</h2>
+                
+                {
+                    loading ? renderLoading( ) :
+                    content ? renderData( ) :
+                    renderError( )    
+                }
+        </div>
+    );
+}
+
+export const Axiosp = ( ) => {
+    return(
+        <div>
+            <div>
+                <AxiosMobiles title="Class Component"/>
+            </div>
+            <div className='ui segment'>
+                <AxiosLaptops title=" Functional Component"/>
+            </div>
+        </div>
+    );
 }
