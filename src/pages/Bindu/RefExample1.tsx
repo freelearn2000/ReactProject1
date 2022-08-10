@@ -15,7 +15,7 @@ export class  CreateRefExample1 extends Component {
 
         return( 
             <>
-             <h4> Sample code CreateRef [class component]</h4>
+             <h4><big> Class component</big></h4>
              <input type="text" placeholder="Search..."  ref = { this.inputRef }></input>
             </>
         );
@@ -33,7 +33,7 @@ export const  UserefExample = ( ) => {
     
     return(
         <>
-          <h4>Sample useRef [Functional Component]</h4>  
+          <h4><big>Functional Component</big></h4>  
           <input type="text" placeholder="Search..."  ref = { inputRef }></input>
         </>
     )
