@@ -71,10 +71,9 @@ import { ContextColor } from './pages/Viji/ContextColor';
 import { ExampleRef } from './pages/Manooja/RefUseExample1';
 import Santhosh from './pages/Santhosh/Santhosh';
 import { Ref } from './pages/Santhosh/Ref';
-import { Users } from './pages/Santhosh/Users';
-import { Posts } from './pages/Santhosh/Posts';
+import { Axios } from './pages/Santhosh/Axios';
 import { Home as Home1 } from './pages/Santhosh/Home';
-import { Login } from './pages/Santhosh/Login';
+import { Context as Context1} from './pages/Santhosh/Context';
 import Radhika from './pages/Radhika/Radhika';
 import { Entertainment } from './pages/Radhika/Entertainment';
 import { Art } from './pages/Radhika/Art';
@@ -118,9 +117,8 @@ class App extends Component {
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>          
           <Route index element={ <Home1 title="Home"/> }/>
           <Route path="home" element={ <Home1 title="Home"/> }/>
-          <Route path="users" element={ <Users title="Axios - Class Component"/> }/>
-          <Route path="posts" element={ <Posts title="Axios - Functional Component"/> }/>
-          <Route path="login" element={ <Login/> } />
+          <Route path="axios" element={ <Axios/> }/>
+          <Route path="context" element={ <Context1/> } />
           <Route path="ref" element={ <Ref/> } />        
           <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
         </Route>

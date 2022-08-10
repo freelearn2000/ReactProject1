@@ -1,27 +1,24 @@
-import { Component } from "react";
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 
 
-interface IProps {
-    title: string;   
-}
-
-class Santhosh extends Component<IProps> {
-
-    render( ) {
+const Santhosh = ( props: any ) => {
+    const location = useLocation();
 
         return (
             <div>
-                <h2 className="ui center aligned blue header message">{ this.props.title }</h2>         
+                <h2 className="ui center aligned blue header message">This is Santhosh's Component  </h2>         
                 <div className="ui grid" style={{ backgroundColor: 'lightblue'}}>
                     <div className="four wide column">
-                        <div className="ui secondary vertical menu">
-                            <Link to='' className="item">Home</Link>
-                            <Link to='users' className="item">Axios in  Class Component</Link>
-                            <Link to='posts' className="item">Axios in  Functional Component </Link>                                               
-                            <Link to='login' className="item">Context</Link>                            
-                            <Link to='ref' className="item">Ref</Link>                             
-                            <Link to='/' className="item">SignOut</Link> 
+                        <div className="ui secondary vertical menu">                         
+                        { (location.pathname.includes(`/axios`))?
+                            <Link to='/Santhosh/axios' className="active item">Axios</Link>
+                        :   <Link to='/Santhosh/axios' className="item">Axios</Link>}
+                        { (location.pathname.includes(`/Context`))?
+                            <Link to='/Santhosh/Context' className="active item">Context</Link>
+                        :   <Link to='/Santhosh/Context' className="item">Context</Link>}
+                        { (location.pathname.includes(`/Ref`))?
+                            <Link to='/Santhosh/Ref' className="active item">Ref</Link>
+                        :   <Link to='/Santhosh/Ref' className="item">Ref</Link>}                    
                         </div>
                     </div>
                 <div className="twelve wide stretched column">
@@ -32,7 +29,6 @@ class Santhosh extends Component<IProps> {
                 </div> 
             </div>     
         )   
-    }
 }
 
 export default Santhosh;

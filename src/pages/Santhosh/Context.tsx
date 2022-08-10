@@ -7,7 +7,7 @@ class Child1 extends Component {
     render( ) {
         return (
             <>
-                <h4 className="ui center aligned header red">Context object in Class Component</h4>
+                <h4 className="ui center aligned header red">Class Component</h4>
                 <LoginContext.Provider value={{name: 'Santhosh', type: 'Admin'}}>
                     <Middle/>
                 </LoginContext.Provider>               
@@ -59,13 +59,13 @@ const Child4 = (props: any) => {
 
     return (
         <div>
-            <h4 className="ui center aligned header red">Context object in Functional Component</h4>
+            <h4 className="ui center aligned header red">Functional Component</h4>
             <h4 className="ui left aligned blue header message"> User Name: {context}</h4> 
         </div>
     );
 }
 
-export const Login= ( ) => {
+export const Context= ( ) => {
     return (
         <div className="ui basic segments">
             <div className="ui segment">

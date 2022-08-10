@@ -15,7 +15,7 @@ class CreateRef extends Component {
         return (
             <>
                 <div className="ui basic segment">
-                    <h4 className="ui primary header">CreateRef - Class component</h4>
+                    <h4 className="ui primary header">Class component</h4>
                     <form className="ui form formStyle attached fluid">
                         <div className="field">                            
                             <input type="text" placeholder="User Name" ref={ this.inputRef }/>
@@ -53,7 +53,7 @@ const UseRef =( ) => {
     return(
         <>
             <div className="ui basic segment">
-                <h4 className="ui primary header">UseRef - Functional component</h4>
+                <h4 className="ui primary header">Functional component</h4>
                 <form className="ui form formStyle attached fluid">
                     <div className="field">                            
                         <input type="text" placeholder="Search" ref={ inputRef }/>
