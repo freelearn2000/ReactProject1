@@ -10,6 +10,9 @@ const Santhosh = ( props: any ) => {
                 <div className="ui grid" style={{ backgroundColor: 'lightblue'}}>
                     <div className="four wide column">
                         <div className="ui secondary vertical menu">                         
+                        { (location.pathname.includes(`/Home`))?
+                            <Link to='/Santhosh/Home' className="active item">Routing</Link>
+                        :   <Link to='/Santhosh/Home' className="item">Routing</Link>}
                         { (location.pathname.includes(`/axios`))?
                             <Link to='/Santhosh/axios' className="active item">Axios</Link>
                         :   <Link to='/Santhosh/axios' className="item">Axios</Link>}
