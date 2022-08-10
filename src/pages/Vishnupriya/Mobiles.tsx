@@ -61,7 +61,9 @@ export class Mobiles extends Component<IProps, IState> {
         const datas = this.state.content ? this.state.content : [ ];
         const dataJsx = datas.map( ( item: {id: number, title: string} ) => {
             return (
-                <p key={ item.id }>{ item.title }</p>
+                <div className='ui segment'>
+                    <p key={ item.id }>{ item.title }</p>
+                </div>
             )
         });
         return dataJsx;

@@ -22,7 +22,7 @@ export class Bindu extends Component<IProps> {
                             <Link to='/bindu/bhome' className="ui pink basic tag label">Home</Link>
                             <br/>
                             <br/>
-                            <Link to='/bindu/api' className="ui pink basic tag label">Api</Link>
+                            <Link to='/bindu/api' className="ui pink basic tag label">Axios</Link>
                             <br/>
                             <br/>
                             <Link to='/bindu/sports' className="ui pink basic tag label">Context</Link>

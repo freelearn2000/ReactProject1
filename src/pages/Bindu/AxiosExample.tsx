@@ -57,7 +57,7 @@ export class Health extends Component<IProps> {
 
         return(
             <>
-                <h2 className="ui center aligned header">{ this.props.title } [Class Component]</h2>
+                <h2 className="ui center aligned header">Class Component</h2>
                     {
                         this.state.loading ? this.renderLoading( ):
                         this.state.nature ? <>{ this.renderUserdata( ) }</>:
@@ -85,7 +85,7 @@ export const Wealth = ( ) =>  {
     return(
            
         <> 
-             <h2 className="ui center aligned header">Wealth [functional Component]</h2>
+             <h2 className="ui center aligned header">functional Component</h2>
             {
                 wealth.map((item: any)=>{
 

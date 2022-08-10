@@ -82,7 +82,7 @@ class Athletics extends Component {
         return(      
              <>  
                 <hr color="blue" />
-                <h5>Atheletics [Wrapped ContextProvider in the maincomponent  Sports] Class Component </h5>
+                <h5><big>Class Component</big></h5>
                 <Running/>
              </>
         )
@@ -95,7 +95,6 @@ class Running extends Component {
 
         return(
                 <>
-                 <h5>Running [consumer] Class component</h5>
                  <SportsContext.Consumer>
                     { value => (
                       <>
@@ -103,7 +102,7 @@ class Running extends Component {
                       </>
                      )
                     }
-                  </SportsContext.Consumer>
+                 </SportsContext.Consumer>
                   <Sprint />
                 </>
             )
@@ -117,8 +116,8 @@ class Sprint extends Component {
                 return(
         
                     <>
-                        <h5>Sprint [static] Class component </h5>
-                            Olympian Bronze medal winner : {this.context}
+                        <br/>
+                        Olympian Bronze medal winner : {this.context}
                         <Marathon />
                     </>
                 )
@@ -131,9 +130,9 @@ const Marathon = () => {
          return(
 
                 <>
-                   <h5>Marathon [ useContext] Functional Component</h5>
-                   Arjun Award winner 1983 <span style={{color: 'blue'}}>{ context } </span> 
                    <hr color = "blue" />
+                   <h5><big>Functional Component</big></h5>
+                   Arjun Award winner 1983 <span style={{color: 'blue'}}>{ context } </span> 
                    
                 </>
              )        
