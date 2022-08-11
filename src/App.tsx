@@ -63,8 +63,7 @@ import { SamaraHome } from './pages/Samara/SamaraHome';
 import { WeatherContext } from './pages/Samara/WeatherContext';
 import { RefSample } from './pages/Samara/RefSample';
 import { Mhome } from './pages/Manooja/Mhome';
-import { Business } from  './pages/Manooja/Business';
-import { Education } from './pages/Manooja/Education';
+import { Axios1 } from './pages/Manooja/Axios1';
 import { ContextYoga } from './pages/Manooja/ContextYoga';
 import { ContextColor } from './pages/Viji/ContextColor';
 import { ExampleRef } from './pages/Manooja/RefUseExample1';
@@ -206,9 +205,8 @@ class App extends Component {
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
           <Route path=":id" element={ <Manooja title="This is Manooja's Component"/> }/>
           <Route path="index" element={ <Mhome title="Home"/> }/>
-          <Route path="business" element={ <Business title="Business"/> }/>
-          <Route path="education" element={ <Education title="Education"/> }/>
           <Route path="contextyoga" element={ <ContextYoga/> }/>
+          <Route path="axios1" element={ <Axios1/> } />
           <Route path="ref" element={ <ExampleRef/> }/>
          </Route>  
         <Route path="/dhanya" element={ <Dhanya1 title="This is Dhanya's Component"/> }>
