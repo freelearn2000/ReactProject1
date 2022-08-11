@@ -19,6 +19,7 @@ class Samara extends Component<IProps> {
                 <div className="ui aligned grid">
                     <div className="four wide column">
                         <div className="ui secondary vertical menu">
+                            <Link to='/samara/routing' className="active item"><b>Routing</b></Link>
                             <Link to='/samara/canadaweather' className="active item"><b>Axios - class</b></Link>
                             <Link to='/samara/polandweather' className="active item"><b>Axios - functional</b></Link>
                             <Link to='/samara/context' className="active item"><b>Context</b></Link>
