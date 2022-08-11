@@ -1,12 +1,14 @@
 import { Component } from 'react';
 import { Link, Outlet } from "react-router-dom";
+import { retriveDataFromRoute } from '../../utils/hoc';
 
 
 interface IProps {
     title: string;
+    location: any;
 }
 
-export class Bindu extends Component<IProps> {
+class Bindu extends Component<IProps> {
 
     render( ) {
         return (
@@ -16,19 +18,14 @@ export class Bindu extends Component<IProps> {
                         <h2 className="ui center aligned brown header message">{this.props.title}</h2>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="three wide column">
-                        <div className="ui vertical text menu">
-                            <Link to='/bindu/bhome' className="ui pink basic tag label">Home</Link>
-                            <br/>
-                            <br/>
-                            <Link to='/bindu/api' className="ui pink basic tag label">Axios</Link>
-                            <br/>
-                            <br/>
-                            <Link to='/bindu/sports' className="ui pink basic tag label">Context</Link>
-                            <br/>
-                            <br/>
-                            <Link to='/bindu/Ref' className="ui pink basic tag label">Ref</Link>
+                <div className="row"  >
+                    <div className="three wide column"  style={{ backgroundColor: 'wheat'}}>
+                        <div className="ui secondary vertical menu">
+                            <Link to='/bindu/bhome' className={ this.props.location.pathname.includes('bhome')? 'active item': 'item'}>Home</Link>
+                            <Link to='/bindu/api' className={ this.props.location.pathname.includes('api')? 'active item': 'item'}>Axios</Link>
+                            <Link to='/bindu/sports' className={ this.props.location.pathname.includes('sports')? 'active item': 'item'}>Context</Link>
+                            <Link to='/bindu/Ref' className={ this.props.location.pathname.includes('Ref')? 'active item': 'item'}>Ref</Link>
+                            <Link to='/bindu/Rootingb' className={ this.props.location.pathname.includes('Rootingb')? 'active item': 'item'}>RouteParams</Link>
                         </div>
                     </div>
                     <div className="thirteen wide column">
@@ -39,3 +36,4 @@ export class Bindu extends Component<IProps> {
         );
     }
 }
+export default retriveDataFromRoute( Bindu );

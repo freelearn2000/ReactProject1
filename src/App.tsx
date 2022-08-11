@@ -52,7 +52,8 @@ import { Dhanya1 } from './pages/Dhanya/Dhanya1';
 import { FoodBlog as Food } from './pages/Dhanya/FoodBlog';
 import { TravelBlog as Travel } from './pages/Dhanya/TravelBlog';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
-import { Bindu } from './pages/Bindu/Bindu';
+import  Bindu  from './pages/Bindu/Bindu';
+import  Rootingb from './pages/Bindu/Rootingb';
 import { Bhome }  from './pages/Bindu/Bhome';
 import {AxiosExample  } from './pages/Bindu/AxiosExample';
 import { Sports } from './pages/Bindu/Sports';
@@ -140,7 +141,7 @@ class App extends Component {
          <Route path="api" element={ <AxiosExample /> }/>
          <Route path="sports" element={ <Sports title="Sports"/> }/>
          <Route path="Ref" element={ <RefExample1 /> }/>
-         <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
+         <Route path=":id" element={ <Rootingb /> }/>         
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
           <Route index element={ <Entertainment title="Entertainment"/> } />
