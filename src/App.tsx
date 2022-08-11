@@ -115,8 +115,7 @@ class App extends Component {
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>          
           <Route index element={ <Home1 title="Home"/> }/>
-          <Route path="home" element={ <Home1 title="Home"/> }/>
-         
+          <Route path="home" element={ <Home1 title="Home"/> }/>         
           <Route path="axios" element={ <Axios/> }/>
           <Route path="context" element={ <Context1/> } />
           <Route path="ref" element={ <Ref/> } />        
