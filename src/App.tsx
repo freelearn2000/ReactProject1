@@ -67,6 +67,7 @@ import { Axios1 } from './pages/Manooja/Axios1';
 import { ContextYoga } from './pages/Manooja/ContextYoga';
 import { ContextColor } from './pages/Viji/ContextColor';
 import { ExampleRef } from './pages/Manooja/RefUseExample1';
+import Routing1 from './pages/Manooja/Routing1';
 import Santhosh from './pages/Santhosh/Santhosh';
 import { Ref } from './pages/Santhosh/Ref';
 import { Axios } from './pages/Santhosh/Axios';
@@ -208,6 +209,7 @@ class App extends Component {
           <Route path="contextyoga" element={ <ContextYoga/> }/>
           <Route path="axios1" element={ <Axios1/> } />
           <Route path="ref" element={ <ExampleRef/> }/>
+          <Route path="routing1" element={ <Routing1/>} />
          </Route>  
         <Route path="/dhanya" element={ <Dhanya1 title="This is Dhanya's Component"/> }>
           {/* <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/> */}
