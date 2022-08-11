@@ -82,7 +82,7 @@ export const WeatherContext= ( ) => {
     return (
         <div className="ui basic segments">
             <div className="ui segment">
-            <h4>Class Component</h4>
+                <h4>Class Component</h4>
                 <WeatherContext1/>
             </div>
             <div className="ui segment">

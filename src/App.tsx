@@ -21,7 +21,7 @@ import science from './pages/Rakhi/Resources/news.jpg';
 import technology from './pages/Rakhi/Resources/tech.jpg';
 import { Context } from './pages/Rakhi/CounterContext';
 import { Refs } from './pages/Rakhi/Refs';
-import Samara from './pages/Samara/Samara';
+import { Samara } from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
 import PetsContext from './pages/Parvathy/PetsContext';
 import Books from './pages/Parvathy/Books';
@@ -57,8 +57,8 @@ import { Bhome }  from './pages/Bindu/Bhome';
 import {AxiosExample  } from './pages/Bindu/AxiosExample';
 import { Sports } from './pages/Bindu/Sports';
 import { RefExample1 } from './pages/Bindu/RefExample1';
-import { CanadaWeather } from './pages/Samara/CanadaWeather';
-import { PolandWeather } from './pages/Samara/PolandWeather';
+import Routing from './pages/Samara/Routing';
+import { AxiosSample } from './pages/Samara/AxiosSample';
 import { SamaraHome } from './pages/Samara/SamaraHome';
 import { WeatherContext } from './pages/Samara/WeatherContext';
 import { RefSample } from './pages/Samara/RefSample';
@@ -151,11 +151,10 @@ class App extends Component {
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route index element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
-          <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
-          <Route path="polandweather" element={ <PolandWeather title="Poland weather details"/> }/>
+          <Route path=":id" element={ <Routing/> }/>
+          <Route path="axios" element={ <AxiosSample/> }/>
           <Route path="context" element={ <WeatherContext/> } />
           <Route path="ref" element={ <RefSample/> }/>
-          <Route path=":id" element={ <SamaraHome title="Welcome to our Weather Calculator" /> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
           <Route index element={ <MyHome /> }/>
