@@ -2,40 +2,27 @@ import { Component, useContext } from "react";
 import { PetsWorldContext } from "../../context/global";
 
 
-interface IProps {
-    title: string;
-}
-
 // Provider
-class PetsContext extends Component<IProps> {
+class PetsContext1 extends Component {
 
     render() {
 
         return (
-            <div>
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
-                <div className="ui inverted segment">
+
+            <div className="ui inverted segment">
                 <PetsWorldContext.Provider value={'welcome'}>
-                <p>Accessing context value from within the context provider.</p>
-                <span className="ui inverted blue text" >
-                    <Middle />
-                    <Child1 />
-                    <Child2 />
-                </span>
+                    <span className="ui inverted blue text" >
+                        <Middle />
+                        <Child1 />
+                        <Child2 />
+                    </span>
                 </PetsWorldContext.Provider>
-                <br />
-                <p>Accessing context value from outside context provider.</p>
-                <span className="ui inverted blue text" >
-                <Child1 />
-                <Child2 />
-                </span>
-                </div>
             </div>
         )
     }
 }
 
-export class Middle extends Component {
+class Middle extends Component {
 
     render() {
         return (
@@ -44,46 +31,89 @@ export class Middle extends Component {
     }
 }
 
-export class Child extends Component {
+class Child extends Component {
 
     render() {
         return (
-           
+
             <PetsWorldContext.Consumer>
                 {
                     value => (
-                        
-                        <> Context value accessed from Child &nbsp;&nbsp; :&nbsp;&nbsp;<span className="ui inverted yellow text" > { value } </span><br /></>
-                        
+
+                        <> Context value accessed from Child &nbsp;&nbsp; :&nbsp;&nbsp;<span className="ui inverted yellow text" > {value} </span><br /></>
+
                     )
                 }
             </PetsWorldContext.Consumer>
-            
+
         );
     }
 }
 
 // b. Consumer
-export class Child1 extends Component {
+class Child1 extends Component {
 
     static contextType = PetsWorldContext;
 
-    render( ) {
-        return(
+    render() {
+        return (
             <>Context value accessed from Child1 : &nbsp;&nbsp;{ this.context }</>
-            
+
         );
     }
 }
 
 //c. Consumer
-export const Child2 = ( props: any ) => {
+const Child2 = ( props: any ) => {
+
+    const context = useContext( PetsWorldContext );
+
+    return (
+        <p>Context value accessed from Child2 :&nbsp;&nbsp;<span className="ui inverted yellow text" > { context }</span> </p>
+    );
+}
+
+
+// Functional Component
+
+const PetsContext2 = () => {
+
+    return (
+
+        <div className="ui inverted segment">
+            <PetsWorldContext.Provider value={'Parvathy'}>
+                <Pet1 />
+            </PetsWorldContext.Provider>
+        </div>
+    );
+}
+
+const Pet1 = () => {
+
+    return (
+        <Pet2 />
+    );
+}
+
+const Pet2 = ( props: any ) => {
 
     const context = useContext(PetsWorldContext);
 
-    return(
-        <p>Context value accessed from Child2 :&nbsp;&nbsp;<span className="ui inverted yellow text" > { context }</span> </p>
+    return (
+        <p>Context value accessed from pet2&nbsp;&nbsp; : &nbsp;&nbsp;<span className="ui inverted yellow text" > {context}</span> </p>
     );
-} 
+}
+
+const PetsContext = () => {
+
+    return (
+        <div>
+            <h4 className="ui horizontal divider header">Class Component</h4>
+            <PetsContext1 />
+            <h4 className="ui horizontal divider header">Functional Component</h4>
+            <PetsContext2 />
+        </div>
+    );
+}
 
 export default (PetsContext);

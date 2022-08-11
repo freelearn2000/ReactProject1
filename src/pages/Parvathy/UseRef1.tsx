@@ -9,7 +9,7 @@ const UseRef1 = ( ) => {
 
     return(
         <div className="segment">
-            <h4 className="ui heading">Functional Component - UseRef</h4>
+            <h4 className="ui heading">Functional Component</h4>
             <div className="ui form">
                 <div className="field">
                     <label>Password</label>
@@ -38,7 +38,7 @@ class CreateRef1 extends Component {
     render () {
          return(
             <div className="segment">
-                <h4 className="ui heading">Class Component - CreateRef</h4>
+                <h4 className="ui heading">Class Component</h4>
                 <div className="ui form">
                     <div className="field">
                         <div className="field success">

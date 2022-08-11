@@ -1,12 +1,8 @@
-import { Component } from "react";
+import { Component, useEffect, useState } from "react";
 import axios from '../../axios';
-import { retriveDataFromRoute } from '../../utils/hoc';
+ import { retriveDataFromRoute } from '../../utils/hoc';
 
 
-interface IProps {
-    title: string;
-    routeData: any;
-}
 
 interface IState {
     loading: boolean,
@@ -15,7 +11,7 @@ interface IState {
 }
 
 // Axios in Class Component
-class Books extends Component<IProps, IState> {
+class Books1 extends Component< IState> {
 
     state = { loading: true, users: null, error: null };
 
@@ -73,7 +69,7 @@ class Books extends Component<IProps, IState> {
 
         return (
             <div>
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
+                {/* <h2 className="ui center aligned header">{ this.props.title }</h2> */}
                 
                 {
                     this.state.loading ? this.renderLoading() :
@@ -84,4 +80,97 @@ class Books extends Component<IProps, IState> {
     }
 }
 
-export default retriveDataFromRoute(Books);
+
+
+
+// Axios in Functional Component
+const Cats = ( props: any ) => {
+
+    const [loading, setLoading] = useState<boolean>(true);
+    const [users, setUsers] = useState<any>(null);
+    const [error, setError] = useState<any>(null);
+
+    useEffect(() => {
+
+        axios.get('/users')
+            .then(response => {
+                setLoading(false);
+                setUsers(response.data.slice(0, 5));
+                setError(null)
+            })
+            .catch(error => {
+                setLoading(false);
+                setUsers(null);
+                setError(error)
+            })
+    }, []);
+
+    const renderLoading = () => {
+
+        const loadingJSX =
+            <div className="ui segment">
+                <p>Please wait a little...</p>
+                <div className="ui active inverted dimmer">
+                    <div className="ui green text loader">Loading</div>
+                </div>
+            </div>
+
+        return loadingJSX;
+    }
+
+    const renderData = () => {
+
+        const users1 = users ? users : [];
+        const dataJSX = users1.map((item: { name: string, id: number }) => {
+            return (
+                <div key={ item.id } className="ui center aligned message">
+                    <h4>{ item.name }</h4>
+                </div>
+            );
+        });
+
+        return dataJSX;
+    }
+
+    const renderError = () => {
+
+        const message = error ? error['message'] : '';
+        const errorJSX =
+            <div>
+                <br />
+                <h4>{message}</h4>
+            </div>
+
+        return errorJSX;
+    }
+
+    return (
+        <div>
+            <h2 className="ui center aligned header">{props.title}</h2>
+            {
+                loading ? renderLoading() :
+                    users ? renderData() : renderError()
+            }
+        </div>
+
+    )
+}
+
+const Books = ( ) => {
+
+    return (
+        <div className="ui basic segments">
+            <div className="ui segment">
+            <h4>Class Component</h4>
+            <Cats title="Class Component"/>
+            </div>
+            <div className="ui segment">
+                <h4>Functional Component</h4>
+                <Cats title="Class Component"/>
+            </div>
+        </div>
+    );
+}
+
+
+export default (Books);

@@ -25,7 +25,6 @@ import Samara from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
 import PetsContext from './pages/Parvathy/PetsContext';
 import Books from './pages/Parvathy/Books';
-import Cats from './pages/Parvathy/Cats';
 import MyHome from './pages/Parvathy/Home';
 import { RefSample1 } from './pages/Parvathy/UseRef1';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
@@ -161,9 +160,8 @@ class App extends Component {
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
           <Route index element={ <MyHome /> }/>
           <Route path="home" element={ <MyHome /> }/>
-          <Route path="books" element={ <Books title="Axios: Class Component" /> }/>
-          <Route path="cats" element={ <Cats title="Axios: Functional Component" /> }/>
-          <Route path="petscontext" element={ <PetsContext title="Context" /> }/>
+          <Route path="books" element={ <Books /> }/>
+          <Route path="petscontext" element={ <PetsContext/> }/>
           <Route path="ref" element={ <RefSample1/> }/>
           <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
         </Route>
