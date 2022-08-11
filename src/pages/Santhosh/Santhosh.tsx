@@ -1,27 +1,27 @@
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Component } from 'react';
+import { Link, Outlet } from 'react-router-dom';
+import { retriveDataFromRoute } from '../../utils/hoc';
 
+interface IProps {
+    title: string;
+    location: any;   
+}
 
-const Santhosh = ( props: any ) => {
-    const location = useLocation();
+class Santhosh extends Component<IProps> {
+      
+    render( ) {
 
-        return (
+        return(
             <div>
-                <h2 className="ui center aligned blue header message">This is Santhosh's Component  </h2>         
+                <h2 className="ui center aligned blue header message">{ this.props.title }</h2>         
                 <div className="ui grid" style={{ backgroundColor: 'lightblue'}}>
                     <div className="four wide column">
-                        <div className="ui secondary vertical menu">                         
-                        { (location.pathname.includes(`/Home`))?
-                            <Link to='/Santhosh/Home' className="active item">Routing</Link>
-                        :   <Link to='/Santhosh/Home' className="item">Routing</Link>}
-                        { (location.pathname.includes(`/axios`))?
-                            <Link to='/Santhosh/axios' className="active item">Axios</Link>
-                        :   <Link to='/Santhosh/axios' className="item">Axios</Link>}
-                        { (location.pathname.includes(`/Context`))?
-                            <Link to='/Santhosh/Context' className="active item">Context</Link>
-                        :   <Link to='/Santhosh/Context' className="item">Context</Link>}
-                        { (location.pathname.includes(`/Ref`))?
-                            <Link to='/Santhosh/Ref' className="active item">Ref</Link>
-                        :   <Link to='/Santhosh/Ref' className="item">Ref</Link>}                    
+                        <div className="ui secondary vertical menu"> 
+                        <Link to='/Santhosh/Home' className={ this.props.location.pathname.includes('Home')? 'active item': 'item'}>Home</Link>
+                        <Link to='/Santhosh/Routings' className={ this.props.location.pathname.includes('Routings')? 'active item': 'item'}>Route Params</Link>
+                        <Link to='/Santhosh/Axios' className={ this.props.location.pathname.includes('Axios')? 'active item': 'item'}>Axios</Link>
+                        <Link to='/Santhosh/Context' className={ this.props.location.pathname.includes('Context')? 'active item': 'item'}>Context</Link>
+                        <Link to='/Santhosh/Ref' className={ this.props.location.pathname.includes('Ref')? 'active item': 'item'}>Ref</Link>
                         </div>
                     </div>
                 <div className="twelve wide stretched column">
@@ -31,7 +31,8 @@ const Santhosh = ( props: any ) => {
                 </div>
                 </div> 
             </div>     
-        )   
+        );
+    }
 }
 
-export default Santhosh;
+export default retriveDataFromRoute( Santhosh ) ;
