@@ -22,7 +22,7 @@ import technology from './pages/Rakhi/Resources/tech.jpg';
 import { Context } from './pages/Rakhi/CounterContext';
 import { Refs } from './pages/Rakhi/Refs';
 import { Samara } from './pages/Samara/Samara';
-import Parvathy from './pages/Parvathy/Parvathy';
+import { Parvathy } from './pages/Parvathy/Parvathy';
 import PetsContext from './pages/Parvathy/PetsContext';
 import Books from './pages/Parvathy/Books';
 import MyHome from './pages/Parvathy/Home';
@@ -160,7 +160,7 @@ class App extends Component {
           <Route path="books" element={ <Books /> }/>
           <Route path="petscontext" element={ <PetsContext/> }/>
           <Route path="ref" element={ <RefSample1/> }/>
-          <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
+          <Route path=":id" element={ <Parvathy title="This is Parvathy's Component"  /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
         <Route index element={ <ShoppingCart title="Shopping-Cart"/> }/>

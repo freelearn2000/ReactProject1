@@ -8,7 +8,7 @@ class Home extends Component {
 
         return (
             <div>
-                <h3 className="ui center aligned header">A room without books is like a body without a soul.</h3>
+                <h3 className="ui center aligned teal header">A room without books is like a body without a soul.</h3>
                 <div className="ui image">
                     <img alt={ picture } src={ picture } />
                 </div>
