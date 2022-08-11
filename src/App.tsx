@@ -59,8 +59,7 @@ import {AxiosExample  } from './pages/Bindu/AxiosExample';
 import { Sports } from './pages/Bindu/Sports';
 import { RefExample1 } from './pages/Bindu/RefExample1';
 import Routing from './pages/Samara/Routing';
-import { CanadaWeather } from './pages/Samara/CanadaWeather';
-import { PolandWeather } from './pages/Samara/PolandWeather';
+import { AxiosSample } from './pages/Samara/AxiosSample';
 import { SamaraHome } from './pages/Samara/SamaraHome';
 import { WeatherContext } from './pages/Samara/WeatherContext';
 import { RefSample } from './pages/Samara/RefSample';
@@ -154,8 +153,7 @@ class App extends Component {
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route index element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
           <Route path=":id" element={ <Routing/> }/>
-          <Route path="canadaweather" element={ <CanadaWeather title="Canada weather details"/> }/>
-          <Route path="polandweather" element={ <PolandWeather title="Poland weather details"/> }/>
+          <Route path="axios" element={ <AxiosSample/> }/>
           <Route path="context" element={ <WeatherContext/> } />
           <Route path="ref" element={ <RefSample/> }/>
         </Route>

@@ -13,7 +13,7 @@ class RefSample1 extends Component {
     render( ) {
         return(
             <div>
-                <h3>createRef Sample - class component</h3>
+                <h3>Class Component</h3>
                 <form className="ui form">
                     <div className="field">
                         <label>Name</label>
@@ -39,7 +39,7 @@ const RefSample2 = ( ) => {
 
     return(
         <div>
-            <h3>useRef Sample - functional component</h3>
+            <h3>Functional Component</h3>
             <form className="ui form">
                     <div className="field">
                         <label>Name</label>
