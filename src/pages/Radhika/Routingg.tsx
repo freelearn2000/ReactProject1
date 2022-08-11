@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import axios from '../../axios';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import { retriveDataFromRoute } from '../../utils/hoc';
 
 
@@ -15,7 +15,7 @@ interface IProps {
     routeData: any;
 }
 
-class Radhika1 extends Component<IProps, IState> {
+class Routingg extends Component<IProps, IState> {
 
     state = { loading: true, users: null, error: null };
 
@@ -70,11 +70,8 @@ class Radhika1 extends Component<IProps, IState> {
 
         return(
             <div>
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
                 <h3>Route Data: { this.props.routeData.id }</h3>
                 <br/>
-                <Link to='/' className="ui primary basic tag label">Home Page</Link> &nbsp;&nbsp;
-                <Link to='/about/User/details' className="ui primary basic tag label">About</Link>
                 <br/>
                 {
                     this.state.loading ? this.renderLoading( ): 
@@ -86,4 +83,4 @@ class Radhika1 extends Component<IProps, IState> {
     }
 }
 
-export default retriveDataFromRoute( Radhika1 );
+export default retriveDataFromRoute( Routingg );

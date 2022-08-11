@@ -18,6 +18,7 @@ class Radhika extends Component<IProps> {
                     <div className="four wide column">
                         <div className="ui secondary vertical menu">
                             <Link to='/radhika/axiosrr' className={ this.props.location.pathname.includes('axiosrr')? 'active item': 'item'}>Axios</Link>
+                            <Link to='/radhika/routingg' className={ this.props.location.pathname.includes('routingg')? 'active item': 'item'}>Route Params</Link>
                             <Link to='/radhika/musiccontext' className={ this.props.location.pathname.includes('musiccontext')? 'active item': 'item'}>Context</Link>
                             <Link to='searchref' className={ this.props.location.pathname.includes('searchref')? 'active item': 'item'}>Ref</Link>
                         </div> 
