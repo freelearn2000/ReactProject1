@@ -1,7 +1,6 @@
 import HomeImage from '../Santhosh/Resources/img-1.jpg';
 
-export const Home = ( props: any ) => {  
-    
+export const Home = ( props: any ) => {      
     
      
     return (

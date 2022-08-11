@@ -63,21 +63,23 @@ import { SamaraHome } from './pages/Samara/SamaraHome';
 import { WeatherContext } from './pages/Samara/WeatherContext';
 import { RefSample } from './pages/Samara/RefSample';
 import { Mhome } from './pages/Manooja/Mhome';
-import { Business } from  './pages/Manooja/Business';
-import { Education } from './pages/Manooja/Education';
+import { Axios1 } from './pages/Manooja/Axios1';
 import { ContextYoga } from './pages/Manooja/ContextYoga';
 import { ContextColor } from './pages/Viji/ContextColor';
 import { ExampleRef } from './pages/Manooja/RefUseExample1';
+import Routing1 from './pages/Manooja/Routing1';
 import Santhosh from './pages/Santhosh/Santhosh';
 import { Ref } from './pages/Santhosh/Ref';
 import { Axios } from './pages/Santhosh/Axios';
 import { Home as Home1 } from './pages/Santhosh/Home';
+import Routings from './pages/Santhosh/Routings';
 import { Context as Context1} from './pages/Santhosh/Context';
 import Radhika from './pages/Radhika/Radhika';
 import { Entertainment } from './pages/Radhika/Entertainment';
 import { Axiosrr } from './pages/Radhika/Axiosrr';
 import { MusicContext } from './pages/Radhika/MusicContext';
 import { SearchRef } from './pages/Radhika/Reff';
+import  Routingg  from './pages/Radhika/Routingg';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
@@ -114,11 +116,11 @@ class App extends Component {
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>          
           <Route index element={ <Home1 title="Home"/> }/>
-          <Route path="home" element={ <Home1 title="Home"/> }/>
+          <Route path="home" element={ <Home1 title="Home"/> }/>         
           <Route path="axios" element={ <Axios/> }/>
           <Route path="context" element={ <Context1/> } />
           <Route path="ref" element={ <Ref/> } />        
-          <Route path=":id" element={ <Santhosh title="This is Santhosh's Component"/> }/>
+          <Route path=":id" element={ <Routings/> }/>
         </Route>
         <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>
           <Route path=":id" element={ <RouteData title="Rakhi's Component"/> }/>
@@ -141,11 +143,11 @@ class App extends Component {
          <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
-          <Route index element={ <Entertainment title="Entertainment"/> }/>
-          <Route path="Axiosrr" element={ <Axiosrr /> }/>
+          <Route index element={ <Entertainment title="Entertainment"/> } />
+          <Route path="Axiosrr" element={ <Axiosrr /> } />
           <Route path="musiccontext" element={ <MusicContext /> } />
           <Route path="searchref" element={ <SearchRef /> } />
-          <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>
+          <Route path=":id" element={ <Routingg /> } />
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route index element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
@@ -204,10 +206,10 @@ class App extends Component {
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
           <Route path=":id" element={ <Manooja title="This is Manooja's Component"/> }/>
           <Route path="index" element={ <Mhome title="Home"/> }/>
-          <Route path="business" element={ <Business title="Business"/> }/>
-          <Route path="education" element={ <Education title="Education"/> }/>
           <Route path="contextyoga" element={ <ContextYoga/> }/>
+          <Route path="axios1" element={ <Axios1/> } />
           <Route path="ref" element={ <ExampleRef/> }/>
+          <Route path="routing1" element={ <Routing1/>} />
          </Route>  
         <Route path="/dhanya" element={ <Dhanya1 title="This is Dhanya's Component"/> }>
           {/* <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/> */}
