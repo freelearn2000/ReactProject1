@@ -1,6 +1,5 @@
-import { Component } from 'react';
+import { Component, useEffect, useState } from 'react';
 import axios from '../../axios';
-import { useEffect, useState } from "react";
 
 
 interface IProps {
@@ -21,7 +20,7 @@ class AxiosSample1 extends Component<IProps, IState> {
 
         axios.get('/posts')
         .then(response => {
-            this.setState( {loading: false, data: response.data, error: null} );
+            this.setState( {loading: false, data: (response.data).splice(0, 5), error: null} );
         })
         .catch(error => {
             this.setState( {loading: false, data: null, error: error} );
@@ -53,7 +52,6 @@ class AxiosSample1 extends Component<IProps, IState> {
 
         const datas = this.state.data ? this.state.data : [ ];
         const dataJSX = datas.map( (item: any) => {
-            if( item.id < 6 ) {
                 return (
                     <div key = { item.id } className="ui floating message">
                         <h4>Title : { item.title }</h4>
@@ -61,7 +59,7 @@ class AxiosSample1 extends Component<IProps, IState> {
                     </div>
                 );
             }
-        });
+        );
         return dataJSX
     }
     
@@ -92,7 +90,7 @@ const AxiosSample2 = ( props: any ) => {
         axios.get('/albums')
             .then( response => { 
                 setLoading(false);
-                setData(response.data);
+                setData((response.data).splice(0, 5));
                 setError(null)})
             .catch( error => { 
                 setLoading(false);
@@ -127,7 +125,6 @@ const AxiosSample2 = ( props: any ) => {
 
         const datas = data ? data : [ ];
         const dataJSX = datas.map( (item: any) => {
-            if ( item.id < 6 ) {
                 return (
                     <div key = { item.id } className="ui floating message">
                         <h4>ID : { item.id }</h4>
@@ -135,7 +132,7 @@ const AxiosSample2 = ( props: any ) => {
                     </div>
                 );
             }
-        });
+        );
         return dataJSX
     }
 

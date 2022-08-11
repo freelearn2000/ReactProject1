@@ -21,7 +21,7 @@ import science from './pages/Rakhi/Resources/news.jpg';
 import technology from './pages/Rakhi/Resources/tech.jpg';
 import { Context } from './pages/Rakhi/CounterContext';
 import { Refs } from './pages/Rakhi/Refs';
-import Samara from './pages/Samara/Samara';
+import { Samara } from './pages/Samara/Samara';
 import Parvathy from './pages/Parvathy/Parvathy';
 import PetsContext from './pages/Parvathy/PetsContext';
 import Books from './pages/Parvathy/Books';
