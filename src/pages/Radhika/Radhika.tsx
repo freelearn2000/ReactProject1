@@ -1,8 +1,10 @@
 import { Component } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { retriveDataFromRoute } from '../../utils/hoc';
 
 interface IProps {
-    title: string;   
+    title: string;
+    location: any;   
 }
 
 class Radhika extends Component<IProps> {
@@ -11,14 +13,13 @@ class Radhika extends Component<IProps> {
 
         return(
             <div>
-                <h2 className="ui center aligned green header message">{ this.props.title }</h2>
-                <div className="ui grid">
+                <h2 className="ui center aligned grey header message">{ this.props.title }</h2>
+                <div className="ui grid"  style={{ backgroundColor: 'grey'}}>
                     <div className="four wide column">
                         <div className="ui secondary vertical menu">
-                            <Link to='/radhika/art' className="active item">Axios- Class</Link>
-                            <Link to='/radhika/dance' className="active item">Axios- Functional</Link>
-                            <Link to='/radhika/musiccontext' className="active item">Context</Link>
-                            <Link to='searchref' className="active item">Ref</Link>
+                            <Link to='/radhika/axiosrr' className={ this.props.location.pathname.includes('Axioss')? 'active item': 'item'}>Axios</Link>
+                            <Link to='/radhika/musiccontext' className={ this.props.location.pathname.includes('musiccontext')? 'active item': 'item'}>Context</Link>
+                            <Link to='searchref' className={ this.props.location.pathname.includes('searchref')? 'active item': 'item'}>Ref</Link>
                         </div> 
                     </div>
                     <div className="twelve wide stretched column">
@@ -31,4 +32,4 @@ class Radhika extends Component<IProps> {
         );
     }
 }
-export default Radhika;
+export default retriveDataFromRoute( Radhika );

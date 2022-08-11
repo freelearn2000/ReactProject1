@@ -75,8 +75,7 @@ import { Home as Home1 } from './pages/Santhosh/Home';
 import { Context as Context1} from './pages/Santhosh/Context';
 import Radhika from './pages/Radhika/Radhika';
 import { Entertainment } from './pages/Radhika/Entertainment';
-import { Art } from './pages/Radhika/Art';
-import { Dance } from './pages/Radhika/Dance';
+import { Axiosrr } from './pages/Radhika/Axiosrr';
 import { MusicContext } from './pages/Radhika/MusicContext';
 import { SearchRef } from './pages/Radhika/Reff';
 import { Politics } from './pages/Aiswarya/Politics';
@@ -143,8 +142,7 @@ class App extends Component {
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
           <Route index element={ <Entertainment title="Entertainment"/> }/>
-          <Route path="art" element={ <Art title="Art"/> }/>
-          <Route path="dance" element={ <Dance title="Dance"/> }/>
+          <Route path="Axiosrr" element={ <Axiosrr /> }/>
           <Route path="musiccontext" element={ <MusicContext /> } />
           <Route path="searchref" element={ <SearchRef /> } />
           <Route path=":id" element={ <Radhika title="This is Radhika's Component"/> }/>

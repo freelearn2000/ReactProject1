@@ -39,7 +39,7 @@ class Classical extends Component {
                     { value =>
                         (
                             <> 
-                            <h3>Context using Class Component</h3>
+                            <h3>Class Component</h3>
                             <p>
                             Music : { value } 
                             </p>
@@ -90,7 +90,7 @@ const Ghazal2 = (props: any) =>{
 
     return (
         <>
-        <h3>Context using Functional Component</h3>
+        <h3>Functional Component</h3>
         <p>Play the music from :  {context}; </p>
         </>
     );
@@ -104,10 +104,10 @@ export class MusicContext extends Component {
 
         return (
             <div className="ui segments">
-                <div className="ui green segment">
+                <div className="ui grey segment">
                     <MusiccContext/>
                 </div>
-                <div className="ui green segment">
+                <div className="ui grey segment">
                     <Ghazal/>
                 </div>
             </div>
