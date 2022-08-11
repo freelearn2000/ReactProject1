@@ -11,7 +11,7 @@ export class Entertainment extends Component<IProps> {
 
         return (
             <div>
-                <h2 className="ui center aligned green header message">{ this.props.title }</h2>
+                <h2 className="ui center aligned grey header message">{ this.props.title }</h2>
             </div>
         );
     }

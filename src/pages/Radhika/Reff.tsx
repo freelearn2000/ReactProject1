@@ -18,7 +18,7 @@ class SearchReff extends Component {
 
         return ( 
             <>
-                <h3>Find the Details</h3>
+                <h3>Class Component</h3>
                 <div className="ui inverted segment">
                     <div className="ui inverted input">
                         <input type="text" placeholder="Search..." ref={ this.searchRef } />
@@ -47,7 +47,7 @@ const  SearchReff1 = ( ) => {
     
     return(
         <>
-            <h3>Website details</h3>
+            <h3>Functional Component</h3>
             <div className="ui labeled input">
                 <div className="ui label">
                      http:// 
@@ -63,10 +63,10 @@ export class SearchRef extends Component {
     render ( ) {
         return (
             <div className="ui segments">
-                <div className="ui green segment">
+                <div className="ui grey segment">
                     <SearchReff/>
                 </div>
-                <div className="ui green segment">
+                <div className="ui grey segment">
                     <SearchReff1/>
                 </div>
             </div>
