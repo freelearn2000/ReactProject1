@@ -18,7 +18,7 @@ class CreateRefDiv extends Component {
         return (
 
             <div className="ui segment">
-                <h4>Class Component - Ref</h4>
+                <h4>Class Component</h4>
                 <input type="text" placeholder="Search..." ref={this.divRef}/>
                 <i className="inverted circular search link icon"></i>
             </div>   
@@ -35,7 +35,7 @@ const UseRefDiv = () => {
     return  (
 
         <div className="ui segment">
-            <h4>Functional Component - Ref</h4>
+            <h4>Functional Component</h4>
             <div className="ui right action left icon input">
                 <i className="search icon"></i>
                 <input type="text" placeholder="Search" ref={divRef}/>
