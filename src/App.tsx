@@ -36,6 +36,7 @@ import { Laptops } from './pages/Vishnupriya/Laptops';
 import { Contextz } from './pages/Vishnupriya/Contextz';
 import { Refz } from './pages/Vishnupriya/Ref';
 import Divya from './pages/Divya/Divya';
+import { AxiosD } from './pages/Divya/Axiosdiv';
 import Product from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
 import { Skincare } from './pages/Divya/Skincare';
@@ -183,6 +184,7 @@ class App extends Component {
             <Route path="skincare" element={ <Skincare/> }/>
           </Route>
           <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>
+          <Route path="axiosdiv" element={ <AxiosD/> }></Route>
           <Route path="context" element={ <ContextDiv/> }></Route>
           <Route path="ref" element={ <RefDiv/>}></Route>
         </Route>
