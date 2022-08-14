@@ -24,8 +24,11 @@ import { Refs } from './pages/Rakhi/Refs';
 import { Samara } from './pages/Samara/Samara';
 import { Parvathy } from './pages/Parvathy/Parvathy';
 import PetsContext from './pages/Parvathy/PetsContext';
-import Books from './pages/Parvathy/Books';
+import { Books } from './pages/Parvathy/Books';
+import { Axiosclasz } from './pages/Parvathy/Books';
+import { AxiosFns } from './pages/Parvathy/Books';
 import MyHome from './pages/Parvathy/Home';
+import Routingz from './pages/Parvathy/Routing';
 import { RefSample1 } from './pages/Parvathy/UseRef1';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
 import { Axiosp } from './pages/Vishnupriya/Axiosp';
@@ -171,6 +174,10 @@ class App extends Component {
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
           <Route index element={ <MyHome /> }/>
           <Route path="home" element={ <MyHome /> }/>
+          <Route path="routing" element={ <Routingz/> }>
+            <Route path="class" element={ <Axiosclasz title="Class Component"/> }/>
+            <Route path="functional" element={ <AxiosFns title="Functional Component" /> }/>
+          </Route>
           <Route path="books" element={ <Books /> }/>
           <Route path="petscontext" element={ <PetsContext/> }/>
           <Route path="ref" element={ <RefSample1/> }/>

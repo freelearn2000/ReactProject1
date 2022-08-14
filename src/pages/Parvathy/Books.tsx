@@ -14,7 +14,7 @@ interface IState {
 }
 
 // Axios in Class Component
-class Books1 extends Component<IProps, IState> {
+export class Axiosclasz extends Component<IProps, IState> {
 
     state = { loading: true, users: null, error: null };
 
@@ -85,7 +85,7 @@ class Books1 extends Component<IProps, IState> {
 
 
 // Axios in Functional Component
-const Cats = (props: any) => {
+export const AxiosFns = (props: any) => {
 
     const [loading, setLoading] = useState<boolean>(true);
     const [users, setUsers] = useState<any>(null);
@@ -157,19 +157,18 @@ const Cats = (props: any) => {
     )
 }
 
-const Books = () => {
+export const Books = () => {
 
     return (
         <div className="ui basic segments">
             <div className="ui segment">
-                <Books1 title="Class Component" />
+                <Axiosclasz title="Class Component" />
             </div>
             <div className="ui segment">
-                <Cats title="Funtional Component" />
+                <AxiosFns title="Funtional Component" />
             </div>
         </div>
     );
 }
 
 
-export default (Books);
