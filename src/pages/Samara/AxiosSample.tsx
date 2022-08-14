@@ -12,7 +12,7 @@ interface IState {
     error: { message: string } | null;
 }
 
-class AxiosSample1 extends Component<IProps, IState> {
+export class AxiosSample1 extends Component<IProps, IState> {
 
     state = { loading: true, data: null, error: null };
 
@@ -79,7 +79,7 @@ class AxiosSample1 extends Component<IProps, IState> {
 }
 
 // Axios in Functional Component
-const AxiosSample2 = ( props: any ) => {
+export const AxiosSample2 = ( props: any ) => {
 
     const [loading, setLoading] = useState<boolean>(true);
     const [data, setData] = useState<any>(null);

@@ -1,6 +1,6 @@
-import WeatherImage from '../Samara/weather.jpg';
 import { Component } from 'react';
 import { retriveDataFromRoute } from '../../utils/hoc';
+import { Link, Outlet } from 'react-router-dom';
 
 
 interface IProps {
@@ -11,10 +11,16 @@ class Routing extends Component<IProps> {
 
     render( ) {
         return(
-            <div>     
-                <h3>RouteData: { this.props.routeData.id }</h3>
-                <img className="ui fluid image" src={ WeatherImage } alt=""/>
-            </div>
+            <div>  
+                <div>     
+                    <Link to='/samara/routing/class' className="ui blue button">Canada Weather</Link>
+                    <Link to='/samara/routing/functional' className="ui blue button">Poland Weather</Link>
+                </div>
+                <br/>
+                <div >
+                    <Outlet/> 
+                </div>
+            </div>      
         );
     }
 }  
