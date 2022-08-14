@@ -21,8 +21,8 @@ export const ContextRain = createContext( {place: 'Canada', weather: 'Rainy'} );
 export const MyMusic = createContext('');
 
 // Santhosh 
-export const LoginContext = createContext({name:'Santhosh', type:'Guest'});
-export const UContext = createContext('');
+export const LoginContext = createContext({name:'', type:''});
+export const UContext = createContext({name:'Arun', type:'Admin'});
 
 // Bindu
 export const  SportsContext = createContext('');

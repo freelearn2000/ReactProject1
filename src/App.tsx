@@ -77,6 +77,8 @@ import { Ref } from './pages/Santhosh/Ref';
 import { Axios } from './pages/Santhosh/Axios';
 import { Home as Home1 } from './pages/Santhosh/Home';
 import Routings from './pages/Santhosh/Routings';
+import { Users } from './pages/Santhosh/Users';
+import { Posts } from './pages/Santhosh/Posts';
 import { Context as Context1} from './pages/Santhosh/Context';
 import Radhika from './pages/Radhika/Radhika';
 import { Entertainment } from './pages/Radhika/Entertainment';
@@ -119,12 +121,14 @@ class App extends Component {
           <Route path="createref" element={ <CreateRefExample/> }/>
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>          
-          <Route index element={ <Home1 title="Home"/> }/>
-          <Route path="home" element={ <Home1 title="Home"/> }/>         
+          <Route index element={ <Home1/> }/>
+          <Route path="home" element={ <Home1/> }/>         
           <Route path="axios" element={ <Axios/> }/>
           <Route path="context" element={ <Context1/> } />
-          <Route path="ref" element={ <Ref/> } />        
-          <Route path=":id" element={ <Routings/> }/>
+          <Route path="ref" element={ <Ref/> } />      
+          <Route path="users" element={ <Users title="Class Component"/> }/>   
+          <Route path="posts" element={ <Posts title="Functional Component"/> }/>
+          <Route path="routings" element={ <Routings/> }/>
         </Route>
         <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>
           <Route path=":id" element={ <RouteData title="Rakhi's Component"/> }/>
