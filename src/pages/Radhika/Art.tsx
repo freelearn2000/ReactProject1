@@ -6,6 +6,7 @@ interface IProps {
     title: string;
 }
 
+
 // Axios implemented through Class Component
 
 export class Art extends Component<IProps> {
@@ -50,8 +51,8 @@ export class Art extends Component<IProps> {
         const posts = this.state.posts ? this.state.posts : [ ];
         const dataJSX = posts.map( ( posts: any ) => {
                 return (
-                    <div key={ posts.id } className="ui green segment">
-                        <p><b>Headline:</b>{ posts.title }</p>
+                    <div key={ posts.id } className="ui grey segment">
+                        <p><b>News:</b>{ posts.title }</p>
                     </div>
                 );
         });
@@ -62,7 +63,7 @@ export class Art extends Component<IProps> {
 
         return(
             <div>
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
+                <h4 className="ui center aligned header">{ this.props.title }</h4>
                 {
                     this.state.loading ? this.renderLoading( ): 
                     this.state.posts ? this.renderUserdata( ):

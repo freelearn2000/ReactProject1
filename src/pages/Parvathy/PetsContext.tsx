@@ -82,7 +82,9 @@ const PetsContext2 = () => {
 
         <div className="ui inverted segment">
             <PetsWorldContext.Provider value={'Parvathy'}>
+            <span className="ui inverted blue text" >
                 <Pet1 />
+            </span>
             </PetsWorldContext.Provider>
         </div>
     );

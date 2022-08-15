@@ -1,43 +1,36 @@
-import { Component } from "react";
+import { Component, useEffect, useState } from "react";
 import axios from '../../axios';
 
-
 interface IProps {
-    title: string;
+    title: any;
 }
 
-interface IState {
-    loading: boolean;
-    content: { } [ ] | null;
-    error: { message: string } | null;
-}
+// Axios in Class component
+export class Users extends Component<IProps> {
 
-// Axios - Class Component
-export class Users extends Component<IProps, IState> {
-
-    state = { loading: true, content: null, error: null };
-
+    state = {loading: true, users: null, error: null};
+    
     componentDidMount( ) {
-
-        axios.get('/todos')
+        
+        axios.get('/users')
             .then(response => {
-                this.setState( {loading: false, content: response.data.splice(0,5), error: null} );
+                this.setState( {loading: false, users: response.data.slice(0,5), error: null} );
             })
             .catch(error => {
-                this.setState( {loading: false, content: null, error: error} );
+                this.setState( {loading: false, users: null, error: error} );
             })
     }
 
     renderLoading( ) {
 
-        const loadingJSX = 
-            <div>
-                <h2>{ this.props.title }</h2>
-                <div className="ui segment">
-                    <p>Loading...</p>
-                    <div className="ui active dimmer">
-                        <div className="ui loader">Please wait...</div>
+        const loadingJSX =  
+            <div className = "ui icon message">
+                <i className = "notched circle loading icon"></i>
+                <div className = "content">
+                    <div className = "header">
+                        Just one second
                     </div>
+                    <p>We're fetching that content for you.</p>
                 </div>
             </div>
         return loadingJSX;
@@ -45,42 +38,132 @@ export class Users extends Component<IProps, IState> {
 
     renderError( ) {
 
-        const message = this.state.error ? this.state.error[ `message` ] : '';
-        const errorJSX =
+        const errorMessage = this.state.error? this.state.error['message'] : '';
+        const errorJSX = 
             <div>
-                <div className="ui negative message">
-                <i className="close icon"></i>
-                    { message }
+                <div className = "ui negative message">
+                    <p>{ errorMessage }</p>
                 </div>
             </div>
         return errorJSX;
     }
 
-    renderData( ) {
+    renderUserdata( ) {
 
-        const datas = this.state.content ? this.state.content : [ ];
-        const dataJsx = datas.map( ( item: {id: number, title: string} ) => {
-            return (
-                <div className="ui green segment">
-                    <p key={ item.id }>{ item.title }</p>
+        const users = this.state.users ? this.state.users : [ ];
+        const dataJSX = users.map( ( user: { id: number, name: string, email: string}, index ) => {
+            return(
+                <div key={user.id + index} className = 'ui segment'>
+                    <h4>Name: {user.name}</h4>
+                    <p>Email: {user.email}</p>
                 </div>
-            )
+            );
         });
-        return dataJsx;
+        return dataJSX;
     }
 
     render( ) {
 
-        return (
-            <div> 
-                <h1 className="ui center aligned blue message"> { this.props.title }</h1>
+        return(
+            <>    
+                <h1 className="ui center aligned header teal inverted segment">Class Component</h1>                                 
                 {
-                    this.state.loading ? this.renderLoading( ) :
-                    this.state.content ? this.renderData( ) :
-                    this.renderError( )    
-                }               
-            </div>
-        )   
+                    this.state.loading ? this.renderLoading( ):
+                    this.state.users ? <> { this.renderUserdata( ) }</>:
+                    <><h2>Error Data</h2>{ this.renderError( )}</>
+                }          
+            </>
+        );
     }
 }
 
+//  Axios in Functional component
+export const Posts  = ( props: any ) => {
+
+    const [loading, setloading] = useState<any>(true);
+    const [data, setdata] = useState<any>(null);
+    const [error, seterror ] = useState<any>(null);
+
+    useEffect( ( ) => {
+
+        axios.get('/posts')
+        .then(response => {
+            setloading(false);
+            setdata(response.data.slice(0,5));
+            seterror(null);
+        })
+        .catch(error => {
+            setloading(false);
+            setdata(null);
+            seterror(error);
+        })
+    }, []);
+
+
+    const renderLoading = ( ) => {
+
+        const loadingJSX =  
+            <div className = "ui icon message">
+                <i className = "notched circle loading icon"></i>
+                <div className = "content">
+                    <div className = "header">
+                        Just one second
+                    </div>
+                    <p>We're fetching that content for you.</p>
+                </div>
+            </div>
+        return loadingJSX;
+
+    }
+    const renderUserdata = ( ) => {
+
+        const data1 = data ? data : [ ];
+        const dataJSX = data1.map( ( item: any ) => {
+                return(
+                    <div key={ item.id } className = 'ui segment'>
+                        <h4>Id: {item.id}</h4>
+                        <p>Title: {item.title}</p>
+                    </div>
+                );
+        });
+        return dataJSX;
+
+        
+    }
+    const renderError = ( ) => {
+        
+        const errorMessage = error? error['message'] : '';
+        const errorJSX = 
+            <div>
+                <div className = "ui negative message">
+                    <p>{ errorMessage }</p>
+                </div>
+            </div>
+        return errorJSX;
+
+    }
+
+    return(
+        <>
+        <h1 className="ui center aligned blue message">Functional Component</h1>                                         
+            {
+                loading ? renderLoading( ):
+                data ? <> { renderUserdata( ) }</>:
+                <><h2>Error Data</h2>{ renderError( )}</>
+            }          
+        </>
+    );
+}
+export const Axios =( ) => {
+    return (
+        <div className="ui segments">
+            <div className="ui segment">
+                <Users title="Class Component"/>
+            </div>
+            <div className="ui segment">
+                <Posts/>
+            </div>
+        </div>
+      );
+
+}

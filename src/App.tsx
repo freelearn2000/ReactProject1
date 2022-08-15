@@ -24,8 +24,11 @@ import { Refs } from './pages/Rakhi/Refs';
 import { Samara } from './pages/Samara/Samara';
 import { Parvathy } from './pages/Parvathy/Parvathy';
 import PetsContext from './pages/Parvathy/PetsContext';
-import Books from './pages/Parvathy/Books';
+import { Books } from './pages/Parvathy/Books';
+import { Axiosclasz } from './pages/Parvathy/Books';
+import { AxiosFns } from './pages/Parvathy/Books';
 import MyHome from './pages/Parvathy/Home';
+import Routingz from './pages/Parvathy/Routing';
 import { RefSample1 } from './pages/Parvathy/UseRef1';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
 import { Axiosp } from './pages/Vishnupriya/Axiosp';
@@ -86,6 +89,8 @@ import { Axiosrr } from './pages/Radhika/Axiosrr';
 import { MusicContext } from './pages/Radhika/MusicContext';
 import { SearchRef } from './pages/Radhika/Reff';
 import  Routingg  from './pages/Radhika/Routingg';
+import { Art } from './pages/Radhika/Art';
+import { Dance } from './pages/Radhika/Dance';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
@@ -152,10 +157,13 @@ class App extends Component {
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
           <Route index element={ <Entertainment title="Entertainment"/> } />
-          <Route path="Axiosrr" element={ <Axiosrr /> } />
+          <Route path="axiosrr" element={ <Axiosrr /> } />
           <Route path="musiccontext" element={ <MusicContext /> } />
           <Route path="searchref" element={ <SearchRef /> } />
-          <Route path=":id" element={ <Routingg /> } />
+          <Route path="routingg" element={ <Routingg /> } >
+            <Route path="art" element={ <Art title=" Class Components" /> } />
+            <Route path="dance" element={ <Dance title="Functional Components"/> } />
+          </Route>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route index element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
@@ -171,21 +179,25 @@ class App extends Component {
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
           <Route index element={ <MyHome /> }/>
           <Route path="home" element={ <MyHome /> }/>
+          <Route path="routing" element={ <Routingz/> }>
+            <Route path="class" element={ <Axiosclasz title="Class Component"/> }/>
+            <Route path="functional" element={ <AxiosFns title="Functional Component" /> }/>
+          </Route>
           <Route path="books" element={ <Books /> }/>
           <Route path="petscontext" element={ <PetsContext/> }/>
           <Route path="ref" element={ <RefSample1/> }/>
           <Route path=":id" element={ <Parvathy title="This is Parvathy's Component"  /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
-        <Route index element={ <ShoppingCart title="Shopping-Cart"/> }/>
-         <Route path="shoppingcart" element={ <ShoppingCart title="Shopping-Cart"/> }/>
-         <Route path="axiosp" element={ <Axiosp/> }/>
-         <Route path="electronics" element={ <Electronics title="Electronics"/> }>
-          <Route path="mobiles" element={ <Mobiles title="Class Component"/> }/>
-          <Route path="laptops" element={ <Laptops title="Functional Component"/> }/>
-         </Route>
-         <Route path="contextz" element={ <Contextz/> }></Route>
-         <Route path="refz" element={ <Refz/> }></Route>
+          <Route index element={ <ShoppingCart title="Shopping-Cart"/> }/>
+          <Route path="shoppingcart" element={ <ShoppingCart title="Shopping-Cart"/> }/>
+          <Route path="axiosp" element={ <Axiosp/> }/>
+          <Route path="electronics" element={ <Electronics title="Electronics"/> }>
+            <Route path="mobiles" element={ <Mobiles title="Class Component"/> }/>
+            <Route path="laptops" element={ <Laptops title="Functional Component"/> }/>
+          </Route>
+          <Route path="contextz" element={ <Contextz/> }></Route>
+          <Route path="refz" element={ <Refz/> }></Route>
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }>
         <Route index element={ <Product title="Product"/> }/>

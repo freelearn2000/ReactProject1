@@ -10,8 +10,11 @@ export const Parvathy = (props: any) => {
         const sideMenuJSX =
             <div className="ui fluid inverted vertical menu">
                 {(location.pathname.includes(`/home`)) ?
-                    <Link to='/parvathy/home' className=" active item">home</Link>
-                    : <Link to='/parvathy/home' className="item">home</Link>}
+                    <Link to='/parvathy/home' className=" active item">Home</Link>
+                    : <Link to='/parvathy/home' className="item">Home</Link>}
+                {(location.pathname.includes(`/routing`)) ?
+                    <Link to='/parvathy/routing' className=" active item">Routing</Link>
+                    : <Link to='/parvathy/routing' className="item">Routing</Link>}
                 {(location.pathname.includes(`/books`)) ?
                     <Link to='/parvathy/books' className="active item">Axios</Link>
                     : <Link to='/parvathy/books' className="item">Axios</Link>}

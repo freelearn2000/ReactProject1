@@ -51,8 +51,8 @@ export const Dance = ( props: any ) => {
         const posts = data ? data : [ ];
         const dataJSX = posts.map( ( post: any ) => {
             return (
-                <div key={ post.id } className="ui green segment">
-                    <p><b>News:</b>{ post.body }</p>
+                <div key={ post.id } className="ui grey segment">
+                    <p><b>Posts:</b>{ post.body }</p>
                 </div>
             );
         });
@@ -61,7 +61,7 @@ export const Dance = ( props: any ) => {
 
     return(
         <div>
-        <h2 className="ui center aligned header">{ props.title }</h2>
+        <h4 className="ui center aligned header">{ props.title }</h4>
             {
                 loading ? renderLoading( ): 
                 data ? renderUserdata( ):
