@@ -8,7 +8,7 @@ class Child1 extends Component {
     render( ) {
         return(
             <>
-                <h4 className="ui center aligned header green">Context object in Class Component</h4>
+                <h4 className="ui center aligned header green">Class Component</h4>
                 <YogaContext.Provider value={{instructor: 'Michale', type: 'Meditation'}}>
                     <Middle/>
                 </YogaContext.Provider>
@@ -47,7 +47,7 @@ const Child2 = (props: any) => {
 
     return (
         <>
-            <h4 className="ui center aligned header green">Context object in Functional component</h4>
+            <h4 className="ui center aligned header green">Functional component</h4>
             <CContext.Consumer>
                 { value =>
                     (

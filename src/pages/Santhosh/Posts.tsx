@@ -3,7 +3,7 @@ import axios from '../../axios';
 
 // Axios implemented through Functional Component
 
-export const Dance = ( props: any ) => {
+export const Posts = ( props: any ) => {
 
     const [loading, setLoading] = useState<boolean>(true);
     const [data, setData] = useState<any>(null);
@@ -51,8 +51,8 @@ export const Dance = ( props: any ) => {
         const posts = data ? data : [ ];
         const dataJSX = posts.map( ( post: any ) => {
             return (
-                <div key={ post.id } className="ui grey segment">
-                    <p><b>Posts:</b>{ post.body }</p>
+                <div key={ post.id } className="ui green segment">
+                    <p><b>News:</b>{ post.body }</p>
                 </div>
             );
         });
@@ -61,7 +61,7 @@ export const Dance = ( props: any ) => {
 
     return(
         <div>
-        <h4 className="ui center aligned header">{ props.title }</h4>
+            <h1 className="ui center aligned blue message">{ props.title }</h1>   
             {
                 loading ? renderLoading( ): 
                 data ? renderUserdata( ):

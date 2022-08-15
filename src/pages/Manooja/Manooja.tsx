@@ -13,6 +13,7 @@ interface IState {
 interface IProps {
     title: any;
     routeData: any;
+    location: any;
 }
 
 class Manooja extends Component<IProps, IState> {
@@ -75,11 +76,11 @@ class Manooja extends Component<IProps, IState> {
                     <div className="ui grid">
                         <div className="four wide column">
                             <div className="ui vertical fluid menu">
-                                <Link to='/manooja/index' className="active item">Home</Link>
-                                <Link to='/manooja/business' className="item">Axios-Class component</Link>
-                                <Link to='/manooja/education' className="item">Axios-Functional Component</Link>
-                                <Link to='/manooja/contextyoga' className="item">Context</Link>
-                                <Link to='/manooja/ref' className="item">Ref</Link>
+                                <Link to='/manooja/index' className={ this.props.location.pathname.includes('Mhome')? 'active item': 'item'}>Home</Link>
+                                <Link to='/manooja/axios1' className={ this.props.location.pathname.includes('axios1')? 'active item': 'item'}>Axios</Link>
+                                <Link to='/manooja/routing1' className ={ this.props.location.pathname.includes('routing1')? 'active item': 'item'}>Route Params</Link>
+                                <Link to='/manooja/contextyoga' className={ this.props.location.pathname.includes('contextyoga')? 'active item': 'item'}>Context</Link>
+                                <Link to='/manooja/ref' className={ this.props.location.pathname.includes('ref')? 'active item': 'item'}>Ref</Link>
                             </div>
                         </div>
                         <div className="twelve wide stretched column">

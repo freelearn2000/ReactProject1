@@ -32,7 +32,7 @@ export class AuthUser3 extends Component {
             <User.Consumer>
                 { user  => (
                     <div>
-                        <h4>Class Component - Context</h4>
+                        <h4>Class Component</h4>
                         <h2>Welcome!! {user.name}</h2>
                     </div>
                 )}
@@ -49,7 +49,7 @@ const UserCon = ( ) => {
 
     return(
         <>
-            <h4>Functional Component Context</h4>
+            <h4>Functional Component</h4>
             <User.Consumer>
                 { user =>
                     (

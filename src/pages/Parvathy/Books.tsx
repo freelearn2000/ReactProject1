@@ -1,7 +1,10 @@
 import { Component, useEffect, useState } from "react";
 import axios from '../../axios';
- import { retriveDataFromRoute } from '../../utils/hoc';
+// import { retriveDataFromRoute } from '../../utils/hoc';
 
+interface IProps {
+    title: string;
+}
 
 
 interface IState {
@@ -11,7 +14,7 @@ interface IState {
 }
 
 // Axios in Class Component
-class Books1 extends Component< IState> {
+export class Axiosclasz extends Component<IProps, IState> {
 
     state = { loading: true, users: null, error: null };
 
@@ -21,10 +24,10 @@ class Books1 extends Component< IState> {
         // Intitiate API call from here
         axios.get('/users')
             .then(response => {
-                this.setState( {loading: false, users: response.data.splice(0, 3), error: null} );
+                this.setState({ loading: false, users: response.data.splice(0, 3), error: null });
             })
             .catch(error => {
-                this.setState( {loading: false, users: null, error: error} );
+                this.setState({ loading: false, users: null, error: error });
             });
     }
 
@@ -46,7 +49,7 @@ class Books1 extends Component< IState> {
         const errorJSX =
             <div>
                 <br />
-                <h4>{ message }</h4>
+                <h4>{message}</h4>
             </div>
         return errorJSX;
     }
@@ -54,11 +57,11 @@ class Books1 extends Component< IState> {
     renderData() {
 
         const users = this.state.users ? this.state.users : [];
-        const dataJSX = users.map( (item: { name: string, email: string, id: number } ) => {
+        const dataJSX = users.map((item: { name: string, email: string, id: number }) => {
             return (
-                <div key={ item.id } className="ui center aligned message">
-                    <h4>{ item.name }</h4>
-                    <p>Email : { item.email }</p>
+                <div key={item.id} className="ui center aligned message">
+                    <h4>{item.name}</h4>
+                    <p>Email : {item.email}</p>
                 </div>
             );
         });
@@ -69,11 +72,11 @@ class Books1 extends Component< IState> {
 
         return (
             <div>
-                {/* <h2 className="ui center aligned header">{ this.props.title }</h2> */}
-                
+                <h3 className="ui center aligned header  olive inverted segment">{this.props.title}</h3>
+
                 {
                     this.state.loading ? this.renderLoading() :
-                    this.state.users ? this.renderData() : this.renderError()
+                        this.state.users ? this.renderData() : this.renderError()
                 }
             </div>
         )
@@ -81,10 +84,8 @@ class Books1 extends Component< IState> {
 }
 
 
-
-
 // Axios in Functional Component
-const Cats = ( props: any ) => {
+export const AxiosFns = (props: any) => {
 
     const [loading, setLoading] = useState<boolean>(true);
     const [users, setUsers] = useState<any>(null);
@@ -123,8 +124,8 @@ const Cats = ( props: any ) => {
         const users1 = users ? users : [];
         const dataJSX = users1.map((item: { name: string, id: number }) => {
             return (
-                <div key={ item.id } className="ui center aligned message">
-                    <h4>{ item.name }</h4>
+                <div key={item.id} className="ui center aligned message">
+                    <h4>{item.name}</h4>
                 </div>
             );
         });
@@ -146,7 +147,7 @@ const Cats = ( props: any ) => {
 
     return (
         <div>
-            <h2 className="ui center aligned header">{props.title}</h2>
+            <h3 className="ui center aligned header teal inverted segment">{props.title}</h3>
             {
                 loading ? renderLoading() :
                     users ? renderData() : renderError()
@@ -156,21 +157,18 @@ const Cats = ( props: any ) => {
     )
 }
 
-const Books = ( ) => {
+export const Books = () => {
 
     return (
         <div className="ui basic segments">
             <div className="ui segment">
-            <h4>Class Component</h4>
-            <Cats title="Class Component"/>
+                <Axiosclasz title="Class Component" />
             </div>
             <div className="ui segment">
-                <h4>Functional Component</h4>
-                <Cats title="Class Component"/>
+                <AxiosFns title="Funtional Component" />
             </div>
         </div>
     );
 }
 
 
-export default (Books);

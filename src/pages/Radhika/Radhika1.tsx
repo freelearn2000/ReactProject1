@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import axios from '../../axios';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import { retriveDataFromRoute } from '../../utils/hoc';
 
 
@@ -23,7 +23,7 @@ class Radhika1 extends Component<IProps, IState> {
 
         axios.get('/users')
             .then(response => {
-                this.setState( { loading: false, users: response.data, error: null } );
+                this.setState( { loading: false, users: response.data.slice(0,1), error: null } );
             })
             .catch(error => {
                 this.setState( { loading: false, users: null, error: error } );
@@ -70,11 +70,8 @@ class Radhika1 extends Component<IProps, IState> {
 
         return(
             <div>
-                <h2 className="ui center aligned header">{ this.props.title }</h2>
                 <h3>Route Data: { this.props.routeData.id }</h3>
                 <br/>
-                <Link to='/' className="ui primary basic tag label">Home Page</Link> &nbsp;&nbsp;
-                <Link to='/about/User/details' className="ui primary basic tag label">About</Link>
                 <br/>
                 {
                     this.state.loading ? this.renderLoading( ): 

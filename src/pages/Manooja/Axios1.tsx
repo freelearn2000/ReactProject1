@@ -1,5 +1,73 @@
-import { useEffect, useState } from "react";
+import { Component, useEffect, useState } from "react";
 import axios from '../../axios';
+
+interface IProps {
+    title: any;
+}
+
+// Axios implemented through Class Component
+
+export class Business extends Component<IProps> {
+
+    state = { loading: true, products: null, error: null }
+
+	componentDidMount( ) {
+
+		axios.get('/posts')
+			.then(response => {
+				this.setState( {loading: false, products: response.data.splice(0,5), error: null} );
+			})
+			.catch(error => {
+				this.setState( {loading: false, products: null, error: error} );
+		});   
+    }
+
+	renderLoading( ) {
+
+		const loadingJSX = 
+			<div className="ui horizontal divider header">
+				<h4 className="ui secondary elastic loading button">Loading....</h4> 
+			</div>
+		return loadingJSX;
+	}
+
+	renderError( ) {
+
+		const message = this.state.error? this.state.error[ 'message' ] : '';
+		const errorJSX = 
+			<div>
+				<h4 className="negative ui button">{ message }</h4>
+			</div>
+		return errorJSX;
+	}
+
+	renderServicesData( ) {
+
+		const datas = this.state.products ? this.state.products : [ ];
+		const dataJSX = datas.map( (products: {id: number, title: string}) => {
+			return(
+				<div key={ products.id } className='ui segment'>
+					<p>{products.title}</p>
+				</div>
+			);	
+		});
+		return dataJSX;
+	}
+
+	render( ) {
+
+		return(
+            <div>
+                <h2 className="ui center aligned green message">Class Component</h2>      
+				
+					{	this.state.loading ? this.renderLoading( ) :
+                		this.state.products ? this.renderServicesData( ):
+               			this.renderError( )
+					}                        
+			</div>
+        )		
+	}	
+}
 
 //  Axios in Functional Component
 export const Education  = ( props: any ) => {
@@ -65,7 +133,7 @@ export const Education  = ( props: any ) => {
 
     return(
         <>
-        <h1 className="ui center aligned green message">"List of Educational Institutions"</h1>                                         
+        <h2 className="ui center aligned green message">Functional Component</h2>                                         
             {
                 loading ? renderLoading( ):
                 data ? <> { renderUserdata( ) }</>:
@@ -73,5 +141,18 @@ export const Education  = ( props: any ) => {
             }          
         </>
     );
+}
+export const Axios1 =( ) => {
+    return (
+        <div className="ui segments">
+            <div className="ui segment">
+                <Business title="Class Component"/>
+            </div>
+            <div className="ui segment">
+                <Education/>
+            </div>
+        </div>
+      );
+
 }
 

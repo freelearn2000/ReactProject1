@@ -7,14 +7,14 @@ interface IProps {
     routeData: any;
 }
 
-class Routing extends Component<IProps> {
+class Routingz extends Component<IProps> {
 
     render( ) {
         return(
             <div>  
                 <div>     
-                    <Link to='/samara/routing/class' className="ui blue button">Canada Weather</Link>
-                    <Link to='/samara/routing/functional' className="ui blue button">Poland Weather</Link>
+                    <Link to='/parvathy/routing/class' className="ui pointing green basic label">class</Link>&emsp;
+                    <Link to='/parvathy/routing/functional' className="ui pointing green circular label">Functional</Link>
                 </div>
                 <br/>
                 <div >
@@ -26,4 +26,4 @@ class Routing extends Component<IProps> {
 }  
 
 
-export default retriveDataFromRoute( Routing );
+export default retriveDataFromRoute( Routingz );
