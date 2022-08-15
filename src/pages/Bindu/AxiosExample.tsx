@@ -13,7 +13,7 @@ export class Health extends Component<IProps> {
 
         axios.get('/posts')
             .then(response => {
-                this.setState( {loading: false, nature: response.data.splice(0,5), error: null} );
+                this.setState( {loading: false, nature: response.data.splice(0,3), error: null} );
             })
             .catch(error => {
                 this.setState( {loading: false, nature: null, error: error} );
@@ -75,7 +75,7 @@ export const Wealth = ( ) =>  {
       
         axios.get('/todos')
         .then(response => {
-           setWealth( response.data.splice(0,5) );
+           setWealth( response.data.splice(0,3) );
         })
         .catch(error => {
             console.log(error);

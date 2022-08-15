@@ -25,7 +25,7 @@ class Bindu extends Component<IProps> {
                             <Link to='/bindu/api' className={ this.props.location.pathname.includes('api')? 'active item': 'item'}>Axios</Link>
                             <Link to='/bindu/sports' className={ this.props.location.pathname.includes('sports')? 'active item': 'item'}>Context</Link>
                             <Link to='/bindu/Ref' className={ this.props.location.pathname.includes('Ref')? 'active item': 'item'}>Ref</Link>
-                            <Link to='/bindu/Rootingb' className={ this.props.location.pathname.includes('Rootingb')? 'active item': 'item'}>RouteParams</Link>
+                            <Link to='/bindu/Rootingb' className={ this.props.location.pathname.includes('Rootingb')? 'active item': 'item'}>Routing</Link>
                         </div>
                     </div>
                     <div className="thirteen wide column">

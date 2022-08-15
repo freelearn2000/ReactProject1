@@ -59,7 +59,6 @@ export class Sports extends Component<IProps> {
 
         return(
                 <>
-                    <h2 className="ui center aligned header">Context</h2>
                     <SportsContext.Provider value = {'P.T.Usha'}>
                         <Athletics/>
                     </SportsContext.Provider>
@@ -76,12 +75,12 @@ export class Sports extends Component<IProps> {
  }      
 
 class Athletics extends Component {
+    
 
     render() {
 
         return(      
              <>  
-                <hr color="blue" />
                 <h5><big>Class Component</big></h5>
                 <Running/>
              </>
@@ -98,7 +97,7 @@ class Running extends Component {
                  <SportsContext.Consumer>
                     { value => (
                       <>
-                        Best Athlet  <span style={{color: 'blue'}}>{ value } </span>                      
+                        Best Athlet :  <span style={{color: 'blue'}}>{ value } </span>                      
                       </>
                      )
                     }
@@ -117,7 +116,8 @@ class Sprint extends Component {
         
                     <>
                         <br/>
-                        Olympian Bronze medal winner : {this.context}
+                        <br/>
+                         Olympian Bronze medal winner :  <span style={{color: 'blue'}}></span> {this.context}
                         <Marathon />
                     </>
                 )
@@ -132,7 +132,7 @@ const Marathon = () => {
                 <>
                    <hr color = "blue" />
                    <h5><big>Functional Component</big></h5>
-                   Arjun Award winner 1983 <span style={{color: 'blue'}}>{ context } </span> 
+                  Best Athlet :<span style={{color: 'blue'}}>{ context } </span> 
                    
                 </>
              )        

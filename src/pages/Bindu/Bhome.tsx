@@ -5,7 +5,6 @@ export const Bhome = ( props: any ) => {
 
     return (
         <div>
-            <h4 className="ui center aligned brown header message">Welcome to Home Page</h4>  
             {/* <div className="ui buttons">
                 <button className="ui pink button">Cancel</button>
                 <div className="or"></div>
