@@ -164,15 +164,15 @@ class App extends Component {
           <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
-        <Route index element={ <ShoppingCart title="Shopping-Cart"/> }/>
-         <Route path="shoppingcart" element={ <ShoppingCart title="Shopping-Cart"/> }/>
-         <Route path="axiosp" element={ <Axiosp/> }/>
-         <Route path="electronics" element={ <Electronics title="Electronics"/> }>
-          <Route path="mobiles" element={ <Mobiles title="Class Component"/> }/>
-          <Route path="laptops" element={ <Laptops title="Functional Component"/> }/>
-         </Route>
-         <Route path="contextz" element={ <Contextz/> }></Route>
-         <Route path="refz" element={ <Refz/> }></Route>
+          <Route index element={ <ShoppingCart title="Shopping-Cart"/> }/>
+          <Route path="shoppingcart" element={ <ShoppingCart title="Shopping-Cart"/> }/>
+          <Route path="axiosp" element={ <Axiosp/> }/>
+          <Route path="electronics" element={ <Electronics title="Electronics"/> }>
+            <Route path="mobiles" element={ <Mobiles title="Class Component"/> }/>
+            <Route path="laptops" element={ <Laptops title="Functional Component"/> }/>
+          </Route>
+          <Route path="contextz" element={ <Contextz/> }></Route>
+          <Route path="refz" element={ <Refz/> }></Route>
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }>
         <Route index element={ <Product title="Product"/> }/>
