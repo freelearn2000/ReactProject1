@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { retriveDataFromRoute } from '../../utils/hoc';
+import { Link, Outlet } from 'react-router-dom';
 
 
 interface IState {
@@ -11,6 +12,7 @@ interface IState {
 interface IProps {
     title: string;
     routeData: any;
+    location: any;
 }
 
 class Routingg extends Component<IProps, IState> {
@@ -18,11 +20,18 @@ class Routingg extends Component<IProps, IState> {
     render( ) {
 
         return(
-            <div className="ui center aligned message">
-                <div className="content">
-                    <div className="header">
-                        <p>Route Data: { this.props.routeData.id }</p>
-                        <br/>
+            <div className="ui two column stackable grid container">
+                <div className="four wide  column">
+                    <div className="ui vertical fluid menu">
+                        <div className="ui segment">
+                            <Link to='/radhika/routingg/art' className={ this.props.location.pathname.includes('Art')? 'active item': 'item'}>News</Link>
+                            <Link to='/radhika/routingg/dance' className={ this.props.location.pathname.includes('Dance')? 'active item': 'item'}>Posts</Link> 
+                        </div>
+                    </div>
+                </div>
+                <div className="twelve wide  column"> 
+                    <div className="ui segment">
+                        <Outlet/>
                     </div>
                 </div>
             </div>

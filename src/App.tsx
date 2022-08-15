@@ -89,6 +89,8 @@ import { Axiosrr } from './pages/Radhika/Axiosrr';
 import { MusicContext } from './pages/Radhika/MusicContext';
 import { SearchRef } from './pages/Radhika/Reff';
 import  Routingg  from './pages/Radhika/Routingg';
+import { Art } from './pages/Radhika/Art';
+import { Dance } from './pages/Radhika/Dance';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
@@ -155,10 +157,13 @@ class App extends Component {
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
           <Route index element={ <Entertainment title="Entertainment"/> } />
-          <Route path="Axiosrr" element={ <Axiosrr /> } />
+          <Route path="axiosrr" element={ <Axiosrr /> } />
           <Route path="musiccontext" element={ <MusicContext /> } />
           <Route path="searchref" element={ <SearchRef /> } />
-          <Route path=":id" element={ <Routingg /> } />
+          <Route path="routingg" element={ <Routingg /> } >
+            <Route path="art" element={ <Art title=" Class Components" /> } />
+            <Route path="dance" element={ <Dance title="Functional Components"/> } />
+          </Route>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route index element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
