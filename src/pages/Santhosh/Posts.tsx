@@ -52,7 +52,7 @@ export const Posts = ( props: any ) => {
         const dataJSX = posts.map( ( post: any ) => {
             return (
                 <div key={ post.id } className="ui green segment">
-                    <p><b>News:</b>{ post.body }</p>
+                    <p><b>post:</b>{ post.body }</p>
                 </div>
             );
         });
@@ -61,7 +61,7 @@ export const Posts = ( props: any ) => {
 
     return(
         <div>
-            <h1 className="ui center aligned blue message">{ props.title }</h1>   
+            <h1 className="ui center aligned header teal inverted segment">{ props.title }</h1>   
             {
                 loading ? renderLoading( ): 
                 data ? renderUserdata( ):
