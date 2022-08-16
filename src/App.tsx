@@ -59,6 +59,8 @@ import { TravelBlog as Travel } from './pages/Dhanya/TravelBlog';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 import  Bindu  from './pages/Bindu/Bindu';
 import  Rootingb from './pages/Bindu/Rootingb';
+import { Nature } from './pages/Bindu/Nature';
+import { Prakarthi } from './pages/Bindu/Prakarthi';
 import { Bhome }  from './pages/Bindu/Bhome';
 import {AxiosExample  } from './pages/Bindu/AxiosExample';
 import { Sports } from './pages/Bindu/Sports';
@@ -154,7 +156,10 @@ class App extends Component {
          <Route path="api" element={ <AxiosExample /> }/>
          <Route path="sports" element={ <Sports title="Sports"/> }/>
          <Route path="Ref" element={ <RefExample1 /> }/>
-         <Route path=":id" element={ <Rootingb /> }/>         
+         <Route path="rootingb" element={ <Rootingb /> }>  
+            <Route path="nature" element={ <Nature title=" Class Components" /> } />
+            <Route path="prakarthi" element={ <Prakarthi/> } />   
+            </Route>     
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
           <Route index element={ <Entertainment title="Entertainment"/> } />
