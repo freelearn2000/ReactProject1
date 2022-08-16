@@ -48,8 +48,9 @@ import { RefDiv } from './pages/Divya/Ref';
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import { Gismapping } from './pages/Viji/Gismapping';
-import { Nepal } from './pages/Viji/Nepal';
-import { Bangladesh } from './pages/Viji/Bangladesh';
+import { Country } from './pages/Viji/Country';
+import State from './pages/Viji/State';
+import { Kollam } from './pages/Viji/Kollam';
 import { RefeSample } from './pages/Viji/MyRefExample';
 import Manooja from './pages/Manooja/Manooja';
 import { Dhanya1 } from './pages/Dhanya/Dhanya1';
@@ -222,8 +223,9 @@ class App extends Component {
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>
         <Route index element={ <Gismapping title="map-display"/> }/>
          <Route path="gis" element={ <Gismapping title="map-display"/> }/>
-          <Route path="nepal" element={ <Nepal title="Axios - Class Component"/> }/>
-          <Route path="bangladesh" element={ <Bangladesh title="Axios - Functional Component"/> }/>
+         <Route path="country" element={ <Country/> }/>
+         <Route path="state" element={ <State title="Kerala"/> }></Route>
+         <Route path="kollam" element={ <Kollam title="Class Component"/> }/>
           <Route path="contextcolor" element={ <ContextColor/> }/>
           <Route path="MyRefExample" element={ <RefeSample/> }/>
           <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>

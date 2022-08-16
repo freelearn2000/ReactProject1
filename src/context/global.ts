@@ -37,8 +37,9 @@ export const ContextTravel = createContext('Ruveneimi');
 export const YogaContext = createContext({instructor:'', type:''});
 export const CContext = createContext({instructor:'Abhijith', type:'Yin Yoga'});
 
-
+//Viji
 export const ColorContext = createContext({color:'', type:''});
+export const ColContext = createContext({color:'Blue', type:'VIBYOR'});
 
 
 export const NewContext = createContext('User');
