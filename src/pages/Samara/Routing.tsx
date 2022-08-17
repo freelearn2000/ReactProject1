@@ -1,10 +1,12 @@
 import { Component } from 'react';
 import { retriveDataFromRoute } from '../../utils/hoc';
 import { Link, Outlet } from 'react-router-dom';
+import WeatherImage from '../Samara/weather.jpg';
 
 
 interface IProps {
     routeData: any;
+    location: any;
 }
 
 class Routing extends Component<IProps> {
@@ -18,7 +20,9 @@ class Routing extends Component<IProps> {
                 </div>
                 <br/>
                 <div >
-                    <Outlet/> 
+                    { this.props.location.pathname.endsWith('routing') ?
+                        <img className="ui fluid image" src={ WeatherImage } alt=""/>:
+                        <Outlet/> }
                 </div>
             </div>      
         );
