@@ -19,6 +19,7 @@ export const ContextRain = createContext( {place: 'Canada', weather: 'Rainy'} );
 
 // Radhika
 export const MyMusic = createContext('');
+export const Musictype = createContext( {type: 'Classical',content: 'Music'} );
 
 // Santhosh 
 export const LoginContext = createContext({name:'', type:''});
