@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
 import { HomePage } from './pages/Home/Home';
-import NewsPage from './pages/NewsPage/NewsPage';
+import NewsPage from './pages/NewsPage/NewsPage1';
 import About from './pages/About/About';
 import Anusree from './pages/Anusree/Anusree';
 import { ContextSample } from './pages/Anusree/Context';
