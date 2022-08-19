@@ -32,7 +32,7 @@ import Routingz from './pages/Parvathy/Routing';
 import { RefSample1 } from './pages/Parvathy/UseRef1';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
 import { Axiosp } from './pages/Vishnupriya/Axiosp';
-import { ShoppingCart } from './pages/Vishnupriya/ShoppingCart';
+import ShoppingCart from './pages/Vishnupriya/ShoppingCart';
 import Electronics from './pages/Vishnupriya/Electronics';
 import { Mobiles } from './pages/Vishnupriya/Mobiles';
 import { Laptops } from './pages/Vishnupriya/Laptops';
@@ -195,8 +195,8 @@ class App extends Component {
           <Route path=":id" element={ <Parvathy title="This is Parvathy's Component"  /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
-          <Route index element={ <ShoppingCart title="Shopping-Cart"/> }/>
-          <Route path="shoppingcart" element={ <ShoppingCart title="Shopping-Cart"/> }/>
+          <Route index element={ <ShoppingCart /> }/>
+          <Route path="shoppingcart" element={ <ShoppingCart/> }/>
           <Route path="axiosp" element={ <Axiosp/> }/>
           <Route path="electronics" element={ <Electronics title="Electronics"/> }>
             <Route path="mobiles" element={ <Mobiles title="Class Component"/> }/>

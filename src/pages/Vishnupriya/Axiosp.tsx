@@ -2,8 +2,11 @@ import { Component, useState, useEffect } from "react";
 import axios from '../../axios';
 
 
+
+
 interface IProps {
     title: string;
+
 }
 
 interface IState {
@@ -161,10 +164,10 @@ export const AxiosLaptops = ( props: any ) => {
     );
 }
 
-export const Axiosp = ( ) => {
+export const Axiosp = () => {
     return(
         <div>
-            <div>
+            <div>               
                 <AxiosMobiles title="Class Component"/>
             </div>
             <div className='ui segment'>
@@ -173,3 +176,4 @@ export const Axiosp = ( ) => {
         </div>
     );
 }
+
