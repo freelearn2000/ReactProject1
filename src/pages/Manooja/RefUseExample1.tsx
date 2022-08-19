@@ -16,8 +16,8 @@ export class  RefCreateExample extends Component {
     render( ) {
         return(
             <>
-             <h4 className="ui left aligned blue header message"> Samplecode CreateRef[Class Component]</h4>
-             <input type="text" placeholder="Search..."  ref = { this.inputRef }></input>
+             <h4 className="ui left aligned blue header message">Class Component</h4>
+             Search<input type="text" placeholder="Search..."  ref = { this.inputRef }></input>
             </>
         );
     }
@@ -31,8 +31,8 @@ export const  RefUseExample = ( ) => {
     
     return(
         <>
-          <h4 className="ui left aligned blue header message">Samplecode useRef[Functional Component]</h4>  
-          <input type="text" placeholder="Search..."  ref = { inputRef }></input>
+          <h4 className="ui left aligned blue header message">Functional Component</h4>  
+          Search<input type="text" placeholder="Search..."  ref = { inputRef }></input>
         </>
     )
 }

@@ -39,7 +39,7 @@ import { Laptops } from './pages/Vishnupriya/Laptops';
 import { Contextz } from './pages/Vishnupriya/Contextz';
 import { Refz } from './pages/Vishnupriya/Ref';
 import Divya from './pages/Divya/Divya';
-import { AxiosD } from './pages/Divya/Axiosdiv';
+import  AxiosD  from './pages/Divya/Axiosdiv';
 import Product from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
 import { Skincare } from './pages/Divya/Skincare';
@@ -69,10 +69,10 @@ import Routing from './pages/Samara/Routing';
 import { AxiosSample } from './pages/Samara/AxiosSample';
 import { AxiosSample1 } from './pages/Samara/AxiosSample';
 import { AxiosSample2 } from './pages/Samara/AxiosSample';
-import { SamaraHome } from './pages/Samara/SamaraHome';
+import SamaraHome from './pages/Samara/SamaraHome';
 import { WeatherContext } from './pages/Samara/WeatherContext';
 import { RefSample } from './pages/Samara/RefSample';
-import { Mhome } from './pages/Manooja/Mhome';
+import  Mhome from './pages/Manooja/Mhome';
 import { Axios1 } from './pages/Manooja/Axios1';
 import { ContextYoga } from './pages/Manooja/ContextYoga';
 import { ContextColor } from './pages/Viji/ContextColor';
@@ -236,12 +236,11 @@ class App extends Component {
           <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>
         </Route>
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
-          <Route path=":id" element={ <Manooja title="This is Manooja's Component"/> }/>
-          <Route path="index" element={ <Mhome title="Home"/> }/>
+          <Route index element={ <Mhome title="Welcome"/> }/>
           <Route path="contextyoga" element={ <ContextYoga/> }/>
           <Route path="axios1" element={ <Axios1/> } />
           <Route path="ref" element={ <ExampleRef/> }/>
-          <Route path="routing1" element={ <Routing1/>} />
+          <Route path=":id" element={ <Routing1 /> }/> 
          </Route>  
         <Route path="/dhanya" element={ <Dhanya1 title="This is Dhanya's Component"/> }>
           {/* <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/> */}
