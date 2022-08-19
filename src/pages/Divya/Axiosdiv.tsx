@@ -1,5 +1,7 @@
 import  { Component, useEffect, useState } from 'react';
 import axios from '../../axios';
+import { connect } from 'react-redux';
+
 
 
 interface IProps {
@@ -143,9 +145,10 @@ export const AxiosSkincare = ( props: any ) => {
         )		
     }
 
-    export const AxiosD = ( ) => {
+    const AxiosD = (props : any) => {
         return (
             <div className="ui segment">
+				<h1>{props.userDetails}</h1>
                 <div className="ui segment">
                     <AxiosGrocery/>
                 </div>
@@ -156,3 +159,10 @@ export const AxiosSkincare = ( props: any ) => {
         );
     }
 
+	const mapStateToProps = (state: any) => {
+		return {
+			userDetails: state.userKey.name
+		}
+	}
+	
+	export default connect(mapStateToProps)(AxiosD);

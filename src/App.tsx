@@ -39,7 +39,7 @@ import { Laptops } from './pages/Vishnupriya/Laptops';
 import { Contextz } from './pages/Vishnupriya/Contextz';
 import { Refz } from './pages/Vishnupriya/Ref';
 import Divya from './pages/Divya/Divya';
-import { AxiosD } from './pages/Divya/Axiosdiv';
+import  AxiosD  from './pages/Divya/Axiosdiv';
 import Product from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
 import { Skincare } from './pages/Divya/Skincare';
