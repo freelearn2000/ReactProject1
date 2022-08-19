@@ -8,6 +8,7 @@ import { retriveDataFromRoute } from '../../utils/hoc';
 import { User }  from '../../context/global';
 
 
+
 interface IProps {
     title: any;
 	location: any;
@@ -91,5 +92,8 @@ class Product extends Component<IProps> {
         )		
 	}	
 }
+
+
+
 
 export default retriveDataFromRoute( Product );
