@@ -2,8 +2,7 @@ import { Component } from "react";
 import { Link, Outlet } from 'react-router-dom';
 import axios from '../../axios';
 import { retriveDataFromRoute } from '../../utils/hoc';
-import Imelec from '../Vishnupriya/images/elecimg.jpg';
-import { User } from '../../context/global';
+import Imkerala from '../Viji/images/kerala.png';
 
 
 interface IProps {
@@ -17,7 +16,7 @@ interface IState {
     error: { message: string } | null;
 }
 
-class Electronics extends Component<IProps, IState> {
+class State extends Component<IProps, IState> {
 
     state = { loading: true, content: null, error: null };
 
@@ -63,7 +62,7 @@ class Electronics extends Component<IProps, IState> {
     renderData( ) {
 
         const datas = this.state.content ? this.state.content : [ ];
-        const ElectronicsJsx = datas.map( ( item: any ) => {
+        const StateJsx = datas.map( ( item: any ) => {
             return (
                 <div key={ item.id } className="ui two segment">
                     <h5>Name: { item.name }</h5>
@@ -73,7 +72,7 @@ class Electronics extends Component<IProps, IState> {
                
             )
         });
-        return ElectronicsJsx;
+        return StateJsx;
     }
 
     render( ) {
@@ -81,30 +80,22 @@ class Electronics extends Component<IProps, IState> {
         return (
             
             <>
-                <User.Consumer>
-                    {user => (
-                        <>  
-                            <h4 className = "ui header blue"> Hi {user.name} !</h4>
-                        </>
-                    )}
-                </User.Consumer>
-
                 <h4 className="ui center aligned header">{this.props.title}</h4> 
                     <div className="row">
                         <div className="ui two column stackable grid container">
                             <div className="four wide  column">
                                 <div className="ui vertical fluid menu">
                                     <div className="ui segment">
-                                        <Link to='mobiles'className={this.props.location.pathname.includes('mobiles')? "active item" : "item"}><i className="mobile icon"></i>Mobiles</Link>
-                                        <Link to='laptops'className={this.props.location.pathname.includes('laptops')? "active item" : "item"}><i className="laptop icon"></i>Laptops</Link>
+                                        <Link to='kollam'className={this.props.location.pathname.includes('kollam')? "active item" : "item"}>Kollam</Link>
+                                        <Link to='kottayam'className={this.props.location.pathname.includes('kottayam')? "active item" : "item"}>Kottayam</Link>
                                     </div>
                                 </div>
                             </div>   
                             <div className="twelve wide  column"> 
                                 <div className="ui segment">
                                     <Outlet/>
-                                    { (this.props.location.pathname.includes('mobiles') || this.props.location.pathname.includes('laptops') )||
-                                    <img className="ui fluid image" src={Imelec} alt={"ProImage"}></img> }
+                                    { (this.props.location.pathname.includes('kollam') || this.props.location.pathname.includes('kottayam') )||
+                                    <img className="ui fluid image" src={Imkerala} alt={"ProImage"}></img> }
                                 </div>	
                             </div>
                         </div>
@@ -114,4 +105,4 @@ class Electronics extends Component<IProps, IState> {
     }
 }
 
-export default retriveDataFromRoute( Electronics );
+export default retriveDataFromRoute( State );

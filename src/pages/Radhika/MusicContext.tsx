@@ -1,5 +1,5 @@
 import { Component, useContext } from 'react';
-import { MyMusic } from '../../context/global';
+import { MyMusic, Musictype } from '../../context/global';
 
 // Class Component
 
@@ -8,59 +8,41 @@ class MusiccContext extends Component {
     render( ) {
         return (
             <div>
-                <MyMusic.Provider value={'Context'}>
-                    <Music/>
+                <Child1/>
+                <MyMusic.Provider value={'Hindustani'}>
+                    <Child2/> 
                 </MyMusic.Provider>  
             </div>
         );
     }
 }
 
-class Music extends Component {
+class Child1 extends Component {
 
     render ( ) {
         return (
             <div>
-                <Classical/>
-                <MyMusic.Provider value={'Hindustani'}>
-                    <Hindustani/>  
-                </MyMusic.Provider>
-            </div>
-        );
-    }
-}
-
-class Classical extends Component {
-
-    render ( ) {
-        return ( 
-            <div>
-                <MyMusic.Consumer>
-                    { value =>
-                        (
-                            <> 
-                            <h3>Class Component</h3>
-                            <p>
-                            Music : { value } 
-                            </p>
-                            </>
+                <Musictype.Consumer>
+                   {
+                        musicdata => (
+                           <><h3>Class Component</h3>
+                           Context value from Child1 : <b>{ musicdata.content }</b> </>
                         )
-                    }
-                </MyMusic.Consumer>
+                   }
+                </Musictype.Consumer>
             </div>
         );
     }
 }
 
-
-class Hindustani extends Component {
+class Child2 extends Component {
 
     static contextType = MyMusic;
 
     render( ) {
          return (
             <> 
-            Play the music from : {this.context};
+            Context value from Child2 : {this.context}
             </>
          );
     }
@@ -68,20 +50,28 @@ class Hindustani extends Component {
 
 // Functional Component 
 
-const  Ghazal = ( ) => {
+const  Ghazal = ( props: any ) => {
 
     return(
-        <MyMusic.Provider value={'Ghazal'}>
-            <Ghazal1/>  
-        </MyMusic.Provider>  
+        <>   
+            <Ghazal1/>
+            <MyMusic.Provider value={'Hindustani'}>
+                <Ghazal2/>  
+            </MyMusic.Provider>  
+        </>
     );
 }
 
-const Ghazal1 = ( ) => {
+const Ghazal1 = ( props: any ) => {
 
-    return(
-        <Ghazal2/>
-    )
+    const context = useContext(Musictype);
+
+    return (
+        <>
+         <h3>Functional Component</h3>
+        <>Context value from Child3 : <b>{ context.content }</b></>
+        </>
+    );
 }
 
 const Ghazal2 = (props: any) =>{
@@ -90,8 +80,7 @@ const Ghazal2 = (props: any) =>{
 
     return (
         <>
-        <h3>Functional Component</h3>
-        <p>Play the music from :  {context}; </p>
+        <p>Context value from Child4 : <b>{ context }</b></p>
         </>
     );
 }

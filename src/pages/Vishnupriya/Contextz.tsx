@@ -9,7 +9,7 @@ export class UserCont extends Component {
     render( ){
         return(
             <div className="ui segment">
-                <User.Provider value={{name: 'Vishnupriya', userRole: 'Admin'}}>
+                <User.Provider value={{name: 'Accessories', userRole: 'Admin'}}>
                     <User2/>
                 </User.Provider>
             </div>
@@ -34,7 +34,7 @@ export class User3 extends Component {
                 { user  => (
                     <div>
                         <h4>Class Component</h4>
-                        <h6>Welcome! {user.userRole}</h6>
+                        <h6>Context value:{user.name}</h6>
                     </div>
                 )}
             </User.Consumer>

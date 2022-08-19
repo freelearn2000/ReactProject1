@@ -63,7 +63,7 @@ const Child3 = ( props: any ) => {
     const context = useContext(ContextRain);
 
     return(
-        <>Context value accessed from Child3 :<b>{ context.place }</b>'s weather is <b>{ context.weather }</b></>
+        <>Context value accessed from Child3 : <b>{ context.place }</b>'s weather is <b>{ context.weather }</b></>
     );
 } 
 

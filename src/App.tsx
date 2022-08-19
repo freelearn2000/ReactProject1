@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
 import { HomePage } from './pages/Home/Home';
-import NewsPage from './pages/NewsPage/NewsPage';
+import NewsPage from './pages/NewsPage/NewsPage1';
 import About from './pages/About/About';
 import Anusree from './pages/Anusree/Anusree';
 import { ContextSample } from './pages/Anusree/Context';
@@ -22,10 +22,13 @@ import technology from './pages/Rakhi/Resources/tech.jpg';
 import { Context } from './pages/Rakhi/CounterContext';
 import { Refs } from './pages/Rakhi/Refs';
 import { Samara } from './pages/Samara/Samara';
-import Parvathy from './pages/Parvathy/Parvathy';
+import { Parvathy } from './pages/Parvathy/Parvathy';
 import PetsContext from './pages/Parvathy/PetsContext';
-import Books from './pages/Parvathy/Books';
+import { Books } from './pages/Parvathy/Books';
+import { Axiosclasz } from './pages/Parvathy/Books';
+import { AxiosFns } from './pages/Parvathy/Books';
 import MyHome from './pages/Parvathy/Home';
+import Routingz from './pages/Parvathy/Routing';
 import { RefSample1 } from './pages/Parvathy/UseRef1';
 import Vishnupriya from './pages/Vishnupriya/Vishnupriya';
 import { Axiosp } from './pages/Vishnupriya/Axiosp';
@@ -36,6 +39,7 @@ import { Laptops } from './pages/Vishnupriya/Laptops';
 import { Contextz } from './pages/Vishnupriya/Contextz';
 import { Refz } from './pages/Vishnupriya/Ref';
 import Divya from './pages/Divya/Divya';
+import { AxiosD } from './pages/Divya/Axiosdiv';
 import Product from './pages/Divya/Products';
 import { Grocery } from './pages/Divya/Grocery';
 import { Skincare } from './pages/Divya/Skincare';
@@ -44,22 +48,28 @@ import { RefDiv } from './pages/Divya/Ref';
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import { Gismapping } from './pages/Viji/Gismapping';
-import { Nepal } from './pages/Viji/Nepal';
-import { Bangladesh } from './pages/Viji/Bangladesh';
+import { Country } from './pages/Viji/Country';
+import State from './pages/Viji/State';
+import { Kollam } from './pages/Viji/Kollam';
 import { RefeSample } from './pages/Viji/MyRefExample';
 import Manooja from './pages/Manooja/Manooja';
 import { Dhanya1 } from './pages/Dhanya/Dhanya1';
 import { FoodBlog as Food } from './pages/Dhanya/FoodBlog';
 import { TravelBlog as Travel } from './pages/Dhanya/TravelBlog';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
-import { Bindu } from './pages/Bindu/Bindu';
+import  Bindu  from './pages/Bindu/Bindu';
+import  Rootingb from './pages/Bindu/Rootingb';
+import { Nature } from './pages/Bindu/Nature';
+import { Prakarthi } from './pages/Bindu/Prakarthi';
 import { Bhome }  from './pages/Bindu/Bhome';
 import {AxiosExample  } from './pages/Bindu/AxiosExample';
 import { Sports } from './pages/Bindu/Sports';
 import { RefExample1 } from './pages/Bindu/RefExample1';
 import Routing from './pages/Samara/Routing';
 import { AxiosSample } from './pages/Samara/AxiosSample';
-import { SamaraHome } from './pages/Samara/SamaraHome';
+import { AxiosSample1 } from './pages/Samara/AxiosSample';
+import { AxiosSample2 } from './pages/Samara/AxiosSample';
+import SamaraHome from './pages/Samara/SamaraHome';
 import { WeatherContext } from './pages/Samara/WeatherContext';
 import { RefSample } from './pages/Samara/RefSample';
 import { Mhome } from './pages/Manooja/Mhome';
@@ -71,15 +81,19 @@ import Routing1 from './pages/Manooja/Routing1';
 import Santhosh from './pages/Santhosh/Santhosh';
 import { Ref } from './pages/Santhosh/Ref';
 import { Axios } from './pages/Santhosh/Axios';
-import { Home as Home1 } from './pages/Santhosh/Home';
+import Home from './pages/Santhosh/Home';
 import Routings from './pages/Santhosh/Routings';
+import { Users } from './pages/Santhosh/Users';
+import { Posts } from './pages/Santhosh/Posts';
 import { Context as Context1} from './pages/Santhosh/Context';
 import Radhika from './pages/Radhika/Radhika';
-import { Entertainment } from './pages/Radhika/Entertainment';
+import  Entertainment  from './pages/Radhika/Entertainment';
 import { Axiosrr } from './pages/Radhika/Axiosrr';
 import { MusicContext } from './pages/Radhika/MusicContext';
 import { SearchRef } from './pages/Radhika/Reff';
 import  Routingg  from './pages/Radhika/Routingg';
+import { Art } from './pages/Radhika/Art';
+import { Dance } from './pages/Radhika/Dance';
 import { Politics } from './pages/Aiswarya/Politics';
 import { Arts } from './pages/Aiswarya/Arts';
 import { Homepages } from './pages/Aiswarya/Homepages';
@@ -115,12 +129,14 @@ class App extends Component {
           <Route path="createref" element={ <CreateRefExample/> }/>
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>          
-          <Route index element={ <Home1 title="Home"/> }/>
-          <Route path="home" element={ <Home1 title="Home"/> }/>         
+          <Route index element={ <Home/> }/>
+          <Route path="home" element={ <Home/> }/>         
           <Route path="axios" element={ <Axios/> }/>
           <Route path="context" element={ <Context1/> } />
-          <Route path="ref" element={ <Ref/> } />        
-          <Route path=":id" element={ <Routings/> }/>
+          <Route path="ref" element={ <Ref/> } />      
+          <Route path="users" element={ <Users title="Class Component"/> }/>   
+          <Route path="posts" element={ <Posts title="Functional Component"/> }/>
+          <Route path="routings" element={ <Routings/> }/>
         </Route>
         <Route path="/rakhi" element={ <Rakhi title="Rakhi's Component"/> }>
           <Route path=":id" element={ <RouteData title="Rakhi's Component"/> }/>
@@ -140,40 +156,54 @@ class App extends Component {
          <Route path="api" element={ <AxiosExample /> }/>
          <Route path="sports" element={ <Sports title="Sports"/> }/>
          <Route path="Ref" element={ <RefExample1 /> }/>
-         <Route path=":id" element={ <Bindu title="This is Bindu's Component"/> }/>
+         <Route path="rootingb" element={ <Rootingb /> }>  
+            <Route path="nature" element={ <Nature title=" Class Components" /> } />
+            <Route path="prakarthi" element={ <Prakarthi/> } />   
+            </Route>     
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
-          <Route index element={ <Entertainment title="Entertainment"/> } />
-          <Route path="Axiosrr" element={ <Axiosrr /> } />
+          <Route index element={ <Entertainment title="Welcome"/> } />
+          <Route path="axiosrr" element={ <Axiosrr /> } />
           <Route path="musiccontext" element={ <MusicContext /> } />
           <Route path="searchref" element={ <SearchRef /> } />
-          <Route path=":id" element={ <Routingg /> } />
+          <Route path="routingg" element={ <Routingg /> } >
+            <Route path="art" element={ <Art title=" Class Components" /> } />
+            <Route path="dance" element={ <Dance title="Functional Components"/> } />
+          </Route>
         </Route>
         <Route path="/samara" element={ <Samara title="Welcome to Samara's Component"/> }>
           <Route index element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
-          <Route path=":id" element={ <Routing/> }/>
+          <Route path="routing" element={ <Routing/> }>
+            <Route path="class" element={ <AxiosSample1 title="Class Component"/> }/>
+            <Route path="functional" element={ <AxiosSample2 title="Functional Component"/> }/>
+          </Route>
           <Route path="axios" element={ <AxiosSample/> }/>
           <Route path="context" element={ <WeatherContext/> } />
           <Route path="ref" element={ <RefSample/> }/>
+          <Route path=":id" element={ <SamaraHome title="Welcome to our Weather Calculator"/> }/>
         </Route>
         <Route path="/parvathy" element={ <Parvathy title="This is Parvathy's Component"/> }>
           <Route index element={ <MyHome /> }/>
           <Route path="home" element={ <MyHome /> }/>
+          <Route path="routing" element={ <Routingz/> }>
+            <Route path="class" element={ <Axiosclasz title="Class Component"/> }/>
+            <Route path="functional" element={ <AxiosFns title="Functional Component" /> }/>
+          </Route>
           <Route path="books" element={ <Books /> }/>
           <Route path="petscontext" element={ <PetsContext/> }/>
           <Route path="ref" element={ <RefSample1/> }/>
-          <Route path=":id" element={ <Parvathy title="This is Parvathy's Component" /> }/>
+          <Route path=":id" element={ <Parvathy title="This is Parvathy's Component"  /> }/>
         </Route>
         <Route path="/vishnupriya" element={ <Vishnupriya title="This is Vishnupriya's Component"/>}>
-        <Route index element={ <ShoppingCart title="Shopping-Cart"/> }/>
-         <Route path="shoppingcart" element={ <ShoppingCart title="Shopping-Cart"/> }/>
-         <Route path="axiosp" element={ <Axiosp/> }/>
-         <Route path="electronics" element={ <Electronics title="Electronics"/> }>
-          <Route path="mobiles" element={ <Mobiles title="Class Component"/> }/>
-          <Route path="laptops" element={ <Laptops title="Functional Component"/> }/>
-         </Route>
-         <Route path="contextz" element={ <Contextz/> }></Route>
-         <Route path="refz" element={ <Refz/> }></Route>
+          <Route index element={ <ShoppingCart title="Shopping-Cart"/> }/>
+          <Route path="shoppingcart" element={ <ShoppingCart title="Shopping-Cart"/> }/>
+          <Route path="axiosp" element={ <Axiosp/> }/>
+          <Route path="electronics" element={ <Electronics title="Electronics"/> }>
+            <Route path="mobiles" element={ <Mobiles title="Class Component"/> }/>
+            <Route path="laptops" element={ <Laptops title="Functional Component"/> }/>
+          </Route>
+          <Route path="contextz" element={ <Contextz/> }></Route>
+          <Route path="refz" element={ <Refz/> }></Route>
         </Route>
         <Route path="/divya" element={ <Divya title="This is Divya's Component"/> }>
         <Route index element={ <Product title="Product"/> }/>
@@ -182,6 +212,7 @@ class App extends Component {
             <Route path="skincare" element={ <Skincare/> }/>
           </Route>
           <Route path=":id" element={ <Divya title="This is Divya's Component"/> }/>
+          <Route path="axiosdiv" element={ <AxiosD/> }></Route>
           <Route path="context" element={ <ContextDiv/> }></Route>
           <Route path="ref" element={ <RefDiv/>}></Route>
         </Route>
@@ -197,8 +228,9 @@ class App extends Component {
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>
         <Route index element={ <Gismapping title="map-display"/> }/>
          <Route path="gis" element={ <Gismapping title="map-display"/> }/>
-          <Route path="nepal" element={ <Nepal title="Axios - Class Component"/> }/>
-          <Route path="bangladesh" element={ <Bangladesh title="Axios - Functional Component"/> }/>
+         <Route path="country" element={ <Country/> }/>
+         <Route path="state" element={ <State title="Kerala"/> }></Route>
+         <Route path="kollam" element={ <Kollam title="Class Component"/> }/>
           <Route path="contextcolor" element={ <ContextColor/> }/>
           <Route path="MyRefExample" element={ <RefeSample/> }/>
           <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>

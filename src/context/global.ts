@@ -19,10 +19,11 @@ export const ContextRain = createContext( {place: 'Canada', weather: 'Rainy'} );
 
 // Radhika
 export const MyMusic = createContext('');
+export const Musictype = createContext( {type: 'Classical',content: 'Music'} );
 
 // Santhosh 
-export const LoginContext = createContext({name:'Santhosh', type:'Guest'});
-export const UContext = createContext('');
+export const LoginContext = createContext({name:'', type:''});
+export const UContext = createContext({name:'Arun', type:'Admin'});
 
 // Bindu
 export const  SportsContext = createContext('');
@@ -37,8 +38,9 @@ export const ContextTravel = createContext('Ruveneimi');
 export const YogaContext = createContext({instructor:'', type:''});
 export const CContext = createContext({instructor:'Abhijith', type:'Yin Yoga'});
 
-
+//Viji
 export const ColorContext = createContext({color:'', type:''});
+export const ColContext = createContext({color:'Blue', type:'VIBYOR'});
 
 
 export const NewContext = createContext('User');

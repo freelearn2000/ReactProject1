@@ -1,11 +1,11 @@
-import { Component, useEffect, useState } from "react";
+import { Component } from "react";
 import axios from '../../axios';
 
 interface IProps {
     title: any;
 }
 
-export class Health extends Component<IProps> {
+export class Nature extends Component<IProps> {
 
     state={ loading: true, nature: null, error: null };
     
@@ -66,53 +66,4 @@ export class Health extends Component<IProps> {
             </>
         )
     }
-}
-
-export const Wealth = ( ) =>  {
-    const [wealth, setWealth] = useState<any>( []);
-
-    useEffect(( ) =>{
-      
-        axios.get('/todos')
-        .then(response => {
-           setWealth( response.data.splice(0,3) );
-        })
-        .catch(error => {
-            console.log(error);
-        })
-    },[ ] )
-   
-    return(
-           
-        <> 
-             <h2 className="ui center aligned header">functional Component</h2>
-            {
-                wealth.map((item: any)=>{
-
-                    return( 
-                        <div key={ item.id } className="ui segment">
-                            <h4>{ item.title }</h4>
-                        </div>
-                       )
-                })
-            }
-            
-        </>
-    )
-}
-
-export const AxiosExample = ( ) => { 
-
-        return ( 
-
-        <div className="ui segments">
-            <div className="ui segment">
-                <Health  title="Health"/>
-            </div>
-            <div className="ui segments">
-                <Wealth/>
-            </div>
-        </div>
-
-      );
 }

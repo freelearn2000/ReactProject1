@@ -7,6 +7,7 @@ import { retriveDataFromRoute } from '../../utils/hoc';
 interface IProps {
     title: any;
 	routeData: any;
+	location: any;
 }
 
 interface IState {
@@ -72,14 +73,31 @@ class Divya extends Component<IProps, IState> {
 	render( ) {
 
 		return(
-            <div>
-                <h2 className="ui horizontal divider header">{this.props.title}</h2> 
-				<br/>
-				<Link to='/divya/product' className="ui button">Axios</Link>
-				<Link to='/divya/context' className = "ui button">Context</Link>
-				<Link to='/divya/ref' className = "ui button">Ref</Link>
-                <Outlet/>         	
-			</div>
+            // <div>
+            //     <h2 className="ui horizontal divider header">{this.props.title}</h2> 
+			// 	<br/>
+			// 	<div className="column">
+            //         <div className="ui stackable container menu"></div>
+			// 	<Link to='/divya/product' className={this.props.location.pathname.includes('product')? "active item" : "item"}>Routing</Link>
+			// 	<Link to='/divya/axiosdiv' className={this.props.location.pathname.includes('axiosdiv')? "active item" : "item"}>Axios</Link>
+			// 	<Link to='/divya/context' className={this.props.location.pathname.includes('context')? "active item" : "item"}>Context</Link>
+			// 	<Link to='/divya/ref' className={this.props.location.pathname.includes('ref')? "active item" : "item"}>Ref</Link>
+            //     </div>
+			// 	<Outlet/>         	
+			// </div>
+			<div>
+                <h2 className="ui center aligned gray header message">{ this.props.title }</h2>
+                    <div className="column">
+                        <div className="ui stackable container menu">
+								<Link to='/divya/product' className={this.props.location.pathname.includes('product')? "active item" : "item"}>Routing</Link>
+			 					<Link to='/divya/axiosdiv' className={this.props.location.pathname.includes('axiosdiv')? "active item" : "item"}>Axios</Link>
+		    					<Link to='/divya/context' className={this.props.location.pathname.includes('context')? "active item" : "item"}>Context</Link>
+			 					<Link to='/divya/ref' className={this.props.location.pathname.includes('ref')? "active item" : "item"}>Ref</Link>                            </div>
+                        <div className="four wide raw">
+							<Outlet/>
+                        </div>
+                    </div>
+            </div>
         )		
 	}	
 }
