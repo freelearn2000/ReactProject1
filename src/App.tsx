@@ -204,12 +204,11 @@ class App extends Component {
           <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>
         </Route>
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
-          <Route path=":id" element={ <Manooja title="This is Manooja's Component"/> }/>
-          <Route path="index" element={ <Mhome title="Home"/> }/>
+          <Route index element={ <Mhome title="Home"/> }/>
           <Route path="contextyoga" element={ <ContextYoga/> }/>
           <Route path="axios1" element={ <Axios1/> } />
           <Route path="ref" element={ <ExampleRef/> }/>
-          <Route path="routing1" element={ <Routing1/>} />
+          <Route path=":id" element={ <Routing1 /> }/> 
          </Route>  
         <Route path="/dhanya" element={ <Dhanya1 title="This is Dhanya's Component"/> }>
           {/* <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/> */}
