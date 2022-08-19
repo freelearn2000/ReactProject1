@@ -81,7 +81,7 @@ import Routing1 from './pages/Manooja/Routing1';
 import Santhosh from './pages/Santhosh/Santhosh';
 import { Ref } from './pages/Santhosh/Ref';
 import { Axios } from './pages/Santhosh/Axios';
-import { Home as Home1 } from './pages/Santhosh/Home';
+import Home from './pages/Santhosh/Home';
 import Routings from './pages/Santhosh/Routings';
 import { Users } from './pages/Santhosh/Users';
 import { Posts } from './pages/Santhosh/Posts';
@@ -129,8 +129,8 @@ class App extends Component {
           <Route path="createref" element={ <CreateRefExample/> }/>
         </Route>
         <Route path="/santhosh" element={ <Santhosh title="This is Santhosh's Component"/> }>          
-          <Route index element={ <Home1/> }/>
-          <Route path="home" element={ <Home1/> }/>         
+          <Route index element={ <Home/> }/>
+          <Route path="home" element={ <Home/> }/>         
           <Route path="axios" element={ <Axios/> }/>
           <Route path="context" element={ <Context1/> } />
           <Route path="ref" element={ <Ref/> } />      
