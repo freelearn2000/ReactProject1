@@ -72,7 +72,7 @@ import { AxiosSample2 } from './pages/Samara/AxiosSample';
 import SamaraHome from './pages/Samara/SamaraHome';
 import { WeatherContext } from './pages/Samara/WeatherContext';
 import { RefSample } from './pages/Samara/RefSample';
-import { Mhome } from './pages/Manooja/Mhome';
+import  Mhome from './pages/Manooja/Mhome';
 import { Axios1 } from './pages/Manooja/Axios1';
 import { ContextYoga } from './pages/Manooja/ContextYoga';
 import { ContextColor } from './pages/Viji/ContextColor';
@@ -236,7 +236,7 @@ class App extends Component {
           <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>
         </Route>
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
-          <Route index element={ <Mhome title="Home"/> }/>
+          <Route index element={ <Mhome title="Welcome"/> }/>
           <Route path="contextyoga" element={ <ContextYoga/> }/>
           <Route path="axios1" element={ <Axios1/> } />
           <Route path="ref" element={ <ExampleRef/> }/>

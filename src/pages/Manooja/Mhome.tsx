@@ -1,13 +1,30 @@
-export const Mhome = ( props: any ) => {  
+import { Component } from 'react';
+import { connect } from 'react-redux';
 
-    return (
-        <div>
-            <h3>Welcome to Home Page</h3>  
-            <div className="ui buttons">
-                <button className="ui blue button">Cancel</button>
-                <div className="or"></div>
-                <button className="ui positive button" >Submit</button>
-            </div>
-        </div>
-    );
+
+interface IProps {
+    title: string;   
+    userDetails: any;
 }
+
+class Mhome extends Component<IProps> {
+
+    render( ) {
+
+        return (
+            <div>
+                <h2 className="ui center aligned green header message">{ this.props.title }
+                &nbsp;&nbsp;&nbsp;{this.props.userDetails}</h2>
+                 
+            </div>
+        );
+    }
+}
+
+const mapStateToProps = (state: any) => {
+    return {
+        userDetails: state.userKey.name
+    }
+}
+
+export default connect(mapStateToProps)(Mhome);
