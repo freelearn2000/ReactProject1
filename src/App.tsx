@@ -69,7 +69,7 @@ import Routing from './pages/Samara/Routing';
 import { AxiosSample } from './pages/Samara/AxiosSample';
 import { AxiosSample1 } from './pages/Samara/AxiosSample';
 import { AxiosSample2 } from './pages/Samara/AxiosSample';
-import { SamaraHome } from './pages/Samara/SamaraHome';
+import SamaraHome from './pages/Samara/SamaraHome';
 import { WeatherContext } from './pages/Samara/WeatherContext';
 import { RefSample } from './pages/Samara/RefSample';
 import { Mhome } from './pages/Manooja/Mhome';
