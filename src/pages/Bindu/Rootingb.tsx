@@ -1,11 +1,12 @@
 import { Component } from "react";
-import { Outlet } from "react-router-dom";
+import { Link,  Outlet } from "react-router-dom";
 import { retriveDataFromRoute } from "../../utils/hoc";
 
 
 interface IProps {
-    title: any
+    title: string
     routeData: any;
+    location : any;
 }
 
 interface IState {
@@ -21,15 +22,14 @@ class Rootingb extends Component <IProps, IState> {
 
         return( 
                 <>            
-                    { 
-                        this.props.routeData.id ?
+                  <div className="ui two item menu"  style={{ backgroundColor: 'wheat'}}>
                             <>  
-                                <h2 className="ui center aligned header">{ this.props.title }</h2>
-                                <h3 className='ui header blue'>Route Data: { this.props.routeData.id }</h3>
-                            </>:
-                            <Outlet/>
-                                
-                    }
+                            <Link to='/bindu/rootingb/nature' className={ this.props.location.pathname.includes('Nature')? 'active item': 'item'}>Nature</Link>
+                            <Link to='/bindu/rootingb/prakarthi' className={ this.props.location.pathname.includes('Prakarthi')? 'active item': 'item'}>Wealth</Link> 
+                            </>
+                    </div>
+                            
+                    <Outlet/>
                 </>
         )
    }    

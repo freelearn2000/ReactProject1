@@ -12,17 +12,16 @@ interface IState {
     error: { message: string } | null;
 }
 
-////Axios - Class Component
-
-export class Nepal extends Component<IProps, IState> {
+// Axios - Class Component
+export class Kollam extends Component<IProps, IState> {
 
     state = { loading: true, content: null, error: null };
 
     componentDidMount( ) {
 
-        axios.get('/comments')
+        axios.get('/todos')
             .then(response => {
-                this.setState( {loading: false, content: response.data, error: null} );
+                this.setState( {loading: false, content: response.data.splice(0,5), error: null} );
             })
             .catch(error => {
                 this.setState( {loading: false, content: null, error: error} );
@@ -47,40 +46,41 @@ export class Nepal extends Component<IProps, IState> {
     renderError( ) {
 
         const message = this.state.error ? this.state.error[ `message` ] : '';
-        const errorJsx =
+        const errorJSX =
             <div>
                 <div className="ui negative message">
                 <i className="close icon"></i>
                     { message }
                 </div>
             </div>
-        return errorJsx;
+        return errorJSX;
     }
 
     renderData( ) {
 
         const datas = this.state.content ? this.state.content : [ ];
-        const userJsx = datas.map( ( item: {id: number, name: string, email: string} ) => {
+        const dataJsx = datas.map( ( item: {id: number, title: string} ) => {
             return (
-                <div key={ item.id } className="ui two segment">
-                    <h5>Name: { item.name }</h5>
-                    <p>Email: { item.email }</p>
+                <div className='ui segment'>
+                    <p key={ item.id }>{ item.title }</p>
                 </div>
             )
         });
-        return userJsx;
+        return dataJsx;
     }
 
     render( ) {
 
         return (
-            <div>
+            <div> 
+                <h4 className="ui center aligned header">{ this.props.title }</h4>
                 {
                     this.state.loading ? this.renderLoading( ) :
                     this.state.content ? this.renderData( ) :
                     this.renderError( )    
-                }
+                }               
             </div>
         )   
     }
 }
+

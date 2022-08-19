@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
 import { HomePage } from './pages/Home/Home';
-import NewsPage from './pages/NewsPage/NewsPage';
+import NewsPage from './pages/NewsPage/NewsPage1';
 import About from './pages/About/About';
 import Anusree from './pages/Anusree/Anusree';
 import { ContextSample } from './pages/Anusree/Context';
@@ -48,8 +48,9 @@ import { RefDiv } from './pages/Divya/Ref';
 import Aiswarya from './pages/Aiswarya/Aiswarya';
 import Viji from './pages/Viji/Viji';
 import { Gismapping } from './pages/Viji/Gismapping';
-import { Nepal } from './pages/Viji/Nepal';
-import { Bangladesh } from './pages/Viji/Bangladesh';
+import { Country } from './pages/Viji/Country';
+import State from './pages/Viji/State';
+import { Kollam } from './pages/Viji/Kollam';
 import { RefeSample } from './pages/Viji/MyRefExample';
 import Manooja from './pages/Manooja/Manooja';
 import { Dhanya1 } from './pages/Dhanya/Dhanya1';
@@ -58,6 +59,8 @@ import { TravelBlog as Travel } from './pages/Dhanya/TravelBlog';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 import  Bindu  from './pages/Bindu/Bindu';
 import  Rootingb from './pages/Bindu/Rootingb';
+import { Nature } from './pages/Bindu/Nature';
+import { Prakarthi } from './pages/Bindu/Prakarthi';
 import { Bhome }  from './pages/Bindu/Bhome';
 import {AxiosExample  } from './pages/Bindu/AxiosExample';
 import { Sports } from './pages/Bindu/Sports';
@@ -153,7 +156,10 @@ class App extends Component {
          <Route path="api" element={ <AxiosExample /> }/>
          <Route path="sports" element={ <Sports title="Sports"/> }/>
          <Route path="Ref" element={ <RefExample1 /> }/>
-         <Route path=":id" element={ <Rootingb /> }/>         
+         <Route path="rootingb" element={ <Rootingb /> }>  
+            <Route path="nature" element={ <Nature title=" Class Components" /> } />
+            <Route path="prakarthi" element={ <Prakarthi/> } />   
+            </Route>     
          </Route>
         <Route path="/radhika" element={ <Radhika title="This is Radhika's Component"/> }>
           <Route index element={ <Entertainment title="Entertainment"/> } />
@@ -222,8 +228,9 @@ class App extends Component {
         <Route path="/viji" element={ <Viji title="This is Viji's Component"/> }>
         <Route index element={ <Gismapping title="map-display"/> }/>
          <Route path="gis" element={ <Gismapping title="map-display"/> }/>
-          <Route path="nepal" element={ <Nepal title="Axios - Class Component"/> }/>
-          <Route path="bangladesh" element={ <Bangladesh title="Axios - Functional Component"/> }/>
+         <Route path="country" element={ <Country/> }/>
+         <Route path="state" element={ <State title="Kerala"/> }></Route>
+         <Route path="kollam" element={ <Kollam title="Class Component"/> }/>
           <Route path="contextcolor" element={ <ContextColor/> }/>
           <Route path="MyRefExample" element={ <RefeSample/> }/>
           <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>
