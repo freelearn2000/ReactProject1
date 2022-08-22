@@ -11,7 +11,7 @@ const Home = ( props: any ) => {
             <h2 className="ui center aligned blue header message">Welcome {props.userDetails}</h2>                 
                 <div className="ui form formStyle attached fluid">                    
                     <div className="ui buttons">
-                        <button className="ui positive button" onClick={ onClickHandler }>Change</button>                        
+                       <button className="ui positive button button" onClick={ onClickHandler }>Change</button>                        
                     </div>
                 </div> 
         </>
@@ -30,4 +30,4 @@ const mapDispatchToProps = (dispatch: any) => {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Home);  
+export default connect(mapStateToProps, mapDispatchToProps)(Home);  
