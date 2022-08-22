@@ -1,24 +1,43 @@
-
+import { Component } from 'react';
 import Imshopcart from '../Vishnupriya/images/shopcartimg.jpg';
 import { connect } from 'react-redux';
 
 
-const ShoppingCart = ( props: any ) => {      
-    
-     
-    return (
-        <>
-             <h2 className="ui center aligned grey header message">{props.userDetails}</h2>                 
-            <img className="ui fluid image" src={ Imshopcart } alt=""/>
-        </>
-    );
+interface Props {
+    userName: any;
+    onUserSave: any;
 }
+
+class ShoppingCart extends Component<Props> {   
+    
+    onClickHandler = () => {
+        // Dispatch ADD_USER action
+        this.props.onUserSave('Bill Gates', 65)
+    }
+    
+    render() {
+        return (
+            <>
+                 <h2 className="ui center aligned grey header message"><span className="ui inverted black text" >Welcome!!&emsp;</span>{this.props.userName}</h2>
+                 <button className="ui grey basic button" onClick={this.onClickHandler}>Change State</button><br/><br/>                
+                <img className="ui fluid image" src={ Imshopcart } alt=""/>
+            </>
+        );
+    }
+} 
+    
 
 const mapStateToProps = (state: any) => {
     return {
-        userDetails: state.userKey.name
+        userName: state.userKey.name
     }
 }
 
-export default connect(mapStateToProps)(ShoppingCart);
+const mapDispatchToProps = ( dispatch: any ) => {
+    return {
+        onUserSave: (name: string, age: number) => dispatch({type: 'ADD_USER', payload: {Name: name, Age: age}})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCart);
 
