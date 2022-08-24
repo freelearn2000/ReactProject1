@@ -3,19 +3,25 @@ import { connect } from 'react-redux';
 
 
 interface IProps {
-    title: string;   
-    userDetails: any;
+    
+    userName: any;
+    onUserSave: any;
 }
 
 class Mhome extends Component<IProps> {
+
+    onClickHandler = ( ) => {
+
+        this.props.onUserSave( 'Jordan Walke');
+    }
 
     render( ) {
 
         return (
             <div>
-                <h2 className="ui center aligned green header message">{ this.props.title }
-                &nbsp;&nbsp;&nbsp;{this.props.userDetails}</h2>
-                 
+                <h2 className="ui center aligned green header message">Welcome
+                &nbsp;&nbsp;&nbsp;{this.props.userName}</h2>
+                <button className="ui positive button" onClick={ this.onClickHandler }>Change</button> 
             </div>
         );
     }
@@ -23,8 +29,17 @@ class Mhome extends Component<IProps> {
 
 const mapStateToProps = (state: any) => {
     return {
-        userDetails: state.userKey.name
+        userName: state.userKey.name
     }
 }
 
-export default connect(mapStateToProps)(Mhome);
+const mapDispatchToProps = (dispatch: any) => {
+
+    return {
+        
+            onUserSave: (name: String) => dispatch({type: 'ADD_USER',payload: {Name: name}})
+            
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Mhome);

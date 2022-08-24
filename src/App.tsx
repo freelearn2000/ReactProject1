@@ -238,8 +238,8 @@ class App extends Component {
           <Route path=":id" element={ <Viji title="This is Viji's Component"/> }/>
         </Route>
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
-          <Route index element={ <Mhome title="Welcome"/> }/>
-          <Route path="mhome" element={ <Mhome title = "Welcome"/> }/> 
+          <Route index element={ <Mhome /> }/>
+          <Route path="mhome" element={ <Mhome /> }/> 
           <Route path="contextyoga" element={ <ContextYoga/> }/>
           <Route path="axios1" element={ <Axios1/> } />
           <Route path="ref" element={ <ExampleRef/> }/>
