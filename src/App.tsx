@@ -72,11 +72,13 @@ import { AxiosSample2 } from './pages/Samara/AxiosSample';
 import SamaraHome from './pages/Samara/SamaraHome';
 import { WeatherContext } from './pages/Samara/WeatherContext';
 import { RefSample } from './pages/Samara/RefSample';
-import  Mhome from './pages/Manooja/Mhome';
+import  Mhome  from './pages/Manooja/Mhome';
 import { Axios1 } from './pages/Manooja/Axios1';
 import { ContextYoga } from './pages/Manooja/ContextYoga';
 import { ContextColor } from './pages/Viji/ContextColor';
 import { ExampleRef } from './pages/Manooja/RefUseExample1';
+import { Business } from './pages/Manooja/Business';
+import { Education } from './pages/Manooja/Education';
 import Routing1 from './pages/Manooja/Routing1';
 import Santhosh from './pages/Santhosh/Santhosh';
 import { Ref } from './pages/Santhosh/Ref';
@@ -237,11 +239,15 @@ class App extends Component {
         </Route>
         <Route path="/manooja" element={ <Manooja title="This is Manooja's Component"/> }>
           <Route index element={ <Mhome title="Welcome"/> }/>
+          <Route path="mhome" element={ <Mhome title = "Welcome"/> }/> 
           <Route path="contextyoga" element={ <ContextYoga/> }/>
           <Route path="axios1" element={ <Axios1/> } />
           <Route path="ref" element={ <ExampleRef/> }/>
-          <Route path=":id" element={ <Routing1 /> }/> 
-         </Route>  
+          <Route path="routing1" element={ <Routing1 /> }> 
+            <Route path="business" element={ <Business title=" Class Components" /> } />
+            <Route path="education" element={ <Education/> } />  
+          </Route> 
+        </Route>  
         <Route path="/dhanya" element={ <Dhanya1 title="This is Dhanya's Component"/> }>
           {/* <Route path=":id" element={ <Dhanya title="This is Dhanya's Component"/> }/> */}
           <Route path="food" element={ <Food /> } />

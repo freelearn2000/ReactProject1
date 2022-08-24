@@ -76,9 +76,9 @@ class Manooja extends Component<IProps, IState> {
                     <div className="ui grid">
                         <div className="four wide column">
                             <div className="ui vertical fluid menu">
-                                <Link to='/manooja/index' className={ this.props.location.pathname.includes('Mhome')? 'active item': 'item'}>Home</Link>
+                                <Link to='/manooja/mhome' className={ this.props.location.pathname.includes('Mhome')? 'active item': 'item'}>Home</Link>
                                 <Link to='/manooja/axios1' className={ this.props.location.pathname.includes('axios1')? 'active item': 'item'}>Axios</Link>
-                                <Link to='/manooja/routing1' className ={ this.props.location.pathname.includes('routing1')? 'active item': 'item'}>Route Params</Link>
+                                <Link to='/manooja/routing1' className ={ this.props.location.pathname.includes('routing1')? 'active item': 'item'}>Routing</Link>
                                 <Link to='/manooja/contextyoga' className={ this.props.location.pathname.includes('contextyoga')? 'active item': 'item'}>Context</Link>
                                 <Link to='/manooja/ref' className={ this.props.location.pathname.includes('ref')? 'active item': 'item'}>Ref</Link>
                             </div>
