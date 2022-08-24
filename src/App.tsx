@@ -61,7 +61,7 @@ import  Bindu  from './pages/Bindu/Bindu';
 import  Rootingb from './pages/Bindu/Rootingb';
 import { Nature } from './pages/Bindu/Nature';
 import { Prakarthi } from './pages/Bindu/Prakarthi';
-import { Bhome }  from './pages/Bindu/Bhome';
+import  Bhome   from './pages/Bindu/Bhome';
 import {AxiosExample  } from './pages/Bindu/AxiosExample';
 import { Sports } from './pages/Bindu/Sports';
 import { RefExample1 } from './pages/Bindu/RefExample1';
@@ -153,8 +153,8 @@ class App extends Component {
           <Route path="refs" element={ <Refs/> }></Route>
         </Route>
          <Route path="/bindu" element={ <Bindu title="This is Bindu's Component"/> }>
-         <Route index element={ <Bhome title="Home"/> }/>
-         <Route path="bhome" element={ <Bhome title="Home"/> }/>
+         <Route index element={ <Bhome title="Welcome"/> }/>
+         <Route path="bhome" element={ <Bhome title="Welcome"/> }/>
          <Route path="api" element={ <AxiosExample /> }/>
          <Route path="sports" element={ <Sports title="Sports"/> }/>
          <Route path="Ref" element={ <RefExample1 /> }/>
