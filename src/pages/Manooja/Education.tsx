@@ -9,7 +9,7 @@ export const Education = ( ) =>  {
       
         axios.get('/todos')
         .then(response => {
-           setWealth( response.data.splice(0,4) );
+           setWealth( response.data.splice(0,3) );
         })
         .catch(error => {
             console.log(error);
